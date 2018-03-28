@@ -1,0 +1,625 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+
+
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <meta name="author" content="Krzysztof Barteczko">
+  <meta name="description" content="Nhap mon lap trinh - Java">
+  <meta name="copyright" content="(c) Krzysztof Barteczko PJWSTK 2008">
+  <link rel="stylesheet" type="text/css" href="info_data/common.css">
+  <title>Mang (Bang)</title>
+</head><body>
+<div align="center">
+<a name="TabKol"></a>
+<h1>M&#7843;ng (b&#7843;ng)</h1>
+</div>
+<hr>
+<i>M&#7843;ng l&#224; m&#7897;t y&#7871;u t&#7889; quan tr&#7885;ng v&#224; h&#7919;u d&#7909;ng trong m&#7895;i ngôn ng&#7919; l&#7853;p
+tr&#236;nh. B&#224;&#768;i n&#224;y s&#7869; cho chúng ta bi&#7871;t cách s&#7917; d&#7909;ng b&#7843;ng trong Java. Vi&#7879;c
+s&#7917; d&#7909;ng n&#224;y trong Java khác v&#7899;i trong các ngôn ng&#7919; khác (bao g&#7891;m C v&#224;
+C++). B&#7903;i m&#7843;ng có li&#234;n quan v&#7899;i các l&#7847;n l&#7863;p n&#234;n đ&#7891;ng th&#7901;i chúng ta s&#7869;
+luy&#7879;n t&#7853;p cách s&#7917; d&#7909;ng các v&#242;ng l&#7863;p.</i><i>&nbsp;</i><br>
+<hr>
+<a name="TabKol.1"></a>
+<h2>1. M&#7843;ng l&#224; g&#236;? M&#7843;ng trong Java ho&#7841;t đ&#7897;ng nh&#432; th&#7871; n&#224;o<br>
+</h2>
+<a name="TabKol.2"></a>
+<h2>1.1. M&#7843;ng trong Java. Khai báo v&#224; kh&#7903;i t&#7841;o<br>
+</h2>
+<br>
+D&#7919; li&#7879;u trong m&#7897;t ch&#432;&#417;ng tr&#236;nh có th&#7875; đ&#432;&#7907;c s&#7855;p x&#7871;p trong các c&#7845;u trúc
+d&#7919; li&#7879;u. Các m&#7843;ng l&#224; m&#7897;t lo&#7841;i <span style="font-weight: bold;">c&#7845;u
+trúc d&#7919; li&#7879;u</span> đ&#417;n gi&#7843;n.<br>
+<br>
+<div class="def"><b>M&#7897;t m&#7843;ng l&#224; m&#7897;t lo&#7841;t các ph&#7847;n t&#7917; (giá tr&#7883;) c&#7911;a c&#249;ng
+m&#7897;t lo&#7841;i n&#7857;m tr&#234;n các v&#7883; trí xác đ&#7883;nh khác nhau.<br>
+M&#7895;i ph&#7847;n t&#7917; có th&#7875; đ&#432;&#7907;c truy c&#7853;p b&#7857;ng cách s&#7917; d&#7909;ng t&#234;n c&#7911;a m&#7843;ng v&#224; v&#7883;
+trí c&#7911;a nó (ch&#7881; m&#7909;c).<br>
+</b></div>
+<br>
+<br>
+&#7902; đây chúng ta có th&#7875; th&#7845;y m&#7897;t ma trân g&#7891;m 4 s&#7889; nguy&#234;n trông nh&#432; th&#7871;
+n&#224;o:<br>
+<br>
+<img alt="r" src="info_data/tab1-10.jpg" style="border: 1px solid ; width: 347px; height: 82px;"><br>
+<br>
+Ph&#7847;n t&#7917; đ&#7847;u ti&#234;n – s&#7889; 21 có m&#7897;t ch&#7881; m&#7909;c l&#224; 0, ph&#7847;n t&#7917; th&#7913; 2 – s&#7889; 13 có
+m&#7897;t ch&#7881; m&#7909;c l&#224; 1, v.v.<br>
+N&#7871;u m&#7897;t m&#7843;ng có t&#234;n l&#224; tab th&#236; ph&#7847;n t&#7917; đ&#7847;u ti&#234;n c&#7911;a nó có th&#7875; đ&#432;&#7907;c truy
+c&#7853;p theo cách sau: tab [0], ph&#7847;n t&#7917; th&#7913; 2: tab[1], v.v.<br>
+<br>
+Trong Java <span style="font-weight: bold;">các m&#7843;ng l&#224; các đ&#7889;i t&#432;&#7907;ng</span>
+v&#224; t&#234;n c&#7911;a m&#7897;t m&#7843;ng l&#224; t&#234;n c&#7911;a bi&#7871;n th&#7875; quy chi&#7871;u đ&#7871;n đ&#7889;i t&#432;&#7907;ng m&#7843;ng.
+M&#7897;t m&#7843;ng l&#432;u các ph&#7847;n t&#7917; c&#7911;a c&#249;ng m&#7897;t ki&#7875;u, có th&#7875; thu&#7897;c ki&#7875;u c&#417; b&#7843;n
+hay ki&#7875;u tham chi&#7871;u. Đ&#7863;c bi&#7879;t chúng có th&#7875; l&#224; các tham chi&#7871;u đ&#7871;n các
+m&#7843;ng khác. Trong tr&#432;&#7901;ng h&#7907;p n&#224;y chúng ta l&#224;m vi&#7879;c v&#7899;i các <span style="font-weight: bold;">m&#7843;ng đa chi&#7873;u</span>.<br>
+Nh&#432; b&#7845;t c&#7913; m&#7897;t bi&#7871;n n&#224;o m&#7897;t m&#7843;ng ph&#7843;i đ&#432;&#7907;c khai báo tr&#432;&#7899;c khi nó đ&#432;&#7907;c
+s&#7917; d&#7909;ng trong ch&#432;&#417;ng tr&#236;nh l&#7847;n đ&#7847;u.<br>
+<br>
+<br>
+<div class="syntax">M&#7897;t khai báo c&#7911;a m&#7843;ng bao g&#7891;m:<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; t&#234;n lo&#7841;i c&#7911;a các ph&#7847;n t&#7917; m&#7843;ng<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; s&#7889; c&#7863;p d&#7845;u ngo&#7863;c (s&#7889; c&#7863;p ch&#7881; r&#245;
+s&#7889; chi&#7873;u c&#7911;a m&#7843;ng)<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; m&#7897;t cái t&#234;n nh&#7853;n di&#7879;n m&#7843;ng<br>
+<br>
+Ví d&#7909;:<br>
+<br>
+&nbsp;&nbsp;&nbsp; int[]&nbsp; arr;&nbsp;&nbsp; // khai báo c&#7911;a m&#7897;t
+m&#7843;ng các s&#7889; nguy&#234;n <br>
+&nbsp;&nbsp;&nbsp; String[] s;&nbsp; // khai báo c&#7911;a m&#7897;t m&#7843;ng các tham
+chi&#7871;u đ&#7871;n các đ&#7889;i t&#432;&#7907;ng c&#7911;a l&#7899;p String <br>
+&nbsp;&nbsp;&nbsp; Button[] b; // khai báo c&#7911;a m&#7897;t m&#7843;ng các tham chi&#7871;u
+đ&#7871;n đ&#7889;i t&#432;&#7907;ng c&#7911;a l&#7899;p Button <br>
+&nbsp;&nbsp;&nbsp; double[][] d;&nbsp; // khai báo c&#7911;a m&#7843;ng hai chi&#7873;u
+c&#7911;a các s&#7889; th&#7921;c <br>
+<br>
+Chính xác h&#417;n chúng ta ph&#7843;i nói r&#7857;ng &#7903; tr&#234;n l&#224; các khai báo c&#7911;a bi&#7871;n
+m&#7843;ng. Bi&#7871;n đó thu&#7897;c ki&#7875;u tham chi&#7871;u v&#224; t&#234;n c&#7911;a nó đ&#432;&#7907;c th&#224;nh l&#7853;p t&#7915; t&#234;n
+c&#7911;a các ph&#7847;n t&#7917; trong m&#7843;ng v&#224; d&#7845;u ngo&#7863;c vuông. Do đó:<br>
+<br>
+&nbsp;&nbsp;&nbsp; bi&#7871;n arr l&#224; ki&#7875;u int[]<br>
+&nbsp;&nbsp;&nbsp; bi&#7871;n s l&#224; ki&#7875;u String[]<br>
+&nbsp;&nbsp;&nbsp; bi&#7871;n d l&#224; ki&#7875;u double[][]<br>
+</div>
+<br>
+<br>
+<b><font color="#cc0000">Chú ý r&#7857;ng kích th&#432;&#7899;c c&#7911;a m&#7843;ngkhông n&#7857;m trong
+khai báo.<br>
+</font></b><br>
+Do đó khai báo nh&#432; sau:<br>
+<br>
+int[5] arr;<br>
+<br>
+l&#224; sai.<br>
+<br>
+M&#7897;t khai báo c&#7911;a m&#7843;ng t&#7841;o ra m&#7897;t tham chi&#7871;u.<br>
+<br>
+int[] arr; // arr l&#224; m&#7897;t tham chi&#7871;u <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// arr l&#224; m&#7897;t bi&#7871;n th&#7875; thu&#7897;c ki&#7875;u int[] c&#361;ng l&#224; m&#7897;t ki&#7875;u tham chi&#7871;u<br>
+<br>
+<span style="font-weight: bold;">M&#7897;t khai báo nh&#432; th&#7871; không đ&#7883;nh v&#7883;
+v&#249;ng nh&#7899; cho m&#7843;ng!</span><br>
+<br>
+<br>
+<div class="important">V&#249;ng b&#7897; nh&#7899; cho m&#7897;t m&#7843;ng đ&#432;&#7907;c xác đ&#7883;nh t&#7921; đ&#7897;ng
+ho&#7863;c b&#7857;ng cách s&#7917; d&#7909;ng b&#7897; kh&#7903;i t&#7841;o (v&#7899;i d&#7845;u ngo&#7863;c cong) ho&#7863;c b&#7857;ng cách
+s&#7917; d&#7909;ng m&#7897;t bi&#7875;u th&#7913;c t&#7841;o tr&#432;&#7901;ng h&#7907;p m&#7843;ng (v&#7899;i t&#7915; khóa new).<br>
+</div>
+<br>
+<br>
+<div class="syntax">M&#7897;t b&#7897; kh&#7903;i t&#7841;o m&#7843;ng có th&#7875; đ&#432;&#7907;c ch&#7881; r&#245; trong khai
+báo m&#7843;ng v&#224; có d&#7841;ng sau:<br>
+<br>
+&nbsp;&nbsp;&nbsp; {element_1, element_2, .... element_N}<br>
+<br>
+trong đó:<br>
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; element i – l&#224; ph&#7847;n t&#7917; th&#7913; i c&#7911;a
+m&#7843;ng
+</div>
+<br>
+Do đó l&#7879;nh gán:<br>
+<br>
+int[] arr = { 1, 2, 7, 21 };<br>
+<br>
+khai báo m&#7897;t m&#7843;ng có t&#234;n l&#224; arr, t&#7841;o ra v&#224; kh&#7903;i t&#7841;o các ph&#7847;n t&#7917; c&#7911;a nó,
+b&#7857;ng cách th&#7921;c hi&#7879;n các b&#432;&#7899;c sau:<br>
+&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp; 1.&nbsp;&nbsp;&nbsp; v&#249;ng nh&#7899; cho bi&#7871;n th&#7875; arr đ&#432;&#7907;c
+xác đ&#7883;nh (tr&#234;n ngăn x&#7871;p). Nó s&#7869; l&#432;u m&#7897;t tham chi&#7871;u đ&#7871;n đ&#7889;i t&#432;&#7907;ng c&#7911;a
+m&#7843;ng.<br>
+&nbsp;&nbsp;&nbsp; 2.&nbsp;&nbsp;&nbsp; v&#249;ng nh&#7899; cho m&#7843;ng đ&#432;&#7907;c xác đ&#7883;nh
+(tr&#234;n v&#249;ng l&#432;u tr&#7919; đ&#7863;c bi&#7879;t heap). Nó s&#7869; l&#432;u 4 s&#7889; nguy&#234;n (thu&#7897;c ki&#7875;u
+int).<br>
+&nbsp;&nbsp;&nbsp; 3.&nbsp;&nbsp;&nbsp; các giá tr&#7883; 1,2,7,21 đ&#432;&#7907;c sao
+chép v&#224;o v&#249;ng nh&#7899; tr&#234;n.<br>
+&nbsp;&nbsp;&nbsp; 4.&nbsp;&nbsp;&nbsp; m&#7897;t tham chi&#7871;u đ&#7871;n m&#7843;ng m&#7899;i t&#7841;o
+ra (đ&#7871;n v&#249;ng nh&#7899; tr&#234;n heap) đ&#432;&#7907;c l&#432;u trong bi&#7871;n th&#7875; arr.<br>
+<br>
+Cách th&#7913; hai đ&#7875; t&#7841;o ra m&#7897;t ma tr&#7853;n li&#234;n quan đ&#7871;n bi&#7875;u th&#7913;c new.<br>
+<br>
+<div class="syntax">Bi&#7875;u th&#7913;c t&#7841;o tr&#432;&#7901;ng h&#7907;p m&#7843;ng có d&#7841;ng sau:<br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; newt[n];<br>
+<br>
+trong đó:<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; T – l&#224; lo&#7841;i c&#7911;a các ph&#7847;n t&#7917;
+trong m&#7843;ng<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; n – l&#224; kích th&#432;&#7899;c c&#7911;a m&#7843;ng (s&#7889;
+ph&#7847;n t&#7917; m&#224; nó có th&#7875; ch&#7913;a)<br>
+</div>
+<br>
+<br>
+<div class="notel">Chú ý r&#7857;ng chúng ta s&#7917; d&#7909;ng các d&#7845;u ngo&#7863;c vuông &#7903;
+đây, ch&#7913; không ph&#7843;i
+ngo&#7863;c tr&#242;n nh&#432; khi t&#7841;o ra m&#7897;t đ&#7889;i t&#432;&#7907;ng c&#7911;a m&#7897;t l&#7899;p (có t&#234;n) n&#224;o khác
+b&#7857;ng cách g&#7885;i constructor</div>
+Ví d&#7909;:<br>
+<br>
+int[] arr; &nbsp;&nbsp;&nbsp; // khai báo m&#7843;ng<br>
+arr = new int[4]; // t&#7841;o ra m&#7897;t m&#7843;ng ch&#7913;a 4 ph&#7847;n t&#7917; lo&#7841;i int<br>
+<br>
+Nói tóm l&#7841;i bi&#7875;u th&#7913;c n&#224;y có th&#7875; đ&#432;&#7907;c vi&#7871;t nh&#432; sau (bi&#7875;u th&#7913;c t&#7841;o m&#7843;ng
+đ&#432;&#7907;c đ&#7863;t c&#249;ng v&#7899;i khai báo):<br>
+<br>
+int[] arr = new int[4];<br>
+<br>
+<br>
+C&#7847;n nh&#7899; r&#7857;ng kích th&#432;&#7899;c c&#7911;a m&#7843;ng có th&#7875; đ&#432;&#7907;c ch&#7881; r&#245; m&#7897;t cách linh ho&#7841;t
+trong su&#7889;t quá tr&#236;nh ch&#7841;y ch&#432;&#417;ng tr&#236;nh:<br>
+int n; <br>
+//... n l&#7845;y m&#7897;t giá tr&#7883; n&#224;o đó <br>
+// k&#7871;t qu&#7843; tính toán li&#234;n quan đ&#7871;n các d&#7919; li&#7879;u cung c&#7845;p b&#7903;i ng&#432;&#7901;i s&#7917;
+d&#7909;ng <br>
+//... <br>
+int[] tab = new int[n]; <br>
+<br>
+<span style="color: rgb(255, 0, 0); font-weight: bold;">Nh&#432;ng m&#7897;t khi
+đ&#227; đ&#432;&#7907;c thi&#7871;t l&#7853;p kích th&#432;&#7899;c c&#7911;a m&#7843;ng không th&#7875; thay đ&#7893;i.</span><br>
+<br>
+<a name="TabKol.3"></a>
+<h2>1.2. G&#7885;i đ&#7871;n các th&#224;nh ph&#7847;n c&#7911;a m&#7843;ng<br>
+</h2>
+Đ&#7875; truy c&#7853;p v&#224;o các ph&#7847;n t&#7917; m&#7843;ng chúng ta s&#7917; d&#7909;ng các ch&#7881; m&#7909;c.<br>
+<br>
+<div class="important"><br>
+M&#7897;t ch&#7881; m&#7909;c l&#224; m&#7897;t giá tr&#7883; thu&#7897;c lo&#7841;i int.<br>
+<br>
+Nó có th&#7875; l&#224; m&#7897;t bi&#7875;u th&#7913;c b&#7845;t k&#7923; sau khi đ&#432;&#7907;c đánh giá s&#7869; cho ra m&#7897;t
+giá tr&#7883; lo&#7841;i int.<br>
+<br>
+Các ch&#7881; m&#7909;c c&#7911;a m&#7843;ng b&#7855;t đ&#7847;u b&#7857;ng s&#7889; 0.<br>
+Do đó ph&#7847;n t&#7917; đ&#7847;u ti&#234;n c&#7911;a m&#7843;ng có n ph&#7847;n t&#7917; có ch&#7881; m&#7909;c 0 v&#224; ch&#7881; m&#7909;c
+cu&#7889;i c&#249;ng l&#224; n-1.<br>
+<br>
+</div>
+<br>
+<br>
+B&#7903;i v&#236; các giá tr&#7883; ki&#7875;u byte, char v&#224; short đ&#432;&#7907;c tăng c&#7845;p th&#224;nh ki&#7875;u
+int trong bi&#7875;u th&#7913;c n&#234;n chúng có th&#7875; đ&#432;&#7907;c d&#249;ng l&#224;m ch&#7881; m&#7909;c trong khi
+các giá tr&#7883; ki&#7875;u long không đ&#432;&#7907;c phép d&#249;ng l&#224;m ch&#7881; m&#7909;c.<br>
+<br>
+<div class="syntax">M&#7897;t th&#224;nh ph&#7847;n i c&#7911;a m&#7843;ng tab đ&#432;&#7907;c truy c&#7853;p b&#7903;i m&#7897;t
+bi&#7875;u th&#7913;c truy c&#7853;p m&#7843;ng có d&#7841;ng:<br>
+<br>
+&nbsp;&nbsp;&nbsp; tab[i]<br>
+<br>
+C&#7845;u trúc ngôn ng&#7919; tr&#234;n có th&#7875; đ&#432;&#7907;c xem l&#224; m&#7897;t bi&#7871;n: các giá tr&#7883; c&#7911;a
+lo&#7841;i t&#432;&#417;ng &#7913;ng có th&#7875; đ&#432;&#7907;c g&#7855;n v&#224;o cho nó. Giá tr&#7883; c&#7911;a nó c&#361;ng có th&#7875;
+đ&#432;&#7907;c s&#7917; d&#7909;ng trong các bi&#7875;u th&#7913;c khác.<br>
+</div>
+<br>
+<br>
+Ví d&#7909;:<br>
+<br>
+int[] a = new int[3]; <br>
+a[1] = 1;&nbsp; // thi&#7871;t l&#7853;p giá tr&#7883; c&#7911;a th&#224;nh ph&#7847;n th&#7913; hai c&#7911;a m&#7843;ng a
+l&#224; 1 <br>
+int c = a [1] + 1;&nbsp; // c có giá tr&#7883; l&#224; 2 <br>
+int i = 1, j = 1; <br>
+a[i + j] = 7;&nbsp; // thi&#7871;t l&#7853;p giá tr&#7883; c&#7911;a th&#224;nh ph&#7847;n i+j (=2) l&#224; 7 <br>
+<br>
+Các ch&#7881; m&#7909;c trong các bi&#7875;u th&#7913;c truy c&#7853;p m&#7843;ng đ&#432;&#7907;c ki&#7875;m tra b&#7903;i JVM
+trong su&#7889;t quá tr&#236;nh ch&#7841;y ch&#432;&#417;ng tr&#236;nh. Truy c&#7853;p v&#224;o m&#7897;t ph&#7847;n t&#7917; v&#7899;i
+m&#7897;t ch&#7881; m&#7909;c không t&#7891;n t&#7841;i (ch&#7881; m&#7909;c &lt;0 ho&#7863;c &gt;=kích th&#432;&#7899;c c&#7911;a ma
+tr&#7853;n) d&#7851;n đ&#7871;n vi&#7879;c đ&#432;a ra m&#7897;t tr&#432;&#7901;ng h&#7907;p ngo&#7841;i l&#7879; d&#7841;ng <span style="font-weight: bold; font-style: italic;">ArrayIndexOutOfBoundsException</span>,
+nó có th&#7875; d&#7915;ng ch&#7841;y ch&#432;&#417;ng tr&#236;nh (tr&#7915; phi nó đ&#432;&#7907;c x&#7917; lý; vi&#7879;c x&#7917; lý các
+tr&#432;&#7901;ng h&#7907;p ngo&#7841;i l&#7879; s&#7869; đ&#432;&#7907;c t&#236;m hi&#7875;u sau).<br>
+<br>
+<br>
+Xem xét ví d&#7909; sau:<br>
+<pre>public class Test {<br><br>  public static void main(String[] args) {<br>    int[] a = {1, 2, 3, 4 };<br>    System.out.println(a[4]);<br>    System.out.println(a[3]);<br>    System.out.println(a[2]);<br>    System.out.println(a[1]);<br>  }<br><br>}&nbsp;</pre>
+M&#7843;ng a có 4 s&#7889; nguy&#234;n. Chúng ta mu&#7889;n in các ph&#7847;n t&#7917; c&#7911;a nó b&#7855;t đ&#7847;u t&#7915;
+ph&#7847;n t&#7917; cu&#7889;i c&#249;ng. Qu&#234;n r&#7857;ng các M&#7843;ng đ&#432;&#7907;c b&#7855;t ngu&#7891;n t&#7915; ch&#7881; m&#7909;c 0 l&#224;
+m&#7897;t l&#7895;i th&#432;&#7901;ng th&#7845;y &#7903; đây: chúng ta c&#7889; g&#7855;ng truy c&#7853;p v&#224;o ph&#7847;n t&#7917; cu&#7889;i
+c&#249;ng v&#7899;i bi&#7875;u th&#7913;c a[4] m&#224; tr&#234;n th&#7921;c t&#7871; l&#7841;i l&#224; truy c&#7853;p v&#224;o ph&#7847;n t&#7917; th&#7913;
+5 không h&#7873; t&#7891;n t&#7841;i! K&#7871;t qu&#7843; l&#224; tr&#432;&#7901;ng h&#7907;p ngo&#7841;i l&#7879; đ&#432;&#7907;c đ&#432;a ra ng&#7855;t
+vi&#7879;c ch&#7841;y ch&#432;&#417;ng tr&#236;nh v&#7899;i thông đi&#7879;p:<br>
+<br>
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at Test.main(Test.java:5) <br>
+<br>
+<div class="listing100">Exception in thread "main"
+java.lang.ArrayIndexOutOfBoundsException <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at Test.main(Test.java:5) <br>
+</div>
+<br>
+<font color="#cc0000"><br>
+</font>Có th&#7875; s&#7917; d&#7909;ng v&#242;ng l&#7863;p l&#224; m&#7897;t cách t&#7921; nhi&#234;n đ&#7875; in các ph&#7847;n t&#7917;
+m&#7843;ng. <br>
+<br>
+<pre>public class Test {<br><br>  public static void main(String[] args) {<br>    int[] a = {1, 2, 3, 4 };<br>    for (int i=3; i&gt;=0; i--) System.out.println(a[i]);<br>  }<br><br>}<br></pre>
+Th&#7921;c hi&#7879;n nh&#432; tr&#234;n c&#361;ng đ&#432;&#7907;c nh&#432;ng chuy&#7879;n g&#236; s&#7869; x&#7843;y ra n&#7871;u kích th&#432;&#7899;c
+c&#7911;a m&#7843;ngthay đ&#7893;i? Chúng ta s&#7869; ph&#7843;i thay đ&#7893;i c&#7843; b&#7897; kh&#7903;i t&#7841;o v&#242;ng l&#7863;p (s&#7889;
+l&#432;&#7907;ng các l&#7847;n l&#7863;p). Tuy nhi&#234;n đi&#7873;u n&#224;y có v&#7867; k&#7923; c&#7909;c v&#224; có th&#7875; gây ra
+r&#7845;t nhi&#7873;u l&#7895;i. May &#7903; đây l&#224; JVM hi&#7875;u đ&#432;&#7907;c kích th&#432;&#7899;c c&#7911;a m&#7843;ng v&#224; chúng
+ta có th&#234; s&#7917; d&#7909;ng nó trong ch&#432;&#417;ng tr&#236;nh.<br>
+<br>
+<div class="syntax">Kích th&#432;&#7899;c c&#7911;a m&#7897;t m&#7843;ng chính l&#224; giá tr&#7883; c&#7911;a bi&#7875;u
+th&#7913;c:<br>
+<span style="font-style: italic;"><br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; array_name.length</span><br>
+<br>
+M&#7897;t l&#7895;i thông th&#432;&#7901;ng đó l&#224; xem bi&#7875;u th&#7913;c tr&#234;n l&#224; cách g&#7885;i ph&#432;&#417;ng pháp.
+Trong tr&#432;&#7901;ng h&#7907;p n&#224;y length (chi&#7873;u d&#224;i) không ph&#7843;i t&#234;n m&#7897;t ph&#432;&#417;ng pháp
+m&#224; l&#224; mi&#7873;n c&#7911;a m&#7897;t l&#7899;p n&#224;o đó. Do v&#7853;y chúng ta không đ&#7863;t d&#7845;u ngo&#7863;c sau
+t&#234;n length.<br>
+</div>
+<br>
+<br>
+Ví d&#7909; tr&#432;&#7899;c có th&#7875; đ&#432;&#7907;c vi&#7871;t l&#7841;i nh&#432; sau:
+<pre>public class Test {<br><br>  public static void main(String[] args) {<br>    int[] a = {1, 2, 3, 4 };<br>    for (int i=a.length-1; i&gt;=0; i--) System.out.println(a[i]);<br>  }<br><br>}<br></pre>
+<br>
+&nbsp; <br>
+Chúng ta h&#227;y chuy&#7875;n tr&#7853;t t&#7921; in ra các ph&#7847;n t&#7917; c&#7911;a m&#7843;ng. V&#242;ng l&#7863;p trông
+nh&#432; th&#7875; n&#224;o n&#7871;u chúng ta mu&#7889;n in các ph&#7847;n t&#7917; theo tr&#7853;t t&#7921; xác đ&#7883;nh b&#7903;i
+các ch&#7881; m&#7909;c ph&#7847;n t&#7917; (ngh&#297;a l&#224; b&#7855;t đ&#7847;u t&#7915; ph&#7847;n t&#7917; n&#224;o)?<br>
+<br>
+<pre>public class Test {<br><br>  public static void main(String[] args) {<br>    int[] a = {1, 2, 3, 4 };<br>    for (int i=0; i&lt;a.length; i++) System.out.println(a[i]);<br>  }<br><br>}<br></pre>
+<br>
+<div class="important">Đ&#7875; l&#7863;p l&#7841;i các ph&#7847;n t&#7917; m&#7843;ng b&#7855;t đ&#7847;u v&#7899;i ph&#7847;n t&#7917;
+đ&#7847;u ti&#234;n chúng ta ph&#7843;i s&#7917; d&#7909;ng v&#242;ng sau:<br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; for (int i = 0; i &lt;
+tab.length; i++) ... tab[i] ... ;<br>
+</div>
+<br>
+<br>
+&#7912;ng d&#7909;ng c&#7911;a thu&#7897;c tính m&#7843;ng length đ&#7863;c bi&#7879;t ti&#7879;n l&#7907;i trong ph&#432;&#417;ng pháp
+m&#224; l&#7845;y m&#7897;t tham chi&#7871;u đ&#7871;n m&#7843;ng l&#224;m đ&#7889;i s&#7889;. Nó giúp chu&#7849;n b&#7883; các ph&#432;&#417;ng
+pháp thao tác tr&#234;n m&#7843;ng v&#7899;i các kích th&#432;&#7899;c khác nhau.<br>
+<hr style="width: 100%; height: 2px;"><a name="TabKol.4"></a>
+<h2>2. M&#7843;ng l&#224;m đ&#7889;i s&#7889; v&#224; k&#7871;t qu&#7843; c&#7911;a ph&#432;&#417;ng pháp. Gán m&#7843;ng.</h2>
+M&#7897;t m&#7843;ng ki&#7875;u typeB[] có th&#7875; đ&#432;&#7907;c g&#7855;n cho m&#7897;t bi&#7871;n m&#7843;ng ki&#7875;u typeA[]
+mi&#7877;n l&#224; vi&#7879;c ch&#7881; đ&#7883;nh c&#7911;a giá tr&#7883; ki&#7875;u typeB đ&#7871;n bi&#7871;n ki&#7875;u typeA có th&#7875;
+x&#7843;y ra đ&#432;&#7907;c.<br>
+Giá tr&#7883; đ&#7863;c bi&#7879;t <span style="font-weight: bold;">null</span> có th&#7875;
+đ&#432;&#7907;c g&#7855;n cho b&#7845;t c&#7913; bi&#7871;n th&#7875; m&#7843;ng n&#224;o (c&#361;ng nh&#432; cho b&#7845;t c&#7913; bi&#7871;n th&#7875;
+tham chi&#7871;u n&#224;o).<br>
+<br>
+Các tham chi&#7871;u m&#7843;ng&nbsp; có th&#7875; đ&#432;&#7907;c g&#7855;n theo m&#7897;t cách tr&#7921;c ti&#7871;p khi
+c&#7843; hai
+bi&#7871;n th&#7875; thu&#7897;c c&#249;ng m&#7897;t lo&#7841;i (c&#249;ng s&#7889; chi&#7873;u v&#224; lo&#7841;i ph&#7847;n t&#7917;).<br>
+T&#432;&#417;ng t&#7921; nh&#432; các đ&#7889;i t&#432;&#7907;ng thuông th&#432;&#7901;ng, không n&#234;n nh&#7847;m l&#7851;n vi&#7879;c ch&#7881;
+đ&#7883;nh các tham chi&#7871;u v&#7899;i vi&#7879;c sao chép các n&#7897;i dung c&#7911;a m&#7843;ng<br>
+<br>
+<div class="important">B&#7903;i v&#236; m&#7897;t bi&#7871;n m&#7843;ng gi&#7919; m&#7897;t tham chi&#7871;u đ&#7871;n
+m&#7843;ng, n&#234;n theo m&#7897;t s&#7889; đi&#7873;u ki&#7879;n đ&#227; nói tr&#432;&#7899;c, các tham chi&#7871;u đ&#7871;n các
+m&#7843;ng khác c&#361;ng có th&#7875; đ&#432;&#7907;c g&#7855;n cho nó.</div>
+<br>
+<br>
+<pre>ublic class Test2 {<br> <br>  public static void main(String[] args) {<br>    byte[] b1 = {1, 2, 3 };<br>    byte[] b2 = {1, 2, 3, 5, 5 }; // arrays of different sizes<br>    byte[] b = b2;<br>    b2 = b1;<br>    b2[0] = 77;<br>    b[0] = 99;<br>    System.out.print("\nThe array \"b1\":");<br>    for (int i=0; i &lt; b1.length; i++) System.out.print(" " + b1[i]);<br>    System.out.print("\nThe array \"b2\":");<br>    for (int i=0; i &lt; b2.length; i++) System.out.print(" " + b2[i]);<br>    System.out.print("\nThe array \"b\":");<br>    for (int i=0; i &lt; b.length; i++) System.out.print(" " + b[i]);<br>  } <br> <br>}<br></pre>
+K&#7871;t qu&#7843;:<br>
+&nbsp;<br>
+<div class="listing100">The array "b1": 77 2 3
+<br>
+The array "b2": 77 2 3
+<br>
+The array "b": 99 2 3 5 5</div>
+<br>
+Chú ý:<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; Lúc đ&#7847;u bi&#7871;n th&#7875; b1 bi&#7875;u th&#7883;
+b&#7857;ng m&#7843;ng {1,2,3} v&#224; bi&#7871;n th&#7875; b2 đ&#432;&#7907;c bi&#7875;u th&#7883; b&#7857;ng m&#7843;ng {1,2,3,4,5}.<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; Sau đó ch&#7881; đ&#7883;nh b2 = b1; bi&#7871;n
+th&#7875; b2 bi&#7875;u th&#7883; m&#7843;ng {1,2,3}.<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; Do đó ch&#7881; đ&#7883;nh b2[0] = 77; thay
+đ&#7893;i ph&#7847;n t&#7917; đ&#7847;u ti&#234;n c&#7911;a m&#7843;ng.<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; Nh&#432;ng bi&#7871;n th&#7875; b1 v&#7851;n quy chi&#7871;u
+đ&#7871;n m&#7843;ng n&#224;y n&#234;n in ra các ph&#7847;n t&#7917; c&#7911;a b1 cho k&#7871;t qu&#7843; l&#224;: 77 2 3.<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; M&#7897;t tham chi&#7871;u đ&#7871;n m&#7843;ng
+{1,2,3,4,5) bi&#7875;u th&#7883; b&#7857;ng b2 đ&#432;&#7907;c g&#7855;n cho bi&#7871;n th&#7875; b.<br>
+<br>
+Do v&#7853;y chúng ta có th&#7875; s&#7917; d&#7909;ng bi&#7871;n th&#7875; m&#7843;ng b đ&#7875; thay th&#7871; ph&#7847;n t&#7917; đ&#7847;u
+ti&#234;n c&#7911;a m&#7843;ng n&#224;y v&#224; sau đó in t&#7845;t c&#7843; các ph&#7847;n t&#7917;: 99 2 3 5 5.<br>
+<br>
+Có v&#7867; h&#417;i l&#7841; l&#249;ng khi “m&#7843;ng” b1 “đ&#432;&#7907;c g&#7855;n cho” “m&#7843;ng” b2. Tuy nhi&#234;n
+vi&#7879;c n&#224;y không mâu thu&#7851;n v&#7899;i quy t&#7855;c phát bi&#7875;u r&#7857;ng kích th&#432;&#7899;c c&#7911;a m&#7897;t
+m&#7843;ng không th&#7875; đ&#432;&#7907;c thay đ&#7893;i sau khi nó đ&#432;&#7907;c thi&#7871;t l&#7853;p (ngay sau khi ma
+tr&#7853;n đ&#432;&#7907;c t&#7841;o ra). Vi&#7879;c ch&#7881; đ&#7883;nh các bi&#7871;n th&#7875; m&#7843;ng l&#224;m vi&#7879;c v&#7899;i các
+tham chi&#7871;u ch&#7913; không ph&#7843;i m&#7843;ng ma tr&#7853;n. Do đó s&#7921; khác bi&#7879;t v&#7873; kích
+th&#432;&#7899;c c&#7911;a ma tr&#7853;n li&#234;n quan đ&#7871;n vi&#7879;c ch&#7881; đ&#7883;nh không ph&#7843;i l&#224; m&#7897;t đi&#7873;u
+c&#7843;n tr&#7903; &#7903; đây. <br>
+<br>
+M&#7897;t đi&#7873;u quan tr&#7885;ng khác m&#224; c&#7847;n ph&#7843;i nh&#7845;n m&#7841;nh đó l&#224; nhi&#7873;u bi&#7871;n th&#7875;
+m&#7843;ngn có th&#7875; quy chi&#7871;u đ&#7871;n c&#249;ng m&#7897;t đ&#7889;i t&#432;&#7907;ng m&#7843;ng. M&#7895;i m&#7897;t bi&#7871;n th&#7875;
+nh&#432; th&#7871; có th&#7875; đ&#432;&#7907;c s&#7917; d&#7909;ng đ&#7875; truy c&#7853;p các ph&#7847;n t&#7917; m&#7843;ng v&#224; b&#7845;t c&#7913; s&#7921;
+thay đ&#7893;i n&#224;o c&#7911;a các ph&#7847;n t&#7917; đ&#432;&#7907;c th&#7921;c hi&#7879;n b&#7857;ng cách s&#7917; d&#7909;ng m&#7897;t trong
+s&#7889; các ph&#7847;n t&#7917; có th&#7875; đ&#432;&#7907;c nh&#236;n th&#7845;y b&#7857;ng cách s&#7917; d&#7909;ng các ph&#7847;n t&#7917; khác
+(ngh&#297;a l&#224; khi m&#7897;t ma tr&#7853;n đ&#432;&#7907;c truy c&#7853;p b&#7903;i các bi&#7871;n th&#7875; m&#7843;ng quy chi&#7871;u
+đ&#7871;n nó).<br>
+<br>
+Chuy&#7875;n m&#7897;t đ&#7889;i s&#7889; đ&#7871;n m&#7897;t ph&#432;&#417;ng pháp v&#224; tr&#7843; l&#7841;i k&#7871;t qu&#7843; t&#7915; ph&#432;&#417;ng pháp
+có th&#7875; đ&#432;&#7907;c xem nh&#432; l&#224; m&#7897;t lo&#7841;i ch&#7881; đ&#7883;nh đ&#7863;c bi&#7879;t.<br>
+Do đó m&#7897;t ph&#432;&#417;ng pháp có th&#7875; thao tác t&#234;n m&#7897;t m&#7843;ng m&#224; m&#7897;t tham chi&#7871;u
+đ&#7871;n ma tr&#7853;n n&#224;y đ&#432;&#7907;c chuy&#7875;n v&#224;o ph&#432;&#417;ng pháp nh&#432; l&#224; m&#7897;t đ&#7889;i s&#7889;. T&#432;&#417;ng t&#7921;
+nh&#432; v&#7853;y m&#7897;t ph&#432;&#417;ng pháp có th&#7871; tr&#7843; l&#224; m&#7897;t tham chi&#7871;u đ&#7871;n m&#7843;ng. <br>
+<br>
+<hr>
+<a name="TabKol.7"></a>
+<h2>3. Đ&#432;a đ&#7889;i s&#7889; v&#224;o ch&#432;&#417;ng tr&#236;nh <br>
+</h2>
+Tham s&#7889; b&#7855;t bu&#7897;c đ&#7871;n ph&#432;&#417;ng pháp public static void main(...) l&#224;&nbsp;
+m&#7897;t tham chi&#7871;u đ&#7871;n m&#7843;ng c&#7911;a các chu&#7895;i: String [].<br>
+<br>
+M&#7843;ng n&#224;y gi&#7919; các t&#7915; đ&#227; cho trong d&#242;ng câu l&#7879;nh v&#7899;i t&#432; cách l&#224; các đ&#7889;i
+s&#7889; đ&#7871;n ch&#432;&#417;ng tr&#236;nh.<br>
+<br>
+V&#7853;y m&#7897;t đ&#7889;i s&#7889; đ&#7871;n ch&#432;&#417;ng tr&#236;nh l&#224;&#768; g&#236;?<br>
+<br>
+Xem xét m&#7897;t &#7913;ng d&#7909;ng b&#7845;t k&#7923; ví d&#7909; nh&#432; “Netscape Navigator”. File chay
+c&#7911;a &#7913;ng d&#7909;ng n&#224;y có th&#7875; đ&#432;&#7907;c g&#7885;i l&#224; “netscp.exe”.<br>
+<br>
+Nó có th&#7875; đ&#432;&#7907;c ch&#7841;y t&#7915; d&#242;ng câu l&#7879;nh (t&#7915; m&#7897;t ô hay m&#7897;t đ&#7847;u cu&#7889;i) v&#7899;i
+l&#7879;nh “netscp6”. <br>
+<br>
+Ngo&#224;i ra chúng ta có th&#7875; ch&#7881; r&#245; m&#7897;t trang web t&#7921; m&#7903; ra khi kh&#7903;i đ&#7897;ng
+nh&#432;:<br>
+<br>
+netscp6 google.com<br>
+<br>
+T&#7915; th&#7913; 2 – “google.com” l&#224; m&#7897;t đ&#7889;i s&#7889; đ&#7871;n ch&#432;&#417;ng tr&#236;nh.<br>
+<br>
+Sau khi phi&#234;n d&#7883;ch m&#7897;t ch&#432;&#417;ng tr&#236;nh Java: <br>
+<br>
+public class Program { <br>
+&nbsp;//.... <br>
+&nbsp; public static void main(String[] args) { <br>
+&nbsp;&nbsp; // ... <br>
+&nbsp; } <br>
+} <br>
+<br>
+Chúng ta có th&#7875; ch&#7841;y ch&#432;&#417;ng tr&#236;nh (t&#7915; d&#242;ng câu l&#7879;nh) b&#7857;ng cách đ&#432;a v&#224;
+các đ&#7889;i s&#7889;:<br>
+<br>
+java Program arg1 arg2 ...&nbsp; <br>
+<br>
+T&#7845;t c&#7843; các đ&#7889;i s&#7889; đ&#432;&#7907;c ch&#7881; r&#245; tr&#234;n d&#242;ng câu l&#7879;nh có trong ph&#432;&#417;ng pháp
+main v&#7899;i t&#432; cách l&#224; ph&#7847;n t&#7917; c&#7911;a m&#7843;ng args. Đ&#7889;i s&#7889; đ&#7847;u ti&#234;n c&#7911;a ch&#432;&#417;ng
+tr&#236;nh l&#224;&#768; m&#7897;t ph&#7847;n t&#7917; c&#7911;a m&#7843;ng (v&#7899;i ch&#7881; m&#7909;c 0), đ&#7889;i s&#7889; th&#7913; 2 có ch&#7881; m&#7909;c
+l&#224; 1, vân vân.<br>
+<div class="notel">Đ&#7875; đ&#432;a m&#7897;t đ&#7889;i s&#7889; bao g&#7891;m nhi&#7873;u t&#7915; ph&#7843;i cho các t&#7915;
+đó v&#224;o trong d&#7845;u ngo&#7863;c kép.<br>
+</div>
+<br>
+<br>
+Ví d&#7909; 1.<br>
+<br>
+In các đ&#7889;i s&#7889; c&#7911;a ch&#432;&#417;ng tr&#236;nh:<br>
+<br>
+<pre>public class Test {<br><br>  public static void main(String[] args) {<br>	System.out.println("The number of program's arguments: " + args.length);<br>    	for (String s : args)<br>      		System.out.println(s);<br>  }<br>}<br></pre>
+<br>
+<br>
+Ví d&#7909; 2.<br>
+<br>
+Đ&#7843;m b&#7843;o r&#7857;ng ch&#432;&#417;ng tr&#236;nh sau l&#7845;&#769;y đúng hai đ&#7889;i s&#7889;:<br>
+<br>
+<pre>public class Test {<br>  <br>  public static void main(String[] args) {<br>    if (args.length != 2) syntax();<br>    System.out.println(args[0] + " " + args[1]);<br>  }<br>  <br>  static void syntax() {<br>    System.out.println("Syntax: ... ");<br>    System.exit(1);<br>  }<br>}<br></pre>
+<br>
+<hr>
+<a name="TabKol.8"></a>
+<h2>4. Các m&#7843;ng "đ&#7889;i t&#432;&#7907;ng"<br>
+</h2>
+<a name="TabKol.9"></a>
+<h2>4.1. T&#7841;o m&#7843;ng ch&#7913;a tham chi&#7871;u đ&#7871;n các đ&#7889;i t&#432;&#7907;ng</h2>
+Nh&#432; chúng ta đ&#227; bi&#7871;t các m&#7843;ng có th&#7875; l&#432;u gi&#7919; các tham chi&#7871;u đ&#7871;n các đ&#7889;i
+t&#432;&#7907;ng b&#7845;t k&#7923;.<br>
+<br>
+Ví d&#7909;, chúng ta khai báo v&#224; t&#7841;o ra m&#7897;t m&#7843;ng c&#7911;a các chu&#7895;i (ký t&#7921;):<br>
+<br>
+Możemy np. zadeklarować i stworzyć tablicę:<br>
+<br>
+String[] town = { "Warsaw", "Moscow", "Berlin", "London", "Paris" };<br>
+<br>
+Chúng ta có th&#7875; thao tác tr&#234;n các ph&#7847;n t&#7917; c&#7911;a m&#7843;ng n&#224;y, ví d&#7909; nh&#432; in
+chúng ra:<br>
+<br>
+for (int i=0; i&lt;town.length; i++) System.out.println(town[i]);<br>
+<br>
+ho&#7863;c hoán đ&#7893;i ph&#7847;n t&#7917; đ&#7847;u v&#224; ph&#7847;n t&#7917; cu&#7889;i:<br>
+<br>
+String last = town[town.length -1]; <br>
+town[town.length -1] = town[0]; <br>
+town[0] = last; <br>
+<br>
+M&#227; trông t&#432;&#417;ng t&#7921; nh&#432; vi&#7879;c s&#7917; d&#7909;ng các m&#7843;ng c&#7911;a các s&#7889; nguy&#234;n hay s&#7889;
+th&#7921;c. Có v&#7867; nh&#432; không có s&#7921; khác bi&#7879;t n&#224;o &#7903; đây. Nh&#432;ng tr&#234;n th&#7921;c t&#7871; th&#236;
+có s&#7921; khác bi&#7879;t v&#224; b&#7887; qua nh&#7919;ng s&#7921; khác bi&#7879;t n&#224;y có th&#7875; gây ra l&#7895;i, đ&#7863;c
+bi&#7879;t l&#224; &#7903; nh&#7919;ng giai đo&#7841;n đ&#7847;u khi h&#7885;c Java.<br>
+<br>
+Nh&#7899; l&#7841;i l&#7899;p Pair. Các đ&#7889;i t&#432;&#7907;ng c&#7911;a nó th&#7875; hi&#7879;n các c&#7863;p s&#7889; nguy&#234;n.
+Chúng ta mu&#7889;n thao tác tr&#234;n m&#7897;t m&#7843;ng g&#7891;m các c&#7863;p s&#7889; trong ch&#432;&#417;ng tr&#236;nh
+c&#7911;a chúng ta.<br>
+<br>
+Tr&#432;&#7899;c h&#7871;t chúng ta c&#7847;n có m&#7897;t khai báo:<br>
+<br>
+Pair[] tabPair;<br>
+<br>
+<br>
+Nh&#432; đ&#227; bi&#7871;t m&#7897;t khai báo nh&#432; th&#7871; không t&#7841;o ra m&#7843;ng n&#224;o. Do v&#7853;y chúng ta
+ph&#7843;i t&#7841;o ra m&#7843;ng trong b&#432;&#7899;c ti&#7871;p theo:<br>
+<br>
+tabPair = new Pair[10];<br>
+<br>
+Chúng ta đ&#227; có đ&#432;&#7907;c các c&#7863;p đ&#7889;i t&#432;&#7907;ng ch&#432;a? Li&#7879;u chúng ta có nh&#236;n th&#7845;y
+chúng trông nh&#432; th&#7871; n&#224;o ng&#224;y t&#7915; đ&#7847;u không?<br>
+<br>
+<pre>public class TabPair {<br> <br>  public static void main(String[] args) {<br>    Pair[] tabPair = new Pair[10];<br>    for (int i=0; i &lt; tabPair.length; i++) <br>       tabPair[i].show("Pair " + (i+1));<br>  }<br>}<br></pre>
+Ch&#432;&#417;ng tr&#236;nh phi&#234;n d&#7883;ch không xu&#7845;t hi&#7879;n l&#7895;i n&#224;o nh&#432;ng khi ch&#7841;y có thông
+đi&#7879;p sau xu&#7845;t hi&#7879;n:<br>
+<br>
+<div class="listing100">Exception in thread "main"
+java.lang.NullPointerException
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at
+TabPair.main(TabPair.java:6)</div>
+<br>
+Đây l&#224; do &#7843;nh h&#432;&#7903;ng c&#7911;a vi&#7879;c truy c&#7853;p m&#7897;t đ&#7889;i t&#432;&#7907;ng không t&#7891;n t&#7841;i – g&#7885;i
+ph&#432;&#417;ng pháp show t&#7915; l&#7899;p pair cho tham chi&#7871;u null.<br>
+<br>
+Trong khi t&#7841;o ra m&#7897;t m&#7843;ng chúng ta không đ&#7891;ng th&#7901;i <span style="font-weight: bold;">t&#7841;o ra b&#7845;t c&#7913; đ&#7889;i t&#432;&#7907;ng</span> n&#224;o m&#224; m&#7843;ng
+s&#7869; ch&#7913;a. Các ph&#7847;n t&#7917; c&#7911;a m&#7843;ng ph&#7843;i đ&#432;&#7907;c t&#7841;o ra m&#7897;t cách đ&#7897;c l&#7853;p. <span style="font-weight: bold;">M&#7897;t m&#7843;ng đ&#7889;i t&#432;&#7907;ng ch&#7913;a các tham chi&#7871;u đ&#7871;n
+các đ&#7889;i t&#432;&#7907;ng</span> do đó các ph&#7847;n t&#7917; c&#7911;a nó lúc đ&#7847;u ph&#7843;i b&#7857;ng null.
+Ch&#7881; sau khi các đ&#7889;i t&#432;&#7907;ng đ&#432;&#7907;c t&#7841;o ra v&#224; các tham chi&#7871;u đ&#7871;n đ&#7889;i t&#432;&#7907;ng
+đ&#432;&#7907;c l&#432;u trong m&#7843;ng th&#236; chúng ta m&#7899;i có th&#7875; s&#7917; d&#7909;ng các ph&#7847;n t&#7917; c&#7911;a
+m&#7843;ng.<br>
+<br>
+Do đó chúng ta ph&#7843;i vi&#7871;t nh&#432; sau:<br>
+<pre>public class TabPair {<br>  public static void main(String[] args) {<br>    Pair[] tabPair = new Pair[10];<br>    for (int i=0; i &lt; tabPair.length; i++) tabPair[i] = new Pair(i+1, i+2);<br>    for (int i=0; i &lt; tabPair.length; i++) tabPair[i].show("Pair " + (i+1));<br>  }<br>}<br></pre>
+K&#7871;t qu&#7843;:<br>
+<br>
+<div class="listing100">Pair 1 ( 1 , 2 )
+<br>
+Pair 2 ( 2 , 3 )
+<br>
+Pair 3 ( 3 , 4 )
+<br>
+Pair 4 ( 4 , 5 )
+<br>
+Pair 5 ( 5 , 6 )
+<br>
+Pair 6 ( 6 , 7 )
+<br>
+Pair 7 ( 7 , 8 )
+<br>
+Pair 8 ( 8 , 9 )
+<br>
+Pair 9 ( 9 , 10 )
+<br>
+Pair 10 ( 10 , 11 )
+</div>
+<br>
+<br>
+Gi&#7843;i thích:<br>
+<br>
+<img src="info_data/tabref10.jpg" alt="r" style="border: 1px solid ; width: 538px; height: 439px;">
+<br>
+<br>
+1. t&#7841;o m&#7843;ng. giá tr&#7883; m&#7863;c đ&#7883;nh cho m&#7895;i ph&#7847;n t&#7917; l&#224; null<br>
+2. t&#7841;o các đ&#7889;i t&#432;&#7907;ng c&#7911;a l&#7899;p pair (m&#224;u v&#224;ng)<br>
+3. các tham chi&#7871;u đ&#7871;n đ&#7889;i t&#432;&#7907;ng c&#7911;a l&#7899;p pair đ&#432;&#7907;c l&#432;u trong m&#7843;ng <br>
+4. các ph&#7847;n t&#7917; c&#7911;a m&#7843;ng quy chi&#7871;u đ&#7871;n các đ&#7889;i t&#432;&#7907;ng c&#7911;a l&#7899;p pair<br>
+<br>
+<br>
+<div class="important"><br>
+<div align="center">Quá tr&#236;nh t&#7841;o ra các m&#7843;ng đ&#7889;i t&#432;&#7907;ng – b&#7843;n tóm t&#7855;t <br>
+(s&#7917; d&#7909;ng l&#7899;p Button l&#224;m ví d&#7909;)<br>
+<br>
+<div style="text-align: left;">1.&nbsp;&nbsp;&nbsp; Khai báo m&#7843;ng:<br>
+<br>
+&nbsp;&nbsp;&nbsp; Button [] b;<br>
+<br>
+2.&nbsp;&nbsp;&nbsp; T&#7841;o m&#7843;ng:<br>
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; b = new Button [n];<br>
+<br>
+3.&nbsp;&nbsp;&nbsp; T&#7841;o ra các đ&#7889;i t&#432;&#7907;ng v&#224; l&#432;u các tham chi&#7871;u c&#7911;a
+chúng v&#7899;i t&#432; cách l&#224; các ph&#7847;n t&#7917; c&#7911;a m&#7843;ng:<br>
+<br>
+for (int i=0; i&lt;b.length; i++) b[i] = new Button(); </div>
+</div>
+</div>
+<br>
+<br>
+Chúng ta có th&#7875; s&#7917; d&#7909;ng b&#7897; kh&#7903;i t&#7841;o ma tr&#7853;n đ&#7875; kh&#7903;i t&#7841;o m&#7897;t m&#7843;ng đ&#7889;i
+t&#432;&#7907;ng:<br>
+<br>
+&nbsp;&nbsp;&nbsp; Pair[] tabPair = { new Pair(1,1), new Pair(2,3), new
+Pair(4,5) }; <br>
+&nbsp;&nbsp;&nbsp; Button[] b = { new Button("A"), new Button("B") }; <br>
+&nbsp;&nbsp;&nbsp; String[] s = { "Mouse", "Cat", "Dog" }; <br>
+<br>
+ho&#7863;c:&nbsp;&nbsp;&nbsp; <br>
+<br>
+&nbsp;&nbsp;&nbsp; Pair p1 = new Pair(2,4); <br>
+&nbsp;&nbsp;&nbsp; Pair p2 = new Pair(7,8); <br>
+&nbsp;&nbsp;&nbsp; Pair[] tabP = { p1, p2 };<br>
+<br>
+<hr>
+<a name="TabKol.11"></a>
+<h2>5. M&#7843;ng đa chi&#7873;u<br>
+</h2>
+<br>
+<div class="notec">Các m&#7843;ng đa chi&#7873;u trong Java đ&#432;&#7907;c coi nh&#432; l&#224; các
+m&#7843;ng
+đ&#7889;i t&#432;&#7907;ng ch&#7913;a các tham chi&#7871;u đ&#7871;n các m&#7843;ng khác</div>
+<br>
+S&#7889; chi&#7873;u đ&#432;&#7907;c quy đ&#7883;nh b&#7903;i s&#7889; c&#7863;p ngo&#7863;c vuông [].<br>
+<br>
+Sau đâu l&#224; m&#7897;t s&#7889; ví d&#7909;:<br>
+<br>
+a. B&#7897; kh&#7903;i t&#7841;o m&#7843;ng cho m&#7843;ng hai chi&#7873;u:<br>
+<br>
+int[][] mac1 = { { 1, 2, 3, }, { 4, 5, 6, } };<br>
+<br>
+b. M&#7897;t m&#7843;ng đ&#7897;ng đ&#432;&#7907;c t&#7841;o ra.<br>
+<br>
+int[][] mac2 = new int[n][m]; <br>
+<br>
+c. M&#7897;t m&#7843;ng v&#7899;i các véc-t&#417; có kích th&#432;&#7899;c khác nhau. M&#7843;ng ph&#7909; <span style="font-weight: bold;">w</span> xác đ&#7883;nh đ&#7897; d&#224;i c&#7911;a các véc-t&#417; n&#224;y.<br>
+<br>
+<pre>public class MultiArr {<br><br> public static void main(String[] arg) {<br>   int w[] = { 2, 3, 4 };<br>   int n = 3;<br>   int[][] m3 = new int[n][];    // sizes of the rows are set dynamically<br>                                 <br>   for(int i = 0; i &lt; m3.length; i++) {<br>     m3[i] = new int[w[i]];<br>     for (int j = 0; j &lt; m3[i].length; j++) m3[i][j] = i + j;<br>   }<br> <br>   for (int i = 0; i &lt; m3.length; i++) {<br>     System.out.println("Size of the " + i + "-th row " + m3[i].length);<br>     String out = " ";<br>     for(int j = 0; j &lt; m3[i].length; j++) out += " " + m3[i][j];<br>     System.out.println(out);<br>   }<br> }<br>}<br></pre>
+<br>
+Ch&#432;&#417;ng tr&#236;nh tr&#234;n in ra:<br>
+<br>
+Size of the 0-th row 2<br>
+0 1<br>
+Size of the 1-th row 3<br>
+1 2 3<br>
+Size of the 2-th row 4<br>
+2 3 4 5&nbsp;<br>
+<br>
+<hr>
+<a name="TabKol.13"></a>
+<h2>6. Tóm t&#7855;t<br>
+</h2>
+Sau khi đ&#227; hi&#7875;u v&#7873; m&#7843;ng, chúng ta có th&#7875; s&#7917; d&#7909;ng chúng trong ch&#432;&#417;ng
+tr&#236;nh Java ri&#234;ng c&#7911;a m&#236;nh. M&#7843;ng Java có m&#7897;t thu&#7897;c tính đ&#7863;c bi&#7879;t: chúng
+l&#224; các đ&#7889;i t&#432;&#7907;ng.<br>
+Chúng ta có th&#7875; t&#7853;n d&#7909;ng đi&#7875;m n&#224;y đ&#7875; chu&#7849;n b&#7883; các ph&#432;&#417;ng pháp chung.<br>
+<hr>
+<a name="TabKol.14"></a>
+<h2>7. B&#224;i t&#7853;p</h2>
+1. Vi&#7871;t m&#7897;t ch&#432;&#417;ng tr&#236;nh tính t&#7893;ng c&#7911;a các ph&#7847;n t&#7917; l&#432;u trong nh&#7919;ng v&#7883;
+trí ch&#7855;n c&#7911;a m&#7897;t m&#7843;ng đ&#227; bi&#7871;t.<br>
+<br>
+2. Vi&#7871;t m&#7897;t ch&#432;&#417;ng tr&#236;nh đ&#7885;c các chu&#7895;&#771;i do ng&#432;&#7901;i s&#7917; d&#7909;ng g&#245; v&#224;o (cho
+đ&#7871;n khi ng&#7915;ng g&#245;) v&#224; in s&#7889; l&#7847;n xu&#7845;t hi&#7879;n c&#7911;a m&#7895;i chu&#7895;i. Ví d&#7909;, v&#7899;i các
+d&#7919; li&#7879;u v&#224;o sau đây: Aaa, Bbb, Aaa, Ccc, Aaa, Bbb Ch&#432;&#417;ng tr&#236;nh ph&#7843;i in
+ra k&#7871;t qu&#7843;: Aaa 3, Bbb 2, Ccc 1.<br>
+<br>
+3. T&#7841;o ra m&#7897;t l&#7899;p Matrix v&#7899;i các ph&#432;&#417;ng pháp đ&#7875;n c&#7897;ng v&#224; nhân các
+matrix v&#7899;i nhau. Ngo&#224;i ra, cung c&#7845;p các ph&#432;&#417;ng pháp đ&#7875; tính t&#7893;ng c&#7911;a
+các ph&#7847;n t&#7917; c&#7911;a các h&#224;ng c&#7897;t đ&#227; cho v&#224; t&#7893;ng c&#7911;a các ph&#7847;n t&#7917; trong to&#224;n
+b&#7897; matrix.<br>
+<br>
+4. S&#7917; d&#7909;ng các ma tr&#7853;n đ&#7875; t&#7841;o ra m&#7897;t phi&#234;n b&#7843;n m&#7903; r&#7897;ng c&#7911;a máy tính
+ti&#7873;n (ví d&#7909; cho năm lo&#7841;i ti&#7873;n khác nhau).<br>
+</body></html>

@@ -1,0 +1,1728 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <title>JavaVietnam.org - Xem luồng - help with "Exception in thread "main" java.lang.NullPointerException"</title>
+<script type="text/javascript" src="chuong%20trinh%20tham%20khao_files/domLib.js"></script>
+<script type="text/javascript" src="chuong%20trinh%20tham%20khao_files/domMenu.js"></script>
+<script type="text/javascript" src="chuong%20trinh%20tham%20khao_files/prettify.js"></script>
+<script language="JavaScript1.2" src="chuong%20trinh%20tham%20khao_files/vietuni.js" type="text/javascript"></script>
+<script type="text/javascript" src="chuong%20trinh%20tham%20khao_files/searchhi.js" language="JavaScript"></script>
+
+
+<meta name="copyright" content="This software is copyrighted by MyVietnam.net and released under the terms of the GNU General Public License GPL license. All rights reserved.">
+<meta name="Keywords" content="mvnForum, vietnam, jsp, servlet, java, j2se, j2ee, database">
+<meta name="Description" content="Organization and forum for Java/J2SE/J2EE programmer in Vietnam">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link href="chuong%20trinh%20tham%20khao_files/logo.gif" rel="SHORTCUT ICON">
+
+<meta http-equiv="Expires" content="-1">
+
+<link href="chuong%20trinh%20tham%20khao_files/style.css" rel="stylesheet" type="text/css">
+<link href="chuong%20trinh%20tham%20khao_files/menu.css" rel="stylesheet" type="text/css">
+<link href="chuong%20trinh%20tham%20khao_files/prettify.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+//<![CDATA[
+function SubmitForm() {
+  if (ValidateForm()) {
+    
+    document.mvnform.submitbutton.disabled=true;
+    document.mvnform.previewbutton.disabled=true;
+    
+    document.mvnform.submit();
+  }
+}
+
+function ValidateForm() {
+  document.mvnform.message.value = document.mvnform.input.value;
+  if (isBlank(document.mvnform.input, "Nội dung")) return false;
+  return true;
+}
+
+function PreviewForm() {
+  if (ValidateForm()) {
+    document.mvnform.preview.value='true';
+    document.mvnform.action=document.getElementById('previewUrl').value;
+    
+    
+    document.mvnform.submitbutton.disabled=true;
+    document.mvnform.previewbutton.disabled=true;
+    
+    document.mvnform.submit();
+  }
+}
+
+function QuickReply(parentId) {
+  var topic = document.getElementById("posttopic_" + parentId).innerHTML;
+  if (document.getElementById("input")) {
+    document.getElementById("input").focus();
+    document.getElementById("quickreplymessage").innerHTML = "Trả lời nhanh cho bài [" + parentId + ", " + topic + "]";
+  }
+  if (topic.indexOf("Re: ") == -1) {
+    topic = "Re: " + topic;
+  }
+  document.mvnform.parent.value=parentId;
+  document.mvnform.PostTopic.value=topic;
+}
+
+
+//handle vote poll form
+function SubmitPollVoteForm() {
+  if (ValidatePollVoteForm()) {
+    
+      document.pollvoteform.pollvotebutton.disabled=true;
+      
+    document.pollvoteform.submit();
+  }
+}
+
+function ValidatePollVoteForm() {
+  document.getElementById("pollvotebutton").disabled = true;
+  var params = "";
+  
+  var inputArray = document.getElementsByTagName("input");
+  
+  if (inputArray != null) {
+    var youhaschecked = false;
+    for (var i = 0; i < inputArray.length; i++) {
+      if ((inputArray[i] != null) && (inputArray[i].getAttribute("name") != null )) {
+        if (inputArray[i].getAttribute("name").indexOf("option_") != -1) {
+          if (inputArray[i].checked) {
+            youhaschecked = true;
+            //inputArray[i].getAttribute("name"): option_{0,1,2,...} 
+            //inputArray[i].getAttribute("value"): ${pollanswerid}
+            //your_opinion_${pollanswerid}
+            
+            pollanswerid = inputArray[i].getAttribute("value");
+            if (document.getElementById("your_opinion_" + pollanswerid) != null) {
+              youropinion = trim(document.getElementById("your_opinion_" + pollanswerid).value);
+              if (youropinion.length == 0) {
+                alert("Bạn phải nhập vào thông tin ý kiến của bạn.");
+                document.getElementById("pollvotebutton").disabled = false;
+                return false;
+              }  
+            }            
+          }
+        }
+      }
+    }
+  }
+  if (youhaschecked == true) {
+    return true;
+  } else {
+    alert("Bạn phải chọn ít nhất một lựa chọn.");
+    document.getElementById("pollvotebutton").disabled = false;
+    return false;
+  }  
+}
+
+function ViewPollResult(viewresulturl) {
+  showDialog(viewresulturl, 450, 170);
+}
+
+function showDialog(url, width, height) {
+  return showWindow(url, false, false, true, false, false, false, true, true, width, height, 0, 0);
+}
+function showWindow(url, isStatus, isResizeable, isScrollbars, isToolbar, isLocation, isFullscreen, isTitlebar, isCentered, width, height, top, left) {
+  if (isCentered) {
+    top = (screen.height - height) / 2;
+    left = (screen.width - width) / 2;
+  }
+
+  open(url, 'Result', 'status=' + (isStatus ? 'yes' : 'no') + ','
+  + 'resizable=' + (isResizeable ? 'yes' : 'no') + ','
+  + 'scrollbars=' + (isScrollbars ? 'yes' : 'no') + ','
+  + 'toolbar=' + (isToolbar ? 'yes' : 'no') + ','
+  + 'location=' + (isLocation ? 'yes' : 'no') + ','
+  + 'fullscreen=' + (isFullscreen ? 'yes' : 'no') + ','
+  + 'titlebar=' + (isTitlebar ? 'yes' : 'no') + ','
+  + 'height=' + height + ',' + 'width=' + width + ','
+  + 'top=' + top + ',' + 'left=' + left);
+}
+
+  
+
+function handleUnload() {
+  if (document.mvnform) {
+    if (document.mvnform.submitbutton) {
+      document.mvnform.submitbutton.disabled=false;
+    }
+    if (document.mvnform.previewbutton) {
+      document.mvnform.previewbutton.disabled=false;
+    }
+  }    
+
+  if (document.pollvoteform && document.pollvoteform.pollvotebutton) {
+    document.pollvoteform.pollvotebutton.disabled=false;
+  }    
+  
+}
+//]]>
+</script>
+</head><body onload="prettyPrint()" onunload="handleUnload()">
+
+
+<script type="text/javascript" language="JavaScript" src="chuong%20trinh%20tham%20khao_files/myvietnam.js"></script>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function isBlank(field, strBodyHeader) {
+    strTrimmed = trim(field.value);
+    if (strTrimmed.length > 0) return false;
+    alert("\"" + strBodyHeader + "\" là một giá trị bắt buộc.");
+    field.focus();
+    return true;
+}
+function isEmail(field, strBodyHeader) {
+    emailStr = field.value;
+    if (emailStr.length == 0) return true;
+    if (!complexEmailCheck(emailStr)) {
+        alert(strBodyHeader + " là một địa chỉ email không hợp lệ.");
+        field.focus();
+        return false;
+    }
+    return true;
+}
+function isUnsignedInteger(obj, message) {
+    if (isBlank(obj, message)) {
+      return false;
+    }
+    var  val = obj.value;
+    for (var i=0;i<val.length;i++) {
+        if (!isDigit(val.charAt(i))) {
+            alert(message + " phải là một con số không dấu.");
+            obj.focus();
+            return false;
+        }
+    }
+    obj.value = parseInt(val,10);
+    return true;
+}
+function checkGoodName(str, desc) {
+    s = trim(str);
+    len = s.length; 
+    for (i = 0; i < len; i++) {
+        b = s.charCodeAt(i);
+        if ((b >= toInt('a')) && (b <= toInt('z'))) { // not a cast, it's a function.
+            // low chars
+        } else if ((b >= toInt('A')) && (b <= toInt('Z'))) {
+            // up chars
+        } else if ((b >= toInt('0')) && (b <= toInt('9'))) {
+            // numbers 
+        } else if (( (b==toInt('_')) || (b==toInt('.')) || (b==toInt('@')) ) && (i != 0)) {
+            // very litte special chars
+        } else {
+            alert(desc + " \"" + s +  "\" " + "không phải là một tên hợp lệ. Ký tự không hợp lệ là \"" + s.charAt(i) + "\""); 
+            return false;
+            // not good name error
+        }
+    }
+    return true;
+}
+
+function toInt(c) {
+  return c.charCodeAt(0);
+}
+//]]>
+</script>
+
+
+
+<script type="text/javascript">
+//<![CDATA[
+function SubmitFormSearch() {
+  if (ValidateFormSearch()) {
+    // uncomment when we find a way to enable the button
+    //document.submitformsearch.submitbutton.disabled = true;
+    document.submitformsearch.submit();
+  }
+}
+
+function ValidateFormSearch() {
+  if (isBlank(document.submitformsearch.key, "Tìm kiếm")) return false;
+  return true;
+}
+//]]>
+</script>
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="95%">
+  <tbody><tr>
+    <td height="60">
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr>
+          <td rowspan="2">
+            <a href="http://www.javavietnam.org/"><img src="chuong%20trinh%20tham%20khao_files/logo.gif" alt="Trang chủ JavaVietnam.org" title="Trang chủ JavaVietnam.org" border="0" height="50"></a>
+          </td>
+          <td rowspan="2" align="center" valign="top">
+            
+
+
+
+          </td>
+          <td class="portlet-font" align="right" height="25" nowrap="nowrap" valign="top">
+            <span class="welcomeHeader">Xin chào</span>
+            
+                  Khách JavaVietnam
+               
+               
+               &nbsp;|&nbsp;&nbsp;<a class="command" href="http://www.javavietnam.org/javavn/mvnforum/registermember">Đăng ký</a>
+               
+               
+               &nbsp;|&nbsp;&nbsp;<a class="command" href="http://www.javavietnam.org/javavn/mvnforum/login">Đăng nhập</a>
+                 
+                 
+
+
+
+
+
+<script type="text/javascript" language="JavaScript" src="chuong%20trinh%20tham%20khao_files/md5.js"></script>
+
+<script type="text/javascript">
+//<![CDATA[
+function checkEnterLogin(event) {
+  var agt=navigator.userAgent.toLowerCase();
+  
+  // Maybe, Opera make an onClick event when user press enter key 
+  // on the text field of the form
+  if (agt.indexOf('opera') >= 0) return;
+
+  // enter key is pressed
+  if (getKeyCode(event) == 13)
+    SubmitFormLogin();
+}
+
+function SubmitFormLogin() {
+  if (ValidateFormLogin()) {
+    var enableEncrypted = true;
+    if (enableEncrypted) {
+      pw2md5(document.sublogin.MemberMatkhau, document.sublogin.md5pw);
+    }    
+    
+    document.sublogin.submitbutton.disabled=true;
+    
+    return document.sublogin.submit();
+  }
+  return false;
+}
+
+function ValidateFormLogin() {
+  if (isBlank(document.sublogin.MemberName, "Định danh")) return false;
+  if (isBlank(document.sublogin.MemberMatkhau, "Mật khẩu")) return false;
+  //Check Password's length
+  if (document.sublogin.MemberMatkhau.value.length < 3) {
+    alert("Mật khẩu của bạn không được dưới 3 ký tự");
+    document.sublogin.MemberMatkhau.focus();
+    return false;
+  }
+  return true;
+}
+//]]>
+</script>
+
+<table class="noborder">
+  <tbody><tr>
+    
+    <form action="loginprocess" method="post" name="sublogin" onsubmit="return false;"></form>
+    
+      <td>
+        <input name="FromLoginPage" value="true" type="hidden">
+        <input name="md5pw" value="" type="hidden">
+        <input name="url" value="" type="hidden">
+        Định danh
+        <input name="MemberName" value="" size="10" type="text">
+        Mật khẩu
+        <input name="MemberMatkhau" onkeypress="checkEnterLogin(event);" size="10" type="password">
+        <input name="submitbutton" value="Đăng nhập" onclick="javascript:SubmitFormLogin();" class="portlet-form-button" type="button">
+      </td>
+    
+  </tr>
+</tbody></table>
+
+
+                 
+               
+            
+          </td>
+        </tr>
+        <tr>
+          <td height="35" valign="top">
+          
+            <form action="search" id="submitformsearch" name="submitformsearch" method="get">
+            
+            <table class="tborder" style="width: 0%;" align="right" cellpadding="2" cellspacing="0">
+              <tbody><tr class="topmenu">
+                <td align="left" nowrap="nowrap" valign="top">&nbsp;
+                
+                
+                
+                
+                  <a href="http://www.javavietnam.org/javavn/mvnforum/search" class="topmenu"><img src="chuong%20trinh%20tham%20khao_files/search.gif" alt="Tìm kiếm" title="Tìm kiếm" align="bottom" border="0" hspace="0" vspace="0"></a>
+                  <input size="10" name="key" type="text">
+                  <input name="submitbutton" value="Tìm kiếm" onclick="javascript:SubmitFormSearch();" class="portlet-form-button" type="button">&nbsp;
+                </td>
+              </tr>
+            </tbody></table>
+            </form>
+          
+          </td>
+        </tr>
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table>
+
+<table class="tborder" align="center" cellpadding="2" cellspacing="0" width="95%">
+  <tbody><tr class="topmenu">
+    <td nowrap="nowrap">&nbsp;
+      <a href="http://www.javavietnam.org/javavn/mvnforum/index" class="topmenu">Trang chủ</a>
+      
+      &nbsp;|&nbsp;<a href="http://www.javavietnam.org/javavn/mvnforum/listrecentthreads" class="topmenu">Những luồng mới</a>
+      
+      &nbsp;|&nbsp;<a href="http://www.javavietnam.org/javavn/mvnforum/listunansweredthreads" class="topmenu">Luồng chưa trả lời</a>
+      
+      
+      
+      &nbsp;|&nbsp;<a href="http://www.javavietnam.org/javavn/mvnforum/listpolls" class="topmenu">Các bầu chọn</a>
+      
+      
+      &nbsp;|&nbsp;<a href="http://www.javavietnam.org/javavn/mvnforum/listpublicalbums" class="topmenu">Tập ảnh chung</a>
+      
+      
+      &nbsp;|&nbsp;<a href="http://www.javavietnam.org/javavn/mvnforum/listonlineusers" class="topmenu">Người dùng trực tuyến</a>
+      
+      
+      &nbsp;|&nbsp;<a href="http://www.javavietnam.org/javavn/mvnforum/listmembers" class="topmenu">Thành viên</a>
+      
+      
+      &nbsp;|&nbsp;<a href="http://www.javavietnam.org/javavn/mvnforum/help" class="topmenu">Giúp đỡ</a>
+      
+      
+    </td>
+  </tr>
+</tbody></table>
+
+
+
+
+<br>
+  
+<table class="tborder-no_need" align="center" cellpadding="3" cellspacing="0" width="95%">
+   <tbody><tr class="portlet-section-body">
+   
+     <td align="center"><script type="text/javascript" language="JavaScript" src="chuong%20trinh%20tham%20khao_files/getparam.js"></script>
+<script type="text/javascript" language="JavaScript">
+<!--
+document.write("<"+"script language='JavaScript' type='text/javascript' src='http://www.JavaVietnam.org/javavn/delivery/getad?zoneID=67"+mvnadparam+"'><"+"/script>");
+//-->
+</script><script language="JavaScript" type="text/javascript" src="chuong%20trinh%20tham%20khao_files/getad.js"></script><table class="noborder" border="0" cellpadding="0" cellspacing="0"><tbody><tr><td height="55" width="370"><border>
+<div align="left"><br>
+<a href="http://www.javavietnam.org/javavn/mvnforum/viewthread_thread,24993_lastpage,yes#104241" style="text-decoration: none;">
+<strong>
+<font color="#ff0000" size="4">
+  Recruit Quality Control Engineer. Deadline: 29/05/2009
+</font></strong></a></div></border></td></tr></tbody></table>
+</td>
+   
+     <td align="center"><script type="text/javascript" language="JavaScript" src="chuong%20trinh%20tham%20khao_files/getparam.js"></script>
+<script type="text/javascript" language="JavaScript">
+<!--
+document.write("<"+"script language='JavaScript' type='text/javascript' src='http://www.JavaVietnam.org/javavn/delivery/getad?zoneID=68"+mvnadparam+"'><"+"/script>");
+//-->
+</script><script language="JavaScript" type="text/javascript" src="chuong%20trinh%20tham%20khao_files/getad_003.js"></script><table class="noborder" border="0" cellpadding="0" cellspacing="0"><tbody><tr><td height="50" width="140"><a href="http://www.javavietnam.org/javavn/delivery/clickad?bannerID=30&amp;zoneID=68&amp;screen=1280x768" target="_blank"><img style="display: none;" src="chuong%20trinh%20tham%20khao_files/webtamsu.gif" alt="" border="0" height="50" width="140"></a></td></tr></tbody></table>
+</td>
+   
+     <td align="center"><script type="text/javascript" language="JavaScript" src="chuong%20trinh%20tham%20khao_files/getparam.js"></script>
+<script type="text/javascript" language="JavaScript">
+<!--
+document.write("<"+"script language='JavaScript' type='text/javascript' src='http://www.JavaVietnam.org/javavn/delivery/getad?zoneID=72"+mvnadparam+"'><"+"/script>");
+//-->
+</script><script language="JavaScript" type="text/javascript" src="chuong%20trinh%20tham%20khao_files/getad_002.js"></script><table class="noborder" border="0" cellpadding="0" cellspacing="0"><tbody><tr><td height="49" width="196"><a href="http://www.javavietnam.org/javavn/delivery/clickad?bannerID=34&amp;zoneID=72&amp;screen=1280x768" target="_blank"><img style="display: none;" src="chuong%20trinh%20tham%20khao_files/new_anhso24_logo.gif" alt="" border="0" height="49" width="196"></a></td></tr></tbody></table>
+</td>
+   
+   </tr>
+</tbody></table>
+
+
+
+
+
+
+
+
+
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="95%">
+  <tbody><tr>
+    <td>
+      
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr>
+          <td>
+            <br>
+            
+
+
+
+
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="chuong%20trinh%20tham%20khao_files/listview.css">
+<table class="newstbl" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr>
+  
+    <td class="col" valign="top" width="20%">
+      <div class="line"><a href="http://www.javavietnam.org/javavn/cms/vi/mbl2007/index.html" class="newstitle">Mobile Labs 2008</a>
+        <a href="#">
+          <img src="chuong%20trinh%20tham%20khao_files/arrow_right.gif" alt="" border="0" height="7" width="4">
+        </a>
+      </div>
+      <ul class="news">
+      
+        <li>
+          <span>•</span>&nbsp;<a href="http://www.javavietnam.org/javavn/cms/vi/mbl2007/15_sp_lot_vao_chung_khao.html" class="itemlink">Mobile Labs 2007: 15 sản phẩm lọt vào...</a>
+        </li>
+      
+        <li>
+          <span>•</span>&nbsp;<a href="http://www.javavietnam.org/javavn/cms/vi/mbl2007/Cac_buoc_phat_trien_cho_mot_games_hoan_chinh.html" class="itemlink">Các bước phát triển cho một games hoàn...</a>
+        </li>
+      
+        <li>
+          <span>•</span>&nbsp;<a href="http://www.javavietnam.org/javavn/cms/vi/mbl2007/Cac_cong_cu_va_huong_dan.html" class="itemlink">Các công cụ và hướng dẫn...</a>
+        </li>
+      
+        <li>
+          <span>•</span>&nbsp;<a href="http://www.javavietnam.org/javavn/cms/vi/mbl2007/Lap_trinh_cho_thiet_bi_di_dong.html" class="itemlink">Lập trình cho thiết bị di động...</a>
+        </li>
+      
+      </ul>
+    </td>
+    
+  
+    <td class="col" valign="top" width="20%">
+      <div class="line"><a href="http://www.javavietnam.org/javavn/cms/vi/news/index.html" class="newstitle">Tin Tức</a>
+        <a href="#">
+          <img src="chuong%20trinh%20tham%20khao_files/arrow_right.gif" alt="" border="0" height="7" width="4">
+        </a>
+      </div>
+      <ul class="news">
+      
+        <li>
+          <span>•</span>&nbsp;<a href="http://www.javavietnam.org/javavn/cms/vi/news/vi_pham_ban_quyen_phan_mem.html" class="itemlink">Vi phạm bản quyền phần mềm có thể bị xử...</a>
+        </li>
+      
+        <li>
+          <span>•</span>&nbsp;<a href="http://www.javavietnam.org/javavn/cms/vi/news/Google_va_Microsoft.html" class="itemlink">Google suy nghĩ về động thái mới của...</a>
+        </li>
+      
+        <li>
+          <span>•</span>&nbsp;<a href="http://www.javavietnam.org/javavn/cms/vi/news/website_no_1.html" class="itemlink">Google đoạt ngôi website No 1 tại Mỹ...</a>
+        </li>
+      
+        <li>
+          <span>•</span>&nbsp;<a href="http://www.javavietnam.org/javavn/cms/vi/news/quang_cao_tuong_tac_la_mo_vang_cho_mang_xa_hoi_vn.html" class="itemlink">Quảng cáo tương tác là ‘mỏ vàng’ cho...</a>
+        </li>
+      
+      </ul>
+    </td>
+    
+  
+    <td class="col" valign="top" width="20%">
+      <div class="line"><a href="http://www.javavietnam.org/javavn/cms/vi/developer_of_the_year/index.html" class="newstitle">Developer of the Year</a>
+        <a href="#">
+          <img src="chuong%20trinh%20tham%20khao_files/arrow_right.gif" alt="" border="0" height="7" width="4">
+        </a>
+      </div>
+      <ul class="news">
+      
+        <li>
+          <span>•</span>&nbsp;<a href="http://www.javavietnam.org/javavn/cms/vi/developer_of_the_year/SWT.html" class="itemlink">SWT – Một hướng tiếp cận trong Lập...</a>
+        </li>
+      
+        <li>
+          <span>•</span>&nbsp;<a href="http://www.javavietnam.org/javavn/cms/vi/developer_of_the_year/Xu_ly_tai_lieu_XML_voi_XStream.html" class="itemlink">Xử lý tài liệu XML với XStream...</a>
+        </li>
+      
+        <li>
+          <span>•</span>&nbsp;<a href="http://www.javavietnam.org/javavn/cms/vi/developer_of_the_year/SWT_Layout.html" class="itemlink">SWT – Layout...</a>
+        </li>
+      
+        <li>
+          <span>•</span>&nbsp;<a href="http://www.javavietnam.org/javavn/cms/vi/developer_of_the_year/JAVA_DESKTOP2.html" class="itemlink">JAVA DESKTOP TỪ A ------...------&gt; Z -...</a>
+        </li>
+      
+      </ul>
+    </td>
+    
+  
+    <td class="col" valign="top" width="20%">
+      <div class="line"><a href="http://www.javavietnam.org/javavn/cms/vi/javavietnam_training_activities/index.html" class="newstitle">JavaVietnam Training</a>
+        <a href="#">
+          <img src="chuong%20trinh%20tham%20khao_files/arrow_right.gif" alt="" border="0" height="7" width="4">
+        </a>
+      </div>
+      <ul class="news">
+      
+        <li>
+          <span>•</span>&nbsp;<a href="http://www.javavietnam.org/javavn/cms/vi/javavietnam_training_activities/javavietnam_training_hue_24_9_2005.html" class="itemlink">Java training tại Huế 24/9/2005...</a>
+        </li>
+      
+        <li>
+          <span>•</span>&nbsp;<a href="http://www.javavietnam.org/javavn/cms/vi/javavietnam_training_activities/Hoi_thao_Portal_Portlet_Cac_buoc_lam_quen_va_kinh_nghiem_chuyen_doi.html" class="itemlink">Hội thảo "Portal/Portlet Development -...</a>
+        </li>
+      
+        <li>
+          <span>•</span>&nbsp;<a href="http://www.javavietnam.org/javavn/cms/vi/javavietnam_training_activities/Hinh_anh_buoi_hoc_J2ME_ha_noi.html" class="itemlink">Hình ảnh về buổi học J2ME đầu tiên tại...</a>
+        </li>
+      
+        <li>
+          <span>•</span>&nbsp;<a href="http://www.javavietnam.org/javavn/cms/vi/javavietnam_training_activities/HaNoi_J2ME.html" class="itemlink">Hình ảnh về buổi học J2ME đầu tiên tại...</a>
+        </li>
+      
+      </ul>
+    </td>
+    
+  
+    <td class="col" valign="top" width="20%">
+      <div class="line"><a href="http://www.javavietnam.org/javavn/cms/vi/java_tutorials/index.html" class="newstitle">Bài học Java</a>
+        <a href="#">
+          <img src="chuong%20trinh%20tham%20khao_files/arrow_right.gif" alt="" border="0" height="7" width="4">
+        </a>
+      </div>
+      <ul class="news">
+      
+        <li>
+          <span>•</span>&nbsp;<a href="http://www.javavietnam.org/javavn/cms/vi/java_tutorials/lap_trinh_j2me_co_ban_bai_14.html" class="itemlink">Bài 14: Lập trình giao diện cấp cao với...</a>
+        </li>
+      
+        <li>
+          <span>•</span>&nbsp;<a href="http://www.javavietnam.org/javavn/cms/vi/java_tutorials/lap_trinh_j2me_co_ban_bai_13.html" class="itemlink">Bài 13: Lập trình giao diện cấp cao với...</a>
+        </li>
+      
+        <li>
+          <span>•</span>&nbsp;<a href="http://www.javavietnam.org/javavn/cms/vi/java_tutorials/lap_trinh_j2me_co_ban_bai_12.html" class="itemlink">Bài 12: Lập trình giao diện cấp cao với...</a>
+        </li>
+      
+        <li>
+          <span>•</span>&nbsp;<a href="http://www.javavietnam.org/javavn/cms/vi/java_tutorials/lap_trinh_j2me_co_ban_bai_11.html" class="itemlink">Bài 11: Lập trình giao diện cấp cao với...</a>
+        </li>
+      
+      </ul>
+    </td>
+    
+    
+  </tr>
+</tbody></table>
+
+
+          </td>
+        </tr>
+      </tbody></table>
+      
+    </td>
+  </tr>
+</tbody></table>
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+<table align="center" width="95%">
+  <tbody><tr class="nav">
+    <td nowrap="nowrap" width="100%">
+        <img src="chuong%20trinh%20tham%20khao_files/nav2.gif" alt="" border="0" height="15" width="15">&nbsp;
+  <a href="http://www.javavietnam.org/javavn/mvnforum/index" class="nav1">JavaVietnam.org</a>
+  <br>
+
+
+    <img src="chuong%20trinh%20tham%20khao_files/icon_bar.gif" alt="" border="0" height="15" width="15">
+    <img src="chuong%20trinh%20tham%20khao_files/icon_folder_open.gif" alt="" border="0" height="15" width="15">&nbsp;  
+    <span class="nav1">Nhóm diễn đàn:</span>&nbsp;<a href="http://www.javavietnam.org/javavn/mvnforum/listforums?category=1&amp;other_category_invisible=true" class="nav1">Java SE</a><br>
+
+
+
+      <img src="chuong%20trinh%20tham%20khao_files/icon_blank.gif" alt="" border="0" height="15" width="15">
+    <img src="chuong%20trinh%20tham%20khao_files/icon_bar.gif" alt="" border="0" height="15" width="15">
+    <img src="chuong%20trinh%20tham%20khao_files/icon_folder_open_topic.gif" alt="" border="0" height="15" width="15">&nbsp;
+    <span class="nav1">Diễn đàn:</span>&nbsp;<a href="http://www.javavietnam.org/javavn/mvnforum/listthreads?forum=8" class="nav1">Lập trình cơ sở dữ liệu với JDBC</a>
+    <br>
+
+
+
+        <img src="chuong%20trinh%20tham%20khao_files/icon_blank.gif" alt="" border="0" height="15" width="15">
+        <img src="chuong%20trinh%20tham%20khao_files/icon_blank.gif" alt="" border="0" height="15" width="15">
+    <img src="chuong%20trinh%20tham%20khao_files/icon_bar.gif" alt="" border="0" height="15" width="15">
+    <img src="chuong%20trinh%20tham%20khao_files/icon_thread_topic.gif" alt="" border="0" height="15" width="15">&nbsp;
+    <span class="rowcurrent">Luồng: help with "Exception in thread "main" java.lang.NullPointerException"</span>
+
+    </td>
+  </tr>
+</tbody></table>
+<br>
+
+<table align="center" width="95%">
+  <tbody><tr class="portlet-font"><td>
+    <form action="">
+      Chuyển nhanh tới »
+              <select name="FastGoForum" onchange="gotoPage(this.options[this.selectedIndex].value)">
+            <option value="">Chọn diễn đàn</option>
+            <option value=""></option>
+                  <option value="listforums?category=4&amp;other_category_invisible=true">
+      
+        ----&gt;JavaVietnam.org 
+        </option>   
+                <option value="">--------------------------------</option>
+                    <option value="listthreads?forum=1">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thông báo</option>
+                    <option value="listthreads?forum=2">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Góp ý xây dựng diễn đàn</option>
+                    <option value="listthreads?forum=24">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Box dành cho dự án Hỗ trợ Tiếng việt Unicode trong J2SDK</option>
+            <option value=""></option>
+                  <option value="listforums?category=6&amp;other_category_invisible=true">
+      
+        ----&gt;Tutorial - Bài viết hướng dẫn hoàn chỉnh 
+        </option>   
+                <option value="">--------------------------------</option>
+                    <option value="listthreads?forum=28">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;My Java Tutor</option>
+                    <option value="listthreads?forum=31">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Các vấn đề khác</option>
+                    <option value="listthreads?forum=33">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Box dành cho dự án</option>
+            <option value=""></option>
+                  <option value="listforums?category=8&amp;other_category_invisible=true">
+      
+        ----&gt;Cuộc thi Developer of the Year - 2006 
+        </option>   
+                <option value="">--------------------------------</option>
+                    <option value="listthreads?forum=43">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kỳ 4: Lập trình Java Desktop</option>
+                    <option value="listthreads?forum=40">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kỳ 3: Web Service</option>
+                    <option value="listthreads?forum=39">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kỳ 2: Tiếp cận Portal</option>
+                    <option value="listthreads?forum=38">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kỳ 1: Những Kỹ thuật lập trình trong Mobile Games 2005</option>
+            <option value=""></option>
+                  <option value="listforums?category=1&amp;other_category_invisible=true">
+      
+        ----&gt;Java SE 
+        </option>   
+                <option value="">--------------------------------</option>
+                    <option value="listthreads?forum=17">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Core Java - Java nền tảng</option>
+                    <option value="listthreads?forum=27">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Java Bugs và Java Request to Enhances</option>
+                    <option value="listthreads?forum=20">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Advanced  Java - Java nâng cao</option>
+                    <option value="listthreads?forum=4">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Applets</option>
+                    <option value="listthreads?forum=8" selected="selected">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lập trình cơ sở dữ liệu với JDBC</option>
+                    <option value="listthreads?forum=25">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lập trình tiếng Việt và lập trình đa ngôn ngữ trong Java</option>
+                    <option value="listthreads?forum=3">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Swing / JFC / AWT / SWT</option>
+                    <option value="listthreads?forum=5">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Xuất nhập (I/O) và lập trình mạng</option>
+                    <option value="listthreads?forum=7">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tăng hiệu suất và tốc độ cho các chương trình Java</option>
+                    <option value="listthreads?forum=6">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lập trình đa luồng và đồng bộ hoá trong Java</option>
+                    <option value="listthreads?forum=21">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Java Certificate - Luyện thi chứng chỉ Java</option>
+                    <option value="listthreads?forum=9">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Những vấn đề khác trong J2SE</option>
+            <option value=""></option>
+                  <option value="listforums?category=2&amp;other_category_invisible=true">
+      
+        ----&gt;Java EE 
+        </option>   
+                <option value="">--------------------------------</option>
+                    <option value="listthreads?forum=10">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JSP, Servlet, JavaServer Faces</option>
+                    <option value="listthreads?forum=11">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EJB và các công nghệ khác trong J2EE</option>
+                    <option value="listthreads?forum=12">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Các dịch vụ Web (Web Services) và XML</option>
+                    <option value="listthreads?forum=26">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Portal trong Java</option>
+            <option value=""></option>
+                  <option value="listforums?category=3&amp;other_category_invisible=true">
+      
+        ----&gt;Java ME 
+        </option>   
+                <option value="">--------------------------------</option>
+                    <option value="listthreads?forum=13">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lập trình thiết bị di động với công nghệ Java ME</option>
+                    <option value="listthreads?forum=42">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Các bài hướng dẫn về Java ME</option>
+                    <option value="listthreads?forum=34">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Java Mobile Games 2004</option>
+                    <option value="listthreads?forum=36">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Java Mobile Games 2005</option>
+            <option value=""></option>
+                  <option value="listforums?category=9&amp;other_category_invisible=true">
+      
+        ----&gt;Mobile Labs 2008 
+        </option>   
+                <option value="">--------------------------------</option>
+                    <option value="listthreads?forum=44">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mobile Labs 2008 - JAVA MIDP 2.0</option>
+            <option value=""></option>
+                  <option value="listforums?category=5&amp;other_category_invisible=true">
+      
+        ----&gt;Các thảo luận khác 
+        </option>   
+                <option value="">--------------------------------</option>
+                    <option value="listthreads?forum=16">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tin tức về Java</option>
+                    <option value="listthreads?forum=32">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Các kỹ thuật lập trình, thiết kế phần mềm, phân tích và thiết kế hệ thống</option>
+                    <option value="listthreads?forum=35">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Việc Làm-Tuyển Dụng ngành phần mềm</option>
+                    <option value="listthreads?forum=18">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tài nguyên cho người sử dụng Java</option>
+                    <option value="listthreads?forum=15">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Công cụ và môi trường phát triển Java</option>
+                    <option value="listthreads?forum=23">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mã nguồn mẫu - Dự án lập trình - Ý tưởng thiết kế của bạn</option>
+                    <option value="listthreads?forum=22">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Trao đổi - Thảo luận - ChitChat</option>
+            <option value=""></option>
+                  <option value="listforums?category=7&amp;other_category_invisible=true">
+      
+        ----&gt;Garbage Collection 
+        </option>   
+                <option value="">--------------------------------</option>
+                    <option value="listthreads?forum=41">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thùng rác</option>
+       </select>
+        
+    </form>
+  </td></tr>
+</tbody></table>
+<br>
+
+  
+<br>
+
+
+
+<table align="center" width="95%">
+  <tbody><tr>
+    <td class="portlet-font">
+                    
+          Không có thành viên nào đang xem luồng    
+    
+    </td>
+  </tr>
+</tbody></table>
+
+
+<table align="center" width="95%">
+  <tbody><tr>
+    <td valign="bottom">
+      <span class="portlet-font">Trạng thái luồng: <span class="">Bình thường</span></span><br>
+      
+      
+      <span class="highlight">Tổng số bài viết trong luồng này: 4</span>
+      
+
+
+
+    </td>
+
+    <td align="right" valign="bottom">
+    
+      
+                
+      
+        
+
+
+
+    
+    <a class="command" href="http://www.javavietnam.org/javavn/mvnforum/addpost?forum=8"><img src="chuong%20trinh%20tham%20khao_files/button_new_thread.gif" alt="Tạo luồng mới" title="Tạo luồng mới" border="0"></a>
+    
+    </td>
+
+  </tr>
+</tbody></table>
+
+<table class="tborder" align="center" cellpadding="5" cellspacing="0" width="95%">
+  <tbody><tr class="portlet-section-header">
+    <td align="center" nowrap="nowrap" width="155">Tác giả</td>
+    <td align="center">
+      <table class="noborder" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr>
+          <td nowrap="nowrap">
+            
+            <a href="http://www.javavietnam.org/javavn/mvnforum/viewthread_thread,24952"><img src="chuong%20trinh%20tham%20khao_files/left.gif" alt="Luồng trước đó" title="Luồng trước đó" border="0"></a>
+            
+          </td>
+          <td class="portlet-section-header" align="center" width="100%">
+            Luồng này đã được xem <font color="Aqua">64</font> lần và có <font color="Yellow">3</font>
+            bài trả lời
+          </td>
+          <td nowrap="nowrap">
+            
+            <a href="http://www.javavietnam.org/javavn/mvnforum/viewthread_thread,25028"><img src="chuong%20trinh%20tham%20khao_files/right.gif" alt="Luồng kế tiếp" title="Luồng kế tiếp" border="0"></a>
+            
+          </td>
+        </tr>
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table>
+
+
+
+
+
+<a name="104121"></a>
+
+<table class="tborder" align="center" cellpadding="5" cellspacing="0" width="95%">
+  <tbody><tr class="trow0">
+    <td rowspan="2" valign="top" width="155">
+      
+          
+          
+          <img src="chuong%20trinh%20tham%20khao_files/male.gif" alt="Nam" title="Nam" border="0">
+          
+        <a href="http://www.javavietnam.org/javavn/mvnforum/viewmember?member=DHNghia" class="memberName">DHNghia</a>
+        <br>
+        Thành viên mới
+        <br>
+        
+        <br><br>
+        
+        <br>
+        
+        <br>
+        
+              
+        Tham gia: <b>29-04-2009</b><br>
+        
+             
+        Tổng số bài đã viết: <b>2</b><br>
+        
+
+        
+          Trạng thái:
+          
+              Ngoại tuyến
+          
+        
+      
+    </td>
+    <td valign="top">
+      <table class="noborder" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr>
+          <td class="messageTextBold" valign="top" width="100%">
+            
+            
+              
+            
+               <a href="http://www.javavietnam.org/javavn/mvnforum/addpost?parent=104121"><img src="chuong%20trinh%20tham%20khao_files/button_reply.gif" alt="Trả lời bài viết" title="Trả lời bài viết" border="0"></a>&nbsp;
+               <a href="http://www.javavietnam.org/javavn/mvnforum/addpost?parent=104121&amp;quote=yes"><img src="chuong%20trinh%20tham%20khao_files/button_quote.gif" alt="Trả lời với trích dẫn" title="Trả lời với trích dẫn" border="0"></a>&nbsp;
+            
+              
+          </td>
+          
+        </tr>
+        <tr>
+          <td colspan="2" class="messageTextBold" align="left" valign="top" width="100%">
+            
+                <img src="chuong%20trinh%20tham%20khao_files/smile.gif" alt="smile" title="smile" border="0"> 
+            
+
+            
+            <span id="posttopic_104121">
+              help with "Exception in thread "main" java.lang.NullPointerException"
+            </span>
+          </td>
+        </tr>   
+      </tbody></table>
+      <hr noshade="noshade" size="1">
+    
+      hi,<br>i get Exception in thread "main" java.lang.NullPointerException<br>when i run my application.<br>the exact error is:<br>Error: java.sql.SQLException: [Microsoft][ODBC SQL Server Driver][SQL Server]Invalid object name 'product'.<br>Exception in thread "main" java.lang.NullPointerException<br>    at productinfo.ProductInfo.&lt;init&gt;(ProductInfo.java:54)<br>    at productinfo.ProductInfo.main(ProductInfo.java:203)<br><div class="divcode"><code class="prettyprint"><span class="com">/*<br>&nbsp;* To change this template, choose Tools | Templates<br>&nbsp;* and open the template in the editor.<br>&nbsp;*/</span><span class="pln"><br><br></span><span class="kwd">package</span><span class="pln"> productinfo</span><span class="pun">;</span><span class="pln"><br><br><br></span><span class="kwd">import</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">swing</span><span class="pun">.*;</span><span class="pln"><br></span><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">awt</span><span class="pun">.*;</span><span class="pln"><br></span><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">awt</span><span class="pun">.</span><span class="kwd">event</span><span class="pun">.*;</span><span class="pln"><br></span><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">sql</span><span class="pun">.*;</span><span class="pln"><br></span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ProductInfo</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">JFrame</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> </span><span class="typ">ActionListener</span><span class="pln"><br></span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">/*Declare the variables to create the application interface for the Product Information application*/</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">JLabel</span><span class="pln"> heading</span><span class="pun">,</span><span class="pln"> id</span><span class="pun">,</span><span class="pln"> desc</span><span class="pun">,</span><span class="pln"> rate</span><span class="pun">,</span><span class="pln"> quantity</span><span class="pun">,</span><span class="pln"> unit_of_msr</span><span class="pun">,</span><span class="pln"> empty_label</span><span class="pun">,</span><span class="pln"> error</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">JTextField</span><span class="pln"> idField</span><span class="pun">,</span><span class="pln"> descFiled</span><span class="pun">,</span><span class="pln"> rateField</span><span class="pun">,</span><span class="pln"> quantityField</span><span class="pun">,</span><span class="pln">unit_of_msrField</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">JButton</span><span class="pln"> insert</span><span class="pun">,</span><span class="pln"> update</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">delete</span><span class="pun">,</span><span class="pln"> clear</span><span class="pun">,</span><span class="pln"> exit</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">GridBagLayout</span><span class="pln"> gbl</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">GridBagConstraints</span><span class="pln"> gbc</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">JComboBox</span><span class="pln"> idCombo</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">Connection</span><span class="pln"> con</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">PreparedStatement</span><span class="pln"> stat</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">Statement</span><span class="pln"> stmt</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">ResultSet</span><span class="pln"> rs</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">Font</span><span class="pln"> f</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">JPanel</span><span class="pln"> jpl</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">/*Define the constructor for the Product Infomation application*/</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">ProductInfo</span><span class="pun">()</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">/*Type the User Interface creation code here*/</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">try</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">/*Initialize and load JDBC-ODBC bridge driver*/</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">Class</span><span class="pun">.</span><span class="pln">forName</span><span class="pun">(</span><span class="str">"sun.jdbc.odbc.JdbcOdbcDriver"</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">/*Connect to a data source*/</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; con </span><span class="pun">=</span><span class="pln"> </span><span class="typ">DriverManager</span><span class="pun">.</span><span class="pln">getConnection</span><span class="pun">(</span><span class="str">"jdbc:odbc:HIEUNGHIA"</span><span class="pun">,</span><span class="str">"FFK"</span><span class="pun">,</span><span class="str">""</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">/*Create a Statement object*/</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; stmt </span><span class="pun">=</span><span class="pln"> con</span><span class="pun">.</span><span class="pln">createStatement</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">/*Retrieve the rows from the product table and store them in the result set object rs*/</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; rs </span><span class="pun">=</span><span class="pln"> stmt</span><span class="pun">.</span><span class="pln">executeQuery</span><span class="pun">(</span><span class="str">"SELECT p_id FROM product"</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">/*Display the p_id values in the idCombo object*/</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">while</span><span class="pun">(</span><span class="pln">rs</span><span class="pun">.</span><span class="kwd">next</span><span class="pun">())</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; idCombo</span><span class="pun">.</span><span class="pln">addItem</span><span class="pun">(</span><span class="typ">Integer</span><span class="pun">.</span><span class="kwd">toString</span><span class="pun">(</span><span class="pln">rs</span><span class="pun">.</span><span class="pln">getInt</span><span class="pun">(</span><span class="lit">1</span><span class="pun">)));</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">/*Close the Connection object*/</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; con</span><span class="pun">.</span><span class="pln">close</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">catch</span><span class="pun">(</span><span class="typ">Exception</span><span class="pln"> e</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Error: "</span><span class="pun">+</span><span class="pln">e</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; idCombo</span><span class="pun">.</span><span class="pln">addActionListener</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> actionPerformed</span><span class="pun">(</span><span class="typ">ActionEvent</span><span class="pln"> ae</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">ae</span><span class="pun">.</span><span class="pln">getActionCommand</span><span class="pun">()==</span><span class="str">"Exit"</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">/*Terminate the execution of the application*/</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">System</span><span class="pun">.</span><span class="pln">exit</span><span class="pun">(</span><span class="lit">0</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">ae</span><span class="pun">.</span><span class="pln">getActionCommand</span><span class="pun">()==</span><span class="str">"Delete"</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">/*Delete the selected row from the product table*/</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">try</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">/*Initialize the con Connection object */</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; con </span><span class="pun">=</span><span class="pln"> </span><span class="typ">DriverManager</span><span class="pun">.</span><span class="pln">getConnection</span><span class="pun">(</span><span class="str">"jdbc:odbc:HIEUNGHIA"</span><span class="pun">,</span><span class="str">"FFK"</span><span class="pun">,</span><span class="str">""</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">/*Initialize the start PreparedStatement object to delete a row*/</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; stat </span><span class="pun">=</span><span class="pln"> con</span><span class="pun">.</span><span class="pln">prepareStatement</span><span class="pun">(</span><span class="str">"DELETE from product WhERE p_id = ?"</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">String</span><span class="pln"> selected_id </span><span class="pun">=</span><span class="pln"> idCombo</span><span class="pun">.</span><span class="pln">getSelectedItem</span><span class="pun">().</span><span class="kwd">toString</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">int</span><span class="pln"> id </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Integer</span><span class="pun">.</span><span class="pln">parseInt</span><span class="pun">(</span><span class="pln">selected_id</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; stat</span><span class="pun">.</span><span class="pln">setInt</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> id</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">/*Execute the query */</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; stat</span><span class="pun">.</span><span class="pln">executeUpdate</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">/*Close the Connection*/</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; con</span><span class="pun">.</span><span class="pln">close</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">/*Remove ActionListener from idCombo JComboBox object*/</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; idCombo</span><span class="pun">.</span><span class="pln">removeActionListener</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">/*Initialize the con Connection object*/</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; con </span><span class="pun">=</span><span class="pln"> </span><span class="typ">DriverManager</span><span class="pun">.</span><span class="pln">getConnection</span><span class="pun">(</span><span class="str">"jdbc:odbc:HIEUNGHIA"</span><span class="pun">,</span><span class="str">"FFK"</span><span class="pun">,</span><span class="str">""</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">/*Initialize the stmt Statement object*/</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; stmt </span><span class="pun">=</span><span class="pln"> con</span><span class="pun">.</span><span class="pln">createStatement</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">/*Store all the elements from the idCombo JcomboBox object*/</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; idCombo</span><span class="pun">.</span><span class="pln">removeAllItems</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">while</span><span class="pln"> </span><span class="pun">(</span><span class="pln">rs</span><span class="pun">.</span><span class="kwd">next</span><span class="pun">())</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; idCombo</span><span class="pun">.</span><span class="pln">addItem</span><span class="pun">(</span><span class="typ">Integer</span><span class="pun">.</span><span class="kwd">toString</span><span class="pun">(</span><span class="pln">rs</span><span class="pun">.</span><span class="pln">getInt</span><span class="pun">(</span><span class="lit">1</span><span class="pun">)));</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; con</span><span class="pun">.</span><span class="pln">close</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; idCombo</span><span class="pun">.</span><span class="pln">addActionListener</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; idField</span><span class="pun">.</span><span class="pln">setText</span><span class="pun">(</span><span class="str">""</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; descFiled</span><span class="pun">.</span><span class="pln">setText</span><span class="pun">(</span><span class="str">""</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; rateField</span><span class="pun">.</span><span class="pln">setText</span><span class="pun">(</span><span class="str">""</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; quantityField</span><span class="pun">.</span><span class="pln">setText</span><span class="pun">(</span><span class="str">""</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; unit_of_msrField</span><span class="pun">.</span><span class="pln">setText</span><span class="pun">(</span><span class="str">""</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; error</span><span class="pun">.</span><span class="pln">setText</span><span class="pun">(</span><span class="str">"Row Deleted"</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Exception</span><span class="pln"> e</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">{</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Error "</span><span class="pun">+</span><span class="pln"> e</span><span class="pun">);</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; error</span><span class="pun">.</span><span class="pln">setText</span><span class="pun">(</span><span class="str">"Row cannot be deleted"</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">ae</span><span class="pun">.</span><span class="pln">getActionCommand</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"Insert"</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">//Insert a row in the product table</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">try</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">{</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; con </span><span class="pun">=</span><span class="pln"> </span><span class="typ">DriverManager</span><span class="pun">.</span><span class="pln">getConnection</span><span class="pun">(</span><span class="str">"jdbc:odbc:HIEUNGHIA"</span><span class="pun">,</span><span class="str">"FFK"</span><span class="pun">,</span><span class="str">""</span><span class="pun">);</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; stat </span><span class="pun">=</span><span class="pln"> con</span><span class="pun">.</span><span class="pln">prepareStatement</span><span class="pun">(</span><span class="str">"INSERT INTO product VALUES(?,?,?,?,?)"</span><span class="pun">);</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">String</span><span class="pln"> id </span><span class="pun">=</span><span class="pln"> idField</span><span class="pun">.</span><span class="pln">getText</span><span class="pun">();</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">String</span><span class="pln"> description </span><span class="pun">=</span><span class="pln"> descFiled</span><span class="pun">.</span><span class="pln">getText</span><span class="pun">();</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">String</span><span class="pln"> rate </span><span class="pun">=</span><span class="pln"> rateField</span><span class="pun">.</span><span class="pln">getText</span><span class="pun">();</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">String</span><span class="pln"> quantity </span><span class="pun">=</span><span class="pln"> quantityField</span><span class="pun">.</span><span class="pln">getText</span><span class="pun">();</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">String</span><span class="pln"> unit_of_msr </span><span class="pun">=</span><span class="pln"> unit_of_msrField</span><span class="pun">.</span><span class="pln">getText</span><span class="pun">();</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; stat</span><span class="pun">.</span><span class="pln">setInt</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Integer</span><span class="pun">.</span><span class="pln">parseInt</span><span class="pun">(</span><span class="pln">id</span><span class="pun">));</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; stat</span><span class="pun">.</span><span class="pln">setString</span><span class="pun">(</span><span class="lit">2</span><span class="pun">,</span><span class="pln"> description</span><span class="pun">);</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; stat</span><span class="pun">.</span><span class="pln">setDouble</span><span class="pun">(</span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Double</span><span class="pun">.</span><span class="pln">parseDouble</span><span class="pun">(</span><span class="pln">rate</span><span class="pun">));</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; stat</span><span class="pun">.</span><span class="pln">setInt</span><span class="pun">(</span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Integer</span><span class="pun">.</span><span class="pln">parseInt</span><span class="pun">(</span><span class="pln">quantity</span><span class="pun">));</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; stat</span><span class="pun">.</span><span class="pln">setString</span><span class="pun">(</span><span class="lit">5</span><span class="pun">,</span><span class="pln"> unit_of_msr</span><span class="pun">);</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">/*Excute the INSERT statement*/</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; stat</span><span class="pun">.</span><span class="pln">executeUpdate</span><span class="pun">();</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; con</span><span class="pun">.</span><span class="pln">close</span><span class="pun">();</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; idCombo</span><span class="pun">.</span><span class="pln">removeActionListener</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">);</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; con </span><span class="pun">=</span><span class="pln"> </span><span class="typ">DriverManager</span><span class="pun">.</span><span class="pln">getConnection</span><span class="pun">(</span><span class="str">"jdbc:odbc:HIEUNGHIA"</span><span class="pun">,</span><span class="str">"FFK"</span><span class="pun">,</span><span class="str">""</span><span class="pun">);</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; stmt </span><span class="pun">=</span><span class="pln"> con</span><span class="pun">.</span><span class="pln">createStatement</span><span class="pun">();</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; rs </span><span class="pun">=</span><span class="pln"> stmt</span><span class="pun">.</span><span class="pln">executeQuery</span><span class="pun">(</span><span class="str">"SELECT P_id FROM product"</span><span class="pun">);</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; idCombo</span><span class="pun">.</span><span class="pln">removeAllItems</span><span class="pun">();</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">while</span><span class="pln"> </span><span class="pun">(</span><span class="pln">rs</span><span class="pun">.</span><span class="kwd">next</span><span class="pun">())</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">/*Refresh the id values in the idCombo JComboBox after inserting a new row */</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; idCombo</span><span class="pun">.</span><span class="pln">addItem</span><span class="pun">(</span><span class="typ">Integer</span><span class="pun">.</span><span class="kwd">toString</span><span class="pun">(</span><span class="pln">rs</span><span class="pun">.</span><span class="pln">getInt</span><span class="pun">(</span><span class="lit">1</span><span class="pun">)));</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; con</span><span class="pun">.</span><span class="pln">close</span><span class="pun">();</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; idCombo</span><span class="pun">.</span><span class="pln">addActionListener</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">);</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; error</span><span class="pun">.</span><span class="pln">setText</span><span class="pun">(</span><span class="str">"Row Inserted"</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">catch</span><span class="pun">(</span><span class="typ">Exception</span><span class="pln"> e</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">{</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Error1"</span><span class="pun">+</span><span class="pln">e</span><span class="pun">);</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; error</span><span class="pun">.</span><span class="pln">setText</span><span class="pun">(</span><span class="str">"Row cannot be inserted"</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">ae</span><span class="pun">.</span><span class="pln">getSource</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> idCombo</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">{</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">/*Display the row correspoding the id selected in the idCombo comboBox*/</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">try</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">{</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; con </span><span class="pun">=</span><span class="pln"> </span><span class="typ">DriverManager</span><span class="pun">.</span><span class="pln">getConnection</span><span class="pun">(</span><span class="str">"jdbc:odbc:HIEUNGHIA"</span><span class="pun">,</span><span class="str">"FFK"</span><span class="pun">,</span><span class="str">""</span><span class="pun">);</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; </span><span class="typ">String</span><span class="pln"> selected_id </span><span class="pun">=</span><span class="pln"> idCombo</span><span class="pun">.</span><span class="pln">getSelectedItem</span><span class="pun">().</span><span class="kwd">toString</span><span class="pun">();</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> id<br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Integer</span><span class="pun">.</span><span class="pln">parseInt</span><span class="pun">(</span><span class="pln">selected_id</span><span class="pun">);</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; stmt </span><span class="pun">=</span><span class="pln"> con</span><span class="pun">.</span><span class="pln">createStatement</span><span class="pun">();</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; rs </span><span class="pun">=</span><span class="pln"> stmt</span><span class="pun">.</span><span class="pln">executeQuery</span><span class="pun">(</span><span class="str">"SELECT p_desc, p_rate, p_qty, unit_of_msr FROM product WHERE p_id = "</span><span class="pun">+</span><span class="pln">id</span><span class="pun">);</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; rs</span><span class="pun">.</span><span class="kwd">next</span><span class="pun">();</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; idField</span><span class="pun">.</span><span class="pln">setText</span><span class="pun">(</span><span class="pln">selected_id</span><span class="pun">);</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; descFiled</span><span class="pun">.</span><span class="pln">setText</span><span class="pun">(</span><span class="pln">rs</span><span class="pun">.</span><span class="pln">getString</span><span class="pun">(</span><span class="lit">1</span><span class="pun">));</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; rateField</span><span class="pun">.</span><span class="pln">setText</span><span class="pun">(</span><span class="typ">Double</span><span class="pun">.</span><span class="kwd">toString</span><span class="pun">(</span><span class="pln">rs</span><span class="pun">.</span><span class="pln">getDouble</span><span class="pun">(</span><span class="lit">2</span><span class="pun">)));</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; quantityField</span><span class="pun">.</span><span class="pln">setText</span><span class="pun">(</span><span class="typ">Integer</span><span class="pun">.</span><span class="kwd">toString</span><span class="pun">(</span><span class="pln">rs</span><span class="pun">.</span><span class="pln">getInt</span><span class="pun">(</span><span class="lit">3</span><span class="pun">)));</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; unit_of_msrField</span><span class="pun">.</span><span class="pln">setText</span><span class="pun">(</span><span class="pln">rs</span><span class="pun">.</span><span class="pln">getString</span><span class="pun">(</span><span class="lit">4</span><span class="pun">));</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; con</span><span class="pun">.</span><span class="pln">close</span><span class="pun">();</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">catch</span><span class="pun">(</span><span class="typ">Exception</span><span class="pln"> e</span><span class="pun">)</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">{</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Error"</span><span class="pln"> </span><span class="pun">+</span><span class="pln">e</span><span class="pun">);</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">ae</span><span class="pun">.</span><span class="pln">getActionCommand</span><span class="pun">()==</span><span class="str">"Update"</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">{</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">try</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">{</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; con </span><span class="pun">=</span><span class="pln"> </span><span class="typ">DriverManager</span><span class="pun">.</span><span class="pln">getConnection</span><span class="pun">(</span><span class="str">"jdbc:odbc:HIEUNGHIA"</span><span class="pun">,</span><span class="str">"FFK"</span><span class="pun">,</span><span class="str">""</span><span class="pun">);</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; </span><span class="com">/*Initialize the stat PreparedStatement object to update a row in the product table*/</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; stat </span><span class="pun">=</span><span class="pln"> con</span><span class="pun">.</span><span class="pln">prepareStatement</span><span class="pun">(</span><span class="str">"UPDATE Product SET p_desc= ?, p_rate= ?, p_qty= ?, unit_of_msr= ?, where p_id= ?"</span><span class="pun">);</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; </span><span class="typ">String</span><span class="pln"> description </span><span class="pun">=</span><span class="pln"> descFiled</span><span class="pun">.</span><span class="pln">getText</span><span class="pun">();</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; </span><span class="typ">String</span><span class="pln"> rate </span><span class="pun">=</span><span class="pln"> rateField</span><span class="pun">.</span><span class="pln">getText</span><span class="pun">();</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; </span><span class="typ">String</span><span class="pln"> quantity </span><span class="pun">=</span><span class="pln"> quantityField</span><span class="pun">.</span><span class="pln">getText</span><span class="pun">();</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; </span><span class="typ">String</span><span class="pln"> unit_of_msr </span><span class="pun">=</span><span class="pln"> unit_of_msrField</span><span class="pun">.</span><span class="pln">getText</span><span class="pun">();</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; </span><span class="typ">String</span><span class="pln"> id_selected </span><span class="pun">=</span><span class="pln"> idField</span><span class="pun">.</span><span class="pln">getText</span><span class="pun">();</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; </span><span class="kwd">int</span><span class="pln"> id </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Integer</span><span class="pun">.</span><span class="pln">parseInt</span><span class="pun">(</span><span class="pln">id_selected</span><span class="pun">);</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; stat</span><span class="pun">.</span><span class="pln">setString</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> description</span><span class="pun">);</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; stat</span><span class="pun">.</span><span class="pln">setDouble</span><span class="pun">(</span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Double</span><span class="pun">.</span><span class="pln">parseDouble</span><span class="pun">(</span><span class="pln">rate</span><span class="pun">));</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; stat</span><span class="pun">.</span><span class="pln">setInt</span><span class="pun">(</span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Integer</span><span class="pun">.</span><span class="pln">parseInt</span><span class="pun">(</span><span class="pln">quantity</span><span class="pun">));</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; stat</span><span class="pun">.</span><span class="pln">setString</span><span class="pun">(</span><span class="lit">4</span><span class="pun">,</span><span class="pln"> unit_of_msr</span><span class="pun">);</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; stat</span><span class="pun">.</span><span class="pln">setInt</span><span class="pun">(</span><span class="lit">5</span><span class="pun">,</span><span class="pln">id</span><span class="pun">);</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; </span><span class="com">/*Execute the UPDATE statement*/</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; stat</span><span class="pun">.</span><span class="pln">executeUpdate</span><span class="pun">();</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; con</span><span class="pun">.</span><span class="pln">close</span><span class="pun">();</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; error</span><span class="pun">.</span><span class="pln">setText</span><span class="pun">(</span><span class="str">"Row Updated"</span><span class="pun">);</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">catch</span><span class="pun">(</span><span class="typ">Exception</span><span class="pln"> e</span><span class="pun">)</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">{</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Error"</span><span class="pun">+</span><span class="pln">e</span><span class="pun">);</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; error</span><span class="pun">.</span><span class="pln">setText</span><span class="pun">(</span><span class="str">"Cannot update the row"</span><span class="pun">);</span><span class="pln"><br>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">ae</span><span class="pun">.</span><span class="pln">getActionCommand</span><span class="pun">()==</span><span class="str">"Clear"</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">/*Clear the contens of all the fields*/</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; idField</span><span class="pun">.</span><span class="pln">setText</span><span class="pun">(</span><span class="str">""</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; descFiled</span><span class="pun">.</span><span class="pln">setText</span><span class="pun">(</span><span class="str">""</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; rateField</span><span class="pun">.</span><span class="pln">setText</span><span class="pun">(</span><span class="str">""</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; quantityField</span><span class="pun">.</span><span class="pln">setText</span><span class="pun">(</span><span class="str">""</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">ProductInfo</span><span class="pln"> p </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ProductInfo</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; p</span><span class="pun">.</span><span class="pln">show</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br></span><span class="pun">}</span><span class="pln"><br></span></code></div><br>can enyone help me ?<br>thanks.<br>
+    
+      
+      
+
+      
+      
+        <br>
+        
+      
+      
+      
+    </td>
+  </tr>
+  <tr class="trow0">
+    <td>
+      <table class="noborder" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr class="trow0">
+          <td nowrap="nowrap">
+          [14:50:30 08-05-2009]
+          
+            <a href="http://www.javavietnam.org/javavn/mvnforum/printpost_post,104121"><img src="chuong%20trinh%20tham%20khao_files/printer.gif" alt="Xem bản để in của bài viết" title="Xem bản để in của bài viết" border="0"></a>
+          </td>
+          <td width="100%">
+            
+              &nbsp;&nbsp;&nbsp;<a href="http://www.javavietnam.org/javavn/mvnforum/viewmember?member=DHNghia"><img src="chuong%20trinh%20tham%20khao_files/button_profile.gif" alt="Xem thông tin cá nhân của thành viên" title="Xem thông tin cá nhân của thành viên" border="0"></a>
+              &nbsp;&nbsp;&nbsp;<a href="http://www.javavietnam.org/javavn/mvnforum/addmessage?MessageToList=DHNghia"><img src="chuong%20trinh%20tham%20khao_files/button_pm.gif" alt="Gửi thông điệp cá nhân" title="Gửi thông điệp cá nhân" border="0"></a>
+              
+                    &nbsp;&nbsp;&nbsp;<img src="chuong%20trinh%20tham%20khao_files/button_email.gif" alt="Không hiển thị cho khách viếng" title="Không hiển thị cho khách viếng" border="0">
+                
+               
+              
+              
+              
+              
+            
+          </td>
+          <td nowrap="nowrap">
+            <a href="#104121">[Liên kết của bài]</a>
+            
+              <img src="chuong%20trinh%20tham%20khao_files/threat.gif" alt="Thông báo bài gửi có nội dung xấu: mời bạn đăng nhập trước" title="Thông báo bài gửi có nội dung xấu: mời bạn đăng nhập trước" border="0">
+            
+            &nbsp;<a href="#"><img src="chuong%20trinh%20tham%20khao_files/up.gif" alt="Chuyển về đầu trang" title="Chuyển về đầu trang" border="0"></a>&nbsp;
+          </td>
+        </tr>
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table>
+
+
+
+
+<a name="104135"></a>
+
+<table class="tborder" align="center" cellpadding="5" cellspacing="0" width="95%">
+  <tbody><tr class="portlet-section-alternate">
+    <td rowspan="2" valign="top" width="155">
+      
+          
+          
+          <img src="chuong%20trinh%20tham%20khao_files/male.gif" alt="Nam" title="Nam" border="0">
+          
+        <a href="http://www.javavietnam.org/javavn/mvnforum/viewmember?member=minhtq1207" class="memberName">minhtq1207</a>
+        <br>
+        Thành viên đang quan tâm đến Java
+        <br>
+        
+        <br><br>
+        
+        <br>
+        
+        <br>
+        
+              
+        Tham gia: <b>26-02-2008</b><br>
+        
+             
+        Tổng số bài đã viết: <b>45</b><br>
+        
+
+        
+          Trạng thái:
+          
+              Ngoại tuyến
+          
+        
+      
+    </td>
+    <td valign="top">
+      <table class="noborder" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr>
+          <td class="messageTextBold" valign="top" width="100%">
+            
+            
+              
+            
+               <a href="http://www.javavietnam.org/javavn/mvnforum/addpost?parent=104135"><img src="chuong%20trinh%20tham%20khao_files/button_reply.gif" alt="Trả lời bài viết" title="Trả lời bài viết" border="0"></a>&nbsp;
+               <a href="http://www.javavietnam.org/javavn/mvnforum/addpost?parent=104135&amp;quote=yes"><img src="chuong%20trinh%20tham%20khao_files/button_quote.gif" alt="Trả lời với trích dẫn" title="Trả lời với trích dẫn" border="0"></a>&nbsp;
+            
+              
+          </td>
+          
+        </tr>
+        <tr>
+          <td colspan="2" class="messageTextBold" align="left" valign="top" width="100%">
+            
+
+            
+            <span id="posttopic_104135">
+              Re: help with "Exception in thread "main" java.lang.NullPointerException"
+            </span>
+          </td>
+        </tr>   
+      </tbody></table>
+      <hr noshade="noshade" size="1">
+[Microsoft][ODBC SQL Server Driver][SQL Server]Invalid object name
+'product'. check lai xem trong db da co bang nay chua,no bao la ko co
+table nay<br>
+    
+      
+      
+
+      
+      
+      
+      
+    </td>
+  </tr>
+  <tr class="portlet-section-alternate">
+    <td>
+      <table class="noborder" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr class="portlet-section-alternate">
+          <td nowrap="nowrap">
+          [23:12:51 08-05-2009]
+          
+            <a href="http://www.javavietnam.org/javavn/mvnforum/printpost_post,104135"><img src="chuong%20trinh%20tham%20khao_files/printer.gif" alt="Xem bản để in của bài viết" title="Xem bản để in của bài viết" border="0"></a>
+          </td>
+          <td width="100%">
+            
+              &nbsp;&nbsp;&nbsp;<a href="http://www.javavietnam.org/javavn/mvnforum/viewmember?member=minhtq1207"><img src="chuong%20trinh%20tham%20khao_files/button_profile.gif" alt="Xem thông tin cá nhân của thành viên" title="Xem thông tin cá nhân của thành viên" border="0"></a>
+              &nbsp;&nbsp;&nbsp;<a href="http://www.javavietnam.org/javavn/mvnforum/addmessage?MessageToList=minhtq1207"><img src="chuong%20trinh%20tham%20khao_files/button_pm.gif" alt="Gửi thông điệp cá nhân" title="Gửi thông điệp cá nhân" border="0"></a>
+              
+                    &nbsp;&nbsp;&nbsp;<img src="chuong%20trinh%20tham%20khao_files/button_email.gif" alt="Không hiển thị cho khách viếng" title="Không hiển thị cho khách viếng" border="0">
+                
+               
+              
+              
+              
+              
+            
+          </td>
+          <td nowrap="nowrap">
+            <a href="#104135">[Liên kết của bài]</a>
+            
+              <img src="chuong%20trinh%20tham%20khao_files/threat.gif" alt="Thông báo bài gửi có nội dung xấu: mời bạn đăng nhập trước" title="Thông báo bài gửi có nội dung xấu: mời bạn đăng nhập trước" border="0">
+            
+            &nbsp;<a href="#"><img src="chuong%20trinh%20tham%20khao_files/up.gif" alt="Chuyển về đầu trang" title="Chuyển về đầu trang" border="0"></a>&nbsp;
+          </td>
+        </tr>
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table>
+
+
+
+
+<a name="104147"></a>
+
+<table class="tborder" align="center" cellpadding="5" cellspacing="0" width="95%">
+  <tbody><tr class="portlet-section-body">
+    <td rowspan="2" valign="top" width="155">
+      
+          
+          
+          <img src="chuong%20trinh%20tham%20khao_files/male.gif" alt="Nam" title="Nam" border="0">
+          
+        <a href="http://www.javavietnam.org/javavn/mvnforum/viewmember?member=DHNghia" class="memberName">DHNghia</a>
+        <br>
+        Thành viên mới
+        <br>
+        
+        <br><br>
+        
+        <br>
+        
+        <br>
+        
+              
+        Tham gia: <b>29-04-2009</b><br>
+        
+             
+        Tổng số bài đã viết: <b>2</b><br>
+        
+
+        
+          Trạng thái:
+          
+              Ngoại tuyến
+          
+        
+      
+    </td>
+    <td valign="top">
+      <table class="noborder" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr>
+          <td class="messageTextBold" valign="top" width="100%">
+            
+            
+              
+            
+               <a href="http://www.javavietnam.org/javavn/mvnforum/addpost?parent=104147"><img src="chuong%20trinh%20tham%20khao_files/button_reply.gif" alt="Trả lời bài viết" title="Trả lời bài viết" border="0"></a>&nbsp;
+               <a href="http://www.javavietnam.org/javavn/mvnforum/addpost?parent=104147&amp;quote=yes"><img src="chuong%20trinh%20tham%20khao_files/button_quote.gif" alt="Trả lời với trích dẫn" title="Trả lời với trích dẫn" border="0"></a>&nbsp;
+            
+              
+          </td>
+          
+        </tr>
+        <tr>
+          <td colspan="2" class="messageTextBold" align="left" valign="top" width="100%">
+            
+
+            
+            <span id="posttopic_104147">
+              Re: help with "Exception in thread "main" java.lang.NullPointerException"
+            </span>
+          </td>
+        </tr>   
+      </tbody></table>
+      <hr noshade="noshade" size="1">
+    
+      thanks! Mình đã làm được rồi!<br>
+    
+      
+      
+
+      
+      
+      
+      
+    </td>
+  </tr>
+  <tr class="portlet-section-body">
+    <td>
+      <table class="noborder" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr class="portlet-section-body">
+          <td nowrap="nowrap">
+          [12:53:47 09-05-2009]
+          
+            <a href="http://www.javavietnam.org/javavn/mvnforum/printpost_post,104147"><img src="chuong%20trinh%20tham%20khao_files/printer.gif" alt="Xem bản để in của bài viết" title="Xem bản để in của bài viết" border="0"></a>
+          </td>
+          <td width="100%">
+            
+              &nbsp;&nbsp;&nbsp;<a href="http://www.javavietnam.org/javavn/mvnforum/viewmember?member=DHNghia"><img src="chuong%20trinh%20tham%20khao_files/button_profile.gif" alt="Xem thông tin cá nhân của thành viên" title="Xem thông tin cá nhân của thành viên" border="0"></a>
+              &nbsp;&nbsp;&nbsp;<a href="http://www.javavietnam.org/javavn/mvnforum/addmessage?MessageToList=DHNghia"><img src="chuong%20trinh%20tham%20khao_files/button_pm.gif" alt="Gửi thông điệp cá nhân" title="Gửi thông điệp cá nhân" border="0"></a>
+              
+                    &nbsp;&nbsp;&nbsp;<img src="chuong%20trinh%20tham%20khao_files/button_email.gif" alt="Không hiển thị cho khách viếng" title="Không hiển thị cho khách viếng" border="0">
+                
+               
+              
+              
+              
+              
+            
+          </td>
+          <td nowrap="nowrap">
+            <a href="#104147">[Liên kết của bài]</a>
+            
+              <img src="chuong%20trinh%20tham%20khao_files/threat.gif" alt="Thông báo bài gửi có nội dung xấu: mời bạn đăng nhập trước" title="Thông báo bài gửi có nội dung xấu: mời bạn đăng nhập trước" border="0">
+            
+            &nbsp;<a href="#"><img src="chuong%20trinh%20tham%20khao_files/up.gif" alt="Chuyển về đầu trang" title="Chuyển về đầu trang" border="0"></a>&nbsp;
+          </td>
+        </tr>
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table>
+
+
+
+
+<a name="104159"></a>
+
+  <a name="lastpost"></a>
+
+<table class="tborder" align="center" cellpadding="5" cellspacing="0" width="95%">
+  <tbody><tr class="portlet-section-alternate">
+    <td rowspan="2" valign="top" width="155">
+      
+          
+          
+          <img src="chuong%20trinh%20tham%20khao_files/male.gif" alt="Nam" title="Nam" border="0">
+          
+        <a href="http://www.javavietnam.org/javavn/mvnforum/viewmember?member=mrdiego" class="memberName">mrdiego</a>
+        <br>
+        Thành viên đang quan tâm đến Java
+        <br>
+        
+        <div align="center"><img src="chuong%20trinh%20tham%20khao_files/getavatar.jpg" alt="Hình đại diện của thành viên" title="Hình đại diện của thành viên" border="0"></div>
+        
+        <br>
+        
+        VietNam<br>
+        
+              
+        Tham gia: <b>05-05-2009</b><br>
+        
+             
+        Tổng số bài đã viết: <b>40</b><br>
+        
+
+        
+          Trạng thái:
+          
+              Ngoại tuyến
+          
+        
+      
+    </td>
+    <td valign="top">
+      <table class="noborder" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr>
+          <td class="messageTextBold" valign="top" width="100%">
+            
+            
+              
+            
+               <a href="http://www.javavietnam.org/javavn/mvnforum/addpost?parent=104159"><img src="chuong%20trinh%20tham%20khao_files/button_reply.gif" alt="Trả lời bài viết" title="Trả lời bài viết" border="0"></a>&nbsp;
+               <a href="http://www.javavietnam.org/javavn/mvnforum/addpost?parent=104159&amp;quote=yes"><img src="chuong%20trinh%20tham%20khao_files/button_quote.gif" alt="Trả lời với trích dẫn" title="Trả lời với trích dẫn" border="0"></a>&nbsp;
+            
+              
+          </td>
+          
+        </tr>
+        <tr>
+          <td colspan="2" class="messageTextBold" align="left" valign="top" width="100%">
+            
+
+            
+            <span id="posttopic_104159">
+              Re: help with "Exception in thread "main" java.lang.NullPointerException"
+            </span>
+          </td>
+        </tr>   
+      </tbody></table>
+      <hr noshade="noshade" size="1">
+    
+      Mình cũng từng mắc thế này<br>
+    
+      
+      
+            ----------------------------------------<br>
+            Thích thì nhiều, yêu chỉ một...<br>Diego.<br>
+        
+
+      
+      
+      
+      
+    </td>
+  </tr>
+  <tr class="portlet-section-alternate">
+    <td>
+      <table class="noborder" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr class="portlet-section-alternate">
+          <td nowrap="nowrap">
+          [15:17:49 09-05-2009]
+          
+            <a href="http://www.javavietnam.org/javavn/mvnforum/printpost_post,104159"><img src="chuong%20trinh%20tham%20khao_files/printer.gif" alt="Xem bản để in của bài viết" title="Xem bản để in của bài viết" border="0"></a>
+          </td>
+          <td width="100%">
+            
+              &nbsp;&nbsp;&nbsp;<a href="http://www.javavietnam.org/javavn/mvnforum/viewmember?member=mrdiego"><img src="chuong%20trinh%20tham%20khao_files/button_profile.gif" alt="Xem thông tin cá nhân của thành viên" title="Xem thông tin cá nhân của thành viên" border="0"></a>
+              &nbsp;&nbsp;&nbsp;<a href="http://www.javavietnam.org/javavn/mvnforum/addmessage?MessageToList=mrdiego"><img src="chuong%20trinh%20tham%20khao_files/button_pm.gif" alt="Gửi thông điệp cá nhân" title="Gửi thông điệp cá nhân" border="0"></a>
+              
+               
+              &nbsp;&nbsp;&nbsp;<a href="http://www.javavietnam.org/javavn/mvnforum/listrecentthreads"><img src="chuong%20trinh%20tham%20khao_files/www.gif" alt="http://www.javavietnam.org/javavn/mvnforum/listrecentthreads" title="http://www.javavietnam.org/javavn/mvnforum/listrecentthreads" border="0"></a>
+              
+              
+              
+            
+          </td>
+          <td nowrap="nowrap">
+            <a href="#104159">[Liên kết của bài]</a>
+            
+              <img src="chuong%20trinh%20tham%20khao_files/threat.gif" alt="Thông báo bài gửi có nội dung xấu: mời bạn đăng nhập trước" title="Thông báo bài gửi có nội dung xấu: mời bạn đăng nhập trước" border="0">
+            
+            &nbsp;<a href="#"><img src="chuong%20trinh%20tham%20khao_files/up.gif" alt="Chuyển về đầu trang" title="Chuyển về đầu trang" border="0"></a>&nbsp;
+          </td>
+        </tr>
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table>
+
+
+
+<table align="center" width="95%">
+  <tbody><tr>
+    <td>
+      
+
+
+
+    </td>
+    <td align="right">
+      <a class="command" href="http://www.javavietnam.org/javavn/mvnforum/printthread_thread,24957"><img src="chuong%20trinh%20tham%20khao_files/button_printer_friendly_version.gif" alt="Xem bản để in" title="Xem bản để in" border="0"></a>&nbsp;
+    
+      <a class="command" href="http://www.javavietnam.org/javavn/mvnforum/addpost?forum=8"><img src="chuong%20trinh%20tham%20khao_files/button_new_thread.gif" alt="Tạo luồng mới" title="Tạo luồng mới" border="0"></a>
+    
+    </td>
+  </tr>
+</tbody></table>
+
+<input name="previewUrl" id="previewUrl" value="addpost" type="hidden">
+
+
+<br>
+ 
+
+
+
+
+<table class="tborder-no_need" align="center" cellpadding="3" cellspacing="0" width="95%">
+   <tbody><tr class="portlet-section-body">
+   
+     <td align="center"><!-- SiteSearch Google -->
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table bgcolor="#ffffff" border="0">
+<tbody><tr><td align="left" height="32" nowrap="nowrap" valign="top">
+<a href="http://www.google.com/">
+<img src="chuong%20trinh%20tham%20khao_files/Logo_25wht.gif" alt="Google" align="middle" border="0"></a>
+</td>
+<td nowrap="nowrap">
+<input name="domains" value="www.javavietnam.org" type="hidden">
+<label for="sbi" style="display: none;">Enter your search terms</label>
+<input name="q" size="31" maxlength="255" value="" id="sbi" type="text">
+<label for="sbb" style="display: none;">Submit search form</label>
+<input name="sa" value="Search" id="sbb" type="submit">
+</td></tr>
+<tr>
+<td> </td>
+<td nowrap="nowrap">
+<table>
+<tbody><tr>
+<td>
+<input class="noborder" name="sitesearch" value="" checked="checked" id="ss0" type="radio">
+<label for="ss0" title="Search the Web"><font color="#000000" size="-1">Web</font></label></td>
+<td>
+<input class="noborder" name="sitesearch" value="www.javavietnam.org" id="ss1" type="radio">
+<label for="ss1" title="Search www.javavietnam.org"><font color="#000000" size="-1">www.javavietnam.org</font></label></td>
+</tr>
+</tbody></table>
+<input name="client" value="pub-4755965374109189" type="hidden">
+<input name="forid" value="1" type="hidden">
+<input name="channel" value="4062821725" type="hidden">
+<input name="ie" value="UTF-8" type="hidden">
+<input name="oe" value="UTF-8" type="hidden">
+<input name="safe" value="active" type="hidden">
+<input name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;LH:50;LW:140;L:http://www.javavietnam.org/javavn/mvnplugin/mvnforum/images/logo.gif;S:http://;FORID:1" type="hidden">
+<input name="hl" value="en" type="hidden">
+</td></tr></tbody></table>
+</form>
+<!-- SiteSearch Google --></td>
+   
+   </tr>
+</tbody></table>
+<br>
+
+
+<hr class="hrfooter">
+
+<table align="center" cellpadding="0" cellspacing="0" width="95%">
+  <tbody><tr>
+    <td class="pageFooter" align="left">
+    
+      <a href="http://www.javavietnam.org/javavn/mvnforum/rsssummary" class="topmenu"><img src="chuong%20trinh%20tham%20khao_files/xml.gif" alt="Tổng hợp tin (RSS)" title="Tổng hợp tin (RSS)" align="bottom" border="0" hspace="0" vspace="0"></a>
+    
+    </td> 
+    <td class="pageFooter" align="right">
+      Múi giờ hiện tại là +7<br>    
+      01:47:55 19-05-2009
+    </td>
+  </tr>
+</tbody></table>
+
+<hr class="hrfooter">
+<br>
+
+<div class="pageFooter" align="center">
+  <!--
+  We request you retain the full copyright notice below including the link to www.mvnForum.com.
+  This not only gives respect to the large amount of time given freely by the developers
+  but also helps build interest, traffic and use of mvnForum. If you cannot (for good
+  reason) retain the full copyright we request you at least leave in place the
+  "Powered by mvnForum" line, with mvnForum linked to http://www.mvnForum.com.
+  These conditions are parts of the licence this software is released under.
+  For detailed information about mvnForum License Agreement, look at the License Notice at
+  the top of all jsp, java files, README.txt and the GNU General Public License.
+
+  NOTE: In case you need to remove this "Powered by mvnForum", please contact us at 
+  web site www.MyVietnam.net to order a special "Copyright notice Removal" license 
+  with a small license fee. After receiving this special license, you can remove 
+  the copyright notice in this footer.jsp file.
+
+  MyVietnam.net Group
+  -->
+  Powered by <a href="http://www.mvnforum.com/" target="_blank">mvnForum Enterprise 1.3-dev</a> (Build: 24 July 2008)<br>
+  Copyright © 2002-2008 by <a href="http://www.myvietnam.net/" target="_blank">MyVietnam.net</a>
+  <p>&nbsp;</p>
+</div>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="chuong%20trinh%20tham%20khao_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-4030481-2");
+pageTracker._initData();
+pageTracker._trackPageview();
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+</body></html>

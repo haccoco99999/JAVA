@@ -1,0 +1,12 @@
+public class MyClass {
+	public static void main(String [] arg) {
+		String a,b,c;
+		c = new String("Chuot");
+		a = new String("Meo");
+		b = a;
+		a = "Cho";
+		c = b;
+		System.out.println(b);
+	}
+
+}

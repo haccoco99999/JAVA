@@ -1,0 +1,3 @@
+
+
+document.write("<table cellspacing=\"0\" cellpadding=\"0\" class=\"noborder\" border=\"0\"><tr><td width=\"370\" height=\"55\"><border>\r\n<div align=\"left\"><br>\r\n<a href=\"http://www.javavietnam.org/javavn/mvnforum/viewthread_thread,24993_lastpage,yes#104241\" style=\"text-decoration:none\" >\r\n<strong>\r\n<font color=\"#ff0000\" size=\"4\">\r\n  Recruit Quality Control Engineer. Deadline: 29/05/2009\r\n</font></strong></a></br></div></border></td></tr></table>");

@@ -1,0 +1,764 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+
+
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <meta name="author" content="Krzysztof Barteczko">
+  <meta name="description" content="Nhap mon lap trinh">
+  <meta name="copyright" content="(c) Krzysztof Barteczko PJWSTK 2008">
+  <link rel="stylesheet" type="text/css" href="info_data/common.css">
+  <title>Vong lap</title>
+</head><body>
+<div align="center">
+<a name="Iteracje"></a>
+<h1>V&#242;ng l&#7863;p<br>
+</h1>
+</div>
+<hr>
+<i>B&#224;i n&#224;y ti&#7871;p t&#7909;c tr&#236;nh b&#224;y v&#7873; các câu l&#7879;nh đi&#7873;u khi&#7875;n. L&#7847;n n&#224;y chúng
+ta s&#7869; nói v&#7873; các v&#242;ng l&#7863;p</i>
+<hr><a name="Iteracje.1"></a>
+<h2>1. Khái ni&#7879;m v&#7873; v&#242;ng l&#7863;p<br>
+</h2>
+Nhi&#7873;u khi chúng ta ph&#7843;i th&#7921;c hi&#7879;n m&#7897;t chu&#7895;i câu l&#7879;nh l&#7863;p đi l&#7863;p l&#7841;i cho
+đ&#7871;n khi m&#7897;t đi&#7873;u ki&#7879;n n&#224;o đó đ&#432;&#7907;c th&#7887;a m&#227;n (ví d&#7909; ch&#7881; r&#245; s&#7889; l&#7847;n l&#7863;p).
+M&#7895;i l&#7847;n l&#7863;p l&#7841;i m&#7897;t câu l&#7879;nh hay m&#7897;t kh&#7889;i câu l&#7879;nh đ&#432;&#7907;c g&#7885;i l&#224; m&#7897;t <span style="font-weight: bold;">l&#7847;n l&#7863;p</span> (iteration). C&#7845;u trúc ngôn
+ng&#7919; l&#7853;p tr&#236;nh &#432;&#417;ng &#7913;ng đ&#432;&#7907;c g&#7885;i l&#224; <span style="font-weight: bold;">v&#242;ng
+l&#7863;p</span> (iteration loop).<br>
+<br>
+Gi&#7843; s&#7917; chúng ta mu&#7889;n tính t&#7893;ng v&#224; s&#7843;n ph&#7849;m c&#7911;a các s&#7889; nguy&#234;n d&#432;&#417;ng li&#234;n
+ti&#7871;p. Không có các v&#242;ng l&#7863;p chúng ta s&#7869; ph&#7843;i vi&#7871;t m&#7897;t m&#227; nh&#432; sau:<br>
+<br>
+int sum = 0;
+<br>
+int product = 1;
+<br>
+int i = 1;
+<br>
+sum += i;
+<br>
+product *= i;
+<br>
+i++;
+<br>
+sum += i;
+<br>
+product *= i;
+<br>
+i++;
+<br>
+sum += i;
+<br>
+product *=i;
+<br>
+...
+<br>
+<br>
+Chúng ta có th&#7875; th&#7845;y các chu&#7895;i các câu l&#7879;nh tái di&#7877;n &#7903; đây. D&#297; nhi&#234;n l&#224;
+các chu&#7895;i n&#224;y n&#234;n đ&#432;&#7907;c đ&#432;a v&#224;o m&#7897;t v&#242;ng. <br>
+V&#7845;n đ&#7873; quan trong l&#224; ph&#7843;i l&#7853;p công th&#7913;c cho <span style="font-weight: bold;">đi&#7873;u ki&#7879;n ng&#7855;t</span> v&#242;ng m&#7897;t cách đúng
+đ&#7855;n: không th&#7875; tính t&#7893;ng v&#224; nhân t&#7845;t c&#7843; các s&#7889; nguy&#234;n b&#7903;i v&#236; ch&#432;&#417;ng
+tr&#236;nh s&#7869; không bao gi&#7901; d&#7915;ng l&#7841;i.<br>
+<br>
+Thông th&#432;&#7901;ng đi&#7873;u ki&#7879;n ng&#7855;t có th&#7875; đ&#432;&#7907;c c&#7909; th&#7875; th&#224;nh hai cách sau:<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; s&#7889; l&#7847;n l&#7863;p đ&#7875; th&#7909;c hi&#7879;n (s&#7889; l&#7847;n
+l&#7863;p đi l&#7863;p l&#7841;i các câu l&#7879;nh đ&#7863;t trong c&#7845;u trúc v&#242;ng). Ví d&#7909;: c&#7897;ng v&#224;
+nhân các s&#7889; nguy&#234;n t&#7915; 1 đ&#7871;n 20.<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; m&#7897;t đi&#7879;u ki&#7879;n logic n&#224;o đó. Ví
+d&#7909;: c&#7897;ng v&#224; nhân các s&#7889; li&#234;n ti&#7871;p cho đ&#7871;n khi k&#7871;t qu&#7843; đ&#7841;t t&#7899;i 100000.<br>
+<br>
+Trong các câu l&#7879;nh ki&#7875;m soát ta th&#432;&#7901;ng d&#249;ng cách nh&#7853;n ra <span style="font-weight: bold;">các đi&#7873;u ki&#7879;n ti&#7871;p t&#7909;c</span> c&#7911;a v&#242;ng l&#7863;p
+thay v&#236; ng&#7855;t các đi&#7873;u ki&#7879;n v&#236; lý ro minh b&#7841;ch c&#7911;a m&#227; ngu&#7891;n. Tuy nhi&#234;n,
+vi&#7879;c th&#7921;c hi&#7879;n m&#7897;t v&#242;ng có th&#7875; b&#7883; ng&#7855;t t&#7915; b&#234;n trong c&#7845;u trúc v&#242;ng.
+Trong tr&#432;&#7901;ng h&#7907;p nh&#432; th&#7871; <span style="font-weight: bold;">đi&#7873;u ki&#7879;n
+ki&#7875;m tra</span> đ&#7875; ng&#7855;t v&#242;ng l&#224; m&#7897;t đi&#7873;u ki&#7879;n ng&#7855;t. Nh&#7919;ng ng&#432;&#7901;i m&#7899;i h&#7885;c
+c&#7847;n đ&#7863;c bi&#7879;t chú ý đ&#7871;n s&#7921; khác bi&#7879;t tr&#234;n.<br>
+<br>
+Tr&#236;nh b&#224;y vi&#7879;c th&#7921;c hi&#7879;n m&#7897;t v&#242;ng l&#7863;p v&#7899;i s&#7921; tr&#7903; giúp c&#7911;a bi&#7875;u đ&#7891; phát
+tri&#7875;n giúp cho vi&#7879;c hi&#7875;u khái ni&#7879;m n&#224;y d&#7877; d&#224;ng h&#417;n. Thao tác c&#7911;a các
+v&#242;ng ph&#7913;c t&#7841;p h&#417;n c&#7847;n đ&#432;&#7907;c phân tích t&#7915;ng b&#432;&#7899;c m&#7897;t (ch&#7881; có m&#7897;t s&#7889; v&#242;ng
+đ&#7847;u v&#224; v&#242;ng cu&#7889;i).<br>
+<br>
+Chúng ta s&#7869; mô ph&#7887;ng chúng ý tr&#234;n b&#7857;ng cách s&#7917; d&#7909;ng ví d&#7909; sau.<br>
+<br>
+Chúng ta mu&#7889;n tính l&#361;y th&#7915;a n l&#7847;n (v&#7899;i n&gt;=0) c&#7911;a s&#7889; nguy&#234;n đ&#227; cho <span style="font-weight: bold;">a</span>.<br>
+Các v&#242;ng l&#7863;p v&#7899;i m&#7897;t s&#7889; l&#432;&#7907;ng nh&#7845;t đ&#7883;nh th&#432;&#7901;ng đ&#432;&#7907;c vi&#7871;t v&#7899;i câu l&#7879;nh
+for(…). Chúng ta có th&#7875; vi&#7871;t th&#224;nh m&#227; theo cách t&#7921; nhi&#234;n nh&#432; m&#7897;t s&#7889; a
+g&#7845;p n l&#7847;n: a*a*a…T&#7915; đó chúng ta s&#7869; nh&#7853;n ra n l&#7847;n l&#7863;p. Trong l&#7847;n l&#7863;p i
+(1&lt;=i&lt;=n) bi&#7871;n <span style="font-weight: bold;">result</span> có
+giá tr&#7883; c&#7911;a <span style="font-weight: bold;">a</span> tăng đ&#7871;n l&#361;y
+th&#7915;a <span style="font-weight: bold;">i</span> l&#7847;n.<br>
+<br>
+Bi&#7875;u đ&#7891; sau mô t&#7843; thao tác tr&#234;n m&#7897;t v&#242;ng l&#7863;p nh&#432; th&#7871;.<br>
+<br>
+<img alt="r" src="info_data/wpetla1.jpg" style="border: 2px solid ; width: 461px; height: 511px;"><br>
+<br>
+<br>
+<table class="MsoTableGrid" style="border: medium none ; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr style="">
+      <td style="border: 1pt solid windowtext; padding: 0cm 5.4pt; width: 221.4pt;" valign="top" width="295">
+      <p class="MsoNormal" style="margin-top: 12pt;"><span lang="EN-US">Iteration
+counter<o:p></o:p></span></p>
+      </td>
+      <td style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0cm 5.4pt; width: 221.4pt;" valign="top" width="295">
+      <p class="MsoNormal" style="margin-top: 12pt;"><span lang="EN-US">B&#7897;
+đ&#7871;m l&#7847;n l&#7863;p<o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr style="">
+      <td style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0cm 5.4pt; width: 221.4pt;" valign="top" width="295">
+      <p class="MsoNormal" style="margin-top: 12pt;"><span lang="EN-US">The
+control expression of the loop<o:p></o:p></span></p>
+      </td>
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; width: 221.4pt;" valign="top" width="295">
+      <p class="MsoNormal" style="margin-top: 12pt;"><span lang="EN-US">Bi&#7875;u
+th&#7913;c ki&#7875;m soát c&#7911;a v&#242;ng l&#7863;p<o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr style="">
+      <td style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0cm 5.4pt; width: 221.4pt;" valign="top" width="295">
+      <p class="MsoNormal" style="margin-top: 12pt;"><span lang="EN-US">Get
+a and n result = 1<o:p></o:p></span></p>
+      </td>
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; width: 221.4pt;" valign="top" width="295">
+      <p class="MsoNormal" style="margin-top: 12pt;"><span lang="EN-US">L&#7845;y
+k&#7871;t qu&#7843; a v&#224; n = 1<o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr style="">
+      <td style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0cm 5.4pt; width: 221.4pt;" valign="top" width="295">
+      <p class="MsoNormal" style="margin-top: 12pt;"><span lang="EN-US">Statements
+executed in the loop<o:p></o:p></span></p>
+      </td>
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; width: 221.4pt;" valign="top" width="295">
+      <p class="MsoNormal" style="margin-top: 12pt;"><span lang="EN-US">Các
+câu l&#7879;nh th&#7921;c hi&#7879;n trong v&#242;ng l&#7863;p<o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr style="">
+      <td style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0cm 5.4pt; width: 221.4pt;" valign="top" width="295">
+      <p class="MsoNormal" style="margin-top: 12pt;"><span lang="EN-US">Incrementation
+of the counter and start of the next iteration<o:p></o:p></span></p>
+      </td>
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; width: 221.4pt;" valign="top" width="295">
+      <p class="MsoNormal" style="margin-top: 12pt;"><span lang="EN-US">Tăng
+c&#7911;a b&#7897; đ&#7871;m v&#224; b&#7855;t đ&#7847;u c&#7911;a l&#7847;n l&#7863;p ti&#7871;p theo<o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr style="">
+      <td style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0cm 5.4pt; width: 221.4pt;" valign="top" width="295">
+      <p class="MsoNormal" style="margin-top: 12pt;"><span lang="EN-US">Show
+result STOP<o:p></o:p></span></p>
+      </td>
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; width: 221.4pt;" valign="top" width="295">
+      <p class="MsoNormal" style="margin-top: 12pt;"><span lang="EN-US">Hi&#7875;n
+th&#7883; k&#7871;t qu&#7843; D&#7914;NG<o:p></o:p></span></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+Chúng ta có th&#7875; ki&#7875;m tra thao tác c&#7911;a v&#242;ng đ&#7889;i v&#7899;i d&#7919; li&#7879;u đ&#7847;u v&#224;o n&#224;o
+đó. L&#7845;y a = 2 v&#224; n = 5.<br>
+<br>
+<table bgcolor="floralwhite" border="1" bordercolor="brown" cellpadding="4" cellspacing="0" width="100%">
+  <tbody>
+    <tr>
+      <td valign="top">l&#7847;n l&#7863;p <br>
+      </td>
+      <td>giá tr&#7883; c&#7911;a bi&#7871;n i </td>
+      <td>giá tr&#7883; c&#7911;a đi&#7873;u ki&#7879;n ti&#7871;p t&#7909;c </td>
+      <td>giá tr&#7883; c&#7911;a bi&#7871;n <b>result</b> </td>
+    </tr>
+    <tr>
+      <td valign="top">1 <br>
+      </td>
+      <td>1 </td>
+      <td>true </td>
+      <td>2 </td>
+    </tr>
+    <tr>
+      <td valign="top">2 <br>
+      </td>
+      <td>2 </td>
+      <td>true </td>
+      <td>4 </td>
+    </tr>
+    <tr>
+      <td valign="top">3 <br>
+      </td>
+      <td>3 </td>
+      <td>true </td>
+      <td>8 </td>
+    </tr>
+    <tr>
+      <td valign="top">4 <br>
+      </td>
+      <td>4 </td>
+      <td>true </td>
+      <td>16 </td>
+    </tr>
+    <tr>
+      <td valign="top">5 <br>
+      </td>
+      <td>5 </td>
+      <td>true </td>
+      <td>32 </td>
+    </tr>
+    <tr>
+      <td valign="top">- <br>
+      </td>
+      <td>6 </td>
+      <td> <b><font color="#ff0000">false (D&#7914;NG l&#7863;p) </font></b> </td>
+      <td>32 </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+Chú ý r&#7857;ng sau khi ch&#432;&#417;ng tr&#236;nh k&#7871;t thúc, giá tr&#7883; c&#7911;a bi&#7871;n th&#7875; i s&#7869; l&#7899;n
+h&#417;n s&#7889; l&#7847;n l&#7863;p l&#224; 1 (m&#7863;c d&#249; i đóng vai tr&#242; l&#224; b&#7897; đ&#7871;m l&#7847;n l&#7863;p nh&#432;ng
+chúng ta không th&#7875; nói r&#7857;ng v&#242;ng đ&#432;&#7907;c ti&#7871;n h&#224;nh i l&#7847;n).<br>
+<br>
+Chúng ta có ch&#7855;c ch&#7855;n v&#7873; tính đúng đ&#7855;n c&#7911;a ch&#432;&#417;ng tr&#236;nh n&#224;y không? Giá
+tr&#7883; ban đ&#7847;u c&#7911;a bi&#7871;n th&#7875; i có đ&#432;&#7907;c ch&#7885;n l&#7921;a ph&#249; h&#7907;p hay không? Nh&#7919;ng
+đi&#7873;u ki&#7879;n ti&#7871;p t&#7909;c th&#236; sao?<br>
+Ch&#7881; phân tích m&#7897;t thao tác đi&#7879;n toán c&#7909; th&#7875; th&#236; ch&#432;a đ&#7911;. Chúng ta ph&#7843;i
+xem xét t&#7845;t c&#7843; nh&#7919;ng c&#7845;u h&#236;nh có th&#7875; c&#7911;a các giá tr&#7883; bi&#7871;n th&#7875;. Ch&#432;&#417;ng
+tr&#236;nh đ&#432;a ra m&#7897;t s&#7889; nguy&#234;n b&#7845;t k&#7923; cho đ&#7871;n l&#361;y th&#7915;a n l&#7847;n, v&#7899;i n&gt;=0.
+Chuy&#7879;n g&#236; s&#7869; x&#7843;y ra khi n==0? V&#242;ng l&#7863;p s&#7869; không đ&#432;&#7907;c th&#7921;c hi&#7879;n (b&#7903;i v&#236;
+i =1 không nh&#7887; h&#417;n n = 0). Nh&#432;ng k&#7871;t qu&#7843; v&#7851;n đúng v&#236; bi&#7871;n th&#7875; result đ&#227;
+đ&#432;&#7907;c kh&#7903;i t&#7841;o v&#7899;i giá tr&#7883; b&#7857;ng 1.<br>
+Có th&#7875; đ&#7841;t đ&#432;&#7907;c k&#7871;t qu&#7843; t&#432;&#417;ng t&#7921; (đ&#7889;i v&#7899;i vi&#7879;c th&#7921;c hi&#7879;n đúng) b&#7857;ng
+cách cho i=0 v&#224; i&lt;n thay v&#236; i=1 v&#224; i&lt;=n. D&#297; nhi&#234;n thu&#7853;t toán n&#224;y
+ch&#7881; đúng cho các giá tr&#7883; c&#7911;a n&gt;=0.<br>
+<br>
+<div class="notel">M&#7897;t l&#7895;i th&#432;&#7901;ng g&#7863;p đó l&#224; th&#7921;c hi&#7879;n m&#7897;t v&#242;ng nhi&#7873;u
+h&#417;n ho&#7863;c ít h&#417;n m&#7897;t l&#7847;n so v&#7899;i y&#234;u c&#7847;u.</div>
+H&#227;y xem m&#7897;t ví d&#7909; khác. Chúng ta ph&#7843;i t&#236;m ra s&#7889; ch&#7861;n n (n&gt;=0) đ&#7875; cho
+giá tr&#7883; c&#7911;a m&#7897;t s&#7889; nguy&#234;n a cho tr&#432;&#7899;c (a&gt;1) khi l&#361;y th&#7915;a n l&#7847;n l&#7899;n
+h&#417;n ho&#7863;c b&#7857;ng m&#7909;c ti&#234;u s&#7889; nguy&#234;n đ&#227; cho.<br>
+<br>
+Chúng ta xem xét l&#361;y th&#7919;a ch&#7861;n <span style="font-weight: bold;">n</span>
+c&#7911;a s&#7889; nguy&#234;n <span style="font-weight: bold;">a</span>. L&#7845;y <span style="font-weight: bold;">w</span> l&#224; k&#7871;t qu&#7843; c&#7911;a l&#361;y th&#7915;a.<br>
+Cho n=2 có w = a * a<br>
+Cho n=4 có w = a * a * a * a<br>
+Cho n=6 có w = a * a * a * a * a* a<br>
+c&#7913; nh&#432; v&#7853;y.<br>
+Do đó v&#7899;i giá tr&#7883; đ&#7847;u ti&#234;n c&#7911;a w b&#7857;ng 1 chúng ta có l&#361;y th&#7915;a li&#234;n ti&#7871;p
+v&#7899;i bi&#7875;u th&#7913;c sau:<br>
+w = w * a * a<br>
+<br>
+Tuy nhi&#234;n, chúng ta không bi&#7871;t v&#242;ng l&#7863;p ph&#7843;i đ&#432;&#7907;c th&#7921;c hi&#7879;n bao nhi&#234;u.
+M&#7909;c ti&#234;u c&#7911;a chúng ta l&#224; t&#236;m ra giá tr&#7883; c&#7911;a bi&#7871;n th&#7875; <span style="font-weight: bold;">n</span>, không t&#236;m giá tr&#7883; <span style="font-weight: bold;">a</span> l&#361;y th&#7915;a <span style="font-weight: bold;">n</span> l&#7847;n.<br>
+Do đó đi&#7873;u ki&#234;n ti&#7871;p t&#7909;c c&#7911;a v&#242;ng l&#7863;p ph&#7843;i so sánh v&#7899;i giá tr&#7883; tính
+đ&#432;&#7907;c c&#7911;a <span style="font-weight: bold;">w</span> v&#7899;i <span style="font-weight: bold;">m&#7909;c ti&#234;u</span> giá tr&#7883; đ&#227; cho.<br>
+V&#224; nh&#432; v&#7853;y v&#242;ng l&#7863;p ph&#7843;i đ&#432;&#7907;c th&#7921;c hi&#7879;n trong khi w c&#242;n nh&#7887; h&#417;n m&#7909;c
+ti&#234;u (nói cách khác: cho đ&#7871;n khi w l&#7899;n h&#417;n ho&#7863;c b&#7857;ng m&#7909;c ti&#234;u).<br>
+B&#234;n trong v&#242;ng l&#7863;p chúng ta ph&#7843;i tính toán giá tr&#7883; hi&#7879;n t&#7841;i c&#7911;a l&#361;y
+th&#7915;a v&#224; tăng n (2 l&#7847;n, v&#236; l&#361;y th&#7915;a ph&#7843;i l&#224; s&#7889; ch&#7855;n).<br>
+<br>
+Nh&#432;ng giá tr&#7883; ban đ&#7847;u c&#7911;a n l&#224; bao nhi&#234;u?<br>
+<br>
+B&#7857;ng 0; Đi&#7873;u n&#224;y do công th&#7913;c c&#7911;a v&#7845;n đ&#7873; chúng ta d&#7851;n t&#7899;i (m&#7909;c ti&#234;u l&#224;
+m&#7897;t s&#7889; nguy&#234;n b&#7845;t k&#7923; v&#224; n &gt;=0). Do đó v&#7899;i goal&lt;=1 câu tr&#7843; l&#7901;i
+chính xác l&#224; n==0 (b&#7903;i v&#236; bi&#7871;n th&#7875; w ban đ&#7847;u b&#7857;ng 1, l&#7899;n h&#417;n ho&#7863;c b&#7857;ng
+giá tr&#7883; c&#7911;a m&#7909;c ti&#234;u bi&#7871;n th&#7875;, v&#242;ng l&#7863;p không đ&#432;&#7907;c th&#7921;c hi&#7879;n v&#224; s&#7889; a
+b&#7845;t k&#7923; l&#361;y th&#7915;a 0 b&#7857;ng 1.<br>
+<br>
+Gi&#7843;i pháp đ&#432;&#7907;c mô t&#7843; trong bi&#7875;u đ&#7891; phát tri&#7875;n sau.<br>
+<br>
+<img alt="r" src="info_data/wpetla2.jpg" style="border: 2px solid ; width: 464px; height: 448px;"><br>
+<br>
+<br>
+<table class="MsoTableGrid" style="border: medium none ; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr style="">
+      <td style="border: 1pt solid windowtext; padding: 0cm 5.4pt; width: 221.4pt;" valign="top" width="295">
+      <p class="MsoNormal"><span lang="EN-US">Get a and goal<o:p></o:p></span></p>
+      </td>
+      <td style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0cm 5.4pt; width: 221.4pt;" valign="top" width="295">
+      <p class="MsoNormal"><span lang="EN-US">L&#7845;y a v&#224; m&#7909;c ti&#234;u<o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr style="">
+      <td style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0cm 5.4pt; width: 221.4pt;" valign="top" width="295">
+      <p class="MsoNormal"><span lang="EN-US">The control expression of
+the loop<o:p></o:p></span></p>
+      </td>
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; width: 221.4pt;" valign="top" width="295">
+      <p class="MsoNormal"><span lang="EN-US">Bi&#7875;u th&#7913;c ki&#7875;m soát c&#7911;a
+v&#242;ng l&#7863;p<o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr style="">
+      <td style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0cm 5.4pt; width: 221.4pt;" valign="top" width="295">
+      <p class="MsoNormal"><span lang="EN-US">Statements executed in
+the loop<o:p></o:p></span></p>
+      </td>
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; width: 221.4pt;" valign="top" width="295">
+      <p class="MsoNormal"><span lang="EN-US">Các câu l&#7879;nh th&#7921;c hi&#7879;n
+trong v&#242;ng l&#7863;p<o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr style="">
+      <td style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0cm 5.4pt; width: 221.4pt;" valign="top" width="295">
+      <p class="MsoNormal"><span lang="EN-US">Show n and w<o:p></o:p></span></p>
+      </td>
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt; width: 221.4pt;" valign="top" width="295">
+      <p class="MsoNormal"><span lang="EN-US">Hi&#7875;n th&#7883; n v&#224; w<o:p></o:p></span></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+Các v&#242;ng l&#7863;p th&#432;&#7901;ng đ&#432;&#7907;c vi&#7871;t v&#7899;i câu l&#7879;nh while.<br>
+&#7902; đây chúng ta s&#7917; d&#7909;ng v&#242;ng l&#7863;p m&#224; s&#7869; d&#7915;ng l&#7841;i b&#7903;i v&#236; không th&#7887;a m&#227;n
+đi&#7873;u ki&#7879;n ki&#7875;m soát, không ph&#7843;i v&#242;ng l&#7863;p v&#7899;i s&#7889; l&#7847;n l&#7863;p đ&#227; cho. Nh&#7919;ng
+v&#242;ng l&#7863;p nh&#432; th&#7871; <span style="font-weight: bold;">g&#7885;i l&#224; v&#242;ng l&#7863;p đi&#7873;u
+ki&#7879;n</span>.<br>
+<br>
+M&#7897;t v&#7845;n đ&#7873; r&#7845;t quan tr&#7885;ng li&#234;n quan t&#7899;i các v&#242;ng l&#7863;p l&#224; v&#7845;n đ&#7873; đ&#7843;m b&#7843;o
+s&#7917; ng&#7855;t v&#242;ng m&#7897;t cách h&#7907;p lý. K&#7871;t qu&#7843; c&#7911;a vi&#7879;c phân tích c&#7849;u th&#7843; v&#7845;n đ&#7873;
+chúng ta có th&#7875; l&#7853;p tr&#236;nh ra m&#7897;t v&#242;ng l&#7863;p m&#224; ch&#7841;y m&#227;i m&#227;i đ&#7889;i v&#7899;i m&#7897;t
+d&#7919; li&#7879;u ban đ&#7847;u.<br>
+<br>
+Chú ý r&#7857;ng đi&#7873;u ki&#7879;n ban đ&#7847;u đ&#7889;i v&#7899;i v&#7845;n đ&#7873; th&#7913; hai (t&#236;m m&#7897;t s&#7889; ch&#7861;n,
+phi tích c&#7921;c n đ&#7875; a l&#361;y th&#7915;a n l&#7847;n &gt;= m&#7909;c ti&#234;u) đ&#432;&#7907;c nh&#7853;n m&#7897;t bi&#7875;u
+th&#7913;c a&gt;1. <br>
+<br>
+<hr>
+<a name="Iteracje.2"></a>
+<h2>2. V&#242;ng l&#7863;p đi&#7873;u ki&#7879;n: câu l&#7879;nh while v&#224; do…while </h2>
+<br>
+<div class="syntax">Câu l&#7879;nh while có d&#7841;ng sau:<br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; while (exp) ins<br>
+<br>
+trong đó:<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; exp – l&#224; m&#7897;t bi&#7875;u th&#7913;c boolean <br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; ins – l&#224; câu l&#7879;nh b&#7845;t k&#7923; (bao
+g&#7891;m c&#7843; kh&#7889;i)<br>
+<br>
+</div>
+<br>
+Thao tác c&#7911;a v&#242;ng while nh&#432; sau. Bi&#7875;u th&#7913;c exp có vai tr&#242; t&#432;&#417;ng t&#7921; nh&#432;
+đi&#7873;u ki&#7879;n c&#7911;a câu l&#7879;nh if: giá tr&#7883; c&#7911;a nó đ&#432;&#7907;c tính v&#224; n&#7871;u true th&#236; câu
+l&#7879;nh ins đ&#432;&#7907;c th&#7921;c hi&#7879;n. Trong tr&#432;&#7901;ng h&#7907;p c&#242;n l&#7841;i th&#236; s&#7921; ki&#7875;m soát đ&#432;&#7907;c
+chuy&#7875;n sang ch&#7881; l&#7879;nh đ&#7847;u ti&#234;n sau câu l&#7879;nh while.<br>
+<br>
+Trong quá tr&#236;nh ho&#224;n th&#224;nh vi&#7879;c ch&#7841;y câu l&#7879;nh ins đi&#7873;u ki&#7879;n ki&#7875;m soát
+(exp) c&#7911;a v&#242;ng đ&#432;&#7907;c tính m&#7897;t l&#7847;n n&#7919;a v&#224; n&#7871;u true th&#236; to&#224;n b&#7897; thao tác
+đ&#432;&#7907;c l&#7863;p l&#7841;i. V&#242;ng l&#7863;p ng&#7855;t khi bi&#7875;u th&#7913;c exp false ho&#7863;c khi g&#7863;p câu
+l&#7879;nh <span style="font-weight: bold;">break</span> ho&#7863;c <span style="font-weight: bold;">return</span> b&#234;n trong c&#7845;u trúc v&#242;ng l&#7863;p.
+(nh&#7919;ng câu l&#7879;nh n&#224;y ng&#7855;t thao tác c&#7911;a v&#242;ng l&#7863;p v&#224; chuy&#7875;n s&#7921; ki&#7875;m soát
+ra kh&#7887;i v&#242;ng).<br>
+<br>
+<div class="notel">Chú ý: các ch&#7919; cái có th&#7875; đ&#432;&#7907;c xem l&#224; các s&#7889;. Chúng
+đ&#432;&#7907;c th&#7875; hi&#7879;n b&#7857;ng các m&#227; s&#7889; t&#432;&#417;ng &#7913;ng.</div>
+Ch&#432;&#417;ng tr&#236;nh m&#7851;u sau đây in t&#7845;t c&#7843; các ch&#7919; cái th&#432;&#7901;ng trong b&#7843;ng ch&#7919;
+cái ti&#7871;ng Anh.<br>
+<br>
+<pre>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; char c = 'a';&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; while (c &lt;= 'z') System.out.print(c++);<br></pre>
+<br>
+Nh&#432; chúng ta có th&#7875; th&#7845;y, đ&#7875; ng&#7855;t m&#7897;t v&#242;ng l&#7863;p đ&#7889;i t&#432;&#7907;ng m&#7897;t cách thích
+h&#7907;p chúng ta ph&#7843;i s&#7911;a đ&#7893;i (b&#234;n trong c&#7845;u trúc l&#7863;p) các bi&#7871;n th&#7875; m&#224; giá
+tr&#7883; c&#7911;a chúng &#7843;nh h&#432;&#7903;ng đ&#7871;n đi&#7873;u ki&#7879;n ki&#7875;m soát.<br>
+<br>
+Các đi&#7873;u ki&#7879;n ki&#7875;m soát có th&#7875; khá ph&#7913;c t&#7841;p. Ví d&#7909;, đ&#7875; in m ch&#7919; cái
+ng&#432;&#7907;c l&#7841;i chúng ta có th&#7875; vi&#7871;t:<br>
+<pre>        int n = 0;<br>        char c = 'z';<br>        while(c &gt;= 'a' &amp;&amp; n &lt; m)  {<br>          System.out.println(c--);<br>          n++;<br>        }<br></pre>
+<br>
+Chúng ta s&#7917; d&#7909;ng m&#7897;t bi&#7875;u th&#7913;c ghép đ&#7875; ki&#7875;m tra xem m có v&#432;&#7907;&#803;t quá d&#227;y
+các ch&#7919; cái th&#432;&#7901;ng c&#7911;a trang m&#227; hay không.<br>
+<br>
+Sau đây l&#224; m&#7897;t cách khác đ&#7875; l&#224;m vi&#7879;c n&#224;y:<br>
+<br>
+<br>
+int m = ...;<br>
+char c = 'z';<br>
+while(m-- &gt; 0) {<br>
+&nbsp;&nbsp;&nbsp; if (c &nbsp;&lt;&nbsp; 'a') break;<br>
+&nbsp;&nbsp;&nbsp; System.out.println(c--);<br>
+}<br>
+<br>
+Chúng ta b&#7843;o v&#7879; m kh&#7887;i vi&#7879;c r&#417;i ra kh&#7887;i d&#227;y ch&#7919; cái nh&#7887; b&#234;n trong c&#7845;u
+trúc v&#242;ng. Khi ký m&#227; ký t&#7921; hi&#7879;n t&#7841;i nh&#7887; h&#417;n m&#227; ký t&#7921; ‘a’ th&#236; câu l&#7879;nh <span style="font-weight: bold;">break</span> s&#7869; phá v&#7899;i v&#242;ng l&#7863;p.<br>
+<br>
+M&#7897;t ph&#432;&#417;ng pháp khác đ&#7875; ki&#7875;m soát vi&#7879;c ch&#7841;y v&#242;ng l&#7863;p s&#7917; d&#7909;ng bi&#7871;n th&#7875;
+ki&#7875;m soát:<br>
+<pre>boolean again = true;<br>while(again) {<br>&nbsp; .....<br>&nbsp; if (/* a control condition */) again = false;<br>}<br></pre>
+Có th&#7875; vi&#7871;t b&#7857;ng cách s&#7917; d&#7909;ng m&#7897;t v&#242;ng l&#7863;p vô đ&#7883;nh v&#7899;i câu l&#7879;nh break
+b&#234;n trong:<br>
+<br>
+while (true) {
+<br>
+&nbsp; &nbsp; ...
+<br>
+&nbsp; &nbsp; if (/* a control condition */) break;
+<br>
+}
+<br>
+<br>
+<br>
+M&#7897;t câu l&#7879;nh v&#242;ng l&#7863;p khác l&#224;:<b> do...while</b>.<br>
+<br>
+<div class="syntax">Câu l&#7879;nh do…while khá gi&#7889;ng v&#7899;i câu l&#7879;nh while.<br>
+<br>
+Nó có d&#7841;ng:<br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; do ins while (exp) <br>
+</div>
+<br>
+<br>
+Ý ngh&#297;a c&#7911;a ins v&#224; exp gi&#7889;ng h&#7879;t nh&#432; trong tr&#432;&#7901;ng h&#7907;p câu l&#7879;nh while.
+S&#7921; khác bi&#7879;t duy nh&#7845;t gi&#7919;a hai lo&#7841;i v&#242;ng l&#7863;p n&#7857;m &#7903; ch&#7895; đi&#7873;u ki&#7879;n quy
+đ&#7883;nh b&#7903;i bi&#7875;u th&#7913;c exp đ&#432;&#7907;c đánh giá sau m&#7895;i l&#7847;n l&#7863;p c&#7911;a v&#242;ng, ch&#7913;
+không ph&#7843;i tr&#432;&#7899;c nh&#432; trong tr&#432;&#7901;ng h&#7907;p c&#7911;a v&#242;ng l&#7863;p while.<br>
+<br>
+<div class="important">V&#242;ng l&#7863;p while có th&#7875; không ch&#7841;y l&#7847;n n&#224;o trong
+khi v&#242;ng l&#7863;p do…while luôn ch&#7841;y ít nh&#7845;t m&#7897;t l&#7847;n.</div>
+<br>
+<br>
+Các v&#242;ng l&#7863;p while v&#224; do…while <span style="font-weight: bold;">th&#432;&#7901;ng</span>
+đ&#432;&#7907;c d&#249;ng trong nh&#7919;ng t&#236;nh hu&#7889;ng m&#224; s&#7921; ti&#7871;p t&#7909;c c&#7911;a v&#242;ng l&#7863;p ph&#7909; thu&#7897;c
+v&#224;o m&#7897;t đi&#7873;u ki&#7879;n n&#224;o đó v&#224; s&#7889; l&#7847;n l&#7863;p không r&#245;. <br>
+<br>
+<hr style="width: 100%; height: 2px;"><br>
+<a name="Iteracje.3"></a>
+<h2>3. V&#242;ng l&#7863;p v&#7899;i s&#7889; l&#7847;n l&#7863;p cho tr&#432;&#7899;c: câu l&#7879;nh for</h2>
+Câu l&#7879;nh for có d&#7841;ng sau:<br>
+<br>
+<div class="syntax"><br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+for(init;exp;upd)ins<br>
+<br>
+trong đó:<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; init – l&#224; b&#7897; kh&#7903;i t&#7841;o (kh&#7903;i
+t&#7841;o): l&#224; m&#7897;t khai báo cho m&#7897;t hay nhi&#7873;u bi&#7871;n th&#7875;, m&#7897;t bi&#7875;u th&#7913;c hay m&#7897;t
+lo&#7841;t các bi&#7875;u th&#7913;c phân tách b&#7903;i các d&#7845;u ph&#7849;y, &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; c&#361;ng có th&#7875; tr&#7889;ng.<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; exp – l&#224; m&#7897;t bi&#7875;u th&#7913;c Boolean;
+có th&#7875; tr&#7889;ng<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; upd – l&#224; m&#7897;t bi&#7875;u th&#7913;c hay m&#7897;t
+lo&#7841;t các bi&#7875;u th&#7913;c phân tách b&#7903;i d&#7845;u ph&#7849;y; có th&#7875; tr&#7889;ng<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; ins – l&#224; m&#7897;t ch&#7881; l&#7879;nh đ&#432;&#7907;c th&#7921;c
+hi&#7879;n l&#7863;p đi l&#7863;p l&#7841;i (có th&#7875; l&#224; m&#7897;t kh&#7889;i)<br>
+<br>
+</div>
+<br>
+<br>
+Câu l&#7879;nh for l&#224; m&#7897;t v&#242;ng l&#7863;p đóng ho&#7841;t đ&#7897;ng nh&#432; sau:<br>
+<br>
+&nbsp;&nbsp;&nbsp; 1. Danh sách khai báo ho&#7863;c bi&#7871;n th&#7875; c&#7911;a ph&#7847;n init
+(n&#7871;u có) đ&#432;&#7907;c đánh giá.<br>
+&nbsp;&nbsp;&nbsp; 2. Bi&#7875;u th&#7913;c exp đ&#432;&#7907;c đánh giá. N&#7871;u giá tr&#7883; c&#7911;a nó
+false th&#236; v&#242;ng l&#7863;p for ho&#224;n th&#224;nh c&#242;n trong tr&#432;&#7901;ng h&#7907;p khác (ho&#7863;c n&#7871;u
+bi&#7875;u th&#7913;c exp b&#7883; l&#432;&#7907;c b&#7887;) vi&#7879;c th&#7921;c hi&#7879;n v&#242;ng l&#7863;p ti&#7871;p t&#7909;c (b&#432;&#7899;c 3).<br>
+&nbsp;&nbsp;&nbsp; 3. Ch&#7881; l&#7879;nh ins đ&#432;&#7907;c th&#7921;c hi&#7879;n (n&#7871;u nó l&#224; m&#7897;t kh&#7889;i
+ch&#7913;a câu l&#7879;nh break v&#224; return th&#7921;c hi&#7879;n chuy&#7875;n ki&#7875;m soát ra kh&#7887;i kh&#7889;i
+th&#236; v&#242;ng l&#7863;p for ho&#224;n th&#224;nh nh&#432; b&#236;nh th&#432;&#7901;ng).<br>
+&nbsp;&nbsp;&nbsp; 4. Các bi&#7875;u th&#7913;c c&#7911;a ph&#7847;n upd đ&#432;&#7907;c (n&#7871;u có). Vi&#7879;c
+th&#7921;c hi&#7879;n ti&#7871;p t&#7909;c t&#7915; b&#432;&#7899;c 2.<br>
+<br>
+So sánh v&#242;ng l&#7863;p for v&#7899;i v&#242;ng l&#7863;p while chúng ta th&#7845;y r&#7857;ng:<br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; for (init;
+exp; upd) ins;<br>
+<br>
+t&#432;&#417;ng đ&#432;&#417;ng v&#7899;i:<br>
+<br>
+<pre>init;<br>while (exp) {<br>	ins;<br>	upd;<br>}<br></pre>
+<br>
+<div class="notel">Phong cách l&#7853;p tr&#236;nh t&#7889;t g&#7907;i ý ch&#7881; s&#7917; d&#7909;ng câu l&#7879;nh
+for trong m&#7897;t s&#7889; tr&#432;&#7901;ng h&#7907;p nh&#7845;t đ&#7883;nh. <br>
+</div>
+Câu l&#7879;nh for đ&#432;&#7907;c s&#7917; d&#7909;ng h&#7847;u h&#7871;t trong nh&#7919;ng v&#242;ng l&#7863;p m&#224; không r&#245; s&#7889;
+l&#7847;n l&#7863;p. Trong nh&#7919;ng tr&#432;&#7901;ng h&#7907;p n&#224;y ph&#7847;n init kh&#7903;i t&#7841;o b&#7897; đ&#7871;m
+(counter), bi&#7875;u th&#7913;c exp ki&#7875;m soát ph&#7841;m vi b&#7897; đ&#7871;m v&#224; ph&#7847;n upd s&#7917;a đ&#7893;i
+giá tr&#7883; c&#7911;a b&#7897; đ&#7871;m.<br>
+<br>
+Sau đây l&#224; m&#7897;t s&#7889; ví d&#7909; khác:<br>
+<br>
+int n = ...; <br>
+int sum = 0; <br>
+for (int i = 1; i &lt;= n; i++) sum += i; <br>
+(c&#7897;ng các s&#7889; nguy&#234;n t&#7915; 1 đ&#7871;n n)<br>
+<br>
+for (int i = 2; i &lt;= n; i+=2) sum += i; <br>
+<br>
+(c&#7897;ng các s&#7889; nguy&#234;n ch&#7861;n t&#7915; 2 đ&#7871;n n)<br>
+<br>
+for (int i = 1000; i&nbsp; &gt;= 990; i--) System.out.println(i); <br>
+<br>
+(in các s&#7889; t&#7915; d&#227;y 990…1000 ng&#432;&#7907;c l&#7841;i)<br>
+<br>
+for (char c = 'a';&nbsp; c &lt;= 'z';&nbsp; c++) System.out.print(c);<br>
+(in các ch&#7919; cái th&#432;&#7901;ng t&#7915; a đ&#7871;n z)<br>
+<br>
+B&#7897; kh&#7903;i t&#7841;o (ph&#7847;n init) có th&#7875; ch&#7913;a m&#7897;t khai báo c&#7911;a m&#7897;t s&#7889; các bi&#7871;n
+th&#7875; (tuy nhi&#234;n, đó ph&#7843;i l&#224; m&#7897;t khai báo đ&#417;n do v&#7853;y t&#7845;t c&#7843; các bi&#7871;n th&#7875;
+ph&#7843;i c&#249;ng m&#7897;t lo&#7841;i).<br>
+<br>
+for (int i =1, j = 2; i &lt;=n &amp;&amp; j &lt;= m; i++, j++)&nbsp;
+System.out.println(i+j);<br>
+<br>
+<br>
+H&#236;nh sau đây tr&#236;nh b&#224;y v&#7873; ph&#7841;m vi c&#7911;a b&#7897; kh&#7903;i t&#7841;o:<br>
+<br>
+<br>
+<div class="important">Ph&#7841;m vi khai b&#7843;o c&#7911;a bt t&#7915; trong b&#7897; kh&#7903;i t&#7841;o c&#7911;a
+câu l&#7879;nh for b&#7855;t đ&#7847;u t&#7915; ch&#7895; khai báo v&#224; k&#7871;t thúc t&#7841;i ch&#7895; câu l&#7879;nh b&#7855;t
+đ&#7847;u.<br>
+<b></b></div>
+<br>
+H&#236;nh sau đây tr&#236;nh b&#224;y v&#7873; ph&#7841;m vi c&#7911;a b&#7897; kh&#7903;i t&#7841;o:<br>
+<br>
+<img src="info_data/insfor10.jpg" alt="Rys" style="border: 1px solid ; height: 146px; width: 528px;">
+<br>
+<br>
+May be accessed here&nbsp; =&nbsp; Có th&#7875; đ&#432;&#7907;c truy c&#7853;p &#7903; đây<br>
+There it can not&nbsp;&nbsp; =&nbsp; &#7903; đây th&#236; không th&#7875; truy câp<br>
+<br>
+Các ví d&#7909; khác: <br>
+int a =0, n = 10; <br>
+for (int i = 0; i &lt; n; i++) a += i; <br>
+for (int j = i; j &lt; n*2; j++) a+=j; &lt;--- <span style="color: rgb(255, 0, 0); font-weight: bold;">L&#7895;i</span>! bi&#7871;n i
+vô danh <br>
+<br>
+System.out.println(i);&nbsp; &lt;--- <span style="color: rgb(255, 0, 0); font-weight: bold;">L&#7895;i</span>! bi&#7871;n i
+vô danh <br>
+<br>
+for (int i = n; i&lt; n*2; i++) a+=i;&nbsp; &lt;--- OK, m&#7897;t bi&#7871;n m&#7899;i i <br>
+<br>
+for (int i = 0; i &lt; n; i++)&nbsp;
+{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;--- OK, m&#7897;t bi&#7871;n
+m&#7899;i i<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a +=
+i;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(i + " " + a) <br>
+} <br>
+<br>
+for (int i = 0; i &lt; n; i++)&nbsp;
+{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;--- OK,&nbsp; m&#7897;t
+bi&#7871;n th&#7875; m&#7899;i i <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int i =
+1;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;---
+<span style="color: rgb(255, 0, 0); font-weight: bold;">L&#7895;i</span>!
+khai báo l&#7841;i bi&#7871;n i <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ... <br>
+} <br>
+<br>
+<br>
+D&#297; nhi&#234;n chúng ta không ph&#7843;i khai báo bi&#7871;n th&#7875; trong ph&#7847;n kh&#7903;i t&#7841;o c&#7911;a
+câu l&#7879;nh for. Tuy nhi&#234;n m&#7895;i bi&#7871;n th&#7875; ph&#7843;i đ&#432;&#7907;c khai báo tr&#432;&#7899;c khi s&#7917;
+d&#7909;ng.<br>
+<br>
+int a =0, n = 10, i; <br>
+for (i=0; i &lt; n; i ++)
+a+=i;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Ok <br>
+for (i=n; i &lt; n*2; i++) a+=i;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Ok <br>
+<br>
+Tr&#432;&#7901;ng h&#7907;p sau không đúng:<br>
+<br>
+int i = 0; <br>
+for (int i = 0; i&lt; 10; i++) ... //&nbsp;&nbsp; <span style="font-weight: bold; color: rgb(255, 0, 0);">L&#7895;i</span>! Khai báo
+l&#7841;i i <br>
+<br>
+Chúng ta h&#227;y xem m&#7897;t s&#7889; các &#7913;ng d&#7909;ng th&#7921;c t&#7871; c&#7911;a câu l&#7879;nh for.<br>
+<br>
+B&#224;i t&#7853;p: s&#7917; d&#7909;ng câu l&#7879;nh for đ&#7875; tính l&#361;y th&#7915;a n (n&gt;=0) c&#7911;a m&#7897;t s&#7889;
+nguy&#234;n a.<br>
+<br>
+<pre>public class Number {<br>    int a;<br>    <br>    public Number(int aNumber) {  // the constructor<br>        a = aNumber;<br>    }<br>    <br>    //...<br>    <br>    public double pow(int n) {<br>        if (n &lt; 0) {        // the necessary condition: n &gt;=0<br>	    System.out.println("Bad exponent value");<br>	    return -0.1;<br>	}<br>	double result = 1;<br>	for (int i = 1; i &lt;= n; i++) result *= a;<br>	return result;<br>    }	<br>}<br></pre>
+<br>
+Chú ý r&#7857;ng b&#234;n trong v&#242;ng l&#7863;p b&#7897; đ&#7871;m l&#7845;y các t&#7915; 1 đ&#7871;n n. Có th&#7875; đ&#7841;t
+hi&#7879;u qu&#7843; t&#432;&#417;ng t&#7921; b&#7857;ng cách vi&#7871;t: for (i=0; i&lt;n; i++).<br>
+<br>
+<div class="important">C&#7845;u trúc c&#7911;a v&#242;ng for đ&#432;&#7907;c th&#7921;c hi&#7879;n n l&#7847;n:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (int i = 1; i &lt;= n;
+i++) .... <br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (int i = 0; i &lt; n;
+i++) ....<br>
+<br>
+Hai ký hi&#7879;u t&#432;&#417;ng đ&#432;&#417;ng nhau xét v&#7873; m&#7863;t s&#7889; l&#7847;n l&#7863;p.</div>
+<br>
+C&#7847;n ph&#7843;i nh&#7899; r&#7857;ng ph&#7847;n đ&#7847;u c&#7911;a câu l&#7879;nh for (init, exp, upd) không b&#7855;t
+bu&#7897;c. M&#7895;i ph&#7847;n có th&#7875; đ&#432;&#7907;c l&#432;&#7907;c b&#7887;, tuy nhi&#234;n t&#7845;t c&#7843; các d&#7845;u ph&#7849;y phân
+tách ph&#7843;i đ&#432;&#7907;c gi&#7919; l&#7841;i.<br>
+<br>
+Đ&#7863;c bi&#7879;t b&#7857;ng cách s&#7917; d&#7909;ng v&#242;ng l&#7863;p chúng ta có th&#7875; nh&#7853;n ra v&#242;ng l&#7863;p vô
+h&#7841;n while (true) theo cách sau:<br>
+for(;;) { <br>
+... <br>
+}<br>
+C&#7845;u trúc c&#7911;a m&#7897;t v&#242;ng l&#7863;p nh&#432; th&#7875; ph&#7843;i ch&#7913;a m&#7897;t ch&#7881; l&#7879;nh đ&#7875; d&#7901;i v&#242;ng
+l&#7863;p b&#7857;ng cách s&#7917; d&#7909;ng câu l&#7879;nh break hay return.<br>
+<br>
+<div class="important">Thông th&#432;&#7901;ng câu l&#7879;nh for đ&#432;&#7907;c s&#7917; d&#7909;ng đ&#7875; xác
+đ&#7883;nh các v&#242;ng v&#7899;i s&#7889; l&#7847;n l&#7863;p đ&#227; bi&#7871;t, nh&#432; &#7903; đây:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; for ( i = ?; i
+&lt;?; i = i +/- ?) ...<br>
+<br>
+Trong các tr&#432;&#7901;ng h&#7907;p khác ph&#7843;i s&#7917; d&#7909;ng câu l&#7879;nh while ho&#7863;c do…while.<br>
+</div>
+<br>
+Các v&#242;ng l&#7863;p có th&#7875; đ&#432;&#7907;c l&#7891;ng v&#224;o nhau. C&#7845;u trúc c&#7911;a m&#7897;t v&#242;ng l&#224; m&#7897;t
+ch&#7881; l&#7879;nh b&#7845;t k&#7923;. Th&#7853;m chí nó có th&#7875; l&#224; m&#7897;t v&#242;ng khác.<br>
+<br>
+Do đó chúng ta có th&#7875; vi&#7871;t:<br>
+<br>
+<pre>public class Nested {<br> <br>  public static void main(String[] args) {<br>     String out = null;<br>     char c = 'a';<br>     while (c &lt;= 'd') {<br>       for (int i=1; i&lt;=2; i++) {<br>         out = "For " + c + " " + i + ", j ="; <br>         for (int j = i; j &lt;= i + 3; j++) out += " " + j;<br>         System.out.println(out);<br>       }  <br>       c++;      <br>     }<br>   } <br>}<br>}<br></pre>
+K&#7871;t qu&#7843;:<br>
+<div class="listing100">For a 1, j = 1 2 3 4<br>
+For a 2, j = 2 3 4 5<br>
+For b 1, j = 1 2 3 4<br>
+For b 2, j = 2 3 4 5<br>
+For c 1, j = 1 2 3 4<br>
+For c 2, j = 2 3 4 5<br>
+For d 1, j = 1 2 3 4<br>
+For d 2, j = 2 3 4 5</div>
+<br>
+<hr style="width: 100%; height: 2px;"><br>
+<a name="Iteracje.4"></a>
+<h2>4. Ng&#7855;t v&#224; ti&#7871;p t&#7909;c v&#242;ng l&#7863;p<br>
+</h2>
+Nh&#432; đ&#227; đ&#7873; c&#7853;p t&#7915; tr&#432;&#7899;c câu l&#7879;nh <span style="font-weight: bold;">break</span>
+d&#249;ng đ&#7875;<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; ng&#7855;t th&#7921;c hi&#7879;n v&#242;ng l&#7863;p khép kín
+hay<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; n&#7871;u nó đ&#432;&#7907;c theo sau b&#7857;ng m&#7897;t
+nh&#227;n – nó s&#7869; chuy&#7875;n s&#7921; ki&#7875;m soát l&#234;n ch&#7881; l&#7879;nh có nh&#227;n đó<br>
+<br>
+Câu l&#7879;nh break v&#7899;i v&#7899;i m&#7897;t nh&#227;n có th&#7875; ng&#7855;t v&#242;ng l&#7863;p l&#7891;ng nh&#432; trong ví
+d&#7909; sau:<br>
+<br>
+<pre>public class Break {<br><br>  public static void main(String[] args) {<br>    for (int i=1; i &lt; 10; i++) {<br>      System.out.println("The loop after i: i = " + i);<br>      for (int j=1; j &lt; 10; j++) {<br>        if (i + j  &gt; 5) break;<br>	System.out.println("The loop after j: i = " + i + "  j = " + j);<br>      }	<br>    }<br>  }<br>}<br></pre>
+Ch&#432;&#417;ng tr&#236;nh cho d&#7919; li&#7879;u đ&#7847;u ra nh&#432; sau: <br>
+<br>
+<div class="listing100">The loop after i: i = 1
+<br>
+The loop after j: i = 1&nbsp; j = 1
+<br>
+The loop after j: i = 1&nbsp; j = 2
+<br>
+The loop after j: i = 1&nbsp; j = 3
+<br>
+The loop after j: i = 1&nbsp; j = 4
+<br>
+The loop after i: i = 2
+<br>
+The loop after j: i = 2&nbsp; j = 1
+<br>
+The loop after j: i = 2&nbsp; j = 2
+<br>
+The loop after j: i = 2&nbsp; j = 3
+<br>
+The loop after i: i = 3
+<br>
+The loop after j: i = 3&nbsp; j = 1
+<br>
+The loop after j: i = 3&nbsp; j = 2
+<br>
+The loop after i: i = 4
+<br>
+The loop after j: i = 4&nbsp; j = 1
+<br>
+The loop after i: i = 5
+<br>
+The loop after i: i = 6
+<br>
+The loop after i: i = 7
+<br>
+The loop after i: i = 8
+<br>
+The loop after i: i = 9
+</div>
+<br>
+Câu l&#7879;nh break ng&#7855;t th&#7921;c hi&#7879;n v&#242;ng b&#234;n trong (“v&#242;ng sau j”). Tuy nhi&#234;n
+nó l&#7841;i không ng&#7855;t th&#7921;c hi&#7879;n v&#242;ng ngo&#224;i. <br>
+<br>
+Chúng ta có th&#7875; ng&#7855;t th&#7921;c hi&#7879;n v&#242;ng ngo&#224;i v&#7899;i s&#7921; tr&#7907; giúp c&#7911;a câu l&#7879;nh
+break đ&#432;&#7907;c dán nh&#227;n:<br>
+<br>
+<pre>public class Break {<br><br>  public static void main(String[] args) {<br><br>    outerLoop: for (int i=1; i &lt; 10; i++) {<br>      System.out.println("The loop after i: i = " + i);<br>      for (int j=1; j &lt; 10; j++) {<br>        if (i + j  &gt; 5) break outerLoop;<br>        System.out.println("The loop after j: i = " + i + "  j = " + j);<br>      }<br>    }<br>  }<br>}</pre>
+K&#7871;t qu&#7843; ho&#224;n to&#224;n khác:<br>
+<br>
+<div class="listing100">The loop after i: i = 1
+<br>
+The loop after j: i = 1&nbsp; j = 1
+<br>
+The loop after j: i = 1&nbsp; j = 2
+<br>
+The loop after j: i = 1&nbsp; j = 3
+<br>
+The loop after j: i = 1&nbsp; j = 4
+</div>
+<br>
+<br>
+Câu l&#7879;nh <span style="font-weight: bold;">continue</span> ng&#7855;t vi&#7879;c
+th&#7921;c hi&#7879;n c&#7911;a l&#7847;n l&#7863;p hi&#7879;n t&#7841;i c&#7911;a m&#7897;t v&#242;ng v&#224; b&#7855;t đ&#7847;u m&#7897;t l&#7847;n l&#7863;p m&#7899;i.
+T&#432;&#417;ng t&#7921; nh&#432; câu l&#7879;nh break, câu l&#7879;nh continue áp d&#7909;ng v&#7899;i v&#242;ng khép
+kín. Câu l&#7879;nh continue có nh&#227;n (continue đ&#432;&#7907;c theo tr&#432;&#7907;c b&#7903;i m&#7897;t nh&#227;n)
+áp d&#7909;ng v&#7899;i v&#242;ng có nh&#227;n c&#7909; th&#7875;.<br>
+<br>
+Ví d&#7909;:<br>
+<br>
+<pre>mport javax.swing.*;<br> <br>public class Continue {<br>  public static void main(String[] args) {<br>    new Continue();<br>  } <br><br>  public Continue() {<br><br>    String header = null;<br>    int i = 0;<br><br>    outerLoop:<br>      while ((header = ask("Header?")) != null) {<br>        i++; <br>        if (header.equals("")) continue;<br>        int j = 0;<br>        while (true) {<br>          String txt = ask("Text?"); <br>          if (txt == null) break outerLoop;<br>          j++;<br>          if (txt.equals("")) continue;<br>          if (txt.equals("nh")) continue outerLoop;<br>          System.out.println(i + " " + header + " : " + j + " " + txt);<br>        }<br>      }<br><br>    System.out.println("Done");<br>    System.exit(0); <br>  }  <br><br>  private String ask(String txt) {<br>    String s = JOptionPane.showInputDialog(txt);<br>    return s;<br>  }<br><br>}<br></pre>
+Ch&#432;&#417;ng tr&#236;nh bao g&#7891;m hai v&#242;ng. V&#242;ng ngo&#224;i y&#234;u c&#7847;u ng&#432;&#7901;i s&#7917; d&#7909;ng đ&#432;a v&#224;o
+d&#7919; li&#7879;u n&#224;o đó m&#224; đ&#432;&#7907;c xem nh&#432; l&#224; “header” (đ&#7847;u trang). N&#7871;u cho m&#7897;t
+chu&#7895;i tr&#7889;ng, th&#236; v&#242;ng l&#7863;p b&#7855;t đ&#7847;u t&#7841;i l&#7847;n l&#7863;p ti&#7871;p theo. Trong các
+tr&#432;&#7901;ng h&#7907;p c&#242;n l&#7841;i v&#242;ng l&#7863;p b&#234;n trong b&#7855;t đ&#7847;u. Trong quá tr&#236;nh th&#7921;c
+hi&#7879;n nó s&#7869; in ra s&#7889; l&#7847;n l&#7863;p hi&#7879;n t&#7841;i c&#7911;a c&#7911;a v&#242;ng l&#7863;p ngo&#224;i, header, s&#7889;
+l&#7847;n l&#7863;p c&#7911;a v&#242;ng trong v&#224; chu&#7895;i văn b&#7843;n đ&#432;&#7907;c xem nh&#432; d&#7919; li&#7879;u đ&#7847;u v&#224;o
+trong quá tr&#236;nh th&#7921;c hi&#7879;n v&#242;ng l&#7863;p trong. N&#7871;u chu&#7895;i văn b&#7843;n tr&#7889;ng th&#236;
+l&#7847;n l&#7863;p ti&#7871;p theo c&#7911;a v&#242;ng l&#7863;p trong b&#7855;t đ&#7847;u (thay v&#236; in ra nh&#7919;ng thông
+tin b&#234;n tr&#234;n). N&#7871;u chu&#7895;i văn b&#7843;n đ&#227; cho l&#224; chu&#7895;i “nh” (đ&#7847;u trang ti&#7871;p
+theo) th&#236; l&#7847;n l&#7863;p ti&#7871;p theo c&#7911;a v&#242;ng ngo&#224;i b&#7855;t đ&#7847;u. Ch&#432;&#417;ng tr&#236;nh k&#7871;t
+thúc sau khi nh&#7845;n phím ‘cancel” trong c&#7917;a s&#7889; tho&#7841;i.<br>
+<br>
+Do đó đ&#7889;i v&#7899;i d&#7919; li&#7879;u đ&#7847;u v&#224;o sau:<br>
+Header? --- A <br>
+Text? --- aaa <br>
+Text? --- bbb <br>
+Text? --- <br>
+Text? --- ccc <br>
+Text? --- nh <br>
+Header? --- <br>
+Header? --- B <br>
+Text? --- aaa <br>
+Text? --- bbb<br>
+<br>
+Ch&#432;&#417;ng tr&#236;nh in ra:<br>
+1 A : 1 aaa <br>
+1 A : 2 bbb <br>
+1 A : 4 ccc <br>
+3 B : 1 aaa <br>
+3 B : 2 bbb <br>
+Done<br>
+<br>
+Chú ý s&#7921; thay đ&#7893;i trong s&#7889; l&#7847;n l&#7863;p gây ra b&#7903;i vi&#7879;c nh&#7853;p chu&#7895;i tr&#7889;ng v&#224;
+k&#7871;t qu&#7843; c&#7911;a vi&#7879;c đ&#432;a ra chu&#7895;i “nh” l&#224;m d&#7919; li&#7879;u đ&#7847;u v&#224;o.<br>
+<br>
+<hr style="width: 100%; height: 2px;"><a name="Iteracje.6"></a>
+<h2>5. Tóm t&#7855;t<br>
+</h2>
+Chúng ta v&#7915;a t&#236;m hi&#7875;u vi&#7879;c s&#7917; d&#7909;ng các lo&#7841;i v&#242;ng l&#7863;p khác nhau.<br>
+C&#249;ng v&#7899;i nh&#7919;ng câu l&#7879;nh ki&#7875;m soát khác, các v&#242;ng l&#7863;p l&#224; ph&#7847;n quan tr&#7885;ng
+nh&#7853;t v&#224; th&#432;&#7901;ng đ&#432;&#7907;c s&#7917; d&#7909;ng trong ngôn ng&#7919; l&#7853;p tr&#236;nh.<br>
+T&#7915; gi&#7901; ta đ&#227; có th&#7875; ti&#7871;n h&#224;nh các thu&#7853;t toán y&#234;u c&#7847;u ph&#7843;i đ&#432;a ra quy&#7871;t
+đ&#7883;nh c&#361;ng nh&#432; th&#7921;c hi&#7879;n l&#7863;p l&#7841;i các ch&#7881; l&#7879;nh.<br>
+<br>
+<hr size="2" width="100%">
+</body></html>

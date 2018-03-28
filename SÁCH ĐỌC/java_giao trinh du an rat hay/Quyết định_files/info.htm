@@ -1,0 +1,1145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+
+
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <meta name="author" content="Krzysztof Barteczko">
+  <meta name="description" content="Nhap mon lap trinh - Java">
+  <meta name="copyright" content="(c) Krzysztof Barteczko PJWSTK 2008">
+  <link rel="stylesheet" type="text/css" href="info_data/common.css">
+  <title>Quyet dinh</title>
+</head><body>
+<div align="center">
+<a name="DecWyj"></a>
+<h1>Quy&#7871;t đ&#7883;nh<br>
+</h1>
+</div>
+<hr>
+<i>Chú&#769;ng ta b&#7855;t đ&#7847;u v&#7899;i tóm t&#7855;t v&#7873; các l&#7879;nh đi&#7873;u khi&#7875;n v&#224; tr&#236;nh b&#224;y v&#7873;
+các cách có th&#7875; s&#7917; d&#7909;ng đ&#7875; xác đ&#7883;nh nh&#7919;ng đi&#7873;u ki&#7879;n cho nh&#7919;ng câu l&#7879;nh
+n&#224;y b&#7857;ng cách s&#7917; d&#7909;ng các toán t&#7917; logic v&#224; toán t&#7917; quan h&#7879;. Không n&#7855;m
+đ&#432;&#7907;c lo&#7841;i câu l&#7879;nh n&#224;y th&#236; không th&#7875; vi&#7871;t các ch&#432;&#417;ng tr&#236;nh. Ti&#7871;p theo
+chúng ta s&#7869; t&#7853;p trung v&#224;o vi&#7879;c đ&#432;a ra quy&#7871;t đ&#7883;nh.</i><br>
+<hr>
+<a name="DecWyj.1"></a>
+<h2>1. Tóm t&#7855;t v&#7873; các l&#7879;nh đi&#7873;u khi&#7875;n<br>
+</h2>
+B&#7843;ng sau mô t&#7843; t&#7845;t c&#7843; các câu l&#7879;nh c&#7911;a Java:<br>
+<br>
+<table bgcolor="#ffffcc" border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(233, 233, 233);" bgcolor="#ffcc33" valign="top">
+      <div align="center"><b>L&#7885;ai câu l&#7879;nh<br>
+      </b></div>
+      </td>
+      <td style="background-color: rgb(233, 233, 233);" bgcolor="#ffcc33" valign="top">
+      <div align="center"><b>L&#7879;nh<br>
+      </b></div>
+      </td>
+      <td style="background-color: rgb(233, 233, 233);" bgcolor="#ffcc33" valign="top">
+      <div align="center"><b>Ví d&#7909;<br>
+      </b></div>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(233, 233, 233);" valign="top"><b>Câu
+l&#7879;nh tr&#7889;ng </b><br>
+      </td>
+      <td style="background-color: rgb(233, 233, 233);" valign="top">D&#7845;u
+ch&#7845;m ph&#7849;y<br>
+      </td>
+      <td style="background-color: rgb(233, 233, 233);" valign="top">;<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(233, 233, 233);" rowspan="7" colspan="1" valign="top"><b>Câu l&#7879;nh bi&#7875;u th&#7913;c&nbsp; <br>
+chú ý: m&#7897;t câu l&#7879;nh bi&#7875;u th&#7913;c l&#224; m&#7897;t câu l&#7879;nh k&#7871;t thúc b&#7857;ng <span style="color: rgb(255, 0, 0);">m&#7897;t d&#7845;u ch&#7845;m ph&#7849;y</span><br>
+      </b><font color="#ff0000"><b></b></font><br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      </td>
+      <td style="background-color: rgb(233, 233, 233);" valign="top">gán;<br>
+      </td>
+      <td style="background-color: rgb(233, 233, 233);" valign="top">a=b;<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(233, 233, 233);" valign="top">tăng
+tr&#432;&#7899;c;<br>
+      </td>
+      <td style="background-color: rgb(233, 233, 233);" valign="top">++a;<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(233, 233, 233);" valign="top">tăng
+sau;<br>
+      </td>
+      <td style="background-color: rgb(233, 233, 233);" valign="top">a++;<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(233, 233, 233);" valign="top">gi&#7843;m
+tr&#432;&#7899;c;<br>
+      </td>
+      <td style="background-color: rgb(233, 233, 233);" valign="top">--a;<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(233, 233, 233);" valign="top">gi&#7843;m
+sau;<br>
+      </td>
+      <td style="background-color: rgb(233, 233, 233);" valign="top">a--;<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(233, 233, 233);" valign="top">g&#7885;i
+ph&#432;&#417;ng th&#7913;c;<br>
+      </td>
+      <td style="background-color: rgb(233, 233, 233);" valign="top">x.met();<br>
+met();<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(233, 233, 233);" valign="top">bi&#7875;u
+th&#7913;c new;<br>
+      </td>
+      <td style="background-color: rgb(233, 233, 233);" valign="top">new
+Para();<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(233, 233, 233);" valign="top"><b>Kh&#7889;i
+      <br>
+chú ý: <br>
+sau d&#7845;u ngo&#7863;c đóng <span style="color: rgb(255, 0, 0);">không có d&#7845;u
+ch&#7845;m ph&#7849;y</span><br>
+      </b><font color="#ff0000"><b></b></font><br>
+      </td>
+      <td style="background-color: rgb(233, 233, 233);" valign="top">Các
+chu&#7895;i ch&#7881; l&#7879;nh v&#224; <span style="font-weight: bold;">khai báo</span>
+đ&#432;&#7907;c đ&#7863;t gi&#7919;a các d&#7845;u ngo&#7863;c <br>
+      </td>
+      <td style="background-color: rgb(233, 233, 233);" valign="top">{<br>
+&nbsp; a=b;<br>
+&nbsp; c=b;<br>
+}<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(233, 233, 233);" valign="top"><b>Câu
+l&#7879;nh nh&#227;n</b><br>
+      </td>
+      <td style="background-color: rgb(233, 233, 233);" valign="top">Nh&#227;n:
+ch&#7881; l&#7879;nh b&#7845;t k&#7923;<br>
+      </td>
+      <td style="background-color: rgb(233, 233, 233);" rowspan="10" colspan="1" bgcolor="#ccffff" valign="top"><br>
+Các d&#7841;ng cú pháp c&#7909; th&#7875; v&#224; các ví d&#7909; đ&#432;&#7907;c tr&#236;nh b&#224;y d&#432;&#7899;i đây<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(233, 233, 233);" rowspan="10" colspan="1" bgcolor="#ccffff" valign="top"><b>Câu l&#7879;nh đi&#7873;u khi&#7875;n</b><br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      </td>
+      <td style="background-color: rgb(233, 233, 233);" bgcolor="#ccffff" valign="top">if <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(233, 233, 233);" bgcolor="#ccffff" valign="top">if .. else<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(233, 233, 233);" bgcolor="#ccffff" valign="top">switch<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(233, 233, 233);" bgcolor="#ccffff" valign="top">while<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(233, 233, 233);" bgcolor="#ccffff" valign="top">do ... while<br>
+      </td>
+    </tr>
+    <tr>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(233, 233, 233);">for</td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(233, 233, 233);">break</td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(233, 233, 233);" bgcolor="#ccffff" valign="top">continue<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(233, 233, 233);" bgcolor="#ccffff" valign="top">return<br>
+      </td>
+      <td style="background-color: rgb(233, 233, 233);" bgcolor="#ccffff" valign="top"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(233, 233, 233);" valign="top"><b>Câu
+l&#7879;nh throw</b><br>
+      </td>
+      <td style="background-color: rgb(233, 233, 233);" rowspan="1" colspan="2" valign="top">L&#7879;nh li&#234;n quan đ&#7871;n ngo&#7841;i l&#7879; (exception)<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(233, 233, 233);" valign="top"><b>Câu
+l&#7879;nh đ&#7891;ng bô hóa, synchronized</b><br>
+      </td>
+      <td style="background-color: rgb(233, 233, 233);" colspan="2" rowspan="1" valign="top">H&#7895; tr&#7907; cho l&#7853;p tr&#236;nh song song (k&#7923; hai)<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+Không có c&#7845;u trúc cú pháp n&#224;o khác l&#224; câu l&#7879;nh trong Java.<br>
+<br>
+M&#7897;t trong nh&#7919;ng câu l&#7879;nh quan tr&#7885;ng l&#224; l&#7879;nh <span style="font-weight: bold;">đi&#7873;u khi&#7875;n</span>.<br>
+<br>
+<div class="important">Câu l&#7879;nh đi&#7873;u khi&#7875;n &#7843;nh h&#432;&#7903;ng đ&#7871;n tr&#7853;t t&#7921; ch&#7841;y
+m&#7897;t ch&#432;&#417;ng tr&#236;nh.</div>
+<br>
+<br>
+Các câu l&#7879;nh ki&#7875;m soát đ&#432;&#7907;c mô t&#7843; trong b&#7843;ng sau. Ti&#7871;p theo l&#224; th&#7843;o
+lu&#7853;n chi ti&#7871;t.<br>
+<br>
+<table bgcolor="#ccffff" border="1" cellspacing="0" width="100%">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(240, 240, 240);" rowspan="1" colspan="2" bgcolor="#ccffff" valign="top">
+      <div align="center"><b><br>
+L&#7879;nh đi&#7873;u khi&#7875;n<br>
+      </b></div>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(240, 240, 240);" valign="middle" width="32%"><strong>if (</strong><em>exp</em><strong>)</strong><em> ins</em></td>
+      <td style="background-color: rgb(240, 240, 240);" valign="middle" width="68%">
+      <p>N&#7871;u bi&#7875;u th&#7913;c exp l&#224; đúng th&#236; ch&#7881; l&#7879;nh ins đ&#432;&#7907;c th&#7921;c hi&#7879;n<em></em></p>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(240, 240, 240);" valign="middle" width="32%"><strong>if (</strong><span style="font-style: italic;">exp</span><strong>)</strong><em>
+ins1</em><strong></strong><br>
+      <strong>else </strong><em>ins2</em><strong></strong></td>
+      <td style="background-color: rgb(240, 240, 240);" valign="middle" width="68%">
+      <p>N&#7871;u bi&#7875;u th&#7913;c exp l&#224; đúng th&#236; sau đó ch&#7881; l&#7879;nh ins1 đ&#432;&#7907;c th&#7921;c
+hi&#7879;n; trong nh&#7919;ng tr&#432;&#7901;ng h&#7907;p c&#242;n l&#7841;i th&#236; ins2 đ&#432;&#7907;c th&#7921;c hi&#7879;n.</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(240, 240, 240);" valign="middle" width="32%"><strong>switch (</strong><em>exp</em><strong>)</strong><b>
+{</b><br>
+      <b>&nbsp; case</b> cs1 : ins1
+[ break;]<br>
+      <b>&nbsp; case</b> cs2 : ins2
+[ break;]<br>
+&nbsp; .... <br>
+      <b>&nbsp; case</b> csN : insN
+[ break;]<br>
+      <b>&nbsp; default</b> : insDef
+[ break;]<br>
+      <b>}</b></td>
+      <td style="background-color: rgb(240, 240, 240);" valign="middle" width="68%">
+      <p>Câu l&#7879;nh switch chuy&#7875;n ki&#7875;m soát đ&#7871;n m&#7897;t trong v&#224;i câu .</p>
+      <p>l&#7879;nh ph&#7909; thu&#7897;c v&#224;o giá tr&#7883; c&#7911;a bi&#7875;u th&#7913;c <br>
+Lo&#7841;i c&#7911;a bi&#7875;u th&#7913;c ph&#7843;i l&#224; lo&#7841;i char, byte, short, ho&#7863;c int. Giá tr&#7883;
+c&#7911;a nó đ&#432;&#7907;c so sánh v&#7899;i bi&#7875;u th&#7913;c h&#7857;ng s&#7889; (lo&#7841;i d&#227;y ho&#7863;c h&#7857;ng s&#7889; cs1 ..
+csN. N&#7871;u m&#7897;t trong các h&#7857;ng s&#7889; m&#7851;u b&#7857;ng giá tr&#7883; c&#7911;a bi&#7875;u th&#7913;c th&#236; chúng
+ta nói r&#7857;ng m&#7851;u ph&#249; h&#7907;p v&#224; t&#7845;t c&#7843; các câu l&#7879;nh sau nh&#227;n m&#7851;u trong kh&#7889;i
+switch n&#7871;u c&#242;n đ&#432;&#7907;c th&#7921;c hi&#7879;n trong chu&#7895;i. N&#7871;u không có m&#7851;u n&#224;o ph&#249; h&#7907;p
+nh&#432;ng có nh&#227;n m&#7863;c đ&#7883;nh th&#236; t&#7845;t c&#7843; các câu l&#7879;nh sau nh&#227;n m&#7863;c đ&#7883;nh trong
+kh&#7889;i s&#7869; đ&#432;&#7907;c th&#7921;c hi&#7879;n trong chu&#7895;i. <br>
+      <br>
+      </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(240, 240, 240);" valign="middle" width="32%">
+      <p><strong>while (</strong><em>exp</em><strong>) </strong><em>ins</em></p>
+      </td>
+      <td style="background-color: rgb(240, 240, 240);" valign="middle" width="68%">
+      <p>Ch&#7881; l&#7879;nh ins đ&#432;&#7907;c th&#7921;c hi&#7879;n l&#7863;p đi l&#7863;p l&#7841;i cho đ&#7871;n khi giá tr&#7883;
+c&#7911;a bi&#7875;u th&#7913;c l&#224; đúng.</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(240, 240, 240);" valign="middle" width="32%">
+      <p><strong>do</strong><em> ins </em><strong>while
+(</strong><em>exp</em><strong>);</strong></p>
+      </td>
+      <td style="background-color: rgb(240, 240, 240);" valign="middle" width="68%">
+      <p>Tr&#432;&#7899;c h&#7871;t ch&#7881; l&#7879;nh ins đ&#432;&#7907;c th&#7921;c hi&#7879;n sau đó bi&#7875;u th&#7913;c exp
+đ&#432;&#7907;c đánh giá. N&#7871;u nó đúng th&#236; vi&#7879;c th&#7921;c hi&#7879;n c&#7911;a v&#242;ng l&#7863;p đ&#432;&#7907;c ti&#7871;p
+t&#7909;c t&#7915; đ&#7847;u.</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(240, 240, 240);" valign="middle" width="32%"><b>ki&#7875;u 1<br>
+      </b><b>for</b>
+( <i>init </i>; <i>exp </i>; <i>upd </i>) <i>ins </i><i><br>
+      <br>
+      </i><span style="font-weight: bold;"><br>
+      <br>
+ki&#7875;u 2</span><i><br>
+      </i><span style="font-weight: bold;">for </span><i>(Type v :
+set) ins<br>
+      </i><strong></strong><strong></strong></td>
+      <td style="background-color: rgb(240, 240, 240);" valign="middle" width="68%">
+      <p>Tr&#432;&#7899;c h&#7871;t kh&#7903;i t&#7841;o init đ&#432;&#7907;c th&#7921;c hi&#7879;n (nó có th&#7875; l&#224; khai báo
+c&#7911;a m&#7897;t bi&#7871;n th&#7875; đánh giá m&#7897;t danh sách các bi&#7875;u th&#7913;c đ&#432;&#7907;c phân tách
+b&#7903;i các d&#7845;u ph&#7849;y). Sau đó các b&#432;&#7899;c sau đ&#432;&#7907;c th&#7921;c hi&#7879;n l&#7863;p đi l&#7863;p l&#7841;i: <br>
+1.&nbsp;&nbsp; &nbsp;bi&#7875;u th&#7913;c exp đ&#432;&#7907;c đánh giá v&#224;<br>
+2.&nbsp;&nbsp; &nbsp;n&#7871;u nó đúng th&#236; ch&#7881; l&#7879;nh ins đ&#432;&#7907;c th&#7921;c hi&#7879;n v&#224;<br>
+danh sách các câu l&#7879;nh bi&#7875;u th&#7913;c upd đ&#432;&#7907;c đánh giá<br>
+T&#7845;t c&#7843; các ph&#7847;n t&#7917; init, exp, upd l&#224; t&#249;y ch&#7885;n. <br>
+      <br>
+      </p>
+      <p>2&nbsp; "for-each" - th&#7921;c hi&#7879;n l&#7879;nh ins cho m&#7895;i th&#224;nh ph&#7847;n c&#7911;a
+t&#7853;p h&#7907;p set, m&#7895;i th&#224;nh ph&#7847;n đó đ&#432;&#7907;c gán cho bi&#7871;n v.<br>
+      </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(240, 240, 240);" valign="middle" width="32%"><b>continue</b>
+[ <i>label </i>]; </td>
+      <td style="background-color: rgb(240, 240, 240);" valign="middle" width="68%">
+      <p>Ch&#7881; l&#7879;nh n&#224;y ngay l&#7853;p t&#7913;c k&#7871;t thúc l&#7847;n l&#7863;p hi&#7879;n t&#7841;i c&#7911;a v&#242;ng
+v&#224; b&#7855;t đ&#7847;u m&#7897;t l&#7847;n l&#7863;p m&#7899;i. N&#7871;u m&#7897;t nh&#227;n xu&#7845;t hi&#7879;n th&#236; ch&#7881; l&#7879;nh s&#7869; t&#236;m
+cách chuy&#7875;n ki&#7875;m soát l&#234;n câu l&#7879;nh đ&#432;&#7907;c dán nh&#227;n đóng. <br>
+      </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(240, 240, 240);" valign="middle" width="32%"><b>break</b>
+[ <i>label </i>];
+;<br>
+      </td>
+      <td style="background-color: rgb(240, 240, 240);" valign="middle" width="68%">
+      <p>Câu l&#7879;nh break (ng&#7855;t) chuy&#7875;n ki&#7875;m soát ra ngo&#224;i câu l&#7879;nh đóng.
+Nó đ&#432;&#7907;c s&#7917; d&#7909;ng trong các v&#242;ng l&#7863;p v&#224; câu l&#7879;nh switch.</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(240, 240, 240);" valign="middle" width="32%">
+      <p><strong>return</strong><em> exp</em><strong>;</strong></p>
+      </td>
+      <td style="background-color: rgb(240, 240, 240);" valign="middle" width="68%">
+      <p>K&#7871;t thúc vi&#7879;c th&#7921;c hi&#7879;n m&#7897;t ph&#432;&#417;ng pháp b&#7857;ng cách tr&#7843; l&#7841;i giá
+tr&#7883; c&#7911;a bi&#7875;u th&#7913;c exp (b&#432;&#7899;c n&#224;y có th&#7875; đ&#432;&#7907;c b&#7887; qua n&#7871;u ph&#432;&#417;ng pháp
+không tr&#7843; l&#7841;i b&#7845;t c&#7913; m&#7897;t giá tr&#7883; n&#224;o).</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+Các ch&#7881; l&#7879;nh (v&#224; các khai báo bi&#7871;n) có th&#7875; đ&#432;&#7907;c nhóm trong các kh&#7889;i
+b&#7857;ng cách bao quanh chu&#7895;i ch&#7881; l&#7879;nh b&#7857;ng các d&#7845;u ngo&#7863;c: { v&#224; }. Nó đ&#432;&#7907;c
+g&#7885;i l&#224; các câu l&#7879;nh kh&#7889;i v&#224; đ&#432;&#7907;c xem nh&#432; l&#224; m&#7897;t ch&#7881; l&#7879;nh đ&#417;n trong m&#7897;t
+ch&#432;&#417;ng tr&#236;nh. Ví d&#7909;, chúng ta có th&#7875; nhóm các ch&#7881; l&#7879;nh m&#224; đ&#432;&#7907;c chay n&#7871;u
+có m&#7897;t s&#7889; đi&#7873;u ki&#7879;n:<br>
+<br>
+if (a &gt; b) { <br>
+c = a + b; <br>
+d = a - b; <br>
+e = a*b; <br>
+} <br>
+<br>
+Chú ý r&#7857;ng không có d&#7845;u ch&#7845;m ph&#7849;y n&#224;o sau d&#7845;u ngo&#7863;c.<br>
+<br>
+<hr>
+<a name="DecWyj.2"></a>
+<h2>2. Các toán t&#7917; v&#224; bi&#7875;u th&#7913;c so sánh <br>
+</h2>
+Nhi&#7873;u câu l&#7879;nh ki&#7875;m soát s&#7917; d&#7909;ng các đi&#7873;u ki&#7879;n đ&#227; cho nh&#432; bi&#7875;u th&#7913;c
+quan h&#7879; đ&#432;&#7907;c xây d&#7921;ng v&#7899;i s&#7921; tr&#7907; giúp c&#7911;a các toán t&#7917; quan h&#7879; hay toán
+t&#7917; đ&#7859;ng th&#7913;c. <br>
+<br>
+Các toán t&#7917; quan h&#7879; (&lt;, &lt;=, &gt;, &gt;=) l&#224; toán t&#7917; đ&#7889;i s&#7889; (nh&#7883;
+phân). <br>
+<br>
+M&#7895;i đ&#7889;i s&#7889; l&#224; m&#7897;t bi&#7875;u th&#7913;c lo&#7841;i s&#7889; (byte, char, short, int, long,
+float, double). <br>
+<br>
+Giá tr&#7883; c&#7911;a bi&#7871;n th&#7875; quan h&#7879; thu&#7897;c lo&#7841;i boolean (true, đúng; false,
+sai).<br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td rowspan="1" colspan="2" align="center" valign="middle"><b>Toán
+t&#7917; quan h&#7879;</b><br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">Bi&#7875;u th&#7913;c&nbsp; <br>
+(a v&#224; b – l&#224; bi&#7871;n th&#7875; b&#7845;t k&#7923; thu&#7897;c lo&#7841;i s&#7889;) <br>
+&nbsp;<br>
+      </td>
+      <td align="center" valign="middle">K&#7871;t qu&#7843; <br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">a &gt; b<br>
+      </td>
+      <td valign="top">Đúng n&#7871;u giá tr&#7883; c&#7911;a a l&#7899;n h&#417;n giá tr&#7883; c&#7911;a b, v&#224;
+sai trong các tr&#432;&#7901;ng h&#7907;p c&#242;n l&#7841;i.<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">a &gt;= b<br>
+      </td>
+      <td valign="top">Đúng n&#7871;u giá tr&#7883; c&#7911;a a l&#7899;n h&#417;n ho&#7863;c b&#7857;ng giá tr&#7883;
+c&#7911;a b. sai trong các tr&#432;&#7901;ng h&#7907;p c&#242;n l&#7841;i.<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">a &lt; b<br>
+      </td>
+      <td valign="top">Đúng n&#7871;u giá tr&#7883; c&#7911;a a nh&#7887; h&#417;n giá tr&#7883; c&#7911;a b v&#224;
+sai trong các tr&#432;&#7901;ng h&#7907;p c&#242;n l&#7841;i.<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">a &lt;= b<br>
+      </td>
+      <td valign="top">Đúng n&#7871;u giá tr&#7883; c&#7911;a a nh&#7887; h&#417;n ho&#7863;c b&#7857;ng giá tr&#7883;
+c&#7911;a b v&#224; sai trong các tr&#432;&#7901;ng h&#7907;p c&#242;n l&#7841;i.<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+Ví d&#7909;: <br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td valign="top">int a =1, b = 3; <br>
+if (a &gt; b) System.out.println("Greater than"); <br>
+else System.out.println("Less than"); <br>
+      </td>
+      <td valign="top">In ra: <br>
+Less than<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">int a =1, b = 3; <br>
+if (a + 1 &gt; b/3) System.out.println("Greater than"); <br>
+else System.out.println("Less than"); <br>
+      <br>
+Chú ý: <span style="color: rgb(255, 0, 0);">tr&#7853;t t&#7921; c&#7911;a các toán t&#7917;
+quan h&#7879; th&#7845;p h&#417;n tr&#7853;t t&#7921; c&#7911;a toán t&#7917; s&#7889; h&#7885;c</span>.<br>
+Do đó chúng ta không vi&#7871;t: <br>
+if ( (a + 1) &gt; (b/3) ) ... <br>
+      <br>
+      </td>
+      <td valign="top">In ra: <br>
+Greater than</td>
+    </tr>
+    <tr>
+      <td valign="top">int a = 1, b = 3; <br>
+boolean reslt1 = a &lt;= b; <br>
+boolean reslt2 = 1 &gt;= a; <br>
+boolean reslt3 = a &lt; 1; <br>
+      <br>
+Chú ý: <span style="color: rgb(255, 0, 0);">tr&#7853;t t&#7921; c&#7911;a các toán t&#7917;
+quan h&#7879; l&#7899;n h&#417;n tr&#7853;t t&#7921; các toán t&#7917; gán</span>.<br>
+Do đó chúng ta không vi&#7871;t: <br>
+boolean reslt = (a &lt;= b); <br>
+      <br>
+      </td>
+      <td valign="top">Các bi&#7871;n s&#7869; nh&#7853;n đ&#432;&#7907;c giá tr&#7883; sau:<br>
+      <br>
+reslt1 == true <br>
+reslt2 == true <br>
+reslt3 == false <br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+&nbsp; <br>
+<div class="notel33">M&#7897;t l&#7895;i th&#432;&#7901;ng g&#7863;p l&#224; s&#7917; d&#7909;ng toán t&#7917; ch&#7881; đ&#7883;nh (=)
+trong v&#7883; trí c&#7911;a toán t&#7917; đ&#7859;ng th&#7913;c (==).&nbsp; Thông th&#432;&#7901;ng tr&#236;nh bi&#234;n
+d&#7883;ch s&#7869; phát hi&#7879;n ra l&#7895;i n&#224;y v&#224; in ra m&#7897;t thông báo thích h&#7907;p.<br>
+</div>
+Hai toán t&#7917; đ&#7859;ng th&#7913;c nh&#7883; ph&#7853;n: == v&#224; != không thu&#7897;c nhóm toán t&#7917; quan
+h&#7879; v&#236; hai lý do sau:<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; chúng có tr&#7853;t t&#7921; th&#7845;p h&#417;n toán
+t&#7917; quan h&#7879;<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; các đ&#7889;i s&#7889; c&#7911;a chúng có th&#7875;
+thu&#7897;c <span style="font-weight: bold;">b&#7845;t c&#7913;</span> lo&#7841;i n&#224;o (s&#7889;,
+boolean, hay tham chi&#7871;u) d&#432;&#7899;i các đi&#7873;u ki&#7879;n d&#432;&#7899;i &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; đây:<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+-&nbsp;&nbsp;&nbsp; n&#7871;u m&#7897;t đ&#7889;i s&#7889; thu&#7897;c lo&#7841;i s&#7889; – th&#236; đ&#7889;i s&#7889; c&#242;n l&#7841;i
+c&#361;ng thu&#7897;c lo&#7841;i s&#7889;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+-&nbsp;&nbsp;&nbsp; n&#7871;u m&#7897;t đ&#7889;i s&#7889; thu&#7897;c lo&#7841;i boolean – th&#236; đ&#7889;i s&#7889; c&#242;n
+l&#7841;i c&#361;ng thu&#7897;c lo&#7841;i boolean<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+-&nbsp;&nbsp;&nbsp; n&#7871;u m&#7897;t đ&#7889;i s&#7889; thu&#7897;c lo&#7841;i tham chi&#7871;u th&#236; đ&#7889; s&#7889; c&#242;n
+l&#7841;i c&#361;ng ph&#7843;i thu&#7897;c lo&#7841;i tham chi&#7871;u t&#432;&#417;ng thích v&#7899;i lo&#7841;i c&#7911;a đ&#7889;i s&#7889; đ&#7847;u
+ti&#7879;n hay nguy&#234;n d&#7841;ng <span style="font-weight: bold;">null</span>.<br>
+<br>
+Các bi&#7875;u th&#7913;c đ&#432;&#7907;c xây b&#7857;ng cách s&#7917; d&#7909;ng các toán t&#7917; đ&#7859;ng thúc có k&#7871;t
+qu&#7843; thu&#7897;c lo&#7841;i <span style="font-weight: bold;">boolean</span>.<br>
+<br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td rowspan="1" colspan="3" align="center" valign="middle"><b>Toán
+t&#7917; (b&#7845;t) đ&#7859;ng th&#7913;c </b><br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle"><b>Bi&#7875;u th&#7913;c <br>
+      </b></td>
+      <td align="center" valign="middle"><b>a == b<br>
+      </b></td>
+      <td align="center" valign="middle"><b>a != b</b><br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">a v&#224; b c&#7911;a m&#7897;t ki&#7875;u s&#7889; b&#7845;t k&#7923;<br>
+      </td>
+      <td valign="top"><b>true</b> n&#7871;u giá tr&#7883; c&#7911;a a b&#7857;ng giá tr&#7883; c&#7911;a b
+v&#224; <span style="font-weight: bold;">false</span> trong các tr&#432;&#7901;ng h&#7907;p
+c&#242;n l&#7841;i <br>
+      </td>
+      <td valign="top"><span style="font-weight: bold;">true</span> n&#7871;u
+giá tr&#7883; c&#7911;a a không b&#7857;ng giá tr&#7883; c&#7911;a b, <span style="font-weight: bold;">false</span> trong các tr&#432;&#7901;ng h&#7907;p c&#242;n l&#7841;i<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">a v&#224; b thu&#7897;c ki&#7875;u boolean <br>
+      </td>
+      <td valign="top"><b>true</b> n&#7871;u a v&#224; b đ&#7873;u đúng ho&#7863;c sai. <span style="font-weight: bold;">false</span> trong các tr&#432;&#7901;ng h&#7907;p c&#242;n l&#7841;i.<br>
+      </td>
+      <td valign="top"><span style="font-weight: bold;">true</span> n&#7871;u
+a đúng v&#224; b sai ho&#7863;c a sai v&#224; b đúng. <span style="font-weight: bold;">false</span>
+trong các tr&#432;&#7901;ng h&#7907;p c&#242;n l&#7841;i<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">a v&#224; b l&#224; ki&#7875;u tham chi&#7871;u&nbsp; <br>
+      </td>
+      <td valign="top"><b>true</b> n&#7871;u c&#7843; a v&#224; b quy chi&#7871;u đ&#7871;n c&#249;ng m&#7897;t
+đ&#7889;i t&#432;&#7907;ng ho&#7863;c c&#249;ng có giá tr&#7883; null. false n&#7871;u a quy chi&#7871;u đ&#7871;n m&#7897;t đ&#7889;i
+t&#432;&#7907;ng khác hay m&#7897;t trong hai bi&#7871;n th&#7875; có giá tr&#7883; null.<br>
+      </td>
+      <td valign="top"><span style="font-weight: bold;">true</span> n&#7871;u
+c&#7843; hai bi&#7871;n th&#7875; quy chi&#7871;u đ&#7871;n các đ&#7889;i t&#432;&#7907;ng khác nhau ho&#7863;c m&#7897;t trong
+hai l&#224; null. <span style="font-weight: bold;">false</span> n&#7871;u c&#7843; hai
+bi&#7871;n th&#7875; quy chi&#7871;u đ&#7871;n c&#249;ng m&#7897;t đ&#7889;i t&#432;&#7907;ng hay c&#249;ng có giá tr&#7883; null. <br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+Ví d&#7909;:<br>
+<br>
+<pre>int a = 2, b = a + 1;<br>if ( a == b) System.out.println("yes");<br>else System.out.println("no");<br><br>if ( a != --b) System.out.println("yes");   // 2<br>else System.out.println("no");<br><br>int c = 4;<br>if ( a &lt; b + 1 == b  &lt; c) System.out.println("yes");  // 3<br>else System.out.println("yes");<br></pre>
+<div class="listing25r">no
+<br>
+no
+<br>
+yes</div>
+B&#234;n c&#7841;nh l&#224; k&#7871;t qu&#7843;.<br>
+<br>
+Chú ý:<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 1.&nbsp;&nbsp; &nbsp;Toán t&#7917; ti&#7873;n
+t&#7889; “- -“ đ&#7843;m b&#7843;o r&#7857;ng giá tr&#7883; c&#7911;a b trong ví d&#7909; 2 s&#7869; đ&#432;&#7907;c gi&#7843;m tr&#432;owcs
+khi s&#7917; d&#7909;ng trong bi&#7875;u th&#7913;c &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; đ&#7859;ng th&#7913;c (!=)<br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 2.&nbsp;&nbsp; &nbsp;Ví d&#7909; 3 s&#7917;
+d&#7909;ng m&#7897;t s&#7921; th&#7853;t l&#224; th&#7913; t&#7921; toán t&#7917; đ&#7859;ng th&#7913;c (“==”) th&#7845;p h&#417;n th&#7913; t&#7921; các
+toán t&#7917; quan h&#7879;, toán t&#7917; n&#224;y l&#7841;i th&#7845;p h&#417;n tr&#7853;t t&#7917; c&#7911;a toán t&#7917; s&#7889; h&#7885;c
+(+). Do &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; đó hai giá tr&#7883; lo&#7841;i boolean đ&#432;&#7907;c so
+sánh &#7903; đó v&#224; b&#7903;i v&#236; các giá tr&#7883; n&#224;y đúng n&#234;n k&#7871;t qu&#7843; c&#361;ng đúng.<br>
+<br>
+Tuy nh&#234;n, các bi&#7875;u th&#7913;c ph&#7913;c ph&#7843;i đ&#432;&#7907;c vi&#7871;t nh&#432; trong ví d&#7909; // 3. T&#7889;t
+nh&#7845;t n&#234;n s&#7917; d&#7909;ng các d&#7845;u ngo&#7863;c đ&#417;n đ&#7875; l&#224;m m&#227; tr&#7903; n&#234;n r&#245; h&#417;n. <br>
+<br>
+Sau đâyl&#224; ví d&#7909; v&#7873; so sánh các tham chi&#7871;u:<br>
+<br>
+Pair p1 = new Pair(1,1); <br>
+Pair p2 = new Pair(1,1); <br>
+Pair p3 = p1; <br>
+<br>
+p1 == p2 // sai m&#7863;c d&#249; các th&#224;nh ph&#7847;n c&#7911;a c&#7843; hai c&#7863;p gi&#7889;ng nhau <br>
+p1 == p3 // đúng b&#7903;i v&#236; c&#7843; hai bi&#7871;n th&#7875; đ&#7873;u quy chi&#7871;u đ&#7871;n m&#7897;t đ&#7889;i
+t&#432;&#7907;ng&nbsp; <br>
+<br>
+String s1 = "1,1"; <br>
+p1 == s1 // l&#7895;i bi&#234;n d&#7883;ch:p1 thu&#7897;c lo&#7841;i Pair v&#224; s1 thu&#7897;c lo&#7841;i String,
+không t&#432;&#417;ng thích<br>
+<br>
+String s2 = "1," + 1; <br>
+s1 == s2 // sai v&#236; các bi&#7871;n th&#7875; quy chi&#7871;u đ&#7871;n các đ&#7889;i t&#432;&#7907;ng khác nhau <br>
+s1 == null // sai v&#236; s1 quy chi&#7871;u đ&#7871;n đ&#7889;i t&#432;&#7907;ng đang t&#7891;n t&#7841;i <br>
+s1.equals(s2) // đúng v&#236; các chu&#7895;i gi&#7889;ng nhau <br>
+<br>
+<br>
+<div class="important">Đ&#7875; ki&#7875;m tra n&#7897;i dung c&#7911;a các đ&#7889;i t&#432;&#7907;ng khác nhau
+v&#7873; tính b&#236;nh đ&#7859;ng ph&#432;&#417;ng pháp equal đ&#432;&#7907;c s&#7917; d&#7909;ng. Ph&#432;&#417;ng pháp n&#224;y ph&#7843;i
+đ&#432;&#7907;c xác đ&#7883;nh trong l&#7899;p c&#7911;a đ&#7889;i t&#432;&#7907;ng.</div>
+<br>
+<hr>
+<a name="DecWyj.3"></a>
+<h2>3. Các toán t&#7917; v&#224; bi&#7875;u th&#7913;c lô-gic<span style="font-size: 14pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US"></span> </h2>
+Các toán t&#7917; lô-gic đ&#432;&#7907;c s&#7917; d&#7909;ng đ&#7875; t&#7841;o ra các đi&#7873;u ki&#7879;n ghép:<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; toán t&#7917; ph&#7847;n b&#249; loogic k&#7871;t h&#7907;p
+m&#7897;t ngôi đ&#432;&#7907;c bi&#7875;u th&#7883; b&#7857;ng “!”<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; toán t&#7917; đi&#7873;u ki&#7879;n – v&#224; nh&#7883; phân
+đ&#432;&#7907;c bi&#7875;u th&#7883; b&#7857;ng “&amp;&amp;”<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; &nbsp;toán t&#7917; đi&#7873;u ki&#7879;n – ho&#7863;c
+nh&#7883; phân đ&#432;&#7907;c bi&#7875;u th&#7883; băng “||”<br>
+<br>
+Gi&#7843; s&#7917; chúng ta mu&#7889;n ki&#7875;m tra xem đi&#7873;u ki&#7879;n sau ch&#7913;a: m&#7897;t giá tr&#7883; n&#7857;m
+trong kho&#7843;ng [1, 10], ngh&#297;a l&#224; n l&#7899;n h&#417;n ho&#7863;c b&#7857;ng 1 v&#224; nh&#7887; h&#417;n ho&#7863;c
+b&#7857;ng 10.<br>
+Nh&#432; chúng ta đ&#227; bi&#7871;t ký hi&#7879;u if (1 &lt;= n &lt;= 10 không đúng (v&#236; các
+toán t&#7917; quan h&#7879; ch&#7881; đ&#432;&#7907;c áp d&#7909;ng v&#7899;i lo&#7841;i s&#7889; v&#224; bi&#7875;u th&#7913;c 1&lt;=n thu&#7897;c
+ki&#7875;u boolean).<br>
+Chúng ta ph&#7843;i áp d&#7909;ng toán t&#7917; đi&#7873;u ki&#7879;n – &amp;&amp; (v&#224;) &#7903; đây đ&#7875; ki&#7875;m
+tra xem hai đi&#7873;u ki&#7879;n có th&#7887;a m&#227;n.<br>
+<br>
+n &gt;= 1 v&#224; n &lt;= 10.<br>
+<br>
+Trong Java nó đ&#432;&#7907;c vi&#7871;t nh&#432; sau:<br>
+<br>
+n &gt;= 1 &amp;&amp; n &lt;= 10 <br>
+<br>
+v&#224; đ&#432;&#7907;c s&#7917; d&#7909;ng nh&#432; l&#224; bi&#7875;u th&#7913;c ki&#7875;m soát c&#7911;a câu l&#7879;nh if:<br>
+<br>
+if (n &gt;= 1 &amp;&amp; n &lt;= 10) ...;<br>
+<br>
+T&#432;&#417;ng t&#7921; chúng ta có th&#7875; ki&#7875;m tra xem m&#7897;t giá tr&#7883; n n&#224;o đó n&#7857;m ngo&#224;i
+kho&#7843;ng [1, 10]. Đ&#7875; th&#7887;a m&#227;n đi&#7873;u ki&#7879;n tr&#234;n n ph&#7843;i nh&#7903; h&#417;n 1 ho&#7863;c l&#7899;n
+h&#417;n 10.<br>
+<br>
+Trong Java ng&#432;&#7901;i ta s&#7917; d&#7909;ng toán t&#7917; đi&#7873;u ki&#7879;n or (ho&#7863;c):<br>
+<br>
+if (n &lt; 1 || n &gt; 10) ..<br>
+<br>
+Toán t&#7917; logic th&#7913; 3 – ph&#7847;n b&#249; logic – đ&#432;&#7907;c s&#7917; d&#7909;ng đ&#7875; ph&#7911; đ&#7883;nh các bi&#7875;u
+th&#7913;c.<br>
+<br>
+Ví d&#7909;, n&#7871;u chúng ta mu&#7889;n l&#224;m g&#236; đó trong tr&#432;&#7901;ng h&#7907;p m&#7897;t bi&#7871;n th&#7875; txt
+không th&#7875; hi&#7879;n chu&#7895;i “Abc” chúng ta vi&#7871;t:<br>
+<br>
+if (! txt.equals("Abc")) ... ; <br>
+<br>
+Các đ&#7889;i s&#7889; đ&#7871;n toán t&#7917; logic ph&#7843;i l&#224; các bi&#7875;u th&#7913;c thu&#7897;c ki&#7875;u boolean.
+K&#7871;t qu&#7843; c&#7911;a bi&#7875;u th&#7913;c đó c&#361;ng ph&#7843;i l&#224; ki&#7875;u boolean. Giá tr&#7883; c&#7911;a nó l&#224;
+true ho&#7863;c false nh&#432; trong b&#7843;ng sau:<br>
+<br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td rowspan="1" colspan="5" align="center" valign="top"><b>Toán
+t&#7917; logic có đi&#7873;u ki&#7879;n </b><br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="top"><b>a<br>
+      </b></td>
+      <td align="center" valign="top"><b>b<br>
+      </b></td>
+      <td align="center" valign="top"><b>a &amp;&amp; b<br>
+      </b></td>
+      <td align="center" valign="top"><b>a || b<br>
+      </b></td>
+      <td align="center" valign="top"><b>!a<br>
+      </b></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top">true<br>
+      </td>
+      <td align="center" valign="top">true<br>
+      </td>
+      <td style="text-align: center;" valign="top">true<br>
+      </td>
+      <td align="center" valign="top">true<br>
+      </td>
+      <td align="center" valign="top">false<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="top">false<br>
+      </td>
+      <td align="center" valign="top">true<br>
+      </td>
+      <td align="center" valign="top">false<br>
+      </td>
+      <td align="center" valign="top">true<br>
+      </td>
+      <td align="center" valign="top">true<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="top">true<br>
+      </td>
+      <td align="center" valign="top">false<br>
+      </td>
+      <td align="center" valign="top">false<br>
+      </td>
+      <td align="center" valign="top">true<br>
+      </td>
+      <td align="center" valign="top"><br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="top">false<br>
+      </td>
+      <td align="center" valign="top">false<br>
+      </td>
+      <td align="center" valign="top">false<br>
+      </td>
+      <td align="center" valign="top">false<br>
+      </td>
+      <td align="center" valign="top"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<div class="notec">Toán t&#7917; &amp;&amp; có giá tr&#7883; l&#224; true ch&#7881; khi c&#7843; hai
+đ&#7889;i s&#7889; c&#7911;a nó có giá tr&#7883; true, v&#224; nó s&#7869; có giá tr&#7883; l&#224; false n&#7871;u ng&#432;&#7907;c
+l&#7841;i.<br>
+Toán t&#7917; || có giá tr&#7883; true n&#7871;u ít nh&#7845;t m&#7897;t đ&#7889;i s&#7889; c&#7911;a nó l&#224; true, v&#224; có
+giá tr&#7883; false n&#7871;u c&#7843; hai đ&#7889;i s&#7889; c&#7911;a nó l&#224; false.<br>
+</div>
+<br>
+<br>
+Các toán t&#7917; logic có tr&#7853;t t&#7921; th&#7845;p h&#417;n toán t&#7917; quan h&#7879; v&#224; toán t&#7917; đ&#7859;ng
+th&#7913;c. Do đó chúng ta có th&#7875; vi&#7871;t (không c&#7847;n các d&#7845;u ngo&#7863;c):<br>
+<br>
+if ( a == 1 &amp;&amp; b &gt; 3) c = a + b;<br>
+<br>
+đ&#7875; tính c khi a b&#7857;ng 1 v&#224; b&gt;3.<br>
+<br>
+Operatory logiczne mają niższy priorytet od operatorów relacyjnych i
+równości-nierówności,
+zatem bez użycia dodatkowych nawiasów możemy pisać np:<br>
+<br>
+if ( a == 1 &amp;&amp; b &gt; 3) c = a + b;<br>
+<br>
+uzyskując efekt, o który nam chodzi (tu: wyliczenie c, gdy a równe 1 i
+b &gt; 3).<br>
+<br>
+<br>
+<div class="important">Chú ý: toán t&#7917; ph&#7847;n b&#249; k&#7871;t h&#7907;p m&#7897;t ngôi có tr&#7853;t
+t&#7921; cao h&#417;n các toán t&#7917;
+logic khác, do v&#7853;y c&#7847;n s&#7917; d&#7909;ng các d&#7845;u ngo&#7863;c đ&#7875; đ&#7843;m b&#7843;o tr&#7853;t t&#7921; đúng
+c&#7911;a vi&#7879;c tính các ti&#7875;u bi&#7875;u th&#7913;c.</div>
+<br>
+<br>
+Ví d&#7909;, n&#7871;u chúng ta mu&#7889;n l&#224;m g&#236; đó trong tr&#432;&#7901;ng h&#7907;p đi&#7873;u ki&#7879;n sau không
+có giá tr&#7883;: bi&#7871;n th&#7875; txt không có chu&#7895;i “Abc” v&#224; đ&#7891;ng th&#7901;i bi&#7871;n th&#7875;
+years có giá tr&#7883; l&#7899;n h&#417;n 1, chúng ta không th&#7875; vi&#7871;t:<br>
+<br>
+if (! txt.equals("Abc") &amp;&amp; years &gt; 1) ...<br>
+<br>
+b&#7903;i v&#236; đi&#7873;u n&#224;y có ngh&#297;a l&#224; c&#249;ng m&#7897;t lúc ho&#224;n th&#224;nh hai đi&#7873;u ki&#7879;n:<br>
+<br>
+- chu&#7895;i txt không ph&#7843;i l&#224; “Abc”<br>
+- years l&#7899;n h&#417;n 1<br>
+(d&#297; nhi&#234;n đây không ph&#7843;i l&#224; k&#7871;t qu&#7843; mong đ&#7907;i c&#7911;a chúng ta)<br>
+<br>
+Thay v&#236; v&#7853;y chúng ta vi&#7871;t:<br>
+<br>
+if (!( txt.equals("Abc") &amp;&amp; years &gt; 1)) ...<br>
+<br>
+Các d&#7845;u ngo&#7863;c th&#234;m v&#224;o thay đ&#7893;i tr&#7853;t t&#7921; c&#7911;a vi&#7879;c tính các ti&#7875;u bi&#7875;u
+th&#7913;c v&#224; do đó chúng ta đ&#7841;t đ&#432;&#7907;c k&#7871;t qu&#7843; mong đ&#7907;i.<br>
+<br>
+Các toán t&#7917; n&#234;u tr&#234;n đ&#432;&#7907;c g&#7885;i l&#224; <span style="font-weight: bold;">toán
+t&#7917; logic đi&#7873;u ki&#7879;n</span> v&#236; chúng đ&#432;&#7907;c
+tính toán t&#7915; trái sang ph&#7843;i v&#224; vi&#7879;c tính toán d&#7915;ng l&#7841;i khi giá tr&#7883; c&#7911;a
+to&#224;n b&#7897; bi&#7875;u th&#7913;c đ&#432;&#7907;c t&#236;m ra.<br>
+Đi&#7873;u n&#224;y ngh&#297;a l&#224; không ph&#7843;i t&#7845;t c&#7843; các ti&#7875;u bi&#7875;u th&#7913;c đ&#432;&#7907;c tính n&#7871;u
+m&#7897;t ph&#7847;n n&#224;o đó c&#7911;a to&#224;n b&#7897; bi&#7875;u th&#7913;c quy&#7871;t đ&#7883;nh k&#7871;t qu&#7843; c&#7911;a bi&#7875;u th&#7913;c.
+Ví d&#7909;, trong bi&#7875;u th&#7913;c sau:<br>
+<br>
+a &amp;&amp; (b &gt; 0 || c == 1)<br>
+<br>
+n&#7871;u a l&#224; false th&#236; bi&#7875;u th&#7913;c trong ngo&#7863;c s&#7869; không đ&#432;&#7907;c tính v&#236; giá tr&#7883;
+c&#7911;a to&#224;n b&#7897; bi&#7875;u th&#7913;c không ph&#7909; thu&#7897;c v&#224;o giá tr&#7883; c&#7911;a nó (n&#7871;u a ==
+false th&#236; to&#224;n b&#7897; bi&#7875;u th&#7913;c c&#361;ng ph&#7843;i l&#224; false).<br>
+<br>
+Trong Java có các toán t&#7917; logic vô đi&#7873;u ki&#7879;n (g&#7885;i l&#224; toán t&#7917; logic
+boolean):<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; &amp; AND (v&#224;)<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; | OR (ho&#7863;c)<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; ^ XOR (lo&#7841;i tr&#7915; OR) <br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; ~ bitwise complement<br>
+<br>
+Các toán t&#7917; logic boolean: &amp; v&#224; | có các thu&#7897;c tính gi&#7889;ng nhau nh&#432;
+các toán t&#7917; đi&#7873;u ki&#7879;n: &amp;&amp; v&#224;&nbsp; || ngo&#7841;i tr&#7915; tr&#432;&#7901;ng h&#7907;p sau:
+c&#7843; hai tác t&#7917; đ&#432;&#7907;c tính toán m&#7897;t cách vô đi&#7873;u ki&#7879;n.<br>
+<br>
+Toán t&#7917; lo&#7841;i tr&#7915; OR (^) ho&#7841;t đ&#7897;ng nh&#432; sau:<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; n&#7871;u c&#7843; hai tác t&#7917; có c&#249;ng giá
+tr&#7883; th&#236; giá tr&#7883; c&#7911;a bi&#7875;u th&#7913;c XOR l&#224; false,<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; n&#7871;u các giá tr&#7883; toán t&#7917; khác
+nhau th&#236; k&#7871;t qu&#7843; l&#224; true.<br>
+<br>
+Các toán t&#7917; logic boolean ch&#7881; đ&#432;&#7907;c áp d&#7909;ng đ&#7889;i v&#7899;i các đ&#7889;i s&#7889; thu&#7897;c
+lo&#7841;i boolean.<br>
+Th&#7853;t không may các ký t&#7921; t&#432;&#417;ng t&#7921; (&amp;, |,^,~) bi&#7875;u th&#7883; các toán t&#7917;
+bitwise m&#224; đ&#432;&#7907;c áp d&#7909;ng v&#7899;i các s&#7889; nguy&#234;n (chúng giúp cho vi&#7879;c th&#7921;c
+hi&#7879;n các thao tác tr&#234;n bit).<br>
+<br>
+<hr>
+<a name="DecWyj.4"></a>
+<h2>4. Đ&#432;a ra quy&#7871;t đ&#7883;nh: câu l&#7879;nh if v&#224; if-else </h2>
+Nh&#432; chúng ta đ&#227; bi&#7871;t, câu l&#7879;nh if có d&#7841;ng sau:<br>
+<br>
+<div class="syntax">if(exp) ins<br>
+<br>
+trong đó:<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; exp – l&#224; bi&#7875;u th&#7913;c b&#7845;t k&#7923; ki&#7875;u
+boolean,<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; ins – l&#224; ch&#7881; l&#7879;nh b&#7845;t k&#7923; (bao
+g&#7891;m c&#7843; kh&#7889;i).<br>
+<br>
+Ch&#7841;y: ch&#7881; l&#7879;nh ins đ&#432;&#7907;c th&#7921;c hi&#7879;n khi v&#224; ch&#7881; khi giá tr&#7883; c&#7911;a bi&#7875;u th&#7913;c
+exp l&#224; đúng.<br>
+</div>
+<br>
+<br>
+Câu l&#7879;nh if-else có d&#7841;ng sau:<br>
+<br>
+<div class="syntax"><b>if(exp) ins1 <br>
+else ins2<br>
+<br>
+trong đó:<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp; &nbsp;exp – l&#224; m&#7897;t bi&#7875;u th&#7913;c b&#7845;t k&#7923;
+lo&#7841;i Boolean<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp; &nbsp;ins1, ins2 – l&#224; các ch&#7881; l&#7879;nh b&#7845;t
+k&#7923; (bao g&#7891;m c&#7843; kh&#7889;i).<br>
+<br>
+Ch&#7841;y: ch&#7881; l&#7879;nh ins1 đ&#432;&#7907;c th&#7921;c hi&#7879;n khi v&#224; ch&#7881; khi giá tr&#7883; c&#7911;a bi&#7875;u th&#7913;c
+exp l&#224; đúng. N&#7871;u giá tr&#7883; c&#7911;a bi&#7875;u th&#7913;c exp l&#224; sai th&#236; ch&#7881; l&#7879;nh ins2
+đ&#432;&#7907;c th&#7921;c hi&#7879;n.<br>
+<br>
+</b><b></b></div>
+<br>
+<br>
+Các ví d&#7909; sau mô t&#7843; s&#7921; khác nhau gi&#7919;a câu l&#7879;nh if v&#224; if-else:<br>
+if (a == b) c = d; <br>
+c = e; <br>
+System.out.println( a + " " + b + " " + c + " " + d); <br>
+<br>
+v&#224;<br>
+<br>
+if (a == b) c = d; <br>
+else c = e; <br>
+System.out.println( a + " " + b + " " + c + " " + d); <br>
+<br>
+L&#7879;nh c = d trong ph&#7847;n đ&#7847;u ti&#234;n c&#7911;a m&#227; đ&#432;&#7907;c th&#7921;c hi&#7879;n khi giá tr&#7883; c&#7911;a
+bi&#7871;n th&#7875; a b&#7857;ng v&#7899;i b. Tuy nhi&#234;n đ&#7897;c l&#7853;p v&#7899;i đi&#7873;u ki&#7879;n n&#224;y, ngay sau
+khi th&#7921;c hi&#7879;n xong câu l&#7879;nh if, giá tr&#7883; c&#7911;a bi&#7871;n th&#7875; e s&#7869; đ&#432;&#7907;c l&#432;u
+trong bi&#7871;n th&#7875; c (do đó câu l&#7879;nh if không c&#7847;n thi&#7871;t &#7903; đây). Sau đó các
+giá tr&#7883; c&#7911;a các bi&#7871;n th&#7875; s&#7869; đ&#432;&#7907;c in ra b&#7843;ng nh&#7855;c câu l&#7879;nh.<br>
+Trong ph&#7847;n th&#7913; hai c&#7911;a m&#227; giá tr&#7883; c&#7911;a bi&#7871;n th&#7875; c ph&#7909; thu&#7897;c v&#224;o đ&#7859;ng
+th&#7913;c a == b hay không (chính xác m&#7897;t rong hai công vi&#7879;c sau s&#7869; đ&#432;&#7907;c
+th&#7921;c hi&#7879;n: c=d ho&#7863;c c=e).<br>
+<br>
+D&#297; nhi&#234;n các l&#7879;nh ins1 v&#224; ins2 t&#7915; trong đ&#7883;nh ngh&#297;a có th&#7875; l&#224; l&#234;nh if
+(ho&#7863;c if-else) cho phép l&#7891;ng các đi&#7873;u ki&#7879;n sau:<br>
+<br>
+<pre>char op;<br><br>double a, b, r;<br><br>...<br><br>if (op == '+') r = a + b;<br><br>else if (op == '-') r = a - b;<br><br>&nbsp;&nbsp;&nbsp; else if (op == '*') r = a*b;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else if (op == '/') r = a/b;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else System.out.println("Incorrect operation code");<br></pre>
+<br>
+&#7902; đây đ&#7863;t ra m&#7897;t câu h&#7887;i: else n&#224;o t&#432;&#417;ng &#7913;ng v&#7899;i if n&#224;o? Quy t&#7855;c r&#7845;t
+đ&#417;n gi&#7843;n: t&#432;&#417;ng &#7913;ng v&#7899;i m&#7895;i else l&#224; if đ&#7847;u ti&#234;n xu&#7845;t hi&#7879;n tr&#432;&#7899;c đó
+trong c&#249;ng m&#7897;t kh&#7889;i v&#224; ch&#432;a đ&#432;&#7907;c ghép c&#7863;p. Vi&#7879;c l&#249;i đ&#7847;u d&#242;ng m&#227; không
+&#7843;nh h&#432;&#7903;ng đ&#7871;n vi&#7879;c ghép c&#7863;p if-else.<br>
+<br>
+<br>
+<div class="notec">Sau đây l&#224; m&#7897;t s&#7889; l&#7895;i thông th&#432;&#7901;ng khi l&#224;m vi&#7879;c v&#7899;i
+câu l&#7879;nh if v&#224; if-else:<br>
+<br>
+A. Ghép sai if v&#224; else trong tr&#432;&#7901;ng h&#7907;p câu l&#7879;nh if-else l&#7891;ng.<br>
+<br>
+B. D&#7845;u ch&#7845;m ph&#7849;y đ&#7863;t sau d&#7845;u ngo&#7863;c đóng c&#7911;a đi&#7873;u ki&#7879;n:<br>
+<br>
+if (a &gt; b); <br>
+System.out.println("a &gt; b"); // will execute independently of a&gt;b
+! <br>
+<br>
+C. M&#7845;t d&#7845;u ngo&#7863;c k&#7871;t thúc kh&#7889;i:<br>
+<br>
+if (a &gt; b) { <br>
+c = a + b; <br>
+d = e + f; <br>
+else c = d + f;<br>
+<br>
+</div>
+<br>
+<br>
+<hr>
+<a name="DecWyj.5"></a>
+<h2>5. S&#7921; l&#7921;a ch&#7885;n đa bi&#7871;n th&#7921;c hi&#7879;n b&#7903;i l&#7879;nh switch (chuy&#7875;n) </h2>
+Trong m&#7897;t s&#7889; tr&#432;&#7901;ng h&#7907;p thay v&#236; s&#7917; d&#7909;ng câu l&#7879;nh if-else, có th&#7875; áp
+d&#7909;ng câu l&#7879;nh chuy&#7875;n. Câu l&#7879;nh có d&#7841;ng sau:<br>
+<br>
+<div class="syntax">switch (exp) switch_block <br>
+<br>
+trong đó:<br>
+<br>
+•&nbsp;&nbsp; &nbsp;bi&#7875;u th&#7913;c exp ph&#7843;i thu&#7897;c lo&#7841;i: char, byte, short
+ho&#7863;c int<br>
+•&nbsp;&nbsp; &nbsp;switch_block l&#224; m&#7897;t kh&#7889;i bao g&#7891;m nh&#7919;ng câu l&#7879;nh đ&#7863;c
+bi&#7879;t có d&#7841;ng: case const_expr: ins<br>
+<br>
+v&#224;<br>
+<br>
+default: ins // chú ý: “default” có&#769; th&#7875; ch&#7881; xu&#7845;t hi&#7879;n m&#7897;t l&#7847;n duy nh&#7845;t<br>
+</div>
+<br>
+<br>
+Bi&#7875;u th&#7913;c trong ngo&#7863;c (sau t&#7915; khóa chuy&#7875;n đ&#7893;i) đ&#432;&#7907;c tính v&#224; giá tr&#7883; c&#7911;a
+nó so v&#7899;i các giá tr&#7883; c&#7911;a các bi&#7875;u th&#7913;c h&#7857;ng s&#7889; (ch&#7913;a trong các ph&#7847;n
+bi&#7875;u th&#7883; b&#7857;ng nh&#227;n case).<br>
+Vi&#7879;c ch&#7841;y ti&#7871;p t&#7909;c t&#7915; v&#7883; trí đó cho đ&#7871;n cu&#7889;i kh&#7889;i switch hay ch&#7895; xu&#7845;t
+hi&#7879;n đ&#7847;u ti&#234;n c&#7911;a câu l&#7879;nh break ho&#7863;c return.<br>
+N&#7871;u không t&#236;m th&#7845;y bi&#7875;u th&#7913;c h&#7857;ng s&#7889; ghép n&#224;o th&#236; vi&#7879;c ki&#7875;m soát đ&#432;&#7907;c
+chuy&#7875;n sang câu l&#7879;nh có nh&#227;n default – ho&#7863;c n&#7871;u không có câu l&#7879;nh n&#224;y
+th&#236; chuy&#7875;n sang câu l&#7879;nh ngay sau kh&#7889;i switch.<br>
+<br>
+Xem xét l&#7899;p SimpleCalc v&#7899;i ph&#432;&#417;ng pháp makeOp th&#7921;c các thao tác toán
+h&#7885;c tr&#234;n các thu&#7897;c tính c&#7911;a nó – hai s&#7889; th&#7921;c.<br>
+<pre>public class SimpleCalc {<br>  <br>  private double a;<br>  private double b;<br><br>  public SimpleCalc(double x, double y) {<br>    a = x;<br>    b = y;<br>  }<br><br>  public double makeOp(char op) {<br>   <br>    double r = 0;<br><br>    switch(op) {<br>       case '+' : r = a + b; break;<br>       case '-' : r = a - b; break;<br>       case '*' : r = a * b; break;<br>       case '/' : r = a / b; break;<br>       default  : System.out.println("Unknown operation code");<br>    }<br>    <br>    return r;<br>  }<br><br>}<br><br>class SimplecalcTest {<br><br>  public static void main(String[] args) {<br><br>    SimpleCalc sc = new SimpleCalc(1.2, 3.7);<br>    System.out.println( sc.makeOp('+'));<br>    System.out.println( sc.makeOp('-'));<br>    System.out.println( sc.makeOp('*'));<br>    System.out.println( sc.makeOp('/'));<br><br>  } <br>}<br></pre>
+Giá tr&#7883; c&#7911;a bi&#7871;n th&#7875; op (thu&#7897;c ki&#7875;u char) quy&#7871;t đ&#7883;nh thao tác đ&#432;&#7907;c th&#7921;c
+hi&#7879;n b&#7903;i ph&#432;&#417;ng pháp makeOp. Ví d&#7909; n&#7871;u đó chính l&#224; ký t&#7921; ‘+’ th&#236; s&#7921;
+ki&#7875;m soát đ&#432;&#7907;c chuy&#7875;n đ&#7871;n câu l&#7879;nh có nh&#227;n l&#224; case ‘+’. &#7902; đây giá tr&#7883;
+c&#7911;a bi&#7871;n th&#7875; r đ&#432;&#7907;c tính nh&#432; l&#224; t&#7893;ng c&#7911;a a v&#224; b. Câu l&#7879;nh break s&#7869; d&#7901;i
+kh&#7887;i kh&#7889;i switch.<br>
+<br>
+<br>
+<div class="notec">C&#361;ng c&#7847;n ph&#7843;i nh&#7899; r&#224;nh nh&#7919;ng nh&#227;n case l&#224; các bi&#7875;u
+th&#7913;c h&#7857;ng s&#7889;. Giá tr&#7883; c&#7911;a nh&#7919;ng bi&#7875;u th&#7913;c đó c&#7847;n ph&#7843;i đ&#432;&#7907;c bi&#7871;t trong
+th&#7901;i gian bi&#234;n d&#7883;ch v&#224; không đ&#432;&#7907;c s&#7911;a đ&#7893;i trong su&#7889;t quá tr&#236;nh ch&#7841;y
+ch&#432;&#417;ng tr&#236;nh. Nó&#769; có th&#7875; l&#224; m&#7897;t d&#227;y (‘+’, ‘*’ hay l&#224; 1), m&#7897;t h&#7857;ng s&#7889;
+(m&#7897;t bi&#7871;n th&#7875; đ&#432;&#7907;c khai báo final (cu&#7889;i c&#249;ng)) hay m&#7897;t bi&#7875;u th&#7913;c bao
+g&#7891;m c&#7843; d&#227;y v&#224; h&#7857;ng s&#7889; (ví d&#7909;: LMAX + 3/LMIN, trong đó LMAX v&#224; LMIN l&#224;
+các h&#7857;ng s&#7889;).<br>
+Giá tr&#7883; c&#7911;a m&#7897;t bi&#7875;u th&#7913;c nh&#432; th&#7875; ph&#7843;i thu&#7897;c lo&#7841;i s&#7889; nguy&#234;n v&#224; có th&#7875;
+đ&#432;&#7907;c g&#7855;n cho lo&#7841;i c&#7911;a bi&#7875;u th&#7913;c chuy&#7875;n.<br>
+</div>
+<br>
+<br>
+Đ&#7875; ng&#7915;ng ch&#7841;y kh&#7889;i chuy&#7875;n đ&#7843;o câu l&#7879;nh break ho&#7863;c return đ&#432;&#7907;c s&#7917; d&#7909;ng.<br>
+<br>
+Xem đo&#7841;n code sau:<br>
+<br>
+double a = 0.1;<br>
+switch(n) { <br>
+case 1 : a = a + 1; <br>
+case 2 : a = a + 2; <br>
+case 3 : a = a + 3; <br>
+} <br>
+<br>
+System.out.prinln(a);<br>
+Cho ra 6.1 (n=1), 5.1 (n=2) v&#224; 3.1 (n=3). Trong các tr&#432;&#7901;ng h&#7907;p khác
+đo&#7841;n code cho ra giá tr&#7883; g&#7889;c c&#7911;a bi&#7871;n th&#7875; a (0.1). N&#7871;u m&#7909;c ti&#234;u c&#7911;a
+chúng ta l&#224; có 1.1 đ&#7889;i n=1, 2.1 đ&#7889;i v&#7899;i n=2 v&#224; 3.1 đ&#7889;i n=3 th&#236; chúng ta
+ph&#7843;i đ&#7863;t câu l&#7879;nh break sau m&#7895;i l&#7847;n tính giá tr&#7883; c&#7911;a a. Câu l&#7879;nh n&#224;y s&#7869;
+ng&#7855;t ch&#7841;y các kh&#7889;i v&#224; chuy&#7875;n ki&#7871;m soát sang ch&#7881; l&#7879;nh đ&#7847;u ti&#234;n sau kh&#7889;i
+chuy&#7875;n đ&#7893;i.<br>
+<br>
+Các nh&#227;n case v&#224; v&#224; default có th&#7875; xu&#7845;t hi&#7879;n theo tr&#7853;t t&#7921; b&#7845;t k&#7923;, nh&#432;ng
+chúng có th&#7875; không l&#7863;p l&#7841;i: hai bi&#7875;u th&#7913;c h&#7857;ng s&#7889; case không th&#7875; có
+c&#249;ng m&#7897;t giá tr&#7883;. T&#432;&#417;ng t&#7921;, không th&#7875; có hai nh&#227;n default.<br>
+<br>
+N&#7871;u các câu l&#7879;nh chuy&#7875;n đ&#7843;o đ&#432;&#7907;c l&#7891;ng v&#224;o nhau th&#236; nh&#227;n default v&#224; case
+t&#432;&#417;ng &#7913;ng v&#7899;i các chuy&#7875;n đ&#7843;o k&#7871;t h&#7907;p:<br>
+<br>
+switch(i) { <br>
+&nbsp;&nbsp;&nbsp; case 1 : switch(testNum(i)) { <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case 1 :
+System.out.println("same one"); break; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case 2 :
+System.out.println("double one"); break; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; default:
+System.out.println("other one"); break; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break; <br>
+&nbsp;&nbsp;&nbsp; case 2 : System.out.println("two"); break; <br>
+&nbsp;&nbsp;&nbsp; default: System.out.println("other two"); break; <br>
+} <br>
+<br>
+N&#7871;u ph&#432;&#417;ng pháp testNum tr&#7843; l&#7841;i giá tr&#7883; c&#7911;a đ&#7889;i s&#7889; c&#7911;a nó đ&#432;&#7907;c nhân b&#7903;i
+2 th&#236; v&#7899;i đ&#7847;u v&#224;o i l&#224; m&#7897;t th&#236; ch&#7881; l&#7879;nh b&#234;n tr&#234;n cho ra “double one”,
+trong khi n&#7871;u đ&#7847;u v&#224;o i l&#224; 2 th&#236; cho ra l&#224; “two”.<br>
+<br>
+Câu l&#7879;nh break ng&#7855;t ch&#7841;y kh&#7889;i chuy&#7875;n đ&#7843;o m&#224; nó n&#7857;m trong đó.<br>
+<br>
+S&#7917; d&#7909;ng câu l&#7879;nh break v&#7899;i m&#7897;t nh&#227;n chúng ta có th&#7875; chuy&#7875;n ki&#7875;m soát ra
+kh&#7887;i kh&#7889;i chuy&#7875;n đ&#7843;o đ&#7871;n ch&#7881; l&#7879;nh có nh&#227;n đ&#227; cho. Theo cách n&#224;y các câu
+l&#7879;nh chuy&#7875;n đ&#7843;o l&#7891;ng có th&#7875; đ&#432;&#7907;c đ&#7875; l&#7841;i v&#7899;i m&#7897;t câu l&#7879;nh break.<br>
+<br>
+Chú ý: câu l&#7879;nh break có nh&#227;n c&#361;ng có th&#7875; đ&#432;&#7907;c s&#7917; d&#7909;ng đ&#7875; d&#7901;i các v&#242;ng
+l&#7863;p.<br>
+<br>
+<hr>
+<a name="DecWyj.6"></a>
+<h2>6. Toán t&#7917; đi&#7873;u ki&#7879;n ?:</h2>
+Toán t&#7917; đi&#7873;u ki&#7879;n ?: l&#7845;y 3 bi&#7875;u th&#7913;c – l&#224;m đ&#7889;i s&#7889;. Nó đ&#432;&#7907;c s&#7917; d&#7909;ng theo
+cách sau:<br>
+<br>
+e1 ? e2 : e3<br>
+<br>
+Bi&#7875;u th&#7913;c e1 ph&#7843;i l&#224; ki&#7875;u boolean. Hai bi&#7875;u th&#7913;c khác (e2 v&#224; 23) ph&#7843;i
+thu&#7897;c c&#249;ng m&#7897;t ki&#7875;u hay thu&#7897;c các ki&#7875;u có th&#7875; chuy&#7875;n đ&#7893;i sang các ki&#7875;u
+thông th&#432;&#7901;ng khác.<br>
+<br>
+Bi&#7875;u th&#7913;c xây d&#7921;ng b&#7903;i toán t&#7917; đi&#7873;u ki&#7879;n đ&#432;&#7907;c g&#7885;i l&#224; <span style="font-weight: bold;">bi&#7875;u th&#7913;c đi&#7873;u ki&#7879;n</span>. <br>
+Nó đ&#432;&#7907;c tính nh&#432; sau. Bi&#7871;n th&#7875; e1 đ&#432;&#7907;c đánh giá. N&#7871;u nó l&#224; true th&#236;
+bi&#7875;u th&#7913;c e2 đ&#432;&#7907;c tính v&#224; giá tr&#7883; c&#7911;a nó tr&#7903;i th&#224;nh giá tr&#7883; c&#7911;a to&#224;n b&#7897;
+bi&#7875;u th&#7913;c. B&#7887; qua bi&#7875;u th&#7913;c e3 trong tr&#432;&#7901;ng h&#7907;p n&#224;y. N&#7871;u e1 l&#224; false
+th&#236; bi&#7871;n th&#7875; e2 b&#7883; b&#7887; qua v&#224; giá tr&#7883; c&#7911;a e3 tr&#7903; th&#224;nh giá tr&#7883; c&#7911;a to&#224;n
+b&#7897; bi&#7875;u th&#7913;c đi&#7873;u ki&#7879;n.<br>
+<br>
+Th&#7913; t&#7921; c&#7911;a toán t&#7917; ?: th&#7845;p (nh&#432;ng cao h&#417;n toán t&#7917; ch&#7881; đ&#7883;nh). Nó có tính
+ch&#7845;t k&#7871;t h&#7907;p ph&#7843;i. D&#249; n&#234;n d&#249;ng các d&#7845;u ngo&#7863;c đ&#7875; l&#224;m cho toán t&#7917; đ&#432;&#7907;c r&#245;
+r&#224;ng h&#417;n nh&#432;ng tr&#7853;t t&#7921; th&#7845;p cho phép l&#432;&#7907;c b&#7887; d&#7845;u ngo&#7863;c.<br>
+<br>
+Bi&#7875;u th&#7913;c đi&#7873;u ki&#7879;n có th&#7875; thay đ&#7893;i câu l&#7879;nh if-else trong nhi&#7873;u tr&#432;&#7901;ng
+h&#7907;p đ&#417;n gi&#7843;n:<br>
+<br>
+<table border="1" width="100%">
+  <tbody>
+    <tr valign="top">
+      <td style="background-color: rgb(204, 204, 204);" colspan="2" bgcolor="#ffffff">&nbsp;Trong ng&#7919; c&#7843;nh: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int a = 1,d; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float b = 0.7, c; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ..... <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int func1() {...} <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int func2(int) { ...} <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; void func4() { ... } <br>
+      <br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td style="background-color: rgb(230, 230, 230);" bgcolor="#ffffcc">
+      <center><b>L&#7879;nh if</b></center>
+      </td>
+      <td style="background-color: rgb(230, 230, 230);" bgcolor="#ffffcc">
+      <div align="center"><b>Bi&#7875;u th&#7913;c đi&#7873;u ki&#7879;n t&#432;&#417;ng &#7913;ng</b></div>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td style="background-color: rgb(230, 230, 230);" bgcolor="#ccffff">if (a &gt; b) c = a + 2; <br>
+else c = b;</td>
+      <td style="background-color: rgb(230, 230, 230);" bgcolor="#ccffff">c = a &gt; b ? a + 2 : b;</td>
+    </tr>
+    <tr valign="top">
+      <td style="background-color: rgb(230, 230, 230);" bgcolor="#ccffff">if (a &lt; b) c = a + 2;<br>
+else d = b + 2;</td>
+      <td style="background-color: rgb(230, 230, 230);" bgcolor="#ccffff">a &lt; b ? c = a + 2 : d = b + 2;</td>
+    </tr>
+    <tr valign="top">
+      <td style="background-color: rgb(230, 230, 230);" bgcolor="#ccffff" nowrap="true">if (b&gt;0) d= func2(a) + 2;<br>
+else b *= 3.3;</td>
+      <td style="background-color: rgb(230, 230, 230);" bgcolor="#ccffff">b &gt; 0 ? d = func2(a) + 2 : b *=
+3.3;</td>
+    </tr>
+    <tr valign="top">
+      <td style="background-color: rgb(230, 230, 230);" bgcolor="#ccffff">if (b &gt; 0) d = func1();<br>
+else a++;</td>
+      <td style="background-color: rgb(230, 230, 230);" bgcolor="#ccffff">b &gt; 0 ? d = func1() : a++;</td>
+    </tr>
+    <tr valign="top">
+      <td style="background-color: rgb(230, 230, 230);" bgcolor="#ccffff">if (b &gt; 0) func4();<br>
+else d = a + 7;</td>
+      <td style="background-color: rgb(230, 230, 230);" bgcolor="#ccffff">Đây không th&#7875; xem l&#224; bi&#7875;u th&#7913;c đi&#7873;u ki&#7879;n b&#7903;i v&#236; tác
+t&#7917; e2 l&#224; lo&#7841;i void trong khi e3 l&#224; lo&#7841;i int.</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+Nh&#432; chúng ta th&#7845;y, vi&#7879;c thay th&#7871; câu l&#7879;nh if v&#7899;i m&#7897;t bi&#7875;u th&#7913;c đi&#7873;u
+ki&#7879;n không ph&#7843;i lúc n&#224;o c&#361;ng đ&#432;&#7907;c th&#7921;c hi&#7879;n đ&#432;&#7907;c.<br>
+Nh&#432;ng toán t&#7917; đi&#7873;u ki&#7879;n không ph&#7843;i đ&#432;&#7907;c sinh ra đ&#7875; thay th&#7871; câu l&#7879;nh if.<br>
+<br>
+Thu&#7853;n l&#7907;i chính c&#7911;a toán t&#7917; đi&#7873;u ki&#7879;n l&#224; nó có th&#7875; đ&#432;&#7907;c &#7913;ng d&#7909;ng khi m&#224;
+câu l&#7879;nh if không th&#7875; ho&#7863;c n&#417;i m&#224; vi&#7879;c &#7913;ng d&#7909;ng câu l&#7879;nh if có th&#7875; gây
+b&#7845;t ti&#7879;n.<br>
+<br>
+Xem xét vi&#7879;c kh&#7903;i t&#7841;o m&#7897;t bi&#7871;n th&#7875; sau (m&#7897;t ví d&#7909; thông th&#432;&#7901;ng):<br>
+<br>
+int x = (a &gt; b ? 1 : 0);<br>
+<br>
+<hr><a name="DecWyj.10"></a>
+<h2>7. Tóm t&#7855;t<br>
+</h2>
+<param name="className" value="account1.Test"><param name="title" value="Demo programu operacji na kontach"><param name="sourceCode" value="account1/source.html"><param name="hasArgs" value="no"><param name="hasConsole" value="no">B&#224;i n&#224;y đ&#227; tr&#236;nh b&#224;y chi ti&#7871;t v&#7873; các câu
+l&#7879;nh v&#224; toán t&#7917; đ&#432;&#7907;c ch&#7881; đ&#7883;nh
+đ&#7875; đ&#432;a ra các quy&#7871;t đ&#7883;nh trong m&#7897;t ch&#432;&#417;ng tr&#236;nh. Nó đóng vai tr&#242; quan
+tr&#7885;ng trong vi&#7879;c l&#7853;p tr&#236;nh.<br>
+<br>
+<hr size="2" width="100%"><a name="DecWyj.11"></a>
+<h2>8. B&#224;i t&#7853;p<br>
+</h2>
+1. Vi&#7871;t m&#7897;t ch&#432;&#417;ng tr&#236;nh m&#224; có th&#7875; d&#7883;ch nh&#7919;ng đi&#7875;m s&#7889; (A, B, C, D, E,
+F) đ&#227; cho trong dialog đ&#7847;u v&#224;o th&#224;nh đi&#7875;m mô t&#7843;: A. xu&#7845;t s&#7855;c, B. t&#7889;t,
+C. khá, D. kém, E. d&#432;&#7899;i ti&#234;u chu&#7849;n, F. tr&#432;&#7907;t. Tách vi&#7879;c nh&#7853;p d&#7919; li&#7879;u
+kh&#7887;i vi&#7879;c d&#7883;ch v&#224; vi&#7871;t k&#7871;t qu&#7843;, b&#7843;o v&#7873; ch&#432;&#417;ng
+tr&#236;nh kh&#7887;i nh&#361;ng l&#7895;i đ&#7847;u v&#224;o b&#7857;ng cách báo cho ng&#432;&#7901;i s&#7917; d&#7909;ng r&#7857;ng h&#7885; đ&#227;
+nh&#7853;p d&#7919; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; li&#7879;u không h&#7907;p l&#7879; v&#224; y&#234;u
+c&#7847;u s&#7917;a l&#7841;i d&#7919; li&#7879;u đó.<br>
+<br>
+2. S&#7917;a đ&#7893;i l&#7899;p Publication t&#7915; b&#224;i tr&#432;&#7899;c đ&#7875; thi&#7871;t l&#7853;p giá non-positive
+(phi tích c&#7921;c) v&#224; thi&#7871;t l&#7853;p s&#7889; l&#432;&#7907;ng mua phi tích c&#7921;c v&#224; doanh thu b&#7845;t
+kh&#7843; thi. M&#7897;t ch&#432;&#417;ng tr&#236;nh có th&#7875; ph&#7843;n &#7913;ng l&#7841;i v&#7899;i nh&#7919;ng l&#7895;i tr&#234;n nh&#432;
+th&#7871; n&#224;o? Trong tr&#236;nh th&#7917; nghi&#7879;m ph&#7843;i đ&#7843;m b&#7843;o vi&#7879;c t&#7841;o các đ&#7889;i t&#432;&#7907;ng c&#7911;a
+l&#7899;p (v&#7899;i vi&#7879;c l&#224;m r&#245; tính đúng đ&#7855;n c&#7911;a d&#7919; li&#7879;u đ&#7847;u v&#224;o), thi&#7871;t l&#7853;p giá,
+mua v&#224; bán các &#7845;n ph&#7849;m v&#224; báo cáo l&#7841;i v&#7873; s&#7921; thay đ&#7893;i trong c&#7917;a h&#224;ng.<br>
+<br>
+3. Vi&#7871;t m&#7897;t ch&#432;&#417;ng tr&#236;nh ki&#7875;m tra xem s&#7889; đ&#227; cho có n&#7857;m trong các
+kho&#7843;ng: 1-10, 11-100, 101-1000, 1001-10000 ho&#7863;c nh&#7887; h&#417;n o hay n&#7857;m ngo&#224;i
+kho&#7843;ng 0-10000. <br>
+<br>
+4. Vi&#7871;t m&#7897;t ch&#432;&#417;ng tr&#236;nh h&#7887;&#777;i ng&#432;&#7901;i s&#7917; d&#7909;ng n&#7841;p 5 chu&#7895;i v&#224; ki&#7875;m tra xem
+có 2 chu&#7895;i n&#224;o b&#7857;ng nhau trong đó hay không. Ch&#432;&#417;ng tr&#236;nh ph&#7843;&#777;i in con
+s&#7889; c&#7911;a các chu&#7895;i b&#7857;ng nhau.
+</body></html>

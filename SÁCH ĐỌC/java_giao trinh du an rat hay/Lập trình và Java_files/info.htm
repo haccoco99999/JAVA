@@ -1,0 +1,1057 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+
+
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <meta name="author" content="Krzysztof Barteczko">
+  <meta name="description" content="Nhap mon lap trinh (Java)">
+  <meta name="copyright" content="(c) Krzysztof Barteczko PJWSTK 2008">
+  <link rel="stylesheet" type="text/css" href="info_data/common.css">
+  <title>Nhap mon lap trinh</title>
+</head><body>
+<div align="center">
+<a name="PrgJav"></a>
+<h1>L&#7853;p tr&#236;nh v&#224; Java</h1>
+</div>
+<hr>
+<i>Giáo tr&#236;nh bao g&#7891;m: các khái ni&#7879;m c&#417; b&#7843;n v&#7873; l&#7853;p tr&#236;nh c&#361;ng nh&#432; ngôn
+ng&#7919; l&#7853;p tr&#236;nh Java. Cu&#7889;i giáo tr&#236;nh có các h&#432;&#7899;ng d&#7851;n c&#7909; th&#7875; cho
+th&#7921;c h&#224;nh: l&#224;m th&#7871; n&#224;o đ&#7875; b&#7855;t đ&#7847;u vi&#7871;t ch&#432;&#417;ng tr&#236;nh trong Java.</i><br>
+<hr>
+<a name="PrgJav.1"></a><span style="font-family: verdana;"></span><span style="font-family: verdana;"></span>
+<h2>1. Máy vi tính ho&#7841;t đ&#7897;ng nh&#432; th&#7871; n&#224;o? </h2>
+Nh&#432; chúng ta bi&#7871;t, thông th&#432;&#7901;ng máy tính cá nhân (PC) có ch&#7913;a: b&#7897; vi x&#7917;
+lý trung tâm (CPU) , b&#7897; nh&#7899;
+truy c&#7853;p ng&#7851;u nhi&#234;n (g&#7855;n tr&#234;n b&#7843;ng m&#7841;ch ch&#7911;), v&#224; các d&#7909;ng c&#7909;/thi&#7871;t b&#7883;
+ngo&#7841;i
+vi khác (m&#7897;t s&#7889; g&#7855;n li&#7873;n tr&#234;n đ&#297;a ch&#7911;) nh&#432; card m&#224;n h&#236;nh, đ&#297;a, card âm
+thanh, card m&#7841;ng, modem, m&#224;n h&#236;nh, ...). Chúng ta g&#7885;i t&#7845;t c&#7843; các th&#224;nh
+ph&#7847;n đó c&#7911;a máy tính l&#224; <b>ph&#7847;n c&#7913;ng </b>(<b>hardware</b>).
+<br>
+Nh&#432;ng nh&#432; th&#7871; có đ&#7911; đ&#7875; máy tính có th&#7875; th&#7921;c hi&#7879;n đ&#432;&#7907;c các công vi&#7879;c ph&#7893;
+bi&#7871;n nh&#432;:
+<ul>
+  <li> vi&#7871;t v&#224; so&#7841;n th&#7843;o văn b&#7843;n</li>
+  <li> tính toán trong ch&#432;&#417;ng tr&#236;nh b&#7843;ng tính (nh&#432; Microsoft Excel
+ch&#7859;ng h&#7841;n)</li>
+  <li> t&#236;m ki&#7871;m trong các c&#417; s&#7903; d&#7919; li&#7879;u</li>
+  <li> t&#236;m ki&#7871;m thông tin tr&#234;n m&#7841;ng Internet</li>
+  <li> g&#7917;i v&#224; nh&#7853;n th&#432; đi&#7879;n t&#7917;</li>
+</ul>
+Câu tr&#7843; l&#7901;i l&#224;: không đ&#7911;, th&#7853;m chí ph&#7847;n c&#7913;ng hi&#7879;n đ&#7841;i nh&#7845;t. C&#7847;n ph&#7843;i có
+ph&#7847;n m&#7873;m (<b>software</b>).
+<center>
+<p></p>
+<div style="text-align: left;" class="def"><b><font size="+1"> Ch&#432;&#417;ng
+tr&#236;nh </font></b>l&#224; m&#7897;t chu&#7895;i các l&#7879;nh (đ&#227; qua m&#227; hóa) đ&#432;&#7907;c th&#7921;c hi&#7879;n
+b&#7903;i b&#7897; vi x&#7917; lý trung tâm (ho&#7863;c b&#7903;i các thi&#7871;t b&#7883; ph&#7847;n c&#7913;ng khác thông
+qua b&#7897; vi
+x&#7917; lý trung tâm).</div>
+<p></p>
+</center>
+Ví d&#7909; nh&#432; chúng ta có th&#7875; vi&#7871;t hay so&#7841;n th&#7843;o văn b&#7843;n đ&#432;&#7907;c l&#224; nh&#7901; có m&#7897;t
+ch&#432;&#417;ng tr&#236;nh so&#7841;n th&#7843;o văn b&#7843;n. Các ch&#432;&#417;ng tr&#236;nh nh&#432; th&#7871; th&#432;&#7901;ng khá
+ph&#7913;c t&#7841;p, có dung l&#432;&#7907;ng l&#7899;n, nh&#432;ng th&#7921;c ra ch&#7881; l&#224; m&#7897;t chu&#7895;i các l&#7879;nh <b>đ&#417;n
+gi&#7843;n</b>, "ra l&#7879;nh" cho ph&#7847;n c&#7913;ng (tr&#432;&#7899;c h&#7871;t l&#224; b&#7897; vi x&#7917; lý trung tâm)
+th&#7921;c hi&#7879;n.
+Khi chung ta có tr&#432;&#7899;c m&#7863;t m&#7897;t "t&#7901; gi&#7845;y tr&#7855;ng" c&#7911;a m&#7897;t văn b&#7843;n c&#7847;n so&#7841;n
+th&#7843;o, v&#224; chúng ta đang suy ngh&#297; xem n&#234;n b&#7855;t đ&#7847;u nh&#432; th&#7871; n&#224;o, th&#236; m&#7897;t
+ph&#7847;n c&#7911;a ch&#432;&#417;ng tr&#236;nh s&#7885;an th&#7843;o văn b&#7843;n đang h&#7885;at đ&#7897;ng - đang ch&#7901; chúng
+ta vi&#7871;t t&#7915; b&#224;n phím, v&#224; khi chúng ta b&#7855;t đ&#7847;u &#7845;n m&#7897;t phím ch&#7919; cái n&#224;o
+đó, ch&#432;&#417;ng tr&#236;nh s&#7869; ch&#7841;y - l&#224;m xu&#7845;t hi&#7879;n ch&#7919; cái đó tr&#234;n m&#224;n h&#236;nh theo
+m&#7897;t ki&#7875;u dáng nh&#7845;t đ&#7883;nh (ph&#7909; thu&#7897;c v&#224;o ki&#7875;u ch&#7919;, kích th&#432;&#7899;c ch&#7919;, m&#7847;u
+ch&#7919;, ...).<br>
+<div class="notel"> Chúng ta th&#432;&#7901;ng nghe nói l&#224;, ch&#432;&#417;ng tr&#236;nh th&#7921;c hi&#7879;n
+các l&#7879;nh. Ví d&#7909; nh&#432; "ch&#432;&#417;ng tr&#236;nh th&#7921;c hi&#7879;n l&#7879;nh b&#7883; l&#7895;i,&nbsp; không
+th&#7875; ti&#7871;p t&#7909;c ch&#7841;y đ&#432;&#7907;c". Cách nói nh&#432; th&#7871; khá ti&#7879;n, v&#224; c&#361;ng đúng d&#432;&#7899;i
+m&#7897;t v&#224;i ý ngh&#297;a, nh&#432;ng chúng ta n&#234;n nh&#7899; l&#224; các l&#7879;nh đ&#432;&#7907;c chuy&#7875;n t&#7899;i b&#7897;
+vi x&#7917; lý đ&#7875; đ&#432;&#7907;c th&#7921;c hi&#7879;n &#7903; đó.</div>
+Nh&#432; v&#7853;y <b>th&#7921;c hi&#7879;n/ch&#7841;y ch&#432;&#417;ng tr&#236;nh</b> có ngh&#297;a l&#224; chuy&#7875;n các l&#7879;nh
+cho b&#7897; vi x&#7917; lý trung tâm th&#7921;c hi&#7879;n. Nh&#432;ng không ph&#7843;i lúc n&#224;o ch&#432;&#417;ng
+tr&#236;nh c&#361;ng
+ch&#7841;y, ph&#7843;i l&#224;m g&#236; đ&#7875; ch&#432;&#417;ng tr&#236;nh ch&#7841;y đ&#432;&#7907;c? Ch&#432;&#417;ng tr&#236;nh (l&#224; m&#7897;t chu&#7895;i
+các l&#7879;nh) đ&#432;&#7907;c ghi &#7903; đ&#297;a c&#7913;ng. Ch&#7841;y ch&#432;&#417;ng tr&#236;inh đ&#7891;ng ngh&#297;a v&#7899;i vi&#7879;c
+n&#7841;p nó v&#224;o b&#7897; nh&#7899; đ&#7897;ng v&#224; chuy&#7875;n đi&#7873;u khi&#7875;n đ&#7871;n l&#7879;nh đ&#7847;u ti&#234;n c&#7911;a
+ch&#432;&#417;ng tr&#236;nh. T&#7845;t c&#7843; các h&#7885;at đ&#7897;ng nói tr&#234;n do m&#7897;t ph&#7847;n m&#7873;m đ&#7863;c bi&#7879;t
+đi&#7873;u khi&#7875;n. Không có ph&#7847;n m&#7873;m n&#224;y, máy tính không th&#7875; ch&#7841;y đ&#432;&#7907;c,
+không th&#7875; giao ti&#7871;p v&#7899;i ng&#432;&#7901;i s&#7917; d&#7909;ng, không th&#7875; ch&#7841;y các ch&#432;&#417;ng tr&#236;nh
+khác theo y mu&#7889;n c&#7911;a ng&#432;&#7901;i s&#7917; d&#7909;ng.<br>
+<center>
+<p></p>
+<div style="text-align: left;" class="def"> <b><font size="+1">H&#7879; đi&#7873;u
+h&#224;nh</font></b> - l&#224; m&#7897;t b&#7897; nh&#7919;ng ch&#432;&#417;ng tr&#236;nh qu&#7843;n lý các t&#224;i nguy&#234;n
+c&#7911;a máy tính đi&#7873;u khi&#7875;n h&#7879; th&#7889;ng t&#7879;p tin, qu&#7843;n lý ch&#7841;y ch&#432;&#417;ng
+tr&#236;nh, chia th&#7901;i gian c&#7911;a b&#7897; vi x&#7917; lý trung tâm d&#224;nh cho các ch&#432;&#7901;ng
+tr&#236;nh, thông tin
+gi&#7919;a các ch&#432;&#417;ng tr&#236;nh v&#224; giao ti&#7871;p v&#7899;i ng&#432;&#7901;i s&#7917; d&#7909;ng.</div>
+<p></p>
+</center>
+Nh&#432; v&#7853;y, chúng ta có th&#7875; kh&#7859;ng đ&#7883;nh ch&#7855;c ch&#7855;n r&#7857;ng, h&#7885;at đ&#7897;ng c&#7911;a máy
+tính d&#7921;a tr&#234;n vi&#7879;c th&#7921;c hi&#7879;n/ch&#7841;y các ch&#432;&#417;ng tr&#236;nh, ho&#7863;c h&#7879; th&#7889;ng, ho&#7863;c
+c&#7911;a ng&#432;&#7901;i s&#7917; d&#7909;ng. <span style="font-family: verdana;">Do đó có th&#7875;
+nói r&#7857;ng máy tính h&#7885;at đ&#7897;ng thông qua vi&#7879;c th&#7921;c hi&#7879;n các ch&#432;&#417;ng
+tr&#236;nh (c&#7911;a h&#7879; th&#7889;ng hay c&#7911;a ng&#432;&#7901;i s&#7917; d&#7909;ng).<o:p></o:p> </span><span style="font-family: verdana;">M&#7885;i ch&#432;&#417;ng tr&#236;nh giao ti&#7871;p v&#7899;i CPU b&#7857;ng
+ngôn ng&#7919; chuy&#234;n d&#7909;ng. Các t&#7915; c&#7911;a ngôn ng&#7919; n&#224;y đ&#417;n gi&#7843;n ch&#7881; l&#224; các s&#7889;.
+M&#7897;t v&#224;i s&#7889; trong đó có ý ngh&#297;a đ&#7863;c bi&#7879;t – <span style="font-weight: bold;">m&#227;</span> l&#7879;nh (nh&#7919;ng l&#7879;nh n&#224;y r&#7845;t đ&#417;n
+gi&#7843;n; ch&#432;&#417;ng tr&#236;nh ph&#7913;c t&#7841;p đ&#432;&#7907;c h&#236;nh th&#224;nh
+n&#234;n t&#7915; s&#7889; l&#432;&#7907;ng l&#7899;n nh&#7919;ng l&#7879;nh đ&#417;n gi&#7843;n). Nh&#7919;ng s&#7889; khác bi&#7875;u th&#7883; thông
+tin
+ph&#7909; m&#224; h&#7847;u h&#7871;t đ&#432;&#7907;c y&#234;u c&#7847;u b&#7903;i vi&#7879;c th&#7921;c hi&#7879;n l&#7879;nh. Nh&#7919;ng thông tin
+ph&#7909; đó
+th&#432;&#7901;ng l&#224; d&#7919; li&#7879;u đ&#7847;u v&#224;o c&#7911;a ch&#432;&#417;ng tr&#236;nh.<br>
+S&#7921; bi&#7875;u di&#7877;n l&#7879;nh qua nh&#7919;ng con s&#7889;, m&#224; CPU có th&#7875; hi&#7875;u đ&#432;&#7907;c g&#7885;i l&#224; <span style="font-weight: bold;">m&#227; máy</span> ho&#7863;c <span style="font-weight: bold;">ngôn
+ng&#7919; máy</span>.<o:p></o:p>
+</span><br style="font-family: verdana;">
+<span style="font-family: verdana;"></span><span style="font-family: verdana;"></span>
+<p></p>
+<div class="notec"><span style="font-family: verdana;">M&#7897;t chu&#7895;i các
+l&#7879;nh c&#7911;a ngôn ng&#7919; máy tính có th&#7875; có h&#236;nh d&#7841;ng nh&#432; sau:</span> <br>
+10001010 10001000 00000001 11001010 ..... <br>
+</div>
+<p></p>
+<span style="font-family: verdana;">D&#227;y s&#7889; k&#7923; qu&#7863;c đ&#432;&#7907;c h&#236;nh th&#224;nh t&#7915;
+s&#7889; 0 v&#224; s&#7889; 1 n&#224;y có ngh&#297;a l&#224; g&#236;?<br>
+Đây chính l&#224; m&#7897;t b&#7843;n ghi thông tin (trong tr&#432;&#7901;ng h&#7907;p n&#224;y l&#224; m&#227; c&#7911;a m&#7897;t
+ch&#432;&#417;ng
+tr&#236;nh) trong ngôn ng&#7919; máy tính nh&#432; l&#224; m&#7897;t chu&#7895;i các con s&#7889; c&#7911;a h&#7879; đ&#7871;m
+nh&#7883; phân.
+Thông tin đ&#432;&#7907;c máy tính hi&#7875;u ph&#7843;i đ&#432;&#7907;c m&#227; hoá theo cách n&#224;y b&#7903;i v&#236; các
+thi&#7871;t b&#7883;
+s&#7889; đ&#7871;m th&#432;&#7901;ng có m&#7897;t lo&#7841;t các tr&#7841;ng thái c&#417; b&#7843;n, m&#7895;i tr&#7841;ng thái
+có có th&#7875; đ&#432;&#7907;c quy đ&#7883;nh “b&#7853;t” - ON (1) ho&#7863;c “t&#7855;t” – OFF (0).<o:p></o:p>
+</span><span style="font-family: verdana;"></span><br>
+<center>
+<p></p>
+<div class="def">
+<div style="text-align: left;"> <span style="font-family: verdana;">L&#432;&#7907;ng
+thông tin nh&#7887; nh&#7845;t m&#224; có th&#7875; đ&#432;&#7907;c x&#7917; lý b&#7903;i
+máy tính l&#224; con s&#7889; “0” ho&#7863;c s&#7889; “1” trong h&#7879; nh&#7883; phân. L&#432;&#7907;ng thông tin
+n&#224;y đ&#432;&#7907;c g&#7885;i l&#224; m&#7897;t <font size="+1">bit</font>.</span></div>
+</div>
+<p></p>
+</center>
+<span style="font-family: verdana;">Byte đóng m&#7897;t vai tr&#242; quan tr&#7885;ng
+trong khoa h&#7885;c máy tính.</span>
+<center>
+<div class="def">&nbsp; <b>1 byte = 8 bit</b> </div>
+</center>
+<div class="notel"> <b></b><span style="font-family: verdana;"><span style="font-weight: bold;">Machine word</span> - t&#7915; trong các ch&#432;&#417;ng
+tr&#236;nh x&#7917; lý l&#224; đ&#417;n v&#7883; nh&#7887; nh&#7845;t có
+th&#7875; đ&#7883;nh v&#7883; đ&#432;&#7907;c trong b&#7897; nh&#7899; truy nh&#7853;p ng&#7851;u nhi&#234;n. Nó c&#361;ng t&#432;&#417;ng &#7913;ng
+v&#7899;i kích
+c&#7905; thanh ghi c&#7911;a CPU (b&#7897; nh&#7899; trong c&#7921;c nhanh m&#224; tr&#234;n đó CPU l&#432;u tr&#361; các
+d&#7919; li&#7879;u
+t&#7841;m th&#7901;i cho nh&#7919;ng&nbsp; h&#7885;at đ&#7897;ng v&#7915;a đ&#432;&#7907;c th&#7921;c hi&#7879;n.</span><br>
+</div>
+<span style="font-family: verdana;"></span><span style="font-family: verdana;"></span><span style="font-family: verdana;"></span><br>
+<span style="font-family: verdana;">M&#7897;t CPU v&#7853;n h&#224;nh tr&#234;n nh&#7919;ng đ&#417;n v&#7883;
+đ&#432;&#7907;c g&#7885;i l&#224; machine word, bao g&#7891;m m&#7897;t s&#7889; l&#432;&#7907;ng
+s&#7889; nguy&#234;n các byte. M&#7897;t byte l&#224; m&#7897;t nhóm nh&#7887; nh&#7845;t machine word có th&#7875;
+truy c&#7853;p đ&#432;&#7907;c
+cho CPU. Các m&#227; l&#7879;nh cho CPU đ&#432;&#7907;c h&#236;nh th&#224;nh t&#7915; m&#7897;t ho&#7863;c nhi&#7873;u byte.
+Các ký
+t&#7921; c&#361;ng đ&#432;&#7907;c m&#227; hoá th&#224;nh s&#7889; t&#7915; m&#7897;t byte (ASCII, EBCDIC) ho&#7863;c nhi&#7873;u
+byte
+(DSCB hay Unicode - b&#7897; m&#227; ti&#234;u chu&#7849;n qu&#7889;c t&#7871; đa ngôn ng&#7919;).<o:p></o:p>
+<br>
+<br>
+</span><span style="font-family: verdana;"></span><span style="font-family: verdana;"></span><span style="font-family: verdana;">B&#7903;i v&#236; m&#7897;t n&#7917;a byte đ&#432;&#7907;c hi&#7879;n h&#7919;u l&#224; con
+s&#7889; th&#7853;p l&#7909;c phân, do v&#7853;y h&#7879; đ&#7871;m
+th&#7853;p l&#7909;c phân l&#224; h&#236;nh th&#7913;c th&#7875; hi&#7879;n ngôn ng&#7919; máy tính c&#7911;a m&#7897;t ch&#432;&#417;ng
+tr&#236;nh<span style=""> </span>thu&#7853;n ti&#7879;n h&#417;n h&#7879; nh&#7883; phân hay th&#7853;p phân.<o:p></o:p>
+</span><span style="font-family: verdana;">H&#236;nh b&#234;n c&#7841;nh l&#224; m&#7897;t ví d&#7909;
+minh h&#7885;a v&#7873; ngôn ng&#7919; máy tính. &#7902; c&#7897;t b&#234;n trái
+l&#224; đ&#7883;a ch&#7881; t&#432;&#417;ng đ&#7889;i c&#7911;a kho&#7843;ng cách đ&#7883;a ch&#7881; c&#7911;a ch&#432;&#417;ng tr&#236;nh đ&#432;&#7907;c theo
+sau b&#7903;i
+m&#7897;t chu&#7895;i các l&#7879;nh (m&#227; v&#224; d&#7919; li&#7879;u).</span><img style="width: 348px; height: 112px; float: right;" alt="r" src="info_data/KODMASZ.JPG"><span style="font-family: verdana;"><br>
+<br>
+D&#297; nhi&#234;n ng&#432;&#7901;i ta có th&#7875; vi&#7871;t m&#7897;t ch&#432;&#417;ng tr&#236;nh b&#7857;ng ngôn ng&#7919; máy tính
+nh&#432;ng l&#224;m theo cách n&#224;y r&#7845;t m&#7845;t công. Tuy nhi&#234;n, trong nh&#7919;ng giai đo&#7841;n
+đ&#7847;u c&#7911;a
+ng&#224;nh khoa h&#7885;c vi tính các ch&#432;&#417;ng tr&#236;nh đ&#432;&#7907;c vi&#7871;t theo cách n&#224;y. <o:p></o:p>
+</span><br style="font-family: verdana;">
+<span style="font-family: verdana;">Ch&#432;&#417;ng tr&#236;nh d&#7883;ch h&#7907;p ng&#7919; đ&#432;&#7907;c gi&#7899;i
+thi&#7879;u – ngôn ng&#7919; c&#7911;a s&#7921; bi&#7875;u di&#7877;n b&#7857;ng
+ký hi&#7879;u ngôn ng&#7919; máy tính đ&#227; giúp l&#7853;p tr&#236;nh vi&#234;n gi&#7843;i quy&#7871;t đ&#432;&#7907;c v&#7845;n đ&#7873;.<o:p></o:p>
+</span><br style="font-family: verdana;">
+<span style="font-family: verdana;">T&#7915; đó tr&#7903; đi, m&#7897;t ch&#432;&#417;ng tr&#236;nh đ&#432;&#7907;c
+vi&#7871;t theo cách sau:<o:p></o:p> </span><span style="font-family: verdana;"></span><span style="font-family: verdana;"></span><span style="font-family: verdana;"></span><span style="font-family: verdana;"></span><br>
+<center>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; 5830 D252 5A30 D256 5030 D260
+</center>
+<span style="font-family: verdana;" lang="EN-US">Sau đó s&#7869; đ&#432;&#7907;c vi&#7871;t
+l&#7841;i theo cách đ&#417;n gi&#7843;n v&#224; d&#7877; hi&#7875;u h&#417;n</span>: <br>
+<br>
+<table border="1" cols="2" width="100%">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <div align="center">L&#7879;nh c&#7911;a ch&#432;&#417;ng tr&#236;nh d&#7883;ch h&#7907;p ng&#7919;
+(assembler) </div>
+      </td>
+      <td valign="top">
+      <div align="center">Mô t&#7843;<br>
+      </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <center>L 3, X </center>
+      </td>
+      <td> n&#7841;p s&#7889; l&#432;&#7907;ng n&#7857;m trong b&#7897; nh&#7899; t&#7841;i đ&#7883;a ch&#7881; bi&#7875;u th&#7883; b&#7903;i X v&#224;o
+thanh ghi 3</td>
+    </tr>
+    <tr>
+      <td>
+      <center>A 3, Y</center>
+      </td>
+      <td> s&#7889; l&#432;&#7907;ng l&#432;u trong b&#7897; nh&#7899; t&#7841;i đ&#7883;a ch&#7881; bi&#7875;u th&#7883; b&#7903;i Y th&#234;m
+v&#224;o giá tr&#7883; trong thanh ghi</td>
+    </tr>
+    <tr>
+      <td>
+      <center>ST 3, Z</center>
+      </td>
+      <td> l&#432;u l&#7841;i giá tr&#7883; ghi trong thanh ghi 3 trong v&#7883; trí b&#7897; nh&#7899;
+bi&#7875;u th&#7883; b&#7903;i Z</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<span style="font-family: verdana;">Ki&#7875;u vi&#7871;t n&#224;y (có th&#7875; đ&#432;&#7907;c hi&#7875;u b&#7903;i
+con ng&#432;&#7901;i) tuy nhi&#234;n l&#7841;i không đ&#432;&#7907;c
+hi&#7875;u b&#7903;i máy tính. Các ch&#432;&#417;ng tr&#236;nh đu&#7907;c vi&#7871;t b&#7857;ng ch&#432;&#417;ng tr&#236;nh d&#7883;ch
+h&#7907;p ng&#7919; (assembler) ph&#7843;i
+đ&#432;&#7907;c d&#7883;ch sang ngôn ng&#7919; máy tính (l&#224; m&#7897;t chu&#7895;i các s&#7889; nh&#7883; phân). Công
+vi&#7879;c n&#224;y đ&#432;&#7907;c
+th&#7921;c hi&#7879;n b&#7903;i m&#7897;t chu&#417;ng tr&#236;nh chuy&#234;n d&#7909;ng – ch&#432;&#417;ng tr&#236;nh d&#7883;ch chuy&#234;n
+đ&#7893;i ngôn
+ng&#7919; l&#7853;p tr&#236;nh, <span style="font-weight: bold;">translator</span>
+(c&#361;ng đu&#7907;c g&#7885;i l&#224; ch&#432;&#417;ng tr&#236;nh d&#7883;ch h&#7907;p ng&#7919;)<o:p></o:p>
+</span><br style="font-family: verdana;">
+<span style="font-family: verdana;">D&#249; sao đi chăng n&#7919;a, l&#7853;p tr&#236;nh b&#7857;ng
+assembler c&#361;ng
+gây nhi&#7873;u phi&#7873;n toái. T&#7879; h&#417;n n&#7919;a nó c&#242;n khi&#7871;n cho l&#7853;p tr&#236;nh vi&#234;n ph&#7843;i<span style="">&nbsp; </span>nh&#7899; r&#7845;t nhi&#7873;u các chi ti&#7871;t k&#7929; thu&#7853;t (nh&#432; lo&#7841;i
+thanh ghi, s&#7889; hi&#7879;u, đ&#7883;a ch&#7881; b&#7897; nh&#7899;), y&#234;u c&#7847;u vi&#7871;t r&#7845;t nhi&#7873;u các ch&#7881; d&#7851;n
+r&#7845;t đ&#417;n
+gi&#7843;n, không cho phép h&#7885; t&#7853;p trung v&#224;o logic c&#7911;a v&#7845;n đ&#7873; (đu&#7907;c gi&#7843;i quy&#7871;t
+b&#7903;i ch&#432;&#417;ng
+tr&#236;nh đó).<o:p></o:p>
+</span><br style="font-family: verdana;">
+<span style="font-family: verdana;">Tr&#234;n th&#7921;c t&#7871;, ch&#432;&#417;ng tr&#236;nh tr&#234;n
+tính t&#7893;ng hai s&#7889; (đ&#432;&#7907;c bi&#7875;u th&#7883; b&#7903;i X
+v&#224; Y) v&#224; l&#432;u k&#7871;t qu&#7843; đ&#432;&#7907;c bi&#7875;u th&#7883; b&#7903;i Z. V&#7853;y t&#7841;i sao không th&#7875; vi&#7871;t
+đ&#417;n gi&#7843;n
+th&#224;nh: <o:p></o:p>
+</span><br style="font-family: verdana;">
+<span style="font-family: verdana;">Z = X + Y<o:p></o:p>
+</span><br style="font-family: verdana;">
+<span style="font-family: verdana;">Đây l&#224; ngôn ng&#7919; l&#7853;p tr&#236;nh c&#7845;p đ&#7897;
+cao h&#417;n, th&#7889;ng nh&#7845;t các ch&#7881; d&#7851;n, cú pháp
+v&#224; ng&#7919; ngh&#297;a t&#7915; nhi&#7873;u ch&#7881; d&#7851;n đ&#417;n gi&#7843;n c&#7911;a ch&#432;&#417;ng tr&#236;nh d&#7883;ch h&#7907;p ng&#7919;,
+che đi các
+chi ti&#7871;t k&#7929; thu&#7853;t. Khác v&#7899;i ch&#432;&#417;ng tr&#236;nh d&#7883;ch h&#7907;p ng&#7919;, nh&#7919;ng ngôn ng&#7919;
+n&#224;y không
+ph&#7909; thu&#7897;c v&#224;o CPU. S&#7917; d&#7909;ng ngôn ng&#7919; n&#224;y ng&#432;&#7901;i ta có th&#7875; vi&#7871;t: Z = X +
+Y, không
+ph&#7843;i lo l&#7855;ng v&#7873; thanh ghi, đ&#7883;a ch&#7881; &#7893; nh&#7899; t&#432;&#417;ng đ&#7889;i c&#7911;a CPU.<br>
+Tuy nhi&#234;n vi&#7879;c s&#7917; d&#7909;ng ngôn ng&#7919; cao c&#7845;p h&#417;n đ&#242;i h&#7887;i ph&#7843;i có nh&#7919;ng công
+c&#7909; ti&#7871;t
+b&#7897; đ&#7875; chuy&#7875;n đ&#7893;i m&#227; ngu&#7891;n c&#7911;a ch&#432;&#417;ng tr&#236;nh th&#224;nh các ch&#7881; d&#7851;n có th&#7875;
+hi&#7875;u đ&#432;&#7907;c đ&#7889;i
+v&#7899;i CPU nh&#432;: ch&#432;&#417;ng tr&#236;nh bi&#234;n d&#7883;ch, <span style="font-weight: bold;">compiler</span>
+v&#224;/ho&#7863;c thông d&#7883;ch, <span style="font-weight: bold;">interpreter</span>.</span><br>
+<br>
+<hr>
+<a name="PrgJav.2"></a>
+<h2>2. Thu&#7853;t toán v&#224; các ngôn ng&#7919; l&#7853;p tr&#236;nh<br>
+</h2>
+Các l&#7879;nh trong ch&#432;&#417;ng tr&#236;nh c&#7847;n ph&#7843;i nh&#7853;n ra nhi&#7879;m v&#7909; v&#224; t&#7915;
+đó gi&#7843;i quy&#7871;t v&#7845;n đ&#7873;. D&#297; nhi&#234;n chúng ta có th&#7875; vi&#7871;t m&#7897;t ch&#432;&#417;ng tr&#236;nh
+bao g&#7891;m các l&#7879;nh ng&#7851;u nhi&#234;n, nh&#432;ng vi&#7871;t nh&#432; th&#7871; ch&#7859;ng đ&#7875; l&#224;m g&#236;. Do đó,
+m&#7897;t ch&#432;&#417;ng tr&#236;nh c&#361;ng c&#7847;n đ&#432;&#7907;c cân nh&#7855;c t&#7915; góc đ&#7897; khác (sau đó m&#7899;i
+xem xét v&#7873; m&#7863;t k&#7929; thu&#7853;t, đ&#7863;c tr&#432;ng b&#7857;ng vi&#7879;c th&#7921;c hi&#7879;n các ch&#7881; d&#7851;n đ&#432;a
+ra b&#7903;i
+CPU).<o:p></o:p>
+B&#7903;i v&#236; các ch&#432;&#417;ng tr&#236;nh đ&#432;&#7907;c thi&#7871;t k&#7871; đ&#7875; gi&#7843;i quy&#7871;t các v&#7845;n đ&#7873;, n&#234;n
+đi&#7875;m
+xu&#7845;t phát c&#7847;n đ&#432;&#7907;c xác đ&#7883;nh r&#245; b&#7857;ng cách tính toán v&#7845;n đ&#7873; hay công
+vi&#7879;c, cách
+gi&#7843;i quy&#7871;t v&#7845;n đ&#7873; v&#224; các b&#432;&#7899;c đ&#7875; đ&#7841;t đ&#432;&#7907;c m&#7909;c đích. Nói cách khác -<span style="">&nbsp; </span>xác đ&#7883;nh thu&#7853;t toán đ&#7875; gi&#7843;i quy&#7871;t v&#7845;n
+đ&#7873; hay đ&#7875; th&#7921;c hi&#7879;n công vi&#7879;c.<o:p></o:p><br>
+<br>
+<div align="center">
+<div style="text-align: left;" class="def"> <b></b><span style="font-family: verdana;" lang="EN-US">THU&#7852;T TOÁN l&#224; m&#7897;t công th&#7913;c
+gi&#7843;i quy&#7871;t đ&#7875; t&#236;m ra đáp s&#7889; đúng cho m&#7897;t v&#7845;n
+đ&#7873;; m&#7897;t t&#7853;p h&#7907;p các l&#7879;nh li&#234;n quan đ&#7871;n m&#7897;t v&#224;i đ&#7889;i t&#432;&#7907;ng (d&#7919; li&#7879;u) -
+th&#7921;c hi&#7879;n theo
+m&#7897;t tr&#7853;t t&#7921; xác đ&#7883;nh. Nh&#7919;ng l&#7879;nh n&#224;y đu&#7907;c th&#7921;c hi&#7879;n b&#7903;i m&#7897;t thi&#7871;t b&#7883;.
+Thi&#7871;t b&#7883;
+n&#224;y ph&#7843;n &#7913;ng l&#7841;i khi nh&#7853;n đu&#7907;c tín hi&#7879;u th&#7921;c hi&#7879;n l&#7879;nh. Thi&#7871;t b&#7883; n&#224;y có
+th&#7875; đ&#432;&#7907;c
+đi&#7873;u h&#224;nh b&#7903;i con ng&#432;&#7901;i, máy tính hay b&#7903;i các thi&#7871;t b&#7883; khác.</span><br>
+<br>
+(<i>trích t&#7915;: </i><i>Encyklopedia
+PWN</i> - <span style="font-style: italic;">T&#7921; đi&#7875;n bách khoa to&#224;n th&#432;
+c&#7911;a Nh&#224; xu&#7845;t b&#7843;n khoa h&#7885;c Ba Lan</span>) </div>
+<br>
+</div>
+<span style="font-family: verdana;">Thu&#7853;t toán đ&#432;&#7907;c th&#7875; hi&#7879;n theo r&#7845;t
+nhi&#7873;u cách: trong ngôn ng&#7919; thông th&#432;&#7901;ng,
+b&#7857;ng bi&#7875;u đ&#7891; ho&#7863;c trong cái g&#7885;i l&#224; gi&#7843;i m&#227;, pseudocode (m&#7897;t lo&#7841;i ngôn
+ng&#7919; th&#7875; hi&#7879;n thu&#7853;t toán, không ph&#7909; thu&#7897;c v&#224;o
+ngôn ng&#7919; l&#7853;p tr&#236;nh c&#7909; th&#7875;). </span><span style="font-size: 14pt; font-family: verdana;" lang="EN-US"></span><br>
+<br>
+Chúng ta h&#227;y t&#432;&#7903;ng t&#432;&#7907;ng m&#7897;t ng&#432;&#7901;i mu&#7889;n mua m&#7897;t máy vi tính v&#224; c&#7847;n ph&#7843;i
+xác đ&#7883;nh c&#7845;u h&#236;nh c&#7911;a máy đ&#7875; tính giá c&#7843; (b&#7857;ng cách tính s&#7889; ti&#7873;n c&#7911;a
+t&#7915;ng th&#224;nh ph&#7847;n m&#7897;t).<br>
+Gi&#7843;i pháp đ&#417;n gi&#7843;n nh&#7845;t th&#7921;c hi&#7879;n công vi&#7879;c tr&#234;n nh&#432; sau:
+<pre><ol><li><span style="font-family: verdana;" lang="EN-US">L&#7845;y CPU t&#7915; b&#7843;ng giá v&#224; ghi l&#7841;i giá c&#7911;a nó</span></li><li><span style="font-family: verdana;" lang="EN-US">L&#7845;y môđun b&#7897; nh&#7899; RAM ra kh&#7887;i b&#7843;ng giá v&#224; ghi l&#7841;i giá c&#7911;a nó</span></li><li><span style="font-family: verdana;" lang="EN-US">L&#7845;y b&#7843;ng m&#7841;ch ch&#7911; t&#7915; b&#7843;ng giá v&#224; ghi l&#7841;i giá c&#7911;a nó</span></li><li><span style="font-family: verdana;" lang="EN-US">L&#7845;y card đ&#7891; ho&#7841; t&#7915; b&#7843;ng giá v&#224; ghi l&#7841;i giá c&#7911;a nó</span></li><li><span style="font-family: verdana;" lang="EN-US">L&#7845;y &#7893; c&#7913;ng ra t&#7915; b&#7843;ng giá v&#224; ghi l&#7841;i giá c&#7911;a nó</span></li><li><span style="font-family: verdana;" lang="EN-US">L&#7845;y CDROM hay đ&#7847;u DVD ra t&#7915; b&#7843;ng giá v&#224; ghi l&#7841;i giá c&#7911;a nó.</span></li><li><span style="font-family: verdana;" lang="EN-US">L&#7845;y card âm thanh t&#7915; b&#7843;ng giá v&#224; ghi l&#7841;i giá c&#7911;a nó.</span></li><li><span style="font-family: verdana;" lang="EN-US"><span style=""></span>L&#7845;y các ph&#7909; tr&#7907; c&#7847;n thi&#7871;t khác t&#7915; b&#7843;ng giá v&#224; ghi l&#7841;i giá c&#7911;a nó</span></li><li><span style="font-family: verdana;" lang="EN-US">C&#7897;ng t&#7845;t c&#7843; các giá đó</span><span style="font-family: verdana;" lang="EN-US"> l&#7841;i.</span></li></ol></pre>
+<span style="font-family: verdana;" lang="EN-US"></span><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US"></span><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US"><o:p></o:p></span>Gi&#7843;i
+pháp n&#224;y đ&#432;&#7907;c m&#227; hoá trong ngôn ng&#7919; thông th&#432;&#7901;ng. N&#7871;u d&#249;ng bi&#7875;u đ&#7891; th&#7883;
+th&#236; thu&#7853;t toán n&#224;y có th&#7875; đ&#432;&#7907;c minh ho&#7841; nh&#432; h&#236;nh sau:<br>
+<div style="text-align: right;"><img alt="Thuat toan - Mua may tinh" src="info_data/Alg_cena.jpg" style="width: 232px; height: 672px;" align="right"><br>
+</div>
+<span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US"></span><!--[if gte vml 1]><v:shapetype id="_x0000_t75" coordsize="21600,21600"
+ o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f"
+ stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_s1026" type="#_x0000_t75" alt="Image - alg 1"
+ style='position:absolute;margin-left:-77.4pt;margin-top:29.8pt;width:174pt;
+ height:7in;z-index:251651584;mso-wrap-distance-left:7.5pt;
+ mso-wrap-distance-top:7.5pt;mso-wrap-distance-right:7.5pt;
+ mso-wrap-distance-bottom:7.5pt;mso-position-horizontal-relative:text;
+ mso-position-vertical-relative:line' o:allowoverlap="f">
+ <v:imagedata src="file:///C:\DOCUME~1\Lan\LOCALS~1\Temp\msohtmlclip1\01\clip_image001.jpg"
+  o:title="Alg_cena"/>
+ <w:wrap type="square"/>
+</v:shape><![endif]--><!--[if !vml]--><!--[endif]--><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US"></span><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US"><o:p></o:p></span><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US"></span><!--[if gte vml 1]><v:shapetype id="_x0000_t75" coordsize="21600,21600"
+ o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f"
+ stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_s1026" type="#_x0000_t75" alt="Image - alg 1"
+ style='position:absolute;margin-left:-77.4pt;margin-top:29.8pt;width:174pt;
+ height:7in;z-index:251651584;mso-wrap-distance-left:7.5pt;
+ mso-wrap-distance-top:7.5pt;mso-wrap-distance-right:7.5pt;
+ mso-wrap-distance-bottom:7.5pt;mso-position-horizontal-relative:text;
+ mso-position-vertical-relative:line' o:allowoverlap="f">
+ <v:imagedata src="file:///C:\DOCUME~1\Lan\LOCALS~1\Temp\msohtmlclip1\01\clip_image001.jpg"
+  o:title="Alg_cena"/>
+ <w:wrap type="square"/>
+</v:shape><![endif]--><!--[if !vml]--><!--[endif]--><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US"></span><v:shapetype id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f"><v:stroke joinstyle="miter"><v:formulas><v:f eqn="if lineDrawn pixelLineWidth 0"><v:f eqn="sum @0 1 0"><v:f eqn="sum 0 0 @1"><v:f eqn="prod @2 1 2"><v:f eqn="prod @3 21600 pixelWidth"><v:f eqn="prod @3 21600 pixelHeight"><v:f eqn="sum @0 0 1"><v:f eqn="prod @6 1 2"><v:f eqn="prod @7 21600 pixelWidth"><v:f eqn="sum @8 21600 0"></v:f></v:f></v:f></v:f></v:f></v:f></v:f></v:f></v:f></v:f></v:formulas></v:stroke></v:shapetype>Chúng
+ta nh&#236;n th&#7845;y r&#245; &#7903; đây các b&#432;&#7899;c trong chu&#7895;i l&#7879;nh. Thu&#7853;t toán n&#224;y có m&#7897;t
+đi&#7875;m xu&#7845;t phát đ&#432;&#7907;c xác đ&#7883;nh r&#245; r&#224;ng đ&#7843;m b&#7843;o vi&#7879;c th&#7921;c hi&#7879;n v&#224; k&#7871;t thúc
+m&#7897;t cách thích h&#7907;p. Thu&#7853;t toán n&#224;y có th&#7875; th&#7921;c hi&#7879;n nhi&#7873;u l&#7847;n v&#7899;i các
+d&#7919; li&#7879;u đ&#7847;u v&#224;o khác nhau – ph&#7909; thu&#7897;c v&#224;o các c&#7845;u h&#236;nh khác nhau c&#7911;a
+ph&#7847;n c&#7913;ng.<span style="font-size: 14pt; font-family: verdana;" lang="EN-US"></span><br>
+<br>
+Thu&#7853;t toán tr&#234;n có th&#7875; hi&#7875;u đ&#432;&#7907;c b&#7903;i con ng&#432;&#7901;i. Ng&#432;&#7901;i ta có th&#7875; s&#7917; d&#7909;ng
+nó b&#7857;ng cách d&#249;ng bút v&#224; gi&#7845;y. Bây gi&#7901; th&#236; câu h&#7887;i đ&#432;&#7907;c đ&#7863;t ra: công
+vi&#7879;c tính toán giá c&#7843; đ&#432;&#7907;c máy tính x&#7917; lý nh&#432; th&#7871; n&#224;o?<br>
+Có th&#7875; d&#7877; d&#224;ng đoán đ&#432;&#7907;c, thu&#7853;t toán tr&#234;n đ&#432;&#7907;c vi&#7871;t b&#7857;ng th&#7913; ngôn ng&#7919;
+l&#7853;p tr&#236;nh n&#224;o đó đ&#7875; có <span style="font-weight: bold;">m&#227; ngu&#7891;n</span>,
+sau đó đ&#432;&#7907;c d&#7883;ch sang ngôn ng&#7919; máy tính có th&#7875; hi&#7875;u đ&#432;&#7907;c đ&#7889;i v&#7899;i CPU. <br>
+Tuy nhi&#234;n ngay t&#7915; đ&#7847;u chúng ta đ&#227; v&#7845;p ph&#7843;i m&#7897;t s&#7889; v&#7845;n đ&#7873; c&#417; b&#7843;n: công
+th&#7913;c “l&#7845;y…, ghi l&#7841;i giá c&#7911;a nó” th&#7921;c s&#7921; ngh&#297;a l&#224; g&#236;? <br>
+B&#7903;i v&#236; ch&#432;&#417;ng tr&#236;nh d&#7921;a tr&#234;n thu&#7853;t toán, đ&#432;&#7907;c th&#7921;c hi&#7879;n b&#7903;i m&#7897;t máy
+tính n&#234;n <span style="font-weight: bold;">l&#7879;nh c&#7911;a thu&#7853;t toán đó c&#7847;n
+đ&#432;&#7907;c xác l&#7853;p b&#7857;ng h&#224;nh đ&#7897;ng c&#7911;a máy tính</span>. <br>
+V&#224; c&#361;ng nh&#7853;n th&#7845;y r&#7857;ng, nh&#236;n chung m&#7897;t thu&#7853;t toán <span style="font-weight: bold;">x&#7917; lý</span> các <span style="font-weight: bold;">d&#7919; li&#7879;u đ&#7847;u v&#224;o</span> (cung c&#7845;p b&#7903;i ng&#432;&#7901;i
+s&#7917; d&#7909;ng) k&#7871;t qu&#7843; l&#224; đ&#7875; đ&#7841;t đ&#432;&#7907;c <span style="font-weight: bold;">các
+d&#7919; li&#7879;u đ&#7847;u ra</span>. Do đó c&#7847;n l&#224;m r&#245; nh&#7919;ng đi&#7873;u sau: cung c&#7845;p nh&#7919;ng
+d&#7919; li&#7879;u g&#236; v&#224; khi n&#224;o th&#236; cung c&#7845;p cho ch&#432;&#417;ng tr&#236;nh? Chúng s&#7869; đ&#432;&#7907;c máy
+tính x&#7917; lý ra sao?<br>
+Có ít nh&#7845;t 3 kh&#7843; năng:<br>
+•&nbsp;&nbsp;&nbsp; Ng&#432;&#7901;i s&#7917; d&#7909;ng cung c&#7845;p giá, ch&#432;&#417;ng tr&#236;nh tính t&#7893;ng
+s&#7889;<br>
+•&nbsp;&nbsp;&nbsp; Ng&#432;&#7901;i s&#7917; d&#7909;ng cung c&#7845;p t&#432; li&#7879;u v&#7873; các ph&#7847;n c&#7845;u
+th&#224;nh, ch&#432;&#417;ng tr&#236;nh t&#236;m ki&#7871;m giá c&#7911;a chúng (ví d&#7909; nh&#432; t&#236;m ki&#7871;m tr&#234;n
+m&#7841;ng internet) v&#224; tính t&#7893;ng giá c&#7911;a chúng<br>
+•&nbsp;&nbsp;&nbsp; Ng&#432;&#7901;i s&#7917; d&#7909;ng xác đ&#7883;nh ti&#234;u chu&#7849;n đ&#7875; l&#7921;a ch&#7885;n ph&#7847;n
+c&#7913;ng, ch&#432;&#417;ng tr&#236;nh d&#7921;a tr&#234;n nh&#7919;ng ti&#234;u chu&#7849;n n&#224;y đ&#7875; ch&#7885;n nh&#7919;ng thi&#7871;t b&#7883;
+c&#7909; th&#7867; v&#224; tính t&#7893;ng giá c&#7911;a chúng<br>
+<br>
+Trong tr&#432;&#417;&#768;ng h&#7907;p đ&#7847;u, thu&#7853;t toán tr&#234;n ch&#7881; thay đ&#7893;i chút ít, nh&#432;ng ph&#7843;i
+luôn nh&#7899; r&#7857;ng nó đ&#432;&#7907;c tính toán nh&#7901; ho&#7841;t đ&#7897;ng c&#7911;a máy tính. <br>
+<pre>1.	H&#7887;i ng&#432;&#7901;i s&#7917; d&#7909;ng giá c&#7911;a CPU<br>2.	H&#7887;i ng&#432;&#7901;i s&#7917; d&#7909;ng giá c&#7911;a b&#7843;ng m&#7841;ch ch&#7911;<br>…<br>n-1. 	Tính t&#7893;ng các giá tr&#7883; đó<br>n. 	Hi&#7875;n th&#7883; k&#7871;t qu&#7843; cho ng&#432;&#7901;i s&#7917; d&#7909;ng<br></pre>
+Hai tr&#432;&#417;&#768;ng h&#7907;p c&#242;n l&#7841;i d&#7851;n t&#7899;i các thu&#7853;t toán ph&#7913;c t&#7841;p h&#417;n r&#7845;t nhi&#7873;u.<br>
+<br>
+C&#7847;n nh&#7899; r&#7857;ng thu&#7853;t toán đ&#417;n gi&#7843;n tr&#234;n có m&#7897;t bi&#7875;u th&#7913;c khá chung chung.
+Vi&#7879;c d&#7883;ch nó sang m&#7897;t ngôn ng&#7919; l&#7853;p tr&#236;nh c&#7909; th&#7875; y&#234;u c&#7847;u ph&#7843;i đ&#432;a ra r&#7845;t
+nhi&#7873;u quy&#7871;t đ&#7883;nh, ví d&#7909; nh&#432;:<br>
+•&nbsp;&nbsp;&nbsp; T&#432;&#417;ng tác v&#7899;i ng&#432;&#7901;i s&#7917; d&#7909;ng n&#234;n di&#7877;n ra nh&#432; th&#234;&#769;
+n&#224;o: d&#432;&#771; li&#7879;u đ&#7847;u v&#224;o đ&#432;&#7907;c cung c&#7845;p nh&#432; th&#7871; n&#224;o v&#224; k&#7871;t qu&#7843; c&#7847;n đ&#432;&#7907;c
+hi&#7875;n th&#7883; ra sao?<br>
+•&nbsp;&nbsp;&nbsp; Th&#7921;c hi&#7879;n vi&#7879;c tính t&#7893;ng nh&#432; th&#7871; n&#224;o: giá c&#7843; c&#7911;a
+các th&#224;nh ph&#7847;n đ&#432;&#7907;c l&#432;u gi&#7919; ri&#234;ng bi&#7879;t hay đ&#432;&#7907;c th&#234;m tăng d&#7847;n v&#224;o k&#7871;t
+qu&#7843; t&#7893;ng?<br>
+•&nbsp;&nbsp;&nbsp; X&#7917; lý v&#7899;i các d&#7919; li&#7879;u đ&#7847;u v&#224;o không đúng nh&#432; th&#7871;
+n&#224;o?<br>
+Nh&#7919;ng quy&#7871;t đ&#7883;nh n&#224;y li&#234;n quan đ&#7871;n cái g&#7885;i l&#224; <span style="font-weight: bold;">giao di&#7879;n gi&#7919;a ng&#432;&#7901;i s&#7917; d&#7909;ng v&#224; các ch&#432;&#417;ng
+tr&#236;nh &#7913;ng d&#7909;ng</span> (cách m&#224; ch&#432;&#417;ng tr&#236;nh giao ti&#7871;p v&#7899;i ng&#432;&#7901;i s&#7917;
+d&#7909;ng) v&#224; c&#361;ng li&#234;n quan t&#7899;i c&#7845;u trúc c&#7911;a thu&#7853;t toán v&#7873; <span style="font-weight: bold;">kh&#7843; năng ch&#7883;u l&#7895;i</span> v&#224; <span style="font-weight: bold;">d&#7877; d&#224;ng s&#7917;a đ&#7893;i</span>. Ví d&#7909;, thu&#7853;t toán
+tr&#234;n ph&#7843;i ki&#7875;m tra xem d&#7919; li&#7879;u đ&#7847;u v&#224;o có ph&#7843;i th&#7921;c s&#7921; l&#224; các con s&#7889;
+hay không. L&#7853;p tr&#236;nh vi&#234;n c&#361;ng c&#7847;n cân nh&#7855;c l&#432;u gi&#7919; giá c&#7911;a các th&#224;nh
+ph&#7847;n ph&#242;ng tr&#432;&#417;&#768;ng h&#7907;p đ&#432;&#7907;c y&#234;u c&#7847;u li&#234;n quan đ&#7871;n d&#7919; li&#7879;u đ&#7847;u ra sau
+na&#768;y: b&#234;n c&#7841;nh t&#7893;ng s&#7889; ti&#7873;n, “báo cáo tính toán” chi ti&#7871;t đ&#432;&#7907;c y&#234;u c&#7847;u
+(th&#7875; hi&#7879;n giá c&#7911;a các th&#224;nh ph&#7847;n hay th&#7853;m chí s&#7889; ph&#7847;n trăm trong t&#7893;ng
+giá tr&#7883; c&#7911;a máy tính).<br>
+Ph&#7843;n &#7913;ng nh&#7887; nh&#7845;t v&#7899;i các d&#7919; li&#7879;u đ&#7847;u v&#224;o sai c&#361;ng l&#224;m thay đ&#7893;i tr&#7853;t t&#7921;
+các b&#432;&#7899;c trong thu&#7853;t toán. B&#234;n c&#7841;nh tr&#7853;t t&#7921; gi&#7843;n đ&#417;n c&#7911;a các b&#432;&#7899;c, gi&#7843;i
+pháp cho b&#7845;t c&#7913; m&#7897;t v&#7845;n đ&#7873; n&#224;o th&#432;&#7901;ng y&#234;u c&#7847;u m&#7897;t s&#7889; đi&#7873;u sau: <br>
+•&nbsp;&nbsp;&nbsp; Ki&#7875;m tra m&#7897;t đi&#7873;u ki&#7879;n v&#224; d&#7921;a tr&#234;n vi&#7879;c <span style="font-weight: bold;">đ&#432;a ra quy&#7871;t đ&#7883;nh </span>k&#232;m theo có li&#234;n
+quan đ&#7871;n các b&#432;&#7899;c ti&#7871;p theo c&#7911;a thu&#7853;t toán<br>
+•&nbsp;&nbsp;&nbsp; Vi&#7879;c <span style="font-weight: bold;">th&#7921;c hi&#7879;n
+l&#7863;p đi l&#7863;p l&#7841;i</span> các ch&#7881; d&#7851;n c&#7909; th&#7875; (theo s&#7889; l&#7847;n cho să&#771;n hoă&#803;c
+cho đ&#7871;n khi đi&#7873;u ki&#7879;n đó đ&#432;&#7907;c ho&#224;n th&#224;nh).<br>
+Sau khi đ&#227; tính đ&#7871;n kh&#7843; năng l&#7895;i trong d&#7919; li&#7879;u đ&#7847;u v&#224;o v&#224; y&#234;u c&#7847;u ph&#7843;i
+l&#432;u gi&#7919; các giá th&#224;nh ph&#7847;n, thu&#7853;t toán đ&#7875; tính giá tr&#7883; m&#7897;t chi&#7871;c máy vi
+tính có d&#7841;ng nh&#432; sau: <br>
+<pre>1. H&#7887;i ng&#432;&#7901;i s&#7917; d&#7909;ng giá c&#7911;a CPU.<br>2. N&#7871;u giá tr&#7883; đ&#432;a ra không ph&#7843;i m&#7897;t con s&#7889;, báo cho ng&#432;&#7901;i s&#7917; d&#7909;ng bi&#7871;t l&#7895;i v&#224; quay l&#7841;i b&#432;&#7899;c 1.<br>3. L&#432;u giá c&#7911;a CPU đ&#227; đ&#432;a ra (cho vi&#7879;c s&#7917; d&#7909;ng sau n&#224;y)<br>4. H&#7887;i ng&#432;&#7901;i s&#7917; d&#7909;ng giá c&#7911;a b&#7843;ng m&#7841;ch ch&#7911;.<br>5. N&#7871;u giá đ&#432;a ra không ph&#7843;i m&#7897;t con s&#7889;, báo cho ngu&#7901;i s&#7917; d&#7909;ng bi&#7871;t v&#7873; l&#7895;i v&#224; quay l&#7841;i b&#432;&#7899;c 4.<br>6. L&#432;u giá c&#7911;a b&#7843;ng m&#7841;ch ch&#7911; đ&#227; đ&#432;a ra (đ&#7875; có th&#7875; s&#7917; d&#7909;ng sau n&#224;y)<br>…  nh&#7919;ng th&#224;nh ph&#7847;n khác<br>…  nh&#7919;ng th&#224;nh ph&#7847;n khác<br>n-1. Tính t&#7893;ng giá c&#7911;a các th&#224;nh ph&#7847;n khác<br>n.   Hi&#7875;n th&#7883; k&#7871;t qu&#7843;<br></pre>
+Trong bi&#7875;u đ&#7891;, các quy&#7871;t đ&#7883;nh đ&#432;&#7907;c bi&#7875;u di&#7877;n b&#7857;ng h&#236;nh thoi.<br>
+<br>
+Ví d&#7909;: bi&#7875;u đ&#7891; phát tri&#7875;n c&#7911;a thu&#7853;t toán tính thu&#7871;.<br>
+<img alt="Thuat toan - Tinh thue" src="info_data/Alg_pod.jpg" style="width: 503px; height: 799px;" align="left"><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+Các thuâ&#803;t toán th&#432;&#7901;ng đ&#432;&#7907;c vi&#7871;t &#7903; d&#7841;ng <span style="font-weight: bold;">gi&#7843;i m&#227;</span> – xét &#7903; góc đ&#7897; n&#224;o đó, l&#224;
+d&#7841;ng đ&#432;&#7907;c nghi th&#7913;c hóa c&#7911;a ngôn ng&#7919; thông th&#432;&#7901;ng, không ph&#7909; thu&#7897;c v&#224;o
+b&#7845;t c&#7913; ngôn ng&#7919; l&#7853;p tr&#236;nh n&#224;o. Gi&#7843;i m&#227; g&#7847;n gi&#7889;ng v&#7899;i ngôn ng&#7919; l&#7853;p tr&#236;nh
+h&#417;n ngôn ng&#7919; thông th&#432;&#7901;ng v&#224; d&#7877; d&#224;ng đ&#432;a v&#224;o ch&#432;&#417;ng t&#236;nh đ&#432;&#7907;c vi&#7871;t b&#7857;ng
+môt ngôn ng&#7919; l&#7853;p tr&#236;nh h&#7841;n đ&#7883;nh. Vô s&#7889; sách h&#432;&#7899;ng d&#7851;n v&#7873; l&#7853;p tr&#236;nh đ&#432;a
+ra các d&#7841;ng khác nhau c&#7911;a gi&#7843;i m&#227;. Ng&#432;&#7901;i ta có th&#7875; d&#7877; d&#224;ng đ&#432;a ra b&#7843;n
+gi&#7843;i m&#227; c&#7911;a ri&#234;ng m&#236;nh. <br>
+Gi&#7843;i m&#227; s&#7917; d&#7909;ng các bi&#7871;n s&#7889; - cách th&#7875; hi&#7879;n b&#7857;ng ký hi&#7879;u c&#7911;a d&#7919; li&#7879;u
+(B&#224;i ti&#7871;p theo s&#7869; gi&#7843;i thích th&#234;m v&#7873; bi&#7871;n th&#7875;; hi&#7879;n t&#7841;i c&#7913; xem chúng
+nh&#432; các bi&#7871;n th&#7875; trong công th&#7913;c toán h&#7885;c). <br>
+Thao tác tr&#234;n các bi&#7871;n th&#7875; đ&#432;&#7907;c m&#227; hoá v&#7899;i s&#7921; tr&#7907; giúp c&#7911;a các <span style="font-weight: bold;">toán t&#7917;</span> - các ký hi&#7879;u c&#7911;a thao tác
+toán h&#7885;c: c&#7897;ng, tr&#7915;, nhân, chia…(b&#224;i ti&#7871;p theo s&#7869; tr&#236;nh b&#224;y nhi&#7873;u h&#417;n
+v&#7873; v&#7845;n đ&#7873; n&#224;y). Gi&#7843;i m&#227; c&#361;ng s&#7917; d&#7909;ng các t&#7915; v&#224; bi&#7875;u th&#7913;c m&#7897;t cách chính
+xác đ&#7875; đ&#7883;nh ngh&#297;a các đo&#7841;n c&#7911;a thu&#7853;t toán (h&#224;nh đ&#7897;ng, ch&#7881; d&#7851;n). Ví d&#7909;:
+đ&#432;a ra quy&#7871;t đ&#7883;nh có th&#7875; đ&#432;&#7907;c vi&#7871;t nh&#432; sau:<br>
+<br>
+<br>
+<div align="center"><b>if</b> (đi&#7873;u ki&#7879;n)&nbsp;<b>then</b> ...
+<br>
+<br>
+ho&#7863;c <br>
+<br>
+<b>if</b> (đi&#7873;u ki&#7879;n)&nbsp;<b>then</b> ... <br>
+<b>&nbsp;else</b> ...
+<br>
+</div>
+<br>
+V&#224; các v&#242;ng l&#7863;p (nói cách khác l&#224; th&#7921;c hi&#7879;n l&#7863;p đi l&#7863;p l&#7841;i c&#7911;a các đo&#7841;n
+c&#7911;a thu&#7853;t toán)<br>
+<br>
+<div style="text-align: center;"><b>execute until</b> (đi&#7873;u ki&#7879;n) ...
+<br>
+<br>
+<b>execute modifying value of the variable <i>i</i> from <i>p</i> to <i>l</i>..</b>.
+<br>
+<br>
+<span style="font-weight: bold;"></span></div>
+<br>
+Trong khi đó d&#7919; li&#7879;u đ&#7847;u v&#224;o v&#224; đ&#7847;u ra có th&#7875; đ&#432;&#7907;c bi&#7875;u di&#7877;n b&#7857;ng t&#7915;
+nh&#432;: <span style="font-weight: bold;">read</span> v&#224; <span style="font-weight: bold;">write</span>.<br>
+<br>
+<br>
+Chúng ta có th&#7875; s&#7917; d&#7909;ng các ký hi&#7879;u +, -, * đ&#7875; th&#7875; hi&#7879;n các thao tác
+c&#7911;a vi&#7879;c th&#234;m, b&#7899;t, nhân; d&#7845;u ngo&#7863;c đ&#417;n đ&#7875; th&#7875; hi&#7879;n thao tác nhóm v&#224;
+các t&#7915; đ&#7863;c bi&#7879;t đ&#7875; th&#7875; hi&#7879;n h&#224;nh đ&#7897;ng v&#224; quy&#7871;t đ&#7883;nh. Thu&#7853;t toán đ&#7875; tính
+thu&#7871; có th&#7875; đ&#432;&#7907;c vi&#7871;t nh&#432; sau:<br>
+<br>
+<pre><b>read</b> income<br><b>if</b> (income &gt; 74048) <b>then</b>  tax = 17048.44 + 0.4 * (income - 74048)<br><b>else</b> <b>if</b> (income &gt; 37024) <b>then</b> <br>       tax = 6541.24 + 0.3 * (income - 37024)<br><b>else</b>  tax = 0.19 * income - 493.32<br><b>write</b> tax<br></pre>
+<br>
+Nh&#7919;ng khái ni&#7879;m trong thu&#7853;t toán n&#224;y đ&#227; th&#7875; hi&#234;&#803;n đ&#432;&#7907;c hai v&#7845;n đ&#7873;:<br>
+<br>
+M&#7897;t, l&#7895;i trong d&#7919; li&#7879;u đ&#7847;u v&#224;o thay đ&#7893;i tr&#7853;t t&#7921; các b&#432;&#7899;c ti&#7871;n h&#224;nh b&#7903;i
+thu&#7853;t toán v&#224; đ&#432;a tr&#7903; v&#7873; đ&#7885;c l&#7841;i ch&#7881; d&#7851;n d&#7919; li&#7879;u đ&#7847;u v&#224;o. Trong gi&#7843;i m&#227;
+h&#224;nh đ&#7897;ng đó đ&#432;&#7907;c mô t&#7843; l&#224; đi đ&#7871;n m&#7897;t đo&#7841;n c&#7909; th&#7875; n&#224;o đó trong thu&#7853;t
+toán (l&#7879;nh <span style="font-weight: bold;">go to</span>...), th&#7875; hi&#7879;n
+b&#7857;ng m&#7897;t nh&#227;n (nh&#227;n l&#224; các t&#7915; k&#7871;t thúc b&#7857;ng d&#7845;u ‘:’). D&#7845;u gi&#7843;i m&#227; l&#224; {,
+}, d&#249;ng đ&#7875; nhóm các h&#224;nh đ&#7897;ng. Ví d&#7909;:<br>
+<br>
+<blockquote><b>if (</b>đi&#7873;u ki&#7879;n<b>) then {</b> <br>
+&nbsp; h&#224;nh đ&#7897;ng 1 <br>
+&nbsp; h&#224;nh đ&#7897;ng 2 <br>
+  <b>}</b><b></b><br>
+  <br>
+</blockquote>
+N&#7871;u đi&#7873;u ki&#7879;n đ&#432;&#7907;c tho&#7843; m&#227;n, th&#236; h&#224;nh đ&#7897;ng trong d&#7845;u ngo&#7863;c đ&#432;&#7907;c th&#7921;c
+hi&#7879;n.<br>
+&nbsp;<br>
+<pre>dataInput1:<br>  <b>write</b> "Give the price of the CPU"<br>  <b>read</b> CPUprice<br>  <b>if</b> (CPUprice is not a number) <b>then { <br>      write</b> "Wrong data"<br>      <b>go to</b> dataInput1<br>  <b>}</b><br>dataInput2:<br>  <b>write</b> "Give the price of the motherboard"<br>  <b>read</b> MBprice<br>  <b>if</b> (MBprice  is not a number) <b>then {</b><br>      <b>write</b> "Wrong data"<br>      <b>go to</b> dataInput2<br>  <b>}</b><br>...<br>result = sum of prices<br><b>write</b> result&nbsp;<br><br></pre>
+<br>
+Tuy nhi&#234;n nh&#7919;ng thu&#7853;t toán nh&#432; th&#7871; (v&#224; ch&#432;&#417;ng tr&#236;nh) r&#7845;t khó đ&#7885;c, logic
+ph&#7913;c t&#7841;p v&#224; d&#7877; m&#7855;c l&#7895;i.<br>
+Đó l&#224; lý do t&#7841;i sao h&#7847;u h&#7871;t các ngôn ng&#7919; l&#7853;p tr&#236;nh không s&#7917; d&#7909;ng l&#7879;nh <span style="font-weight: bold;">go to</span> n&#7919;a. Thay v&#224;o đó ng&#432;&#7901;i ta s&#7917;
+d&#7909;ng các v&#242;ng l&#7863;p. Thu&#7853;t toán tính giá tr&#7883; c&#7911;a máy vi tính c&#7847;n đ&#432;&#7907;c th&#7875;
+hi&#7879;n &#7903; m&#7897;t d&#7841;ng khác. V&#242;ng l&#7863;p đ&#432;&#7907;c s&#7917; d&#7909;ng v&#224; gi&#7899;i thi&#7879;u bi&#7871;n ki&#7875;u
+boolean đ&#432;&#7907;c g&#7885;i l&#224; dataRequired (d&#7919; li&#7879;u y&#234;u c&#7847;u) v&#7899;i hai giá tr&#7883; có
+th&#7875; x&#7843;y ra: <span style="font-weight: bold;">có, yes</span> v&#224;<span style="font-weight: bold;"> không, no</span>.<br>
+<br>
+<pre>dataRequired = <b>yes</b><br>  <b>execute until</b> (dataRequired) <b>{</b><br>     <b>write</b> "Give the price of the CPU"<br>     <b>read</b> CPUprice<br>     <b>if</b> (CPUprice is not a number) <b>then</b> <b>write</b> "Wrong data"<br>     <b>else</b> dataRequired = <b>no</b><br>  <b>}</b><br>&nbsp;&nbsp;<br>dataRequired = <b>yes</b><br>  <b>execute until</b> (dataRequired) <b>{</b><br>     <b>write</b> "Give the price of the motherboard"<br>     <b>read</b> MBprice<br>     <b>if</b> (MBprice is not a number) <b>then</b> <b>write</b> "Wrong data"<br>     <b>else</b> dataRequired = <b>no</b><br>  <b>}</b><br>...<br>result = sum of prices<br><b>write</b> result<br><br></pre>
+<br>
+Ngay t&#7915; đ&#7847;u, giá tr&#7883; c&#7911;a các bi&#7871;n th&#7875; d&#7919; li&#7879;u y&#234;u c&#7847;u l&#224; <span style="font-weight: bold;">có</span> v&#224; đi&#7873;u ki&#7879;n l&#224; <span style="font-weight: bold;">th&#7921;c hi&#7879;n cho đ&#7871;n khi</span> ho&#224;n th&#224;nh. Do
+đó b&#7855;t đ&#7847;u th&#7921;c hi&#7879;n các ch&#7881; l&#7879;nh đ&#227; đ&#432;&#7907;c nhóm l&#7841;i gi&#7919;a các d&#7845;u ngo&#7863;c
+móc. N&#7871;u d&#7919; li&#7879;u đ&#7885;c (giá CPU) không ph&#7843;i l&#224; m&#7897;t s&#7889; th&#236; tín hi&#7879;u “d&#7919;
+li&#7879;u sai” đ&#432;&#7907;c hi&#7875;n th&#7883;. Giá tr&#7883; c&#7911;a các d&#7919; li&#7879;u y&#234;u c&#7847;u bi&#7871;n th&#7871; không
+thay đ&#7893;i sau đó v&#224; nh&#7919;ng h&#224;nh đ&#7897;ng đ&#432;&#7907;c nhóm l&#7841;i gi&#7919;a các d&#7845;u ngo&#7863;c móc
+l&#7841;i đ&#432;&#7907;c th&#7921;c hi&#7879;n (b&#7903;i v&#236; đi&#7873;u ki&#7879;n l&#224; th&#7921;c hi&#7879;n <span style="font-weight: bold;">cho đ&#7871;n khi ho&#224;n th&#224;nh</span> xong). Ng&#432;&#7907;c
+l&#7841;i, n&#7871;u giá c&#7911;a CPU l&#224; m&#7897;t con s&#7889;, th&#236; d&#7919; li&#7879;u y&#234;u c&#7847;u bi&#7871;n th&#7871; s&#7869; có
+giá tr&#7883; l&#224; <span style="font-weight: bold;">không</span>. Trong
+tr&#432;&#417;&#768;ng h&#7907;p đó đi&#7873;u ki&#7879;n th&#7921;c hi&#7879;n cho đ&#7871;n khi không đ&#432;&#7907;c ho&#224;n th&#224;nh
+n&#7919;a v&#224; h&#224;nh đ&#7897;ng trong các d&#7845;u ngo&#7863;c móc không đ&#432;&#7907;c th&#7921;c hi&#7879;n. Thu&#7853;t
+toán s&#7869; ti&#7871;p t&#7909;c th&#7921;c hi&#7879;n nh&#7919;ng ch&#7881; d&#7851;n t&#7915; sau d&#7845;u ngo&#7863;c “}” - đ&#7885;c giá
+c&#7911;a motherboard.<br>
+<br>
+M&#7897;t v&#7845;n đ&#7873; khác chúng ta g&#7863;p ph&#7843;i &#7903; đây l&#224; thu&#7853;t toán l&#7863;p đi l&#7863;p l&#7841;i
+các h&#224;nh đ&#7897;ng gi&#7889;ng nhau (g&#7847;n nh&#432; l&#224; m&#7897;t). Xem xét tr&#432;&#417;&#768;ng h&#7907;p đ&#7885;c giá
+c&#7911;a CPU, motherboard v&#224; các th&#224;nh ph&#7847;n khác - t&#7845;t c&#7843; các thao tác n&#224;y
+gi&#7889;ng h&#7879;t nhau. V&#236; v&#7853;y chúng ta có th&#7875; cô l&#7853;p các h&#224;nh đ&#7897;ng n&#224;y v&#224; vi&#7871;t
+chung &#7903; d&#7841;ng g&#7885;i l&#224; <span style="font-weight: bold;">quy tr&#236;nh/th&#7911; t&#7909;c</span>
+hay <span style="font-weight: bold;">ch&#7913;c năng/h&#224;m</span>. Khi đ&#227; vi&#7871;t
+nh&#432; v&#7853;y chúng có th&#7875; đ&#432;&#7907;c th&#7921;c hi&#7879;n l&#7863;p đi l&#7863;p l&#7841;i cho vô s&#7889; các b&#7897;
+ph&#7853;n khác c&#7911;a m&#7897;t máy vi tính.<br>
+<br>
+Đi&#7873;u n&#224;y có ngh&#297;a l&#224; v&#7845;n đ&#7873; tính toán giá c&#7911;a m&#7897;t chi&#7871;c máy tính đ&#432;&#7907;c
+chia nh&#7887; ra th&#224;nh hai v&#7845;n đ&#7873;:<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; d&#7919; li&#7879;u v&#224;o v&#224; xác minh d&#7919; li&#7879;u<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; tính toán th&#7921;c s&#7921;<br>
+<br>
+M&#7895;i v&#7845;n đ&#7873; đ&#432;&#7907;c gi&#7843;i quy&#7871;t m&#7897;t cách ri&#234;ng r&#7869;, t&#7853;p trung v&#224;o đi&#7875;m đ&#7863;c
+tr&#432;ng c&#7911;a m&#7895;i môi tr&#432;&#417;&#768;ng. Cách l&#7853;p tr&#236;nh n&#224;y đu&#7907;c g&#7885;i l&#224; <span style="font-weight: bold;">l&#7853;p tr&#236;nh c&#7845;u trúc</span>.<br>
+<br>
+Tóm l&#7841;i:<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; các ch&#432;&#417;ng tr&#236;nh đ&#432;&#7907;c t&#7841;o ra đ&#7875;
+gi&#7843;i quy&#7871;t các v&#7845;n đ&#7873; v&#224; th&#7921;c hi&#7879;n m&#7897;t s&#7889; nhi&#7879;m v&#7909;.<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; tru&#7899;c khi vi&#7871;t m&#7897;t ch&#432;&#417;ng tr&#236;nh
+đ&#7875; gi&#7843;i quy&#7871;t m&#7897;t nhi&#7879;m v&#7909; n&#224;o đó, c&#7847;n ph&#7843;i t&#236;m ra m&#7897;t thu&#7853;t toán đ&#7875;
+gi&#7843;i quy&#7871;t v&#7845;n đ&#7873;.<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; thu&#7853;t toán l&#224; m&#7897;t công th&#7913;c, m&#7897;t
+lo&#7841;t các câu l&#7879;nh th&#7921;c hi&#7879;n tr&#234;n d&#7919; li&#7879;u, b&#7843;n mô t&#7843; vi&#7879;c chuy&#7875;n d&#7919; li&#7879;u
+đ&#7847;u v&#224;o th&#224;nh d&#7919; li&#7879;u đ&#7847;u ra.&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; m&#7897;t ch&#432;&#417;ng tr&#236;nh l&#224; b&#7843;n ghi l&#7841;i
+các thu&#7853;t toán <span style="font-weight: bold;">v&#224;</span> <span style="font-weight: bold;">d&#7919; li&#7879;u</span> trong m&#7897;t ngôn ng&#7919; l&#7853;p tr&#236;nh
+nh&#7845;t đ&#7883;nh.<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; đ&#7875; m&#7897;t ch&#432;&#417;ng tr&#236;nh đ&#432;&#7907;c th&#7921;c
+hi&#7879;n, s&#7921; bi&#7875;u di&#7877;n c&#7911;a nó trong ngôn ng&#7919; l&#7853;p tr&#236;nh ph&#7843;i đu&#7907;c d&#7883;ch sang
+ngôn ng&#7919; máy tính m&#224; CPU có th&#7875; hi&#7875;u đ&#432;&#7907;c. Công vi&#7879;c n&#224;y do các ch&#432;&#417;ng
+tr&#236;nh chuy&#234;n d&#7909;ng đ&#432;&#7907;c g&#7885;i l&#224; translator (máy d&#7883;ch), compiler (tr&#236;nh
+bi&#234;n d&#7883;ch) hay interpreter (thông d&#7883;ch) th&#7921;c hi&#7879;n.<br>
+<br>
+C&#7847;n nh&#7899; r&#7857;ng các ch&#432;&#417;ng tr&#236;nh không ch&#7881; ph&#7843;n ánh các b&#432;&#7899;c (câu l&#7879;nh,
+h&#224;nh đ&#7897;ng) c&#7911;a thu&#7853;t toán m&#224; c&#242;n th&#7875; hi&#7879;n d&#7919; li&#7879;u x&#7917; lý. Nh&#7919;ng d&#7919; li&#7879;u
+n&#224;y có th&#7875; l&#224; các b&#7843;n sao tách bi&#7879;t hay nhóm l&#7841;i th&#224;nh t&#7915;ng b&#7897; (có li&#234;n
+k&#7871;t v&#224; theo m&#7897;t tr&#7853;t t&#7921; n&#224;o đó). Trong nh&#7919;ng tr&#432;&#417;&#768;ng h&#7907;p nh&#432; v&#7853;y chúng
+ta có th&#7875; v&#7873; <span style="font-weight: bold;">c&#7845;u trúc d&#7919; li&#7879;u.<br>
+<br>
+</span>Do đó, có th&#7875; n&#234;u ra m&#7897;t đ&#7883;nh ngh&#297;a khác c&#7911;a ch&#432;&#417;ng tr&#236;nh (tác
+gi&#7843; l&#224; N.
+Wirth).<br>
+<br>
+<div align="center">
+<div style="text-align: left;" class="def"> <b>CH&#431;&#416;NG TR&#204;NH l&#224; m&#7897;t
+công th&#7913;c c&#7909; th&#7875; c&#7911;a m&#7897;t thu&#7853;t toán tr&#7915;u t&#432;&#7907;ng d&#7921;a tr&#234;n s&#7921; bi&#7875;u di&#7877;n c&#7909;
+th&#7875; c&#7911;a c&#7845;u trúc d&#7919; li&#7879;u.</b></div>
+<br>
+</div>
+Hai đ&#7883;nh ngh&#297;a không trái ng&#432;&#7907;c nhau. Đ&#7883;nh ngh&#297;a đ&#7847;u ti&#234;n, trích d&#7851;n
+ngay t&#7915; đ&#7847;u b&#224;i nh&#7845;n m&#7841;nh các h&#224;nh đ&#7897;ng th&#7921;c hi&#7879;n b&#7903;i m&#7897;t ch&#432;&#417;ng tr&#236;nh
+c&#242;n đ&#7883;nh ngh&#297;a th&#7913; hai nh&#7845;n m&#7841;nh vi&#7879;c t&#7841;o ra m&#7897;t ch&#432;&#417;ng tr&#236;nh.<br>
+<br>
+Ch&#432;&#417;ng tr&#236;nh (m&#227; ngu&#7891;n) đ&#432;&#7907;c vi&#7871;t b&#7857;ng ngôn ng&#7919; l&#7853;p tr&#236;nh. M&#7895;i ngôn ng&#7919;
+l&#7853;p tr&#236;nh có <span style="font-weight: bold;">b&#7843;ng ch&#7919; cái</span> c&#7911;a
+nó – đó l&#224; m&#7897;t lo&#7841;t các ký t&#7921; (ch&#7919; cái v&#224; con s&#7889;) t&#7915; đó xây d&#7921;ng n&#234;n
+các ký hi&#7879;u c&#7911;a ngôn ng&#7919; (chu&#7895;i các ký t&#7921;). Các <span style="font-weight: bold;">quy t&#7855;c cú pháp</span> xác đ&#7883;nh ti&#234;u chu&#7849;n
+cho phép xây d&#7921;ng ký hi&#7879;u v&#224; các tr&#7853;t t&#7921; xu&#7845;t hi&#7879;n trong ch&#432;&#417;ng tr&#236;nh. <span style="font-weight: bold;">Ng&#7919; ngh&#297;a</span> xác đ&#7883;nh ý ngh&#297;a c&#7911;a ký
+hi&#7879;u.<br>
+<br>
+Ví d&#7909; nh&#432; trong ngôn ng&#7919; l&#7853;p tr&#236;nh có b&#7843;ng ch&#7919; cái đ&#432;&#7907;c xây d&#7921;ng t&#7915; các
+ch&#7919; cái, con s&#7889; v&#224; các ký t&#7921; đ&#7863;c bi&#7879;t, th&#236; t&#234;n c&#7911;a các bi&#7871;n th&#7875; đ&#432;&#7907;c
+xây d&#7921;ng t&#7915; ch&#7919; cái v&#224; các con s&#7889;. M&#7897;t s&#7889; chu&#7895;i k&#7929; t&#7921; th&#7875; hi&#7879;n ch&#7881; l&#7879;nh
+ngôn ng&#7919; đ&#432;&#7907;c đ&#7863;t trong d&#7845;u ngo&#7863;c v&#224; đ&#7913;ng sau “if”. Cách k&#7871;t h&#7907;p các ký
+hi&#7879;u đ&#432;&#7907;c đ&#7883;nh r&#245; (ví d&#7909; công th&#7913;c “n&#7871;u(a==b) a = 0;” đúng v&#7873; m&#7863;t cú
+pháp trong khi công th&#7913;c “n&#7871;u a = b a = 0” l&#7841;i sai) v&#224; ngh&#297;a c&#7911;a chu&#7895;i
+ký hi&#7879;u đó c&#361;ng đ&#432;&#7907;c xác đ&#7883;nh (ví d&#7909; công th&#7913;c “a = 3” ngh&#297;a l&#224; g&#7855;n cho
+bi&#7871;n th&#7875; “a” giá tr&#7883; l&#224; 3).<br>
+<br>
+Có r&#7845;t nhi&#7873;u ngôn ng&#7919; l&#7853;p tr&#236;nh v&#224; chúng đ&#432;&#7907;c phân lo&#7841;i theo nhi&#7873;u ti&#234;u
+chu&#7849;n khác nhau. <br>
+Ch&#7855;c ch&#7855;n quan tr&#7885;ng nh&#7845;t đó l&#224; ti&#234;u chí v&#7873; c&#7845;u trúc logic c&#7911;a ngôn ng&#7919;
+v&#224; cách th&#7913;c t&#7841;o ra các ch&#432;&#417;ng tr&#236;nh s&#7917; d&#7909;ng nó. <br>
+<span style="font-weight: bold;">Ngôn ng&#7919; m&#7879;nh l&#7879;nh</span> y&#234;u c&#7847;u chi
+ti&#7871;t v&#7873; tr&#7853;t t&#7921; các b&#432;&#7899;c th&#7921;c hi&#7879;n m&#7897;t nhi&#7879;m v&#7909; n&#224;o đó trong khi <span style="font-weight: bold;">ngôn ng&#7919; tr&#7847;n thu&#7853;t</span> mi&#234;u t&#7843; m&#7889;i quan
+h&#7879; gi&#7919;a các d&#7919; li&#7879;u v&#7873; m&#7863;t ch&#7913;c năng (<span style="font-weight: bold;">ngôn
+ng&#7919; ch&#7913;c năng/h&#224;m</span>) hay v&#7873; m&#7863;t quy t&#7855;c <span style="font-weight: bold;">(ngôn ng&#7919; li&#234;n h&#7879;</span>, <span style="font-weight: bold;">ngôn ng&#7919; l&#7853;p tr&#236;nh logic</span>) v&#224; v&#7873; k&#7871;t
+qu&#7843; c&#7911;a vi&#7879;c th&#7921;c hi&#7879;n m&#7897;t ch&#432;&#417;ng tr&#236;nh thu đ&#432;&#7907;c b&#7857;ng cách áp d&#7909;ng các
+thu&#7853;t toán “xây d&#7921;ng trong ngôn ng&#7919;” đ&#7863;c bi&#7879;t v&#224;o các m&#7895;i quan h&#7879; c&#7909;
+th&#7875;. <br>
+<br>
+<span style="font-weight: bold;">L&#7853;p tr&#236;nh h&#432;&#7899;ng đ&#7889;i t&#432;&#7907;ng</span> chính
+l&#224; k&#7871;t h&#7907;p d&#7919; li&#7879;u v&#7899;i các thao tác tr&#234;n các d&#7919; li&#7879;u, t&#7841;o c&#417; h&#7897;i đ&#7875; t&#7841;o
+ra v&#224; s&#7917; d&#7909;ng các lo&#7841;i d&#7919; li&#7879;u m&#7899;i trong ch&#432;&#417;ng tr&#236;nh, ph&#7843;n h&#7891;i t&#7889;t h&#417;n
+v&#7873; v&#249;ng c&#7911;a v&#7845;n đ&#7873; đ&#7863;t ra. <span style="font-weight: bold;">L&#7853;p tr&#236;nh
+th&#7911; t&#7909;c</span> (đôi khi có li&#234;n quan v&#7899;i l&#7853;p tr&#236;nh m&#7879;nh l&#7879;nh) tách
+ri&#234;ng d&#7919; li&#7879;u v&#224; các ch&#7913;c năng, không cung c&#7845;p m&#7897;t cách đ&#417;n gi&#7843;n v&#224; đ&#7847;y
+d&#7911; cách ph&#7843;n chi&#7871;u v&#249;ng c&#7911;a v&#7845;n đ&#7873; trong c&#7845;u trúc d&#7919; li&#7879;u m&#224; nó s&#7917;
+d&#7909;ng. <br>
+<br>
+<br>
+<img src="info_data/Jezyki.jpg" alt="Rysunek - jezyki" style="border: 1px solid ; width: 881px; height: 265px;"> <br>
+<br>
+<br>
+Các ví d&#7909; v&#7873; ngôn ng&#7919; l&#7853;p tr&#236;nh th&#7911; t&#7909;c nh&#432; ALGOL, FORTRAN, PL/I, C.O.
+Ngôn ng&#7919; h&#432;&#7899;ng đ&#7889;i t&#432;&#7907;ng nh&#432; Smalltalk, Java, C++ v&#224; C#. Ngôn ng&#432;&#771; ch&#7913;c
+năng có ti&#7871;ng nh&#7845;t l&#224; Haskell, v&#224; ngôn ng&#7919; l&#7853;p tr&#236;nh logic l&#224; Prolog. <br>
+Các ki&#7875;u phân lo&#7841;i khác có li&#234;n quan đ&#7871;n ph&#432;&#417;ng th&#7913;c m&#224; m&#227; ngu&#7891;n c&#7911;a
+ch&#432;&#417;ng tr&#236;nh đ&#432;&#7907;c chuy&#7875;n th&#224;nh ch&#7881; l&#7879;nh c&#7911;a CPU.<br>
+Có th&#7875; phân bi&#7879;t hai lo&#7841;i ngôn ng&#7919; &#7903; đây đó l&#224;: <span style="font-weight: bold;">ngôn ng&#7919; bi&#234;n d&#7883;ch</span> v&#224; <span style="font-weight: bold;">ngôn ng&#7919; thông d&#7883;ch</span>.<br>
+M&#7897;t ch&#432;&#417;ng tr&#236;nh bi&#234;n d&#7883;ch d&#7883;ch ngôn ng&#7919; m&#227; ngu&#7891;n ch&#432;&#417;ng tr&#236;nh sang
+th&#224;nh các ch&#7881; l&#7879;nh c&#7911;a CPU, nó ki&#7875;m tra tính xác th&#7921;c v&#224; thông báo l&#7895;i.
+Do đó vi&#7879;c bi&#234;n d&#7883;ch th&#7921;c ch&#7845;t l&#224; l&#224; thông d&#7883;ch ngôn ng&#7919; v&#224; ki&#7875;m tra cú
+pháp.<br>
+Trong ngôn ng&#7919; bi&#234;n d&#7883;ch, văn b&#7843;n ch&#432;&#417;ng tr&#236;nh (<span style="font-weight: bold;">m&#227; ngu&#7891;n</span>) đ&#432;&#7907;c d&#7883;ch sang <span style="font-weight: bold;">m&#227; nh&#7883; phân</span> (<span style="font-weight: bold;">trung gian</span>) b&#7857;ng m&#7897;t ch&#432;&#417;ng tr&#236;nh
+chuy&#234;n d&#7909;ng g&#7885;i l&#224; <span style="font-weight: bold;">ch&#432;&#417;ng tr&#236;nh bi&#234;n
+d&#7883;ch</span>. M&#7897;t ch&#432;&#417;ng tr&#236;nh khác - th&#432;&#7901;ng đ&#432;&#7907;c g&#7885;i l&#224; <span style="font-weight: bold;">linker</span> (k&#7871;t n&#7889;i) t&#7841;o ra m&#7897;t ch&#432;&#417;ng
+tr&#236;nh th&#7921;c hi&#7879;n t&#7915; m&#227; nh&#7883; phân trung gian (đ&#227; s&#7861;n s&#224;ng đ&#7875; ch&#7841;y) v&#224; l&#432;u
+ch&#432;&#417;ng tr&#236;nh đó tr&#234;n &#7893; c&#7913;ng &#7903; d&#7841;ng m&#7897;t <span style="font-weight: bold;">file
+ch&#7841;y</span> (ví d&#7909; v&#7899;i đuôi m&#7903; r&#7897;ng “exe” hay mi&#7873;n thu&#7897;c tính ch&#7841;y).
+Đây l&#224; cách m&#224; ngôn ng&#7919; “C” hay “C++” v&#7853;n h&#224;nh. Trong nh&#7919;ng tr&#432;&#417;&#768;ng h&#7907;p
+khác ch&#432;&#417;ng tr&#236;nh bi&#234;n d&#7883;ch t&#7841;o ra m&#227; ký hi&#7879;u, m&#227; n&#224;y đ&#432;&#7907;c th&#7921;c hi&#7879;n
+b&#7903;i tr&#236;nh <span style="font-weight: bold;">thông d&#7883;ch</span>. Ngôn ng&#7919;
+Java c&#361;ng ho&#7841;t đ&#7897;ng t&#432;&#417;ng t&#7921; nh&#432; th&#7871;. <br>
+<br>
+<span style="font-weight: bold;">Tr&#236;nh thông d&#7883;ch</span> th&#7921;c hi&#7879;n m&#227;
+ngu&#7891;n tr&#7921;c ti&#7871;p. Nh&#7901; đó công vi&#7879;c xác minh cú pháp đ&#432;&#7907;c th&#7921;c hi&#7879;n trong
+khi ch&#432;&#417;ng tr&#236;nh đang ch&#7841;y. M&#7897;t s&#7889; ngôn ng&#7919; bi&#234;n d&#7883;ch sang m&#227; trung
+gian cho phép công vi&#7879;c ki&#7875;m tra n&#224;y x&#7843;y ra tr&#432;&#7899;c khi ch&#432;&#417;ng tr&#236;nh
+ch&#7841;y. M&#227; ngu&#7891;n hay m&#227; trung gian c&#7911;a ngôn ng&#7919; thông d&#7883;ch đ&#432;&#7907;c đ&#7885;c v&#224;
+th&#7921;c hi&#7879;n b&#7903;i ch&#432;&#417;ng tr&#236;nh thông d&#7883;ch, ch&#432;&#417;ng tr&#236;nh n&#224;y t&#7841;o ra ch&#7881; l&#7879;nh
+c&#7911;a CPU t&#432;&#417;ng &#7913;ng v&#7899;i ch&#7881; l&#7879;nh t&#236;m th&#7845;y trong ngu&#7891;n.<br>
+Các ví d&#7909; v&#7873; ngôn ng&#7919; thông d&#7883;ch nh&#432;: REXX, Objech&#432;&#417;ng tr&#236;nhREXX, Perl,
+PHP.<br>
+<br>
+Tóm l&#7841;i: to&#224;n b&#7897; quá tr&#236;nh l&#7853;p tr&#236;nh có th&#7875; đ&#432;&#7907;c mô t&#7843; qua thu&#7853;t toán
+sau:<br>
+<br>
+<img src="info_data/Programowanie.jpg" alt="Rysunek - programowanie" style="border: 1px solid ; width: 561px; height: 617px;" align="middle">&nbsp;<br>
+<br>
+<hr>
+<a name="PrgJav.3"></a><br>
+<h2>3. Java l&#224; g&#236;?</h2>
+D&#297; nhi&#234;n tr&#432;&#7899;c h&#7871;t Java l&#224; m&#7897;t <span style="font-weight: bold;">ngôn
+ng&#7919; l&#7853;p tr&#236;nh ph&#7893; thông</span>.<br>
+<b><br>
+S&#7921; gi&#7889;ng nhau v&#7873; cú pháp v&#7899;i ngôn ng&#7919; C v&#224; C++</b> giúp cho l&#7853;p tr&#236;nh
+vi&#234;n d&#7877; d&#224;ng n&#7855;m đ&#432;&#7907;c ngôn ng&#7919; Java h&#417;n. Đ&#7891;ng th&#7901;i Java c&#361;ng th&#7875; hi&#7879;n
+đ&#432;&#7907;c tính năng v&#432;&#7907;t tr&#7897;i t&#7915; nh&#7919;ng đi&#7875;m khác bi&#7879;t c&#7911;a nó. L&#7853;p tr&#236;nh vi&#234;n
+Java không ph&#7843;i quan tâm đ&#7871;n vi&#7879;c qu&#7843;n lý b&#7897; nh&#7899; (ph&#7847;n thu th&#7853;p d&#7919; li&#7879;u
+rác s&#7869; l&#224;m công vi&#7879;c n&#224;y cho l&#7853;p tr&#236;nh vi&#234;n: lo&#7841;i b&#7887; nh&#7919;ng đ&#7889;i t&#432;&#7907;ng
+không d&#249;ng đ&#7871;n trong b&#7897; nh&#7899;). Java không có con tr&#7887; s&#7889; h&#7885;c m&#224; cho phép
+truy c&#7853;p v&#224;o m&#7897;t v&#7883; trí b&#7845;t k&#7923; trong b&#7897; nh&#7899; v&#236; con tr&#7887; n&#224;y th&#432;&#7901;ng gây
+ra l&#7895;i.<b><br>
+</b><b><br>
+Vi&#7879;c ki&#7875;m tra ki&#7875;u nghi&#234;m ng&#7863;t</b> phát hi&#7879;n ra nhi&#7873;u l&#7895;i đ&#417;n gi&#7843;n
+trong quá tr&#236;nh bi&#234;n d&#7883;ch, đi&#7873;u n&#224;y s&#7869; giúp quá tr&#236;nh chuy&#7875;n đ&#7893;i an
+to&#224;n.<br>
+<br>
+<b><span style="font-weight: bold;"></span></b><b>Vi&#7879;c x&#7917; lý các tr&#432;&#7901;ng
+h&#7907;p ngo&#7841;i l&#7879;</b> m&#7897;t cách h&#7907;p lý b&#7903;i tr&#236;nh
+bi&#234;n d&#7883;ch giúp cho công vi&#7879;c l&#7853;p tr&#236;nh trong Java an to&#224;n v&#224; đáng tin
+c&#7853;y h&#417;n. C&#417; c&#7845;u đ&#7891;ng quy xây d&#7921;ng s&#7861;n t&#7841;o n&#234;n s&#7921; đ&#7891;ng b&#7897; c&#7911;a các tuy&#7871;n
+đang th&#7921;c hi&#7879;n song song (chính l&#224; các ph&#7847;n đ&#432;&#7907;c th&#7921;c hi&#7879;n đ&#7891;ng th&#7901;i
+trong m&#7897;t ch&#432;&#417;ng tr&#236;nh).<b><br>
+</b><b></b><br>
+T&#7845;t c&#7843; nh&#7919;ng đi&#7873;u tr&#234;n m&#7863;c d&#249; l&#224; có v&#7867; h&#417;i k&#7923; l&#7841; lúc n&#224;y, nh&#432;ng s&#7869; đ&#432;&#7907;c
+gi&#7843;i thích k&#7929; l&#432;&#7905;ng trong các b&#224;i h&#7885;c sau.<br>
+<br>
+<span style="font-weight: bold;">Ch&#7855;c ch&#7855;n m&#7897;t đ&#7863;c đi&#7875;m quan tr&#7885;ng c&#7911;a
+ngôn ng&#7919; Java l&#224; tính h&#432;&#7899;ng đ&#7889;i t&#432;&#7907;ng c&#7911;a nó</span>. Nói chung, đi&#7873;u
+n&#224;y có ngh&#297;a l&#224; các ch&#432;&#417;ng tr&#236;nh d&#7877; d&#224;ng h&#417;n đ&#7875; vi&#7871;t v&#224; đáng tin c&#7853;y
+h&#417;n nh&#7919;ng ch&#432;&#417;ng tr&#236;nh đ&#432;&#7907;c xây d&#7921;ng tr&#234;n các ngôn ng&#7919; phi đ&#7889;i t&#432;&#7907;ng.
+Th&#7853;t không may Java không ph&#7843;i ho&#224;n to&#224;n h&#432;&#7899;ng đ&#7889;i t&#432;&#7907;ng v&#236; m&#7897;t s&#7889; c&#7845;u
+trúc cú pháp c&#7911;a nó không h&#432;&#7899;ng đ&#7889;i t&#432;&#7907;ng. <span style="font-weight: bold;"><br>
+</span><b></b><br>
+Nh&#7919;ng đi&#7875;m &#432;u vi&#7879;t c&#7911;a Java v&#7899;i t&#432; cách l&#224; ngôn ng&#7919; l&#7853;p tr&#236;nh có th&#7875;
+c&#7847;n xem l&#7841;i. Nh&#432;ng đi&#7873;u n&#224;y không ph&#7843;i v&#236; tính thu&#7847;n khi&#7871;t hay tính
+v&#432;&#7907;t tr&#7897;i m&#7899;i đáng đ&#7875; h&#7885;c.<br>
+Quan tr&#7885;ng h&#417;n đó l&#224; tính ph&#7893; thông trong t&#7845;t c&#7843; các &#7913;ng d&#7909;ng máy tính
+đ&#7841;t đ&#432;&#7907;c v&#7899;i b&#7897; máy giao n&#7873;n &#7843;o v&#224; m&#7897;t mi&#7873;n các th&#432; vi&#7879;n ti&#234;u chu&#7849;n
+phong phú tích h&#7907;p trong môi tr&#432;&#7901;ng Java.<b></b><br>
+<br>
+<hr><a name="PrgJav.6"></a>
+<h2>4. Nh&#7853;p môn l&#7853;p tr&#236;nh h&#432;&#7899;ng đ&#7889;i t&#432;&#7907;ng</h2>
+Ngôn ng&#7919; h&#432;&#7899;ng đ&#7889;i t&#432;&#7907;ng l&#224; ngôn ng&#7919; d&#7921;a tr&#234;n khái ni&#7879;m v&#7873; <span style="font-weight: bold;">đ&#7889;i t&#432;&#7907;ng</span> v&#224; <span style="font-weight: bold;">l&#7899;p</span>. <br>
+<br>
+Nh&#7919;ng đ&#7883;nh ngh&#297;a chính xác v&#7873; các thu&#7853;t ng&#7919; n&#224;y s&#7869; đ&#432;&#7907;c tr&#236;nh b&#224;y sau
+n&#224;y trong các ph&#7847;n sau. Hi&#7879;n t&#7841;i thay v&#236; t&#7853;p trung v&#224;o các công th&#7913;c
+tr&#7915;u t&#432;&#7907;ng, chúng ta s&#7869; s&#7917; d&#7909;ng trí t&#432;&#7907;ng t&#432;&#7907;ng v&#224; nh&#7899; r&#7857;ng nh&#7919;ng khái
+ni&#7879;m đó s&#7869; đ&#432;&#7907;c gi&#7843;i thích đ&#7847;y đ&#7911; &#7903; nh&#7919;ng b&#224;i sau.<br>
+<br>
+V&#7853;y m&#7897;t “đ&#7889;i t&#432;&#7907;ng” l&#224; g&#236;? B&#7857;ng tr&#7921;c giác chúng ta có th&#7875; th&#7845;y r&#7857;ng đ&#7889;i
+t&#432;&#7907;ng l&#224; m&#7897;t v&#7853;t m&#224; có th&#7875; tách ri&#234;ng, đ&#432;&#7907;c g&#7885;i t&#234;n v&#224; phân bi&#7879;t b&#7857;ng
+các thu&#7897;c tính c&#7911;a nó. <br>
+Ví d&#7909; chúng ta có th&#7875; xem nh&#7919;ng th&#7913; sau l&#224; đ&#7889;i t&#432;&#7907;ng: m&#7897;t chi&#7871;c xe đ&#7841;p,
+m&#7897;t chi&#7871;c ô tô, m&#7897;t con chó hay m&#7897;t ng&#432;&#7901;i đ&#224;n ông.<br>
+<br>
+M&#7895;i đ&#7889;i t&#432;&#7907;ng tr&#234;n có nh&#7919;ng thu&#7897;c tính khác nhau. M&#7897;t ng&#432;&#7901;i đ&#224;n ông có
+t&#234;n v&#224; tu&#7893;i. M&#7897;t chi&#7879;c xe h&#417;i có m&#224;u s&#7855;c v&#224; có th&#7875; đ&#432;&#7907;c đ&#7863;c tr&#432;ng b&#7903;i
+đ&#7897;ng c&#417; hay s&#7889; c&#7917;a.<br>
+<br>
+Hai chi&#7871;c xe h&#417;i khác nhau có c&#249;ng m&#7897;t mi&#7873;n các <span style="font-weight: bold;">thu&#7897;c tính</span>: nh&#227;n hi&#7879;u, m&#224;u c&#7911;a đ&#7897;ng
+c&#417;. K&#7875; c&#7843; khi nh&#227;n hi&#7879;u, m&#224;u s&#7855;c v&#224; đ&#7897;ng c&#417; có khác nhau th&#236; hai chi&#7871;c
+xe v&#7851;n gi&#7889;ng nhau theo m&#7897;t ngh&#297;a n&#224;o đó (b&#7903;i v&#236; chúng đ&#432;&#7907;c đ&#7863;c tr&#432;ng
+b&#7857;ng m&#7897;t mi&#7873;n thu&#7897;c tính gi&#7889;ng nhau). Chúng ta nói r&#7857;ng nh&#7919;ng chi&#7871;c xe
+h&#417;i l&#224; đ&#7889;i t&#432;&#7907;ng c&#7911;a m&#7897;t <span style="font-weight: bold;">l&#7899;p</span>.<br>
+<br>
+<span style="font-weight: bold;">L&#7899;p</span> l&#224; s&#7921; mô t&#7843; các thu&#7897;c tính
+không đ&#7893;i c&#7911;a m&#7897;t nhóm các th&#7921;c th&#7875; gi&#7889;ng nhau.<br>
+<br>
+Ngo&#224;i ra, m&#7897;t đi&#7873;u n&#7919;a c&#7847;n chú ý đó l&#224; m&#7897;t đ&#7889;i t&#432;&#7907;ng có th&#7875; th&#7921;c hi&#7879;n
+m&#7897;t s&#7889; <span style="font-weight: bold;">thao tá</span>c. V&#236; th&#7871; nh&#7919;ng
+đ&#7889;i t&#432;&#7907;ng khác có th&#7875; đ&#432;a ra các y&#234;u c&#7847;u đ&#7891;i v&#7899;i đ&#7889;i t&#432;&#7907;ng đó, đ&#242;i h&#7887;i
+nó ph&#7843;i th&#7921;c hi&#7879;n m&#7897;t thao tao n&#224;o đó. Ví d&#7909; nh&#432; đ&#7889;i t&#432;&#7907;ng lái xe có
+th&#7875; y&#234;u c&#7847;u đ&#7889;i t&#432;&#7907;ng xe chuy&#7875;n bánh hay d&#7915;ng l&#7841;i.<br>
+Chúng ta nói r&#7857;ng m&#7897;t <span style="font-weight: bold;">thông đi&#7879;p</span>
+đ&#432;&#7907;c g&#7917;i đ&#7871;n m&#7897;t đ&#7889;i t&#432;&#7907;ng y&#234;u c&#7847;u đ&#7889;i t&#432;&#7907;ng th&#7921;c hi&#7879;n m&#7897;t thao tác n&#224;o
+đó.<br>
+<br>
+Các đ&#7889;i t&#432;&#7907;ng không th&#7875; ch&#7845;p nh&#7853;n các thông đi&#7879;p t&#249;y ý: đ&#7889;i t&#432;&#7907;ng xe
+h&#417;i có th&#7875; kh&#7903;i đ&#7897;ng ho&#7863;c d&#7915;ng l&#7841;i nh&#432;ng không th&#7875; hát.<br>
+Mi&#7873;n các thông đi&#7879;p đ&#432;&#7907;c v&#7853;t th&#7875; hi&#7875;u (ch&#7845;p nh&#7853;n) c&#361;ng l&#224; đ&#7863;c tr&#432;ng c&#7911;a
+nó.<br>
+Do v&#7853;y m&#7897;t l&#7899;p không ch&#7881; mi&#234;u t&#7843; nh&#7919;ng thu&#7897;c tính chung c&#7911;a m&#7897;t nhóm
+các đ&#7889;i t&#432;&#7907;ng gi&#7889;ng nhau nh&#432; m&#224;u s&#7855;c, tu&#7893;i tác hay cân n&#7863;ng m&#224; c&#242;n mi&#234;u
+t&#7843; mi&#7873;n các thông đi&#7879;p đ&#432;&#7907;c ch&#7845;p nh&#7853;n (đ&#432;&#7907;c hi&#7875;u) b&#7903;i các đ&#7889;i t&#432;&#7907;ng c&#7911;a
+l&#7899;p n&#224;y.<br>
+<br>
+Nh&#7919;ng khái ni&#7879;m tr&#234;n l&#224; cách nh&#236;n tr&#7915;u t&#432;&#7907;ng v&#7873; m&#7897;t th&#7871; gi&#7899;i th&#7921;c.<br>
+K&#7871;t h&#7907;p đ&#432;&#7907;c nh&#7919;ng kh&#7843; năng đó v&#224;o ngôn ng&#7919; l&#7853;p tr&#236;nh, chúng ta có th&#7875;
+d&#7877; d&#224;ng chuy&#7875;n nh&#7919;ng v&#7845;n đ&#7873; c&#7911;a th&#7871; gi&#7899;i th&#7921;c v&#224;o trong các ch&#432;&#417;ng
+tr&#236;nh.<br>
+Đi&#7873;u n&#224;y đ&#227; đ&#432;&#7907;c th&#7921;c hi&#7879;n b&#7903;i ngôn ng&#7919; h&#432;&#7899;ng đ&#7889;i t&#432;&#7907;ng. Đây l&#224; m&#7897;t đ&#7863;c
+tính vô c&#249;ng quan trong đ&#227; l&#224;m đ&#417;n gi&#7843;n hóa vi&#7879;c l&#7853;p tr&#236;nh.<br>
+Chúng ta h&#227;y xem xét m&#7897;t l&#7899;p các thi&#7871;t b&#7883; đi&#7879;n t&#7917; v&#7899;i nh&#7919;ng đ&#7863;c tính
+sau: chi&#7873;u r&#7897;ng, chi&#7873;u cao, tr&#7841;ng thái (b&#7853;t, t&#7855;t) v&#224; tho&#7843; m&#227;n nh&#7919;ng y&#234;u
+c&#7847;u b&#7853;t l&#234;n v&#224; t&#7855;t đi. <br>
+Chúng ta c&#7889; g&#7855;ng mô t&#7843; t&#236;nh hu&#7889;ng n&#224;y trong m&#7897;t ngôn ng&#7919; l&#7853;p tr&#236;nh. Các
+thông đi&#7879;p đ&#432;&#7907;c ch&#7845;p nh&#7853;n b&#7903;i m&#7897;t đ&#7889;i t&#432;&#7907;ng c&#7911;a l&#7899;p đ&#432;&#7907;c th&#7921;c hi&#7879;n nh&#432;
+l&#224; các <span style="font-weight: bold;">ph&#432;&#417;ng pháp</span> (m&#7897;t ph&#432;&#417;ng
+pháp l&#224; m&#7897;t lo&#7841;i h&#224;m).<br>
+<br>
+<pre>class ElDev {<br>  width, height; &lt;-- attributes: width, height, state<br>  isOn;<br>================= messages<br>  method on()<br>    isOn = true; &lt;--- the request <b>on</b> (switch the device on)<br>  <br>  method off()<br>    isOn = false; &lt;--- the request <b>off</b> (switch the device off)<br>}<br></pre>
+<span style="font-style: italic;">Chú ý: M&#227; tr&#234;n ch&#7881; l&#224; t&#432;&#7907;ng tr&#432;ng,
+không có li&#234;n quan g&#236; đ&#7871;n đ&#7883;nh ngh&#297;a l&#7899;p trong Java hay trong b&#7845;t c&#7913;
+môn ngôn ng&#7919; n&#224;o khác.</span><br style="font-style: italic;">
+<br>
+Gi&#7843; s&#7917; chúng ta có hai đ&#7889;i t&#432;&#7907;ng thu&#7897;c l&#7899;p các thi&#7871;t b&#7883; đi&#7879;n đ&#432;&#7907;c quy
+&#432;&#7899;c l&#224; a v&#224; b. Chúng ta có th&#7875; t&#7841;o ra m&#7897;t chu&#7895;i các h&#224;nh đ&#7897;ng: b&#7853;t
+thi&#7871;t b&#7883; a, b&#7853;t thi&#7871;t b&#7883; b, t&#7855;t thi&#7871;t b&#7883; a, t&#7855;t thi&#7871;t b&#7883; b v&#7899;i s&#7921; tr&#7907;
+giúp c&#7911;a các thông đi&#7879;p đu&#7907;c g&#7917;i t&#7899;i nh&#7919;ng đ&#7889;i t&#432;&#7907;ng n&#224;y (nói cách
+khác: b&#7857;ng cách g&#7885;i các ph&#432;&#417;ng pháp cho nh&#7919;ng đ&#7889;i t&#432;&#7907;ng n&#224;y). Ví d&#7909;: s&#7917;
+d&#7909;ng cú pháp ngôn ng&#7919; Java (hay C++) chúng ta có th&#7875; vi&#7871;t chu&#7895;i các y&#234;u
+c&#7847;u tr&#234;n nh&#432; sau:
+<pre>a.on();  // thông đi&#7879;p chuy&#7875;n t&#7899;i đ&#7889;i t&#432;&#7907;ng, y&#234;u c&#7847;u nó b&#7853;t l&#234;n<br>b.on();  // đ&#7875; b b&#7853;t l&#234;n<br>a.off(); // đ&#7875; a t&#7855;t đi<br></pre>
+B&#234;n c&#7841;nh vi&#7879;c ph&#7843;n ánh các v&#7845;n đ&#7873; trong ngôn ng&#7919; l&#7853;p tr&#236;nh, h&#432;&#7899;ng đ&#7889;i
+t&#432;&#7907;ng c&#242;n có th&#234;m m&#7897;t ti&#7879;n ích khác.<br>
+Thông th&#432;&#7901;ng các thu&#7897;c tính c&#7911;a đ&#7889;i t&#432;&#7907;ng không ph&#7843;i lúc n&#224;o c&#361;ng s&#7861;n
+có. Trong m&#7897;t ch&#432;&#417;ng tr&#236;nh các đ&#7889;i t&#432;&#7907;ng li&#234;n l&#7841;c v&#7899;i nhau thông qua
+các thông đi&#7879;p đi&#7873;u khi&#7875;n nh&#7919;ng thu&#7897;c tính c&#7911;a chúng.<br>
+D&#7919; li&#7879;u c&#7911;a đ&#7889;i t&#432;&#7907;ng c&#7847;n đ&#432;&#7907;c &#7849;n đi v&#224; đ&#432;&#7907;c truy c&#7853;p b&#7857;ng các thông
+đi&#7879;p đ&#432;&#7907;c chuy&#7875;n đ&#7871;n đ&#7889;i t&#432;&#7907;ng.<br>
+<br>
+<div class="important">D&#7919; li&#7879;u (thu&#7897;c tính) có th&#7875; đ&#432;&#7907;c gi&#7845;u đi v&#224; đ&#432;&#7907;c
+truy c&#7853;p b&#7857;ng các thông đi&#7879;p chuy&#7875;n đ&#7871;n đ&#7889;i t&#432;&#7907;ng.</div>
+<br>
+Cách ti&#7871;p c&#7853;n đó g&#7885;i l&#224; <span style="font-weight: bold;">encapsulation</span>
+(s&#7921; tóm g&#7885;n) v&#224; cho phép t&#7841;o ra các ch&#432;&#417;ng tr&#236;nh đáng tin c&#7853;y h&#417;n.<br>
+<br>
+Ngôn ng&#7919; h&#432;&#7899;ng đ&#7889;i t&#432;&#7907;ng cho phép tái s&#7917; d&#7909;ng các l&#7899;p c&#361; khi t&#7841;o ra các
+l&#7899;p m&#7899;i. Nó đ&#417;n gi&#7843;n hóa vi&#7879;c l&#7853;p tr&#236;nh v&#224; tránh m&#7855;c l&#7895;i. <br>
+Nó c&#361;ng ph&#7843;n ánh các t&#236;nh hu&#7889;ng trong th&#7871; gi&#7899;i th&#7921;c.<br>
+<br>
+Ví d&#7909;, m&#7897;t máy vi tính l&#224; m&#7897;t &#7913;ng d&#7909;ng đi&#7879;n t&#7917;. V&#236; th&#7871;&nbsp; nó l&#224; m&#7897;t
+đ&#7889;i t&#432;&#7907;ng c&#7911;a l&#7899;p ElDev. Nh&#432;ng máy vi tính có các đ&#7863;c đi&#7875;m c&#7909; th&#7875; ngo&#224;i
+các đ&#7863;c đi&#7875;m đ&#432;&#7907;c n&#234;u trong đ&#7883;nh ngh&#297;a c&#7911;a l&#7899;p ElDev (chi&#7875;u r&#7897;ng, chi&#7873;u
+cao, tr&#7841;ng thái). <br>
+Do đó chúng t&#7841;o n&#234;n m&#7897;t l&#7899;p ph&#7909; c&#7911;a l&#7899;p th&#7875; hi&#7879;n các thi&#7871;t b&#7883; đi&#7879;n t&#7917;.<br>
+Trong ngôn ng&#7919; l&#7853;p tr&#236;nh chúng ta ph&#7843;n ánh l&#7899;p phu n&#224;y thông qua s&#7921; k&#7871;
+th&#7915;a. M&#7897;t l&#7899;p có th&#7875; k&#7871; th&#7915;a các thu&#7897;c tính v&#224; ph&#432;&#417;ng pháp t&#7915; các l&#7899;p
+khác v&#224; th&#234;m v&#224;o m&#7897;t s&#7889; các thu&#7897;c tính đ&#7863;c bi&#7879;t. <br>
+Chúng ta s&#7869; t&#7841;o ra m&#7897;t l&#7899;p có t&#234;n Computer k&#7871; th&#7915;a t&#7915; l&#7899;p ElDev l&#224;m ví
+d&#7909;. Chúng ta không c&#7847;n vi&#7871;t t&#7845;t c&#7843; các thu&#7897;c tính v&#224; thông đi&#7879;p c&#7911;a
+thi&#7871;t b&#7883; đi&#7879;n t&#7917; (chúng ta không c&#7847;n th&#7921;c hi&#7879;n các ph&#432;&#417;ng pháp on() v&#224;
+off()). Nh&#432;ng chúng ta ph&#7843;i th&#234;m v&#224;o các thu&#7897;c tính đ&#7863;c trung cho máy
+vi tính nh&#432; y&#234;u c&#7847;u th&#7921;c hi&#7879;n m&#7897;t ch&#432;&#417;ng tr&#236;nh n&#224;o đó.<br>
+Các ch&#432;&#417;ng tr&#236;nh l&#224; các đ&#7889;i t&#432;&#7907;ng c&#7911;a l&#7899;p Program. M&#7897;t thông đi&#7879;p
+chuy&#7875;n v&#224;o máy vi tính y&#234;u c&#7847;u th&#7921;c hi&#7879;n m&#7897;t ch&#432;&#417;ng tr&#236;nh ph&#7843;i đ&#432;a v&#224;o
+&#7903; d&#7841;ng đ&#7889;i s&#7889;.<br>
+S&#7921; k&#7871; th&#7915;a đ&#432;&#7907;c th&#7875; hi&#7879;n b&#7857;ng cách s&#7917; d&#7909;ng t&#7915; khóa extends (m&#7903; r&#7897;ng).
+V&#236; th&#7871; l&#7899;p Computer m&#7899;i c&#7911;a chúng ta m&#224; k&#7871; th&#7915;a t&#7915; l&#7899;p ElDev v&#224; th&#234;m
+v&#224;o ph&#432;&#417;ng pháp run m&#7899;i có th&#7875; đu&#7907;c vi&#7871;t nh&#432; sau: <br>
+<br>
+<pre>class Computer extends ElDev {<br>&nbsp; &nbsp; method run(Program p)<br>&nbsp; &nbsp; &nbsp; &nbsp;if (isOn()) execution_of_the_program_p;<br>}<br></pre>
+Nó có th&#7875; đ&#432;&#7907;c s&#7917; d&#7909;ng trong m&#7897;t ch&#432;&#417;ng tr&#236;nh nh&#432; sau:
+<pre>Computer a, b, c;<br>Program x, y, z;<br>...<br>a.on(); a.run(x); ... a.off();<br></pre>
+<hr><a name="PrgJav.8"></a>
+<h2>5. N&#7841;p Java, ch&#432;&#417;ng tr&#236;nh đ&#7847;u ti&#234;n</h2>
+Tr&#432;&#7899;c ti&#234;n c&#7847;n kéo phi&#234;n b&#7843;n JDK m&#7899;i nh&#7845;t t&#7915; trang web: java.sun.com
+(<span style="font-weight: bold;">Java SE</span>). C&#7847;n kéo v&#7873; ri&#234;ng t&#224;i
+li&#7879;u: <span style="font-weight: bold;">Java SE Documentation.<br>
+</span><br>
+Ch&#432;&#417;ng tr&#236;nh n&#7841;p JDK ch&#7841;y r&#7845;t đ&#417;n gi&#7843;n. Sau khi n&#7841;p JDK xong, c&#7847;n m&#7903;
+t&#7879;p nén t&#224;i li&#7879;u ra, sau đó chép v&#224;o th&#432; m&#7909;c chính c&#7911;a JDK.<br>
+<span style="font-weight: bold;"><br>
+</span>Chúng ta có th&#7875; chu&#7849;n b&#7883; ch&#432;&#417;ng tr&#236;nh b&#7857;ng cách s&#7917; d&#7909;ng môi
+tr&#432;&#7901;ng phát tri&#7875;n tích h&#7907;p (IDE)- nh&#432; Eclipse, NetBeans, IntelliJ hay
+JCreator - các môi tr&#432;&#7901;ng n&#224;y có nhi&#7873;u ch&#7913;c năng: so&#7841;n th&#7843;o ch&#432;&#417;ng
+tr&#236;nh, d&#7883;ch, ch&#7841;y ch&#432;&#417;ng tr&#236;nh, h&#432;&#7899;ng d&#7851;n ng&#432;&#7901;i s&#7917; d&#7909;ng trong khi so&#7841;n
+th&#7843;o ch&#432;&#417;ng tr&#236;nh, v&#224; t&#236;m l&#7895;i.<br>
+<br>
+Có th&#7875; vi&#7871;t m&#227; ngu&#7891;n trong ch&#432;&#417;ng tr&#236;nh ch&#7881;nh so&#7841;n th&#7843;o văn b&#7843;n text
+n&#224;o đó v&#224; sau đó d&#7883;ch v&#224; ch&#7841;y ch&#432;&#417;ng tr&#236;nh t&#7915; d&#242;ng l&#234;nh (command line).<br>
+<br>
+<div class="notec">N&#7871;u không s&#7917; d&#7909;ng IDE:<br>
+<ul>
+  <li>nh&#7899; đ&#7875; th&#432; m&#7909;c có ch&#7913;a tr&#236;nh bi&#234;n d&#7883;ch Java (javac.exe) v&#224; tr&#236;nh
+thông d&#7883;ch - máy &#7843;o Java
+(java.exe)
+tr&#234;n đ&#432;&#7901;ng d&#7851;n chính(PATH),</li>
+  <li>m&#227; ngu&#7891;n Java chu&#7849;n b&#7883; trong tr&#236;nh so&#7841;n văn b&#7843;n c&#7847;n đ&#432;&#7907;c l&#432;u
+trong đ&#7883;nh d&#7841;ng thu&#7847;n văn b&#7843;n m&#7897;t t&#7879;p v&#7899;i đuôi m&#7903; r&#7897;ng “.java” (ví d&#7909;
+nh&#432; “Test.java”),</li>
+  <li>đ&#7875; bi&#234;n d&#7883;ch file ngu&#7891;n th&#236; s&#7917; d&#7909;ng l&#7879;nh <span style="font-weight: bold;">javac </span>(ví d&#7909; nh&#432;<span style="font-weight: bold;"> javac Test.java</span>),<b></b></li>
+  <li>k&#7871;t qu&#7843; c&#7911;a vi&#7879;c bi&#234;n d&#7883;ch th&#224;nh công xu&#7845;t hi&#7879;n m&#7897;t ho&#7863;c nhi&#7873;u
+t&#7879;p l&#7899;p (có đuôi m&#7903; r&#7897;ng l&#224; “class” nh&#432; Test.class),</li>
+  <li>đ&#7875; th&#7921;c hi&#7879;n ch&#432;&#417;ng tr&#236;nh chúng ta ph&#7843;i ch&#7841;y ch&#432;&#417;ng tr&#236;nh <span style="font-weight: bold;">java</span> đ&#432;a ra m&#7897;t t&#234;n l&#7899;p (không c&#7847;n
+có đuôi m&#7903; r&#7897;ng) v&#7899;i t&#432; cách l&#224; đ&#7889;i s&#7889; (nh&#432; <span style="font-weight: bold;">java Test</span>).<span style="font-weight: bold;">&nbsp;</span><b></b></li>
+</ul>
+</div>
+<br>
+Nh&#7919;ng đi&#7875;m c&#7847;n l&#432;u ý:<br>
+1.&nbsp;&nbsp;&nbsp; M&#227; ngu&#7891;n có th&#7875; đ&#432;&#7907;c phân b&#7889; tr&#234;n m&#7897;t s&#7889; các t&#7879;p
+có đuôi m&#7903; r&#7897;ng l&#224; “.java”. M&#7895;i t&#7879;p g&#7891;m m&#7897;t đ&#7883;nh ngh&#297;a đ&#7847;y đ&#7911; c&#7911;a m&#7897;t
+hay nhi&#7873;u l&#7899;p.<br>
+2.&nbsp;&nbsp;&nbsp; T&#234;n c&#7911;a m&#7895;i t&#7879;p ph&#7843;i gi&#7889;ng h&#7879;t (nh&#432; trong tr&#432;&#7901;ng
+h&#7907;p vi&#7871;t th&#432;) t&#234;n c&#7911;a l&#7899;p d&#249;ng chung (đ&#432;&#7907;c chu&#7849;n hóa b&#7857;ng t&#7915; khóa <span style="font-weight: bold;">public</span>) ch&#7913;a trong t&#7879;p (chúng ta s&#7869;
+t&#236;m hi&#7875;u ngh&#297;a c&#7911;a t&#7915; n&#224;y sau). M&#7897;t t&#7879;p ngu&#7891;n có th&#7875; ch&#7913;a nhi&#7873;u nh&#7845;t
+m&#7897;t l&#7899;p pulic.<br>
+3.&nbsp;&nbsp;&nbsp; Đ&#7875; ch&#7841;y m&#7897;t máy &#7843;o (v&#7899;i câu l&#7879;nh <span style="font-weight: bold;">java</span>) chúng ta đ&#432;a v&#224;o v&#7899;i t&#432; cách
+đ&#7889;i s&#7889; t&#234;n c&#7911;a l&#7899;p ch&#7913;a ph&#432;&#417;ng pháp main.<br>
+<br>
+Sau đây l&#224; ch&#432;&#417;ng tr&#236;nh đ&#7847;u ti&#234;n c&#7911;a chúng ta:<br>
+<br>
+<pre><font color="#3333ff"><b>public class</b></font> Test <font color="#ff0000"><b>{</b></font><font color="#3333ff"><b>
+
+   public static void</b></font> main( String[] args ) <b><font color="#33cc00">{<br>      </font></b>System.out.println( "Hello World!")<b>;</b>
+   <b><font color="#33cc00">}</font></b>&nbsp;<br><b><font color="#ff0000">
+}</font></b>
+</pre>
+Gi&#7843;i thích:<br>
+<br>
+&nbsp;&nbsp;&nbsp; 1.&nbsp;&nbsp;&nbsp; T&#7915; khóa c&#7911;a ngôn ng&#7919; đ&#432;&#7907;c đánh
+d&#7845;u m&#224;u xanh da tr&#7901;i.<br>
+&nbsp;&nbsp;&nbsp; 2.&nbsp;&nbsp;&nbsp; Hi&#7879;n t&#7841;i chúng ta không c&#7847;n
+ph&#7843;i quan tâm đ&#7871;n nh&#7919;ng t&#7915; l&#7841; nh&#432;: public, static, void. Chúng ta s&#7869;
+t&#236;m hi&#7875;u v&#7873; chúng trong b&#224;i t&#7899;i.<br>
+&nbsp;&nbsp;&nbsp; 3.&nbsp;&nbsp;&nbsp; Ch&#432;&#417;ng tr&#236;nh Java l&#224; m&#7897;t tr&#432;&#7901;ng
+các đ&#7883;nh ngh&#297;a l&#7899;p. &#7902; đây chúng ta m&#7899;i có m&#7897;t l&#7899;p t&#234;n l&#224; Test. T&#7915; khóa
+class đ&#432;&#7907;c s&#7917; d&#7909;ng đ&#7875; xác đ&#7883;nh các l&#7899;p. M&#7897;t đ&#7883;nh ngh&#297;a l&#7899;p
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+theo sau t&#234;n đó v&#224; k&#7871;t thúc b&#7857;ng d&#7845;u ngo&#7863;c cong (đánh d&#7845;u m&#224;u đ&#7887; &#7903; đây)<br>
+&nbsp;&nbsp;&nbsp; 4.&nbsp;&nbsp;&nbsp; L&#7899;p Test bao g&#7891;m ph&#432;&#417;ng pháp
+t&#234;n l&#224; <span style="font-weight: bold;">main</span>.<br>
+&nbsp;&nbsp;&nbsp; 5.&nbsp;&nbsp;&nbsp; C&#7845;u trúc c&#7911;a m&#7897;t ph&#432;&#417;ng pháp
+đ&#432;&#7907;c đ&#7863;t trong d&#7845;u ngo&#7863;c cong (&#7903; đây đánh d&#7845;u m&#224;u xanh lá cây).<br>
+&nbsp;&nbsp;&nbsp; 6.&nbsp;&nbsp;&nbsp; M&#7897;t ch&#432;&#417;ng tr&#236;nh đ&#432;&#7907;c th&#7921;c hi&#7879;n
+b&#7855;t đ&#7847;u b&#7857;ng ph&#432;&#417;ng pháp main (tuy&#234;n b&#7889; đúng theo cách n&#224;y: public
+static void main(String[] args); t&#7915; args có th&#7875; đ&#432;&#7907;c thay th&#7871;
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; b&#7857;ng t&#7915; khác v&#236; nó
+l&#224; t&#234;n c&#7911;a m&#7897;t bi&#7871;n th&#7875;).<br>
+&nbsp;&nbsp;&nbsp; 7.&nbsp;&nbsp;&nbsp; Nh&#432; chúng ta có th&#7875; th&#7845;y ph&#432;&#417;ng
+pháp <span style="font-weight: bold;">main</span> có m&#7897;t tham s&#7889; t&#234;n
+l&#224; args. Nó ch&#7881; ra m&#7897;t m&#7843;ng các chu&#7895;i (các đ&#7889;i t&#432;&#7907;ng c&#7911;a lo&#7841;i String)
+m&#224; gi&#7919; các đ&#7889;i s&#7889; đ&#432;a v&#224;o trong &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp; ch&#432;&#417;ng tr&#236;nh tr&#234;n startup (t&#7915; d&#242;ng l&#7879;nh hay m&#7897;t cách n&#224;o
+đó khác). Chúng ta không s&#7917; d&#7909;ng các chu&#7895;i đó trong ch&#432;&#417;ng tr&#236;nh n&#224;y.<br>
+&nbsp;&nbsp;&nbsp; 8.&nbsp;&nbsp;&nbsp; B&#234;n trong ph&#432;&#417;ng pháp main g&#7885;i
+ph&#432;&#417;ng pháp <span style="font-weight: bold;">println</span>. Ph&#432;&#417;ng
+pháp n&#224;y s&#7869; in đ&#7889;i s&#7889; ra b&#7843;ng nh&#7855;c câu l&#7879;nh. Vi&#7879;c g&#7885;i m&#7897;t ph&#432;&#417;ng pháp
+l&#224; m&#7897;t bi&#7875;u th&#7913;c. K&#7871;t thúc &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; b&#7857;ng m&#7897;t d&#7845;u <span style="font-weight: bold;">ch&#7845;m ph&#7849;y</span> bi&#7875;u th&#7913;c s&#7869; tr&#7903; th&#224;nh m&#7897;t
+câu l&#7879;nh đ&#432;&#7907;c th&#7921;c hi&#7879;n b&#7903;i ch&#432;&#417;ng tr&#236;nh.<br>
+&nbsp;&nbsp;&nbsp; 9.&nbsp;&nbsp;&nbsp; Tr&#432;&#7899;c m&#7855;t chúng ta không c&#7847;n
+băn khoăn t&#7841;i sao v&#224; v&#236; cái g&#236; chúng ta ph&#7843;i vi&#7871;t System.out.println.
+Chúng ta s&#7869; t&#236;m hi&#7875;u &#7903; ph&#7847;n sau. <br>
+&nbsp;&nbsp;&nbsp; 10.&nbsp;&nbsp; Đ&#7889;i s&#7889; đ&#432;a v&#224;o g&#7885;i ph&#432;&#417;ng pháp
+println l&#224; m&#7897;t d&#227;y chu&#7895;i.<br>
+&nbsp;&nbsp;&nbsp; 11.&nbsp;&nbsp; Ch&#432;&#417;ng tr&#236;nh ph&#7843;i đ&#432;&#7907;c bi&#234;n so&#7841;n: <span style="font-weight: bold;">javac Test.java</span>.<br>
+&nbsp;&nbsp;&nbsp; 12.&nbsp;&nbsp; Vi&#7879;c bi&#234;n so&#7841;n th&#224;nh công s&#7869; t&#7841;o ra
+t&#7879;p Test.class.<br>
+&nbsp;&nbsp;&nbsp; 13.&nbsp;&nbsp; Sau khi ch&#7841;y ch&#432;&#417;ng tr&#236;nh (b&#7857;ng cách
+gh&#245; “java Test” tr&#234;n d&#242;ng l&#7879;nh) chúng ta th&#7845;y d&#242;ng nh&#7855;n “Hello World”.<br>
+<br>
+Các ký t&#7921; kho&#7843;ng tr&#7855;ng (d&#7845;u cách, tab, d&#242;ng m&#7899;i) gi&#7919;a các c&#7845;u trúc ngôn
+ng&#7919; (t&#234;n bi&#7871;n th&#7875; hay ph&#432;&#417;ng pháp, t&#7915; khóa, d&#227;y…) đ&#432;&#7907;c l&#432;&#7907;c b&#7887; trong
+quá tr&#236;nh bi&#234;n d&#7883;ch.<br>
+Các ghi chú c&#361;ng đ&#432;&#7907;c l&#432;&#7907;c b&#7887;.<br>
+Có ba lo&#7841;i ghi chú trong Java:<br>
+•&nbsp;&nbsp;&nbsp; d&#242;ng ch&#7919; theo sau c&#7863;p ký t&#7921; // cho đ&#7871;n h&#234;&#769;t d&#242;ng l&#224;
+m&#7897;t ghi chú m&#7897;t d&#242;ng đ&#417;n.<br>
+•&nbsp;&nbsp;&nbsp; d&#242;ng ch&#7919; đ&#7863;t gi&#7919;a c&#7863;p ký t&#7921; /* v&#224; */ l&#224; ghi chú đa
+d&#242;ng (nó có th&#7875; n&#7857;m tr&#234;n m&#7897;t s&#7889; các d&#242;ng).<br>
+•&nbsp;&nbsp;&nbsp; d&#242;ng ch&#7919; đ&#7863;t gi&#7919;a các chu&#7895;i ký t&#7921; /** v&#224; */ l&#224; m&#7897;t
+ghi chú javadoc. Nó đ&#432;&#7907;c x&#7917; lý b&#7903;i m&#7897;t ch&#432;&#417;ng tr&#236;nh t&#7841;o ra các t&#432; li&#7879;u
+(lo&#7841;i ghi chú n&#224;y l&#224; ghi chú đa d&#242;ng). <br>
+<br>
+Ví d&#7909;: <br>
+<br>
+<pre>/**<br> The class TestCom demonstrates<br> the use of comments<br> (this is a javadoc comment)<br>*/<br><br>public class TestComm {<br><br>  /*<br>     This is a <br>     multiline <br>     comment<br>  */<br><br>  /* it is a <br>     comment too */<br><br>  // this is a single-line comment<br><br>  public static void main( String[] args ) {<br>    // another comment<br>    System.out.println( "Comments" );   // and one more<br>  }<br><br>}<br></pre>
+<br>
+Khi bi&#234;n d&#7883;ch m&#7897;t ch&#432;&#417;ng tr&#236;nh, tr&#236;nh bi&#234;n d&#7883;ch ki&#7875;m tra tính đúng đ&#7855;n
+v&#7873; m&#7863;t cú pháp. N&#7871;u có b&#7845;t c&#7913; m&#7897;t l&#7895;i n&#224;o, quá tr&#236;nh bi&#234;n d&#7883;ch d&#7915;ng
+l&#7841;i, không có t&#7879;p l&#7899;p đ&#7847;u ra v&#224; tr&#236;nh bi&#234;n d&#7883;ch in ra thông đi&#7879;p báo
+g&#7863;p l&#7895;i.<br>
+Ví d&#7909; n&#234;u chúng ta qu&#234;n không d&#249;ng d&#7845;u ngo&#7863;c móc k&#7871;t thúc trong khi g&#7885;i
+ph&#432;&#417;ng pháp println trong ch&#432;&#417;ng tr&#236;nh th&#7917; nghi&#7879;m:<br>
+<pre>System.out.println( "Hello World!"<b>;</b><br><b></b></pre>
+tr&#236;nh bi&#234;n d&#7883;ch s&#7869; t&#7841;o ra d&#242;ng nh&#7855;n sau:<br>
+<div class="listing100">Test.java:4: ')' expected
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println( "Hello World!";
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp; ^
+<br>
+1 error
+</div>
+<br>
+M&#7897;t ch&#432;&#417;ng tr&#236;nh bi&#234;n d&#7883;ch không có l&#7895;i th&#236; đúng v&#7873; m&#7863;t cú pháp nh&#432;ng
+vi&#7879;c ch&#7841;y ch&#432;&#417;ng tr&#236;nh có th&#7875; không th&#224;nh công n&#7871;u có l&#7895;i runtime.<br>
+Ch&#432;&#417;ng tr&#236;nh sau có th&#7875; đ&#432;&#7907;c bi&#234;n d&#7883;ch m&#7897;t cách d&#7877; d&#224;ng:<br>
+<br>
+<pre>public class TestRTE {<br><br>  static String aString;<br>  <br>  public static void main( String[] args ) {<br><br>    System.out.println( aString.length());<br>  }<br>}</pre>
+<br>
+Nh&#432;ng khi ch&#7841;y s&#7869; gây ra l&#7895;i sau:<br>
+<br>
+<div class="listing100">Exception in thread "main"
+java.lang.NullPointerException<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at
+TestRTE.main(TestRTE.java:7)</div>
+<br>
+&nbsp;<br>
+&#7902; đây chúng ta c&#7889; g&#7855;ng có đ&#432;&#7907;c đ&#7897; d&#224;i c&#7911;a m&#7897;t chu&#7895;i không t&#7891;n t&#7841;i (g&#7885;i
+l&#7879;nh length()).<br>
+L&#7895;i đó g&#7885;i l&#224; <span style="font-weight: bold;">exceptions</span>
+(ngo&#7841;i l&#7879;). JVM báo cho chúng ta bi&#7871;t lo&#7841;i ngo&#7841;i l&#7879; v&#224; v&#7873; l&#7899;p v&#224; ph&#432;&#417;ng
+pháp gây ra. Nó c&#361;ng s&#7869; in s&#7889; d&#242;ng trong t&#7879;p ngu&#7891;n n&#417;i m&#224; l&#7895;i x&#7843;y ra.<br>
+<br>
+<hr style="width: 100%; height: 2px;"><a name="PrgJav.10"></a>
+<h2>6. Tóm t&#7855;t<br>
+</h2>
+B&#224;i gi&#7843;ng n&#224;y đ&#227; đ&#7873; c&#7853;p đ&#7871;n m&#7897;t v&#224;i v&#7845;n đ&#7873;:
+<br>
+<ul>
+  <li>ch&#432;&#417;ng tr&#236;nh l&#224; g&#236;?</li>
+  <li>ch&#432;&#417;ng tr&#236;nh d&#249;ng đ&#7875; l&#224;m g&#236;?</li>
+  <li>ch&#432;&#417;ng tr&#236;nh đ&#432;&#7907;c ghi nh&#432; nh&#432; th&#7871; n&#224;o trong máy tính v&#224; đ&#432;&#7907;c ch&#7841;y
+nh&#432; th&#7871; n&#224;o?</li>
+  <li>assembler la g&#236;?</li>
+  <li>ngôn ng&#7919; b&#7853;c cao khác v&#7899;i assembler &#7903; ch&#7895; n&#224;o?&nbsp;</li>
+  <li>na czym polega programowanie?</li>
+  <li>thu&#7853;t toán l&#224; g&#236;?</li>
+  <li>thu&#7853;t toán đ&#432;&#7907;c bi&#7875;i di&#7877;n nh&#432; th&#7871; n&#224;o?</li>
+  <li>l&#224;m th&#7871; n&#224;o đ&#7875; bi&#7875;u di&#7877;n thu&#7853;t tóan b&#7857;ng pseudocode?</li>
+  <li>có nh&#7919;ng lo&#7841;i ngôn ng&#7919; l&#7853;p tr&#236;nh n&#224;o?</li>
+  <li>bi&#234;n d&#7883;ch ch&#432;&#417;ng tr&#236;nh l&#224; g&#236;?</li>
+</ul>
+V&#224; quan trong nh&#7845;t l&#224; chúng ta đ&#227; bi&#7871;t Java l&#224; g&#236;, đ&#227; n&#7841;p Java, v&#224; có
+th&#7875; vi&#7871;t, d&#7883;ch v&#224; ch&#7841;y ch&#432;&#417;ng tr&#236;nh trong Java, v&#224; nh&#432; v&#7853;y chúng ta có
+th&#7875; h&#7885;c ti&#7871;p các b&#224;i gi&#7843;ng sau.<br>
+<br>
+<hr style="width: 100%; height: 2px;"><br>
+</body></html>

@@ -1,0 +1,3 @@
+
+
+document.write("<table cellspacing=\"0\" cellpadding=\"0\" class=\"noborder\" border=\"0\"><tr><td width=\"196\" height=\"49\"><a href=\'http://www.JavaVietnam.org/javavn/delivery/clickad?bannerID=34&zoneID=72&screen=1280x768\' target=\'_blank\'><img src=\'http://www.JavaVietnam.org/javavn/mvnplugindata/mvnad/huutho1981/new_anhso24_logo.gif\' width=\'196\' height=\'49\' border=\'0\' alt=\'\' /></a></td></tr></table>");

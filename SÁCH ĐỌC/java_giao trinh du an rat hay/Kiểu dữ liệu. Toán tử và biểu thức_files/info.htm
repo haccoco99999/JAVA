@@ -1,0 +1,1180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD html 4.01 transitional//EN">
+<html><head rel="stylesheet" type="text/css" href="../style/common.css">
+
+
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <meta name="author" content="Krzysztof Barteczko">
+  <meta name="description" content="Nhap mon lap trinh - Java">
+<!-- (c) Krzysztof Barteczko PJWSTK 2008 -->
+  <title>Kieu du lieu. Toan tu va bieu thuc</title>
+  <link rel="stylesheet" type="text/css" href="info_data/common.css">
+</head><body>
+<div align="center"><a name="TypyOp"></a>
+<h1>Ki&#7875;u d&#7919; li&#7879;u. Toán t&#7917; v&#224; bi&#7875;u th&#7913;c</h1>
+</div>
+<hr><br>
+<i>B&#224;i gi&#7843;ng gi&#7899;i thi&#7879;u v&#7873; các khái ni&#234;m l&#7853;p tr&#236;nh c&#417; b&#7843;n: các ki&#7875;u d&#7919;
+li&#7879;u, s&#7921; bi&#7875;u di&#7877;n c&#7911;a d&#7919; li&#7879;u b&#7857;ng bi&#7871;n, nguy&#234;n d&#7841;ng (literal) v&#224; các
+thao tác tr&#234;n d&#7919; li&#7879;u.<br>
+<br>
+</i>
+<hr><a name="TypyOp.1"></a>
+<h2>1. Nguy&#234;n d&#7841;ng v&#224; bi&#7871;n<br>
+</h2>
+Th&#7921;c hi&#7879;n ch&#432;&#417;ng tr&#236;nh đ&#7891;ng ngh&#297;a v&#7899;i x&#7917; lý d&#7919; li&#7879;u. <br>
+D&#7919; li&#7879;u trong ch&#432;&#417;ng tr&#236;nh đ&#432;&#7907;c bi&#7875;u di&#7877;n b&#7857;ng các nguy&#234;n d&#7841;ng
+(literal), bi&#7871;n v&#224; h&#7857;ng.<br>
+<br>
+<div class="def"><b>Nguy&#234;n d&#7841;ng (literal) </b>-
+l&#224; m&#7897;t d&#227;y các ký t&#7921; trong ch&#432;&#417;ng tr&#236;nh, d&#227;y n&#224;y đ&#7841;i di&#7879;n m&#7897;t cách tr&#7921;c
+ti&#7871;p giá tr&#7883; c&#7911;a d&#7919; li&#7879;u. </div>
+<br>
+<br>
+Ví d&#7909; d&#227;y:<br>
+<pre>111</pre>
+đ&#7841;i di&#7879;n cho s&#7889; 111 i v&#224; đ&#432;&#7907;c coi nh&#432; s&#7889; 111.<br>
+<br>
+D&#297; nhi&#234;n nguy&#234;n d&#7841;ng không đ&#7911; đ&#7875; vi&#7871;t thu&#7853;t toán th&#224;nh ch&#432;&#417;ng tr&#236;nh. <span style="font-weight: bold;">Bi&#7871;n </span>d&#249;ng đ&#7875; có th&#7875; ch&#7913;a d&#361; li&#7879;u
+trong ch&#432;&#417;ng tr&#236;nh v&#224; s&#7917; d&#7909;ng chúng sau n&#224;y.<br>
+&nbsp;<br>
+<div class="def"><b>Bi&#7871;n l&#224; bi&#7875;u t&#432;&#7907;ng d&#249;ng trong ch&#432;&#417;ng tr&#236;nh, đánh
+d&#7845;u m&#7897;t v&#249;ng trong b&#7897; nh&#7899; máy tính, v&#249;ng n&#224;y có th&#7875; đ&#432;&#7907;c ghi các d&#7919;
+li&#7879;u khác nhau.</b><br>
+Nh&#432; v&#7853;y có ngh&#297;a l&#224;:<br>
+<ul>
+  <li>bi&#7871;n có t&#234;n (trong ch&#432;&#417;ng tr&#236;nh g&#7885;i l&#224; t&#234;n bi&#7871;n),</li>
+  <li>thông qua t&#234;n g&#7885;i, chúng ta co th&#7875; thâm nh&#7853;p đ&#7871;n v&#249;ng b&#7897; nh&#7899; có
+ch&#7913;a giá tr&#7883; c&#7911;a d&#7919; li&#7879;u n&#224;o đó,</li>
+  <li>giá tr&#7883; c&#7911;a v&#249;ng nh&#7899; n&#224;y (giá tr&#7883; c&#7911;a bi&#7871;n) chúng ta có th&#7875; thay
+đ&#7893;i khi th&#7921;c hi&#7879;n ch&#432;&#417;ng tr&#7883;nh<br>
+  </li>
+</ul>
+</div>
+<br>
+Ngo&#224;i ra c&#242;n có m&#7897;t lo&#7841;i bi&#7871;n đ&#7863;c bi&#7879;t, g&#7885;i l&#224; <span style="font-weight: bold;">h&#7857;ng</span>, sau khi đ&#227; nh&#7853;n giá tr&#7883; ban
+đ&#7847;u s&#7869; không th&#7875; thay đ&#7893;i giá tr&#7883; n&#224;y n&#7919;a.<br>
+<br>
+<hr style="width: 100%; height: 2px;"><a name="TypyOp.2"></a>
+<h2>2. Khái ni&#7879;m ki&#7875;u. Các ki&#7875;u đ&#417;n gi&#7843;n<br>
+</h2>
+D&#7919; li&#7879;u đ&#432;&#7907;c l&#432;u gi&#7919; trong b&#7897; nh&#7899; máy tính. M&#7895;i đ&#417;n v&#7883; d&#7919; li&#7879;u ph&#7843;i có
+m&#7897;t <span style="font-weight: bold;">ki&#7875;u</span> (type) quy đ&#7883;nh d&#7919;
+li&#7879;u đ&#432;&#7907;c l&#432;u gi&#7919; nh&#432; th&#7871; n&#224;o trong b&#7897; nh&#7899;, chi&#7871;m bao nhi&#234;u dung l&#432;&#7907;ng
+v&#224;&nbsp; nh&#7919;ng thao tác n&#224;o đ&#432;&#7907;c th&#7921;c hi&#7879;n tr&#234;n d&#7919; li&#7879;u. Nh&#432;ng thông
+tin n&#224;y
+giúp tr&#236;nh bi&#234;n d&#7883;ch xây d&#7921;ng m&#227; nh&#7883; phân m&#7897;t cách đúng đ&#7855;n.<br>
+<br>
+<div class="def"><b>Lo&#7841;i d&#7919; li&#7879;u l&#224; m&#7897;t t&#7853;p h&#7907;p các giá tr&#7883; có th&#7875; cho
+d&#7919; li&#7879;u đó c&#249;ng m&#7897;t b&#7897; các thao tác có th&#7875; đ&#432;&#7907;c th&#7921;c hi&#7879;n tr&#234;n d&#7919; li&#7879;u.<br>
+Nó quy đ&#7883;nh kích c&#7905; b&#7897; nh&#7899; c&#7847;n đ&#7875; l&#432;u d&#7919; li&#7879;u v&#224; cách th&#7913;c l&#432;u d&#7919; li&#7879;u
+trong b&#7897; nh&#7899; máy tính.<br>
+</b></div>
+<br>
+Ví d&#7909;, d&#7919; li&#7879;u thu&#7897;c ki&#7875;u s&#7889; nguy&#234;n có th&#7875; có nh&#7919;ng giá tr&#7883; l&#224; các s&#7889;
+nguy&#234;n cách nhau theo m&#7897;t kho&#7843;ng xác đ&#7883;nh. Kích c&#7905; c&#7911;a kho&#7843;ng n&#224;y ph&#7909;
+thu&#7897;c v&#224;o kích c&#7905; c&#7911;a d&#7919; li&#7879;u v&#224; cách th&#7913;c m&#224; d&#7919; li&#7879;u đ&#432;&#7907;c l&#432;u trong b&#7897;
+nh&#7899; máy. Ki&#7875;u c&#361;ng xác đ&#7883;nh các thao tác có th&#7875; đ&#432;&#7907;c th&#7921;c hi&#7879;n: c&#7897;ng,
+tr&#7915;, nhân, chia, s&#7889; d&#432; c&#7911;a phép chia c&#361;ng nh&#432; cách th&#7921;c hi&#7879;n các thao
+tác đó.<br>
+<br>
+Toán t&#7917; d&#249;ng d&#249;ng đ&#7875; bi&#7875;u di&#7877;n các thao tác tr&#234;n d&#7919; li&#7879;u.<br>
+<br>
+<div class="def">Toán t&#7917; - l&#224; bi&#7875;u t&#432;&#7907;ng đ&#7863;c bi&#7879;t, đ&#432;&#7907;c d&#249;ng trong
+ch&#432;&#417;ng tr&#236;nh th&#7875; th&#7921;c hi&#7879;n các thao tác tr&#234;n d&#7919; li&#7879;u.</div>
+<br>
+D&#7919; li&#7879;u trong m&#7897;t ch&#432;&#417;ng tr&#236;nh đ&#432;&#7907;c th&#7875; hi&#7879;n d&#432;&#7899;i các d&#7841;ng nguy&#234;n d&#7841;ng,
+bi&#7871;n v&#224; h&#7857;ng.<br>
+Do đó giá tri c&#7911;a nguy&#234;n d&#7841;ng, bi&#7871;n v&#224; h&#7857;ng c&#361;ng có ki&#7875;u.<br>
+Chúng ta nói: m&#7897;t bi&#7871;n ki&#7875;u...,m&#7897;t h&#7857;ng ki&#7875;u…, m&#7897;t nguy&#234;n d&#7841;ng ki&#7875;u…<br>
+<br>
+B&#7903;i v&#236; các bi&#7875;u th&#7913;c đ&#432;&#7907;c xây d&#7921;ng t&#7915; các bi&#7871;n, h&#7857;ng, nguy&#234;n d&#7841;ng v&#224;
+cá&nbsp; thao tác th&#7921;c hi&#7879;n tr&#234;n chúng (xác đ&#7883;nh b&#7903;i các toán t&#7917;) n&#234;n
+k&#7871;t qu&#7843; đánh giá c&#7911;a m&#7897;t bi&#7875;u th&#7913;c c&#361;ng có ki&#7875;u xác đ&#7883;nh.<br>
+<br>
+M&#7895;i ki&#7875;u có m&#7897;t t&#234;n g&#7885;i.<br>
+Ngôn ng&#7919; Java có m&#7897;t s&#7889; ki&#7875;u đ&#417; gi&#7843;n, m&#224; t&#234;n c&#7911;a chúng l&#224; <span style="font-weight: bold;">các t&#7915; khóa d&#224;nh ri&#234;ng c&#7911;a ngôn ng&#7919;</span>.<br>
+<br>
+<div class="def"><b>T&#7915; khóa c&#7911;a ngôn ng&#7919;</b><span style="font-weight: normal;"> - l&#224; nh&#7919;ng t&#7915; có ý ngh&#297;a đ&#7863;c bi&#7879;t (ví d&#7909;
+d&#249;ng đ&#7875; ch&#7881; các l&#7879;nh đi&#7873;u khi&#7875;n hay các ki&#7875;u đ&#417;n gi&#7843;n).</span><br>
+<span style="font-weight: normal;">T&#7915; khóa có th&#7875; đ&#432;&#7907;c <span style="font-weight: bold;">"gi&#7919; ch&#7895;"</span>, n&#7871;u nh&#432; v&#7853;y s&#7869; không đ&#432;&#7907;c
+phép s&#7917; d&#7909;ng chúng trong các t&#236;nh hu&#7889;ng khác v&#7899;i các quy đ&#7883;nh đ&#227; đ&#432;&#7907;c
+mô t&#7843; b&#7903;i ngôn ng&#7919;.</span><span style="font-weight: normal;"></span>
+</div>
+<div> </div>
+<br>
+B&#7843;ng d&#432;&#7899;i đây gi&#7899;i thi&#7879;u các ki&#7875;u đ&#417;n gi&#7843;n.<br>
+<br>
+<table style="border: medium none ; border-collapse: collapse; width: 100%; text-align: left; margin-left: auto; margin-right: auto;" border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr align="center">
+      <td colspan="4" rowspan="1"><font size="+1">Các ki&#7875;u đ&#417;n gi&#7843;n</font><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-style: solid; border-color: windowtext; border-width: 1.5pt 0.5pt; padding: 0cm 3.5pt; width: 49.35pt; font-weight: bold; vertical-align: middle; text-align: center;" width="66">
+      <p class="AkapitKolejny" style="margin: 1pt 0cm; text-align: center; text-indent: 0cm; line-height: normal;" align="center">t&#234;n ki&#7875;u<br>
+      </p>
+      </td>
+      <td style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1.5pt 0.5pt 1.5pt medium; padding: 0cm 3.5pt; width: 46.3pt; font-weight: bold; vertical-align: middle; text-align: center;" width="62">
+      <p class="AkapitKolejny" style="margin: 1pt 0cm; text-align: center; text-indent: 0cm; line-height: normal;" align="center">s&#7889; l&#432;&#7907;ng byte</p>
+      </td>
+      <td style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1.5pt 0.5pt 1.5pt medium; padding: 0cm 3.5pt; width: 184.75pt; font-weight: bold; vertical-align: middle; text-align: center;">
+      <p class="AkapitKolejny" style="margin: 6pt 0cm 1pt; text-align: center; text-indent: 0cm; line-height: normal;" align="center">các giá tr&#7883; cho phép<br>
+      </p>
+      </td>
+      <td style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1.5pt 0.5pt 1.5pt medium; padding: 0cm 3.5pt; width: 99.5pt; font-weight: bold; vertical-align: middle; text-align: center;" width="133">
+      <p class="AkapitKolejny" style="margin: 6pt 0cm 1pt; text-align: center; text-indent: 0cm; line-height: normal;" align="center">ý ngh&#297;a<br>
+      </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0cm 3.5pt; width: 49.35pt;" valign="top" width="66">
+      <p class="AkapitKolejny" style="margin: 1pt 0cm; text-indent: 0cm;"><span class="KlasaMetoda"><span style="" lang="EN-US">byte<o:p></o:p></span></span></p>
+      </td>
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0cm 3.5pt; width: 46.3pt;" valign="top" width="62">
+      <p class="AkapitKolejny" style="margin: 1pt 0cm; text-align: center; text-indent: 0cm;" align="center">1<o:p></o:p></p>
+      </td>
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0cm 3.5pt; width: 184.75pt;" valign="top" width="246">
+      <p class="AkapitKolejny" style="margin: 1pt 0cm; text-align: center;" align="center">t&#7915; –128
+đ&#7871;n 127<o:p></o:p></p>
+      </td>
+      <td rowspan="4" style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 1.5pt medium; padding: 0cm 3.5pt; width: 99.5pt;" valign="top" width="133">
+      <p class="AkapitKolejny" style="margin-top: 1pt; text-align: center; text-indent: 0cm;" align="center">s&#7889; nguy&#234;n<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0cm 3.5pt; width: 49.35pt;" valign="top" width="66">
+      <p class="AkapitKolejny" style="margin: 1pt 0cm; text-indent: 0cm;"><span class="KlasaMetoda">short<o:p></o:p></span></p>
+      </td>
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0cm 3.5pt; width: 46.3pt;" valign="top" width="62">
+      <p class="AkapitKolejny" style="margin: 1pt 0cm; text-align: center; text-indent: 0cm;" align="center">2<o:p></o:p></p>
+      </td>
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0cm 3.5pt; width: 184.75pt;" valign="top" width="246">
+      <p class="AkapitKolejny" style="margin: 1pt 0cm; text-align: center;" align="center">t&#7915; –32768
+đ&#7871;n 32767<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0cm 3.5pt; width: 49.35pt;" valign="top" width="66">
+      <p class="AkapitKolejny" style="margin-top: 7pt; text-indent: 0cm;"><span class="KlasaMetoda">int<o:p></o:p></span></p>
+      </td>
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0cm 3.5pt; width: 46.3pt;" valign="top" width="62">
+      <p class="AkapitKolejny" style="margin-top: 7pt; text-align: center; text-indent: 0cm;" align="center">4<o:p></o:p></p>
+      </td>
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0cm 3.5pt; width: 184.75pt;" valign="top" width="246">
+      <p class="AkapitKolejny" style="margin-top: 1pt; text-align: center;" align="center">t&#7915;
+–2147483648<o:p></o:p></p>
+      <p class="AkapitKolejny" style="margin: 0cm 0cm 1pt; text-align: center;" align="center">đ&#7871;n
+2147483647<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 1.5pt; padding: 0cm 3.5pt; width: 49.35pt;" valign="top" width="66">
+      <p class="AkapitKolejny" style="margin-top: 7pt; text-indent: 0cm;"><span class="KlasaMetoda">long<o:p></o:p></span></p>
+      </td>
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 1.5pt medium; padding: 0cm 3.5pt; width: 46.3pt;" valign="top" width="62">
+      <p class="AkapitKolejny" style="margin-top: 7pt; text-align: center; text-indent: 0cm;" align="center">8<o:p></o:p></p>
+      </td>
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 1.5pt medium; padding: 0cm 3.5pt; width: 184.75pt;" valign="top" width="246">
+      <p class="AkapitKolejny" style="margin-top: 1pt; text-align: center;" align="center">t&#7915;
+–9223372036854775808<o:p></o:p></p>
+      <p class="AkapitKolejny" style="margin: 0cm 0cm 1pt; text-align: center;" align="center">đ&#7871;n
+9223372036854775807<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0cm 3.5pt; width: 49.35pt;" valign="top" width="66">
+      <p class="AkapitKolejny" style="text-indent: 0cm;"><span class="KlasaMetoda">float<o:p></o:p></span></p>
+      </td>
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0cm 3.5pt; width: 46.3pt;" valign="top" width="62">
+      <p class="AkapitKolejny" style="text-align: center; text-indent: 0cm;" align="center">4<o:p></o:p></p>
+      </td>
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0cm 3.5pt; width: 184.75pt;" valign="top" width="246">
+      <p class="AkapitKolejny" style="margin-top: 1pt; text-align: center;" align="center">t&#7915;
+–3.4028234663852886E38</p>
+      <p class="AkapitKolejny" style="margin-top: 0cm; text-align: center;" align="center">đ&#7871;n
+-1.401298464324817E-45</p>
+      <p class="AkapitKolejny" style="margin: 1pt 0cm; text-align: center;" align="center">v&#224;<br>
+      </p>
+      <p class="AkapitKolejny" style="margin-top: 0cm; text-align: center;" align="center">t&#7915;
+1.401298464324817E-45</p>
+      <p class="AkapitKolejny" style="margin: 0cm 0cm 1pt; text-align: center;" align="center">đ&#7871;n
+3.4028234663852886E38</p>
+      </td>
+      <td rowspan="2" style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 1.5pt medium; padding: 0cm 3.5pt; width: 99.5pt;" valign="top" width="133">
+      <p class="AkapitKolejny" style="margin-top: 1pt; text-align: center; text-indent: 0cm;" align="center">s&#7889; th&#7921;c<br>
+      </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 1.5pt; padding: 0cm 3.5pt; width: 49.35pt;" valign="top" width="66">
+      <p class="AkapitKolejny" style="text-indent: 0cm;">double</p>
+      </td>
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 1.5pt medium; padding: 0cm 3.5pt; width: 46.3pt;" valign="top" width="62">
+      <p class="AkapitKolejny" style="text-align: center; text-indent: 0cm;" align="center">8</p>
+      </td>
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 1.5pt medium; padding: 0cm 3.5pt; width: 184.75pt;" valign="top" width="246">
+      <p class="AkapitKolejny" style="margin-top: 1pt; text-align: center;" align="center">t&#7915;
+-1.7976931348623157E308</p>
+      <p class="AkapitKolejny" style="margin-top: 0cm; text-align: center;" align="center">đ&#7871;n
+-4.9E-324</p>
+      <p class="AkapitKolejny" style="margin: 1pt 0cm; text-align: center;" align="center">v&#224;<br>
+      </p>
+      <p class="AkapitKolejny" style="margin-top: 0cm; text-align: center;" align="center">t&#7915; 4.9E-324</p>
+      <p class="AkapitKolejny" style="margin: 0cm 0cm 1pt; text-align: center;" align="center">đ&#7871;n
+1.7976931348623157E308<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 1.5pt; padding: 0cm 3.5pt; width: 49.35pt;" valign="top" width="66">
+      <p class="AkapitKolejny" style="margin: 1pt 0cm; text-indent: 0cm;"><span class="KlasaMetoda"><span style="" lang="DE">char<o:p></o:p></span></span></p>
+      </td>
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 1.5pt medium; padding: 0cm 3.5pt; width: 46.3pt;" valign="top" width="62">
+      <p class="AkapitKolejny" style="margin: 1pt 0cm; text-align: center; text-indent: 0cm;" align="center"><span style="" lang="EN-US">2<o:p></o:p></span></p>
+      </td>
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 1.5pt medium; padding: 0cm 3.5pt; width: 184.75pt;" valign="top" width="246">
+      <p class="AkapitKolejny" style="margin: 1pt 0cm; text-align: center;" align="center">t&#7915; 0 đ&#7871;n
+65556<o:p></o:p></p>
+      </td>
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 1.5pt medium; padding: 0cm 3.5pt; width: 99.5pt;" valign="top" width="133">
+      <p class="AkapitKolejny" style="margin: 1pt 0cm; text-align: center; text-indent: 0cm;" align="center">ký t&#7921; Unicode<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 1.5pt; padding: 0cm 3.5pt; width: 49.35pt;" valign="top" width="66">
+      <p class="AkapitKolejny" style="margin-top: 7pt; text-indent: 0cm;"><span class="KlasaMetoda"><span style="" lang="EN-US">boolean<o:p></o:p></span></span></p>
+      </td>
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 1.5pt medium; padding: 0cm 3.5pt; width: 46.3pt;" valign="top" width="62">
+      <p class="AkapitKolejny" style="margin-top: 7pt; text-align: center; text-indent: 0cm;" align="center"><span style="" lang="EN-US">1<o:p></o:p></span></p>
+      </td>
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 1.5pt medium; padding: 0cm 3.5pt; width: 184.75pt;" valign="top" width="246">
+      <p class="AkapitKolejny" style="margin-top: 9pt; text-align: center; text-indent: 0cm;" align="center"><span class="KlasaMetoda">true,
+false<o:p></o:p></span></p>
+      </td>
+      <td style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 1.5pt medium; padding: 0cm 3.5pt; width: 99.5pt;" valign="top" width="133">
+      <p class="AkapitKolejny" style="margin: 1pt 0cm; text-align: center; text-indent: 0cm;" align="center">giá tr&#7883; lôgic: đúng, sai<o:p></o:p></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+Các ki&#7875;u byte, short, int, long,
+float, double v&#224; char g&#7885;i l&#224; ki&#7875;u <span style="font-weight: bold;">s&#7889;</span>,
+v&#236; d&#7919; li&#7879;u các ki&#7875;u n&#224;y đ&#7841;i di&#7879;n cho các s&#7889;. <br>
+<br>
+Các ký t&#7921;&nbsp; (ki&#7875;u char) đ&#432;&#7907;c đ&#7841;i di&#7879;n b&#7857;ng m&#227; c&#7911;a chúng, l&#224; nh&#7919;ng
+s&#7889; nguy&#234;n. Có nhi&#7873;u h&#7879; th&#7889;ng m&#227; hóa ký t&#7921; khác nhau, ví d&#7909; nh&#432; h&#7879; ASCII
+ch&#7913;a 356 m&#227; ký t&#7921;. Java d&#249;ng h&#7879; UNICODE, ch&#7913;a 65567 m&#227; ký t&#7921;.<br>
+<br>
+M&#7897;t v&#224;i thao tác s&#7889; h&#7885;c s&#7917; d&#7909;ng các toán t&#7917;: <br>
+<ul>
+  <li>phép c&#7897;ng (toán t&#7917; +), </li>
+  <li>phép nhân (toán t&#7917; *), </li>
+  <li>phép tr&#7915; (toán t&#7917; -), </li>
+  <li>phép chia (toán t&#7917; /),</li>
+  <li>tính d&#432; c&#7911;a phép chia (toán t&#7917; %)</li>
+  <li>tăng th&#234;m 1 (toán t&#7917; ++) </li>
+  <li>gi&#7843;m đi 1 (toán t&#7917; --). </li>
+</ul>
+Đ&#7889;i v&#7899;i các tác t&#7917; ki&#7875;u s&#7889; nguy&#234;n, toán t&#7917; phép chia l&#224; chia s&#7889; nguy&#234;n,
+đi&#7873;u n&#224;y ngh&#297;a l&#224; k&#7871;t qu&#7843; thu đu&#7907;c l&#224; ki&#7875;u s&#7889; nguy&#234;n (do đó, giá tr&#7883;
+c&#7911;a bi&#7875;u th&#7913;c 1/3 l&#224; 0 v&#236; các tác t&#7917; l&#224; các s&#7889; nguy&#234;n v&#224; k&#7871;t qu&#7843; đ&#432;&#7907;c
+l&#224;m tr&#242;n l&#224; m&#7897;t s&#7889; nguy&#234;n). <br>
+Giá tr&#7883; c&#7911;a ki&#7875;u s&#7889; có th&#7875; đ&#432;&#7907;c so sánh nh&#432; &lt;= (nh&#7887; h&#417;n ho&#7863;c b&#7857;ng),
+== (b&#7857;ng), != (khác).<br>
+Ki&#7875;u boolean th&#7875; hi&#7879;n các đ&#7841;i l&#432;&#7907;ng lôgíc v&#7899;i kh&#7843; năng x&#7843;y ra hai giá
+tr&#7883;, đ&#432;&#7907;c quy &#432;&#7899;c b&#7857;ng hai nguy&#234;n d&#7841;ng đúng v&#224; sai. Giá tr&#7883; c&#7911;a ki&#7875;u
+n&#224;y đ&#432;&#7907;c s&#7917; d&#7909;ng trong bi&#7875;u th&#7913;c lôgic nh&#432; l&#224; các tác t&#7917; hay k&#7871;t qu&#7843;.
+Các bi&#7875;u th&#7913;c boolean quy&#7871;t đ&#7883;nh s&#7917; ki&#7875;m soát l&#234;n m&#7897;t v&#224;i lo&#7841;i câu l&#7879;nh.<br>
+Ví d&#7909;: bi&#7875;u th&#7913;c a &gt; b có giá tr&#7883; ki&#7875;u boolean cho bi&#7871;t k&#7871;t qu&#7843; so
+sánh l&#224; đúng hay sai. Bi&#7875;u th&#7913;c logic “x v&#224; y” đ&#432;&#7907;c vi&#7871;t trong Java l&#224;
+x &amp;&amp; y. Nó ch&#7881; đúng v&#7873; m&#7863;t cú pháp khi v&#224; ch&#7881; khi x v&#224; y thu&#7897;c
+ki&#7875;u boolean. Giá tr&#7883; c&#7911;a nó (ch&#7881; r&#245; x v&#224; y có đúng hay không) c&#361;ng
+ph&#7843;i thu&#7897;c ki&#7875;u boolean.<br>
+<br>
+T&#7845;t c&#7843; các d&#7919; li&#7879;u khác đ&#7841;i di&#7879;n cho các đ&#7889;i tr&#432;&#7907;ng, m&#224; cáac thu&#7897;c tính
+đ&#432;&#7907;c đ&#7883;nh h&#236;nh b&#7903;i các l&#7899;p. Nh&#432; vây, t&#234;n c&#7911;a l&#7899;p có th&#7875; đ&#432;&#7907;c coi nh&#432;
+t&#234;n ki&#7875;u c&#7911;a đ&#7889;i t&#432;&#417;ng thu&#7897;c l&#7845;p đó.<br>
+<br>
+Trong b&#7897; các l&#7899;p chu&#7849;n Java có l&#7899;p String, đ&#7841;i di&#7879;n cho các đ&#7889;i t&#432;&#417;ng -
+chu&#7895;i các k&#7929; t&#7921; (d&#242;ng ch&#7919;). M&#7895;i chu&#7895;i các ký t&#7921; có chi&#7873;u d&#224;i, ch&#7913;a b&#234;n
+trong các ký t&#7921;. Có th&#7875; th&#7921;c hi&#7879;n các thao tác khác nhau tr&#234;n d&#7919; lie&#7879;u
+ki&#7875;u String. Các ki&#7875;u nh&#432; th&#7871; g&#7885;i l&#224; ki&#7875;u tham chi&#7871;u, reference.<br>
+<br>
+<br>
+<hr><a name="TypyOp.3"></a>
+<h2>3. Ki&#7875;u v&#224; cách s&#7917; d&#7909;ng nguy&#234;n d&#7841;ng</h2>
+Chúng ta có:&nbsp; <b>nguy&#234;n d&#7841;ng s&#7889;</b>, <span style="font-weight: bold;">nguy&#234;n d&#7841;ng ký t&#7921;</span> v&#224; <span style="font-weight: bold;">nguy&#234;n d&#7841;ng chu&#7895;i</span><span style="font-weight: bold;"> ký t&#7921;</span>.<br>
+<br>
+<b>Nguy&#234;n d&#7841;ng s&#7889;:</b><br>
+3&nbsp; <br>
+101.3<br>
+<br>
+<b><br>
+</b><span style="font-weight: bold;">Nguy&#234;n d&#7841;ng ký t&#7921;:</span> <br>
+'a'
+&nbsp;'b' 'z' '5'<br>
+<br>
+<span style="font-weight: bold;">Nguy&#234;n d&#7841;ng chu&#7895;i</span><b> ký t&#7921;</b>:<br>
+<br>
+"sinh vien"<br>
+"if"<br>
+<br>
+Các ki&#7875;u nguy&#234;n d&#7841;ng đ&#432;&#7907;c xác đ&#7883;nh b&#7903;i tr&#236;nh bi&#234;n d&#7883;ch có áp d&#7909;ng m&#7897;t
+s&#7889; quy t&#7855;c sau:<br>
+•&nbsp;&nbsp;&nbsp; các s&#7889; nguy&#234;n thu&#7897;c ki&#7875;u int<br>
+•&nbsp;&nbsp;&nbsp; các s&#7889; th&#7921;c đ&#432;&#7907;c vi&#7871;t &#7903; d&#7841;ng ch&#7845;m th&#7853;p phân (1.2)
+hay ký hi&#7879;u khoa h&#7885;c (1e+9) l&#224; thu&#7897;c ki&#7875;u double<br>
+•&nbsp;&nbsp;&nbsp; các d&#227;y ký t&#7921; l&#224; thu&#7897;c ki&#7875;u char<br>
+•&nbsp;&nbsp;&nbsp; true v&#224; false l&#224; các nguy&#234;n d&#7841;ng thu&#7897;c ki&#7875;u boolean
+v&#224; l&#224; các t&#7915; khoá d&#224;nh ri&#234;ng c&#7911;a ngôn ng&#7919;<br>
+L&#7853;p tr&#236;nh vi&#234;n có th&#7875; thay đ&#7893;i b&#7843;n d&#7883;ch m&#7863;c đ&#7883;nh c&#7911;a các d&#227;y s&#7889; v&#7899;i s&#7921;
+tr&#7907; giúp c&#7911;a tr&#236;nh s&#7917;a đ&#7893;i đ&#7863;c bi&#7879;t:<br>
+•&nbsp;&nbsp;&nbsp; ch&#7919; cái L hay l đ&#432;&#7907;c s&#7917; d&#7909;ng nh&#432; l&#224; h&#7853;u t&#7889; c&#7911;a m&#7897;t
+d&#227;y s&#7889; nguy&#234;n l&#224;m cho d&#227;y đ&#432;&#7907;c xem l&#224; m&#7897;t d&#227;y thu&#7897;c ki&#7875;u long (ch&#7859;ng
+h&#7841;n nh&#432; 3L thu&#7897;c ki&#7875;u long)<br>
+•&nbsp;&nbsp;&nbsp; t&#432;&#417;ng t&#7921; nh&#432; th&#7871; ch&#7919; F hay f l&#224;m cho d&#227;y s&#7889; th&#7921;c
+thu&#7897;c ki&#7875;u float (0.3f)<br>
+M&#7897;t d&#227;y s&#7889; nguy&#234;n có th&#7875; đ&#432;&#7907;c th&#7875; hi&#7879;n &#7903; d&#7841;ng:<br>
+•&nbsp;&nbsp;&nbsp; th&#7853;p phân (c&#417; s&#7889; 10)<br>
+•&nbsp;&nbsp;&nbsp; bát phân (c&#417; s&#7889; 8) - đ&#432;&#7907;c b&#7855;t đ&#7847;u b&#7857;ng ký t&#7921; 0 (nh&#432;
+03 l&#224; m&#7897;t s&#7889; bát phân<br>
+•&nbsp;&nbsp;&nbsp; th&#7853;p l&#7909;c phân (c&#417; s&#7889; 16) - đ&#432;&#7907;c b&#7855;t đ&#7847;u v&#7899;i 0x ho&#7863;c
+0X (ví d&#7909;, 0x11, 0xFF). Nh&#7899; r&#7857;ng các con s&#7889; th&#7853;p l&#7909;c phân v&#7899;i các giá
+tr&#7883; 10 đ&#7871;n 15 đ&#432;&#7907;c th&#7875; hi&#7879;n b&#7857;ng ASCII l&#7847;n l&#432;&#7907;t t&#7915; ch&#7919; cái a đ&#7871;n f hay
+A đ&#7871;n F; m&#7895;i ch&#7919; cái đ&#432;&#7907;c d&#249;ng nh&#432; m&#7897;t s&#7889; th&#7853;p l&#7909;c phân có th&#7875; vi&#7871;t hoa
+ho&#7863;c vi&#7871;t th&#432;&#7901;ng.<br>
+D&#227;y s&#7889; th&#7921;c có th&#7875; đ&#432;&#7907;c th&#7875; hi&#7879;n b&#7857;ng các ký hi&#7879;u khoa h&#7885;c: 2e+9 ngh&#297;a
+l&#224; 2 nhân 10 lu&#7929; th&#7915;a 9 trong khi 3e-11 ngh&#297;a l&#224; 3 nhân 10 lu&#7929; th&#7915;a âm
+11. <br>
+Trong các bi&#7875;u th&#7913;c &#7903; d&#7841;ng 10/3 (chia cho các s&#7889; nguy&#234;n), v&#236; c&#7843; hai tác
+t&#7917; đ&#7873;u l&#224; ki&#7875;u int, k&#7871;t qu&#7843; c&#7911;a nó c&#361;ng l&#224; ki&#7875;u int. Do v&#7853;y giá tr&#7883; c&#7911;a
+k&#7871;t qu&#7843; l&#224; 3 (ch&#7913; không ph&#7843;i 3.333…). Đ&#7875; coi đây l&#224; m&#7897;t s&#7889; th&#7921;c c&#7847;n
+th&#234;m h&#7853;u t&#7889; d v&#224;o sau ít nh&#7845;t m&#7897;t tác t&#7917; (đ&#7875; ch&#7881; r&#245; d&#227;y thu&#7897;c ki&#7875;u
+double). M&#7897;t gi&#7843;i pháp khác đó l&#224; s&#7917; d&#7909;ng d&#227;y s&#7889; th&#7921;c nh&#432; l&#224; các tác t&#7917;
+b&#7857;ng cách th&#234;m d&#7845;u ch&#7845;m th&#7853;p phân v&#224;o trong ký hi&#7879;u (ví d&#7909; 10.).<br>
+<br>
+Ch&#432;&#417;ng tr&#236;nh sau mô t&#7843; các kh&#7843; năng v&#7915;a n&#234;u tr&#234;n:<br>
+<br>
+<pre>public class Literal {<br><br> public static void main(String[] args) {<br><br> System.out.println( 10 + 0x10 );<br> System.out.println( 10/3 );<br> System.out.println( 10./3 );<br> System.out.println( 10d/3);<br> System.out.println( 2147483648L );<br> System.out.println( 2147483647 + 1 );<br> System.out.println( 2147483647L + 1 );<br><br> }<br>}<br></pre>
+<div style="text-align: right;"><span style="font-style: italic;"></span><span style="font-weight: bold;"><span style="font-style: italic;"><br>
+</span></span></div>
+K&#7871;t qu&#7843;:
+<br>
+<div class="listing100">26<br>
+3<br>
+3.3333333333333335<br>
+3.3333333333333335<br>
+2147483648<br>
+-2147483648<br>
+2147483648<br>
+</div>
+<br>
+Chú ý:<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; các thao tác tr&#234;n s&#7889; th&#7921;c không
+chính xác<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; đ&#7875; giá tr&#7883; c&#7911;a m&#7897;t bi&#7875;u th&#7913;c s&#7889;
+thu&#7897;c ki&#7875;u s&#7889; th&#7921;c, ch&#7881; c&#7847;n l&#224;m cho m&#7897;t tác t&#7917; l&#224; s&#7889; th&#7921;c (thay v&#236; ph&#7843;i
+vi&#7871;t 10d/3d ch&#7881; c&#7847;n vi&#7871;t 10d/3). Ki&#7875;u c&#7911;a k&#7871;t qu&#7843; đ&#432;&#7907;c quy&#7871;t đ&#7883;nh
+b&#7903;i ki&#7875;u c&#7911;a tác t&#7917; "l&#7899;n
+h&#417;n".<br>
+<br>
+<br>
+<b>Nguy&#234;n d&#7841;ng ký t&#7921;</b> (ki&#7875;u char) đ&#432;&#7907;c th&#7875; hi&#7879;n b&#7857;ng m&#7897;t ký t&#7921; vi&#7871;t
+trong d&#7845;u ' (trích d&#7851;n đ&#417;n), tr&#432;&#7899;c v&#224; sau: 'a' , '+', ...., c&#242;n <b>nguy&#234;n
+d&#7841;ng chu&#7895;i ký t&#7921;</b> - chu&#7895;i ký t&#7921; n&#7857;m trong d&#7845;u " (trích d&#7851;n kép)
+tr&#432;&#7899;c v&#224; sau: "tin hoc".<br>
+<br>
+<div align="center">
+<div class="important">Nguy&#234;n d&#7841;ng chu&#7895;i ký t&#7921; l&#224; đ&#7889;i t&#432;&#417;ng ki&#7875;u <b>String</b>.</div>
+<br>
+</div>
+M&#7897;t chu&#7895;i escape l&#224; m&#7897;t chu&#7895;i các ký t&#7921; b&#7855;t đ&#7847;u b&#7857;ng ký t&#7921; escape (d&#7845;u
+g&#7841;ch l&#249;i). Các chu&#7895;i escape cho phép cho phép bi&#7875;u di&#7877;n m&#7897;t s&#7889; các ký
+t&#7921; phi đ&#7891; h&#7885;a v&#224; các trích d&#7851;n đ&#417;n, trích d&#7851;n kép v&#224; các ký t&#7921; g&#7841;ch l&#249;i
+trong d&#227;y ký t&#7921;.<br>
+<br>
+<table border="1" width="50%">
+  <tbody>
+    <tr>
+      <td style="text-align: center;" width="354"> Các ký t&#7921; đ&#7863;c bi&#7879;t<br>
+      </td>
+      <td align="center" width="118">Cách vi&#7871;t<br>
+      </td>
+    </tr>
+    <tr>
+      <td width="354">Linefeed (chuy&#7875;n d&#242;ng) - LF <br>
+      </td>
+      <td align="center" width="118">\n </td>
+    </tr>
+    <tr>
+      <td width="354">Horizontal tab (tab ngang) - HT <br>
+      </td>
+      <td align="center" width="118">\t </td>
+    </tr>
+    <tr>
+      <td width="354">Backspace (phím l&#249;i) - BS <br>
+      </td>
+      <td align="center" width="118">\b </td>
+    </tr>
+    <tr>
+      <td width="354">Carriage return (phím xu&#7889;ng d&#242;ng) - CR <br>
+      </td>
+      <td align="center" width="118">\r</td>
+    </tr>
+    <tr>
+      <td width="354">Form feed (l&#7879;nh đ&#7849;y trang in hi&#7879;n h&#224;nh ra v&#224; sang
+trang m&#7899;i) - FF <br>
+      </td>
+      <td align="center" width="118">\f </td>
+    </tr>
+    <tr>
+      <td width="354">Single quote (trích d&#7851;n đ&#417;n)- ' <br>
+      </td>
+      <td align="center" width="118">\' </td>
+    </tr>
+    <tr>
+      <td width="354">Double quote (trích d&#7851;n kép) - " <br>
+      </td>
+      <td align="center" width="118">\" </td>
+    </tr>
+    <tr>
+      <td width="354">Backslash (d&#7845;u g&#7841;ch l&#249;i) - \&nbsp;<br>
+      </td>
+      <td align="center" width="118">\\ </td>
+    </tr>
+    <tr>
+      <td valign="top">Ký t&#7921; Unicode b&#7845;t k&#7923;,m&#224; m&#227; Unicode l&#224; NNNN (N l&#224;
+ch&#7919; s&#7889; th&#7853;p l&#7909;c phân) <br>
+      </td>
+      <td valign="top">
+      <div align="center"><br>
+\uNNNN<br>
+      </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+<hr><a name="TypyOp.4"></a>
+<h2>4. Ki&#7875;u bi&#7871;n. Khai báo<br>
+</h2>
+Khác v&#7899;i nguy&#234;n d&#7841;ng, l&#7853;p tr&#236;nh vi&#234;n ph&#7843;i <span style="font-weight: bold;">khai báo</span> ki&#7875;u c&#7911;a bi&#7871;n v&#224; h&#7857;ng.<br>
+<br>
+<div class="def"><b>Khai báo c&#7911;a m&#7897;t bi&#7871;n (h&#7857;ng) xác đ&#7883;nh t&#234;n c&#7911;a bi&#7871;n,
+ki&#7875;u v&#224; m&#7897;t s&#7889; đ&#7863;c tính khác m&#224; có th&#7875; l&#224; quan tr&#7885;ng n&#7871;u bi&#7871;n (h&#7857;ng) l&#224;
+m&#7897;t mi&#7873;n (field), đ&#7841;i di&#7879;n cho thu&#7897;c tính c&#7911;a l&#7899;p. </b></div>
+<br>
+<br>
+C&#7845;u trúc gi&#7843;n l&#432;&#7907;c c&#7911;a m&#7897;t khai báo có th&#7875; đ&#432;&#7907;c mô t&#7843; nh&#432; sau:<br>
+<div style="text-align: center;"><span style="font-weight: bold; font-style: italic;">t&#234;n_ki&#7875;u t&#234;n_bi&#7871;n;</span><br style="font-style: italic;">
+</div>
+<br>
+Ví d&#7909;:<br>
+<br>
+<div style="font-weight: normal;" class="syntax">int a; // l&#224; khai báo
+c&#7911;a m&#7897;t bi&#7871;n s&#7889; nguy&#234;n a <br>
+char c; // l&#224; khai báo c&#7911;a bi&#7871;n ký t&#7921; Unicode <br>
+double price; // l&#224; khai báo c&#7911;a bi&#7871;n ki&#7875;u double, t&#234;n l&#224; <b><i>price</i></b></div>
+<br>
+Khi khai báo m&#7897;t bi&#7871;n có th&#7875; n&#234;u r&#245; giá tr&#7883; ban đ&#7847;u c&#7911;a nó, g&#7885;i l&#224; <span style="font-weight: bold;">kh&#7903;i t&#7841;o</span> bi&#7871;n.<br>
+<br>
+<div class="def"><b>Kh&#7903;i t&#7841;o m&#7897;t bi&#7871;n ngh&#297;a l&#224; thi&#7871;t l&#7853;p giá tr&#7883; ban
+đ&#7847;u c&#7911;a nó trong khai báo.</b></div>
+<br>
+<br>
+Cú pháp c&#7911;a khái báo v&#7899;i kh&#7903;i t&#7841;o l&#224;:<br>
+<br>
+<div style="text-align: center;"><span style="font-weight: bold;">t&#234;n_ki&#7875;u
+t&#234;n_bi&#7871;n th&#7875;_t&#234;n = bi&#7875;u th&#7913;c;</span><br>
+<br>
+</div>
+<br>
+Ví d&#7909;:<br>
+<br>
+int a = 3; <br>
+<br>
+l&#224; d&#7841;ng vi&#7871;t t&#7855;t c&#7911;a:<br>
+<br>
+int a;<br>
+a = 3;<br>
+<br>
+Ho&#7863;c:<br>
+<br>
+Np.<br>
+int a = 3;<br>
+int b = a + 1; // b = 4<br>
+<br>
+<br>
+Đ&#7875; khai báo h&#7857;ng chúng ta d&#249;ng t&#7915; khóa <b>final</b>.<br>
+<br>
+<div class="def">Giá tr&#7883; c&#7911;a m&#7897;t h&#7857;ng ch&#7881; có th&#7875; đ&#432;&#7907;c xác l&#7853;p m&#7897;t l&#7847;n
+v&#224; kh&#7893;ng th&#7875; s&#7917;a đ&#7893;i sau đó.</div>
+<br>
+<br>
+Chúng ta vi&#7871;t nh&#432; sau:<br>
+<br>
+<div style="text-align: center;"><span style="font-weight: bold;">final
+t&#234;n_ki&#7875;u_c&#7911;a_h&#7857;ng t&#234;n_h&#7857;ng [=bi&#7875;u th&#7913;c];</span><br>
+</div>
+<br>
+<br>
+Kh&#7903;i t&#7841;o (đ&#432;&#7907;c đ&#7863;t tr&#7885;ng d&#7845;u ngo&#7863;c vuông) l&#224; t&#7921; ch&#7885;n nh&#432;ng vi&#7879;c quan
+tr&#7885;ng l&#224; đ&#7863;t giá tr&#7883; c&#7911;a h&#7857;ng m&#7897;t l&#7847;n. Tuy v&#7853;y, các h&#7857;ng h&#7847;u h&#7871;t đ&#432;&#7907;c
+kh&#7903;i t&#7841;o trong các khai báo.<br>
+Ví d&#7909;: <br>
+final int NUM = 55;<br>
+final double PI_SMALL = 3.14;<br>
+final char C;<br>
+…<br>
+C = ‘c’;<br>
+<br>
+<br>
+Các khai báo c&#7911;a các bi&#7871;n v&#224; h&#7857;ng h&#224;m ch&#7881; đ&#7889;i t&#432;&#7907;ng đ&#432;&#7907;c xem l&#224; t&#432;&#417;ng
+t&#7921; nhau. N&#7871;u ki&#7875;u bi&#7871;n x l&#224; int chúng ta vi&#7871;t:<br>
+int x;<br>
+T&#432;&#417;ng t&#7921; n&#7871;u s l&#224; t&#234;n c&#7911;a bi&#7871;n th&#7875; h&#224;m ch&#7881; m&#7897;t đ&#7889;i t&#432;&#7907;ng c&#7911;a l&#7899;p
+String, chúng ta vi&#7871;t:<br>
+String s;<br>
+Button b;<br>
+<br>
+Các nguy&#234;n t&#7855;c c&#7911;a phong cách l&#7853;p tr&#236;nh t&#7889;t g&#7907;i ý đ&#7863;t các khai báo tr&#234;n
+m&#7895;i d&#242;ng c&#249;ng v&#7899;i m&#7897;t l&#7901;i nh&#7853;n xét mô t&#7843; ý ngh&#297;a c&#7911;a bi&#7871;n, đ&#7863;c bi&#7879;t
+khi vi&#7879;c &#7913;ng d&#7909;ng bi&#7871;n không đ&#432;&#7907;c hi&#7875;u r&#245; t&#7915; t&#234;n c&#7911;a nó.<br>
+Có th&#7875; khai báo m&#7897;t s&#7889; các bi&#7871;n c&#249;ng lo&#7841;i trong m&#7897;t khái báo b&#7857;ng
+cách n&#234;u r&#245; chúng (c&#249;ng v&#7899;i các b&#7897; kh&#7903;i t&#7841;o) trong danh sách phân
+tách b&#7903;i các d&#7845;u ph&#7849;y. Ví d&#7909;:<br>
+int num = 1, count, ff = 10;<br>
+Button b1, b2, b3;<br>
+L&#7853;p tr&#236;nh vi&#234;n ph&#7843;i nh&#7899; t&#7845;t c&#7843; các khai báo trong ch&#432;&#417;ng
+tr&#236;nh.<br>
+<br>
+<br>
+<div class="important">Các khai báo ph&#7843;i đ&#432;&#7907;c đ&#432;a ra tr&#432;&#7899;c khi s&#7917; d&#7909;ng
+bi&#7871;n v&#224; các h&#7857;ng trong câu l&#7879;nh ch&#432;&#417;ng tr&#236;nh. <br>
+Ng&#432;&#7907;c l&#7841;i: các bi&#7871;n v&#224; h&#7857;ng th&#432;&#7901;ng đ&#432;&#7907;c khai báo g&#7847;n v&#7883; trí m&#224;
+chúng đ&#432;&#7907;c s&#7917; d&#7909;ng l&#7847;n đ&#7847;u ti&#234;n. Đi&#7873;u n&#224;y giúp cho m&#227; ngu&#7891;n r&#245; r&#224;ng h&#417;n.<br>
+</div>
+<br>
+<br>
+<div class="notel">Ngôn ng&#7919; Java <span style="font-weight: bold;">phân
+bi&#7879;t</span> ch&#7919; vi&#7871;t hoa v&#7899;i ch&#7919; vi&#7871;t th&#432;&#7901;ng trong t&#234;n c&#7911;a các bi&#7871;n,
+h&#7857;ng, ph&#432;&#417;ng pháp v&#224; các l&#7899;p.</div>
+<br>
+<div class="important">
+<div style="text-align: center;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; T&#7915; đ&#7883;nh danh (identifiers)<br>
+</div>
+T&#234;n c&#7911;a các bi&#7871;n, h&#7857;ng s&#7889;, ph&#432;&#417;ng pháp v&#224; các l&#7899;p đ&#432;&#7907;c g&#7885;i l&#224; t&#7915; đ&#7883;nh
+danh.<br>
+M&#7897;t t&#7915; đ&#7883;nh danh b&#7855;t đ&#7847;u v&#7899;i m&#7897;t ch&#7919; cái hay d&#7845;u g&#7841;ch d&#432;&#7899;i đ&#432;&#7907;c theo
+sau b&#7903;i m&#7897;t chu&#7895;i các ký t&#7921; ch&#7919; s&#7889; (ch&#7913; cái v&#224; con s&#7889;) hay các d&#7845;u g&#7841;ch
+d&#432;&#7899;i.<br>
+Các t&#7915; khóa c&#7911;a ngôn ng&#7919; Java không th&#7875; đ&#432;&#7907;c s&#7917; d&#7909;ng nh&#432; l&#224; các t&#7915; đ&#7883;nh
+danh. <br>
+<br>
+<br>
+<div style="text-align: center;">Các quy &#432;&#7899;c g&#7885;i t&#234;n<br>
+</div>
+•&nbsp;&nbsp;&nbsp; t&#234;n c&#7911;a các bi&#7871;n v&#224; ph&#432;&#417;ng pháp đ&#432;&#7907;c vi&#7871;t b&#7857;ng ch&#7919;
+in th&#432;&#7901;ng v&#7899;i m&#7895;i th&#224;nh ph&#7847;n (tr&#7915; th&#224;nh ph&#7847;n đ&#7847;u ti&#234;n) phân bi&#7879;t b&#7903;i
+các ch&#7919; vi&#7871;t hoa (ví d&#7909;: x, price, numOfAllOccurs, incement(),
+getBackground())<br>
+•&nbsp;&nbsp;&nbsp; t&#234;n c&#7911;a các h&#7857;ng đ&#432;&#7907;c vi&#7871;t b&#7857;ng ch&#7919; in hoa, các
+th&#224;nh ph&#7847;n đ&#432;&#7907;c phân tách b&#7857;ng các d&#7845;u g&#7841;ch d&#432;&#7899;i (ví d&#7909;:
+NUM_EXIT_ON_CLOSE)<br>
+•&nbsp;&nbsp;&nbsp; t&#234;n c&#7911;a các l&#7899;p b&#7855;t đ&#7847;u v&#7899;i ch&#7919; cái vi&#7871;t hoa, m&#7895;i
+th&#224;nh ph&#7847;n đ&#432;&#7907;c phân bi&#7879;t b&#7903;i các ch&#7919; in hoa (ví d&#7909;: Frame, ArrayList)<br>
+<span style="font-style: italic;">Chú ý: quy &#432;&#7899;c b&#7855;t đ&#7847;u m&#7895;i th&#224;nh ph&#7847;n
+b&#7857;ng ch&#7919; vi&#7871;t hoa đ&#432;&#7907;c g&#7885;i l&#224; ký hi&#7879;u ki&#7875;u Hungary</span><br>
+<br>
+</div>
+<br>
+<hr><a name="TypyOp.5"></a>
+<h2>5. Toán t&#7917; v&#224; bi&#7875;u th&#7913;c <br>
+</h2>
+<h2>5.1. Tóm t&#7855;t chung<br>
+</h2>
+Bi&#7875;u th&#7913;c đ&#432;&#7907;c xây d&#7921;ng t&#7915; bi&#7871;n, h&#7857;ng, nguy&#234;n d&#7841;ng v&#224; g&#7885;i ph&#432;&#417;ng th&#7913;c
+c&#7911;a l&#7899;p b&#7857;ng cách s&#7917; d&#7909;ng các tóan t&#7917; v&#224; d&#7845;u ngo&#7863;c đ&#417;n.<br>
+<br>
+N&#7871;u a v&#224; b l&#224; t&#234;n bi&#7871;n ki&#7875;u s&#7889;, th&#236; bi&#7875;u th&#7913;c l&#224;:<br>
+a<br>
+1<br>
+b + 1<br>
+a * (b + 10)<br>
+'a'<br>
+"hoc sinh"<br>
+<br>
+Bi&#7875;u th&#7913;c đ&#432;&#7907;c th&#7921;c hi&#7879;n(tính), v&#224; k&#7871;t qu&#7843; c&#7911;a nó có th&#7875; đ&#432;&#7907;c s&#7917; d&#7909;ng
+ti&#7871;p nh&#432; l&#224; tác t&#7917; c&#7911;a các tóan t&#7917; khác, có th&#7875; đ&#432;&#7907;c s&#7917; d&#7909;ng trong các
+l&#7879;nh đi&#7873;u khi&#7875;n ch&#432;&#417;ng tr&#236;nh, trong các g&#7885;i ph&#432;&#417;ng th&#7913;c các l&#7899;p.<br>
+Ví d&#7909; n&#7871;u bi&#7871;n a có giá tr&#7883; 1, bi&#7871;n b - giá tr&#7883; 2, th&#236;:<br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td valign="top">Bi&#7875;u th&#7913;c<br>
+      </td>
+      <td valign="top">K&#7871;t qu&#7843;<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">a<br>
+      </td>
+      <td valign="top">giá tr&#7883; bi&#7871;n a ( =1 )<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">1<br>
+      </td>
+      <td valign="top">giá tr&#7883; nguy&#234;n d&#7841;ng 1 ( = 1)<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">a * (b + 10)<br>
+      </td>
+      <td valign="top">12<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">'a'<br>
+      </td>
+      <td valign="top">ký t&#7921; a (s&#7889; 91 (h&#7879; th&#7853;p phân) l&#224; m&#227; c&#7911;a ký t&#7921; a)<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+Trong các bi&#7875;u th&#7913;c ph&#7913;c t&#7841;p (t&#7841;o th&#224;nh t&#7915; nhi&#7873;u toán t&#7917;) tr&#7853;t t&#7921; giá
+tr&#7883; c&#7911;a toán t&#7917; ph&#7909; thu&#7897;c v&#224;o <span style="font-weight: bold;">th&#7913; t&#7921;
+&#432;u ti&#234;n</span> c&#7911;a chúng v&#224; <span style="font-weight: bold;">cách th&#7913;c
+chúng nhóm</span> l&#7841;i v&#7899;i nhau.<br>
+<br>
+<span style="font-weight: bold;">Th&#7913; t&#7921; &#432;u ti&#234;n</span> toán t&#7917; quy&#7871;t
+đ&#7883;nh tr&#7853;t t&#7921; giá tr&#7883; c&#7911;a các thao tác khác nhau có trong bi&#7875;u th&#7913;c (ví
+d&#7909; trong bi&#7875;u th&#7913;c a + b * c, phép c&#7897;ng hay phép nhân đ&#432;&#7907;c th&#7921;c hi&#7879;n
+tr&#432;&#7899;c?).<br>
+Các toán t&#7917; có c&#249;ng m&#7897;t th&#7913; t&#7921; có th&#7875; đ&#432;&#7907;c đánh giá t&#7915; trái sang ph&#7843;i
+hay ng&#432;&#7907;c l&#7841;i. Các toán t&#7917; m&#224; đ&#432;&#7907;c nhóm t&#7915; trái qua ph&#7843;i đ&#432;&#7907;c g&#7885;i l&#224;
+li&#234;n k&#7871;t trái, nh&#7919;ng toán t&#7917; đ&#432;&#7907;c nhóm t&#7915; ph&#7843;i qua trái đ&#432;&#7907;c g&#7885;i l&#224;
+li&#234;n k&#7871;t ph&#7843;i. Ví d&#7909;, bi&#7875;u th&#7913;c a + b – c có th&#7875; đ&#432;&#7907;c tính th&#224;nh
+(a+b)-c hay a + (b-c). Cho d&#249; trong tr&#432;&#7901;ng h&#7907;p n&#224;y vi&#7879;c nhóm không quan
+trong, nh&#432;ng trong nh&#7919;ng t&#236;nh hu&#7889;ng khác th&#236; vô c&#249;ng quan tr&#7885;ng.<br>
+Các toán t&#7917; có đ&#7889;i s&#7889; c&#242;n đ&#432;&#7907;c g&#7885;i l&#224; tác t&#7917;.<br>
+Trong ngôn ng&#7919; Java có nhi&#7873;u toán t&#7917; k&#234;&#769;t h&#417;&#803;p mô&#803;t ngôi v&#224; toán t&#7917; nh&#7883;
+phân v&#224; m&#7897;t toán t&#7917; mang 3 đ&#7889;i s&#7889;. Các đ&#7889;i s&#7889; c&#7911;a toán t&#7917; luôn l&#224; các
+bi&#7875;u th&#7913;c. Trong bi&#7875;u th&#7913;c a + (b-1)<br>
+Các đ&#7889;i s&#7889; nh&#7883; phân + l&#224; bi&#7875;u th&#7913;c a v&#224; (b-1), <br>
+trong bi&#7875;u th&#7913;c b-1, các đ&#7889;i s&#7889; c&#7911;a nh&#7883; phân – l&#224; các bi&#7875;u th&#7913;c b v&#224; 1.<br>
+Ngôn ng&#7919; Java v&#224; xác đ&#7883;nh các toán t&#7917; sau:<br>
+<br>
+<table bgcolor="#ffffff" border="1" width="100%">
+  <tbody>
+    <tr valign="top">
+      <td>
+      <div align="center"><strong>&nbsp;&nbsp;&nbsp; Tr&#7853;t t&#7921; &#432;u ti&#234;n,
+cách nhóm <br>
+      </strong></div>
+      </td>
+      <td align="center"><span style="font-weight: bold;">Toán t&#7917;</span><br>
+      </td>
+      <td><b>T&#234;n </b><br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td rowspan="7" colspan="1" bgcolor="#ccffff">1, k&#234;&#769;t h&#417;&#803;p pha&#777;i<span style="font-size: 14pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US"></span><span style="font-size: 14pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US"></span><br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      </td>
+      <td align="center" bgcolor="#ccffff">!</td>
+      <td bgcolor="#ccffff">Phâ&#768;n bu&#768; lôgic<br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td align="center" bgcolor="#ccffff">~</td>
+      <td bgcolor="#ccffff">Phâ&#768;n bu&#768; bitwise </td>
+    </tr>
+    <tr valign="top">
+      <td align="center" bgcolor="#ccffff">+</td>
+      <td bgcolor="#ccffff">Cô&#803;ng k&#234;&#769;t h&#417;&#803;p mô&#803;t ngôi</td>
+    </tr>
+    <tr valign="top">
+      <td align="center" bgcolor="#ccffff">-</td>
+      <td bgcolor="#ccffff">Tr&#432;&#768; k&#234;&#769;t h&#417;&#803;p mô&#803;t ngôi </td>
+    </tr>
+    <tr valign="top">
+      <td style="background-color: rgb(204, 255, 255);" bgcol="" or="#ccffff" align="center">++</td>
+      <td bgcolor="#ccffff">Tăng </td>
+    </tr>
+    <tr valign="top">
+      <td align="center" bgcolor="#ccffff">--</td>
+      <td bgcolor="#ccffff">Gia&#777;m&nbsp;<br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td align="center" bgcolor="#ccffff">(typ)</td>
+      <td bgcolor="#ccffff">Toa&#769;n t&#432;&#777; cast&nbsp;<br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td rowspan="3" colspan="1">2, k&#234;&#769;t h&#417;&#803;p trái<br>
+      <br>
+      <br>
+      <br>
+      </td>
+      <td align="center">*</td>
+      <td>Nhân </td>
+    </tr>
+    <tr valign="top">
+      <td align="center">/</td>
+      <td>Chia <br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td align="center">%</td>
+      <td>D&#432; </td>
+    </tr>
+    <tr valign="top">
+      <td rowspan="2" colspan="1">3, k&#234;&#769;t h&#417;&#803;p trái<br>
+      <br>
+      <br>
+      </td>
+      <td align="center">+</td>
+      <td>Cô&#803;ng&nbsp;<br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td align="center">-</td>
+      <td>Tr&#432;&#768; </td>
+    </tr>
+    <tr valign="top">
+      <td rowspan="3" colspan="1">4. k&#234;&#769;t h&#417;&#803;p trái<br>
+      <br>
+      <br>
+      <br>
+      </td>
+      <td align="center">&lt;&lt;</td>
+      <td>Di&#803;ch tra&#769;i&nbsp; bit<br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td align="center">&gt;&gt;</td>
+      <td>Di&#803;ch pha&#777;i&nbsp; bit<br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td align="center">&gt;&gt;&gt;</td>
+      <td>Di&#803;ch pha&#777;i bit không đa&#769;nh dâ&#769;u </td>
+    </tr>
+    <tr valign="top">
+      <td rowspan="5" colspan="1">5, k&#234;&#769;t h&#417;&#803;p trái<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      </td>
+      <td align="center">&lt;</td>
+      <td rowspan="4" colspan="1"><br>
+      <br>
+      <p>Toán t&#7917; quan h&#7879;<br>
+      </p>
+      <br>
+      <br>
+      <br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td align="center">&lt;=</td>
+    </tr>
+    <tr valign="top">
+      <td align="center">&gt;=</td>
+    </tr>
+    <tr valign="top">
+      <td align="center">&gt;</td>
+    </tr>
+    <tr valign="top">
+      <td align="center" bgcolor="#ccffff">instanceof</td>
+      <td bgcolor="#ccffff">Toa&#769;n t&#432;&#777; đô&#769;i chi&#234;&#769;u ki&#7875;u<br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td rowspan="2" colspan="1">6, k&#234;&#769;t h&#417;&#803;p trái<br>
+      <br>
+      <br>
+      </td>
+      <td align="center">==</td>
+      <td rowspan="2" colspan="1">Toa&#769;n t&#432;&#777; đă&#777;ng th&#432;&#769;c - b&#7845;t đ&#7859;ng th&#7913;c<br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td align="center">!=</td>
+    </tr>
+    <tr valign="top">
+      <td>7.</td>
+      <td align="center">&amp;</td>
+      <td>Bitwise AND&nbsp;<br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td>8.</td>
+      <td align="center">^</td>
+      <td>Bitwise XOR (exclusive OR)&nbsp;<br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td>9.</td>
+      <td align="center">|</td>
+      <td>Bitwise OR </td>
+    </tr>
+    <tr valign="top">
+      <td>10.</td>
+      <td align="center">&amp;&amp;</td>
+      <td>Đi&#234;&#768;u ki&#234;&#803;n va&#768; AND&nbsp;<br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td>11.</td>
+      <td align="center">||</td>
+      <td>Đi&#234;&#768;u ki&#234;&#803;n hoă&#803;c OR </td>
+    </tr>
+    <tr valign="top">
+      <td bgcolor="#ffffcc">12, k&#7871;t h&#7907;p ph&#7843;i<br>
+      </td>
+      <td align="center" bgcolor="#ffffcc">?:</td>
+      <td bgcolor="#ffffcc">Toa&#769;n t&#432;&#777; đi&#234;&#768;u ki&#234;&#803;n </td>
+    </tr>
+    <tr valign="top">
+      <td rowspan="1" colspan="1">13. k&#7871;t h&#7907;p ph&#7843;i<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      </td>
+      <td rowspan="1" colspan="1" align="center">=<br>
+*=<br>
+/=<br>
+%=<br>
++=<br>
+-=<br>
+&amp;=<br>
+^
+=<br>
+|=<br>
+&lt;&lt;
+=<br>
+&gt;&gt;=</td>
+      <td rowspan="1" colspan="1">
+      <p>Toa&#769;n t&#432;&#777;&nbsp; nén<br>
+      </p>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      </td>
+    </tr>
+    <tr valign="top">
+    </tr>
+    <tr valign="top">
+    </tr>
+    <tr valign="top">
+    </tr>
+    <tr valign="top">
+    </tr>
+    <tr valign="top">
+    </tr>
+    <tr valign="top">
+    </tr>
+    <tr valign="top">
+    </tr>
+    <tr valign="top">
+    </tr>
+    <tr valign="top">
+    </tr>
+  </tbody>
+</table>
+<i><br>
+Trong c&#7897;t tr&#7853;t t&#7921; &#432;u ti&#234;n nh&#7919;ng s&#7889; b&#234;n d&#432;&#7899;i th&#7875; hi&#7879;n tr&#7853;t t&#7921; cao h&#417;n.
+Các toán t&#7917; k&#234;&#769;t h&#417;&#803;p mô&#803;t ngôi có n&#7873;n m&#224;u xanh, các toán t&#7917; nh&#7883; phân
+có n&#7873;n m&#224;u tr&#7855;ng.<br>
+</i><br>
+<br>
+<a name="TypyOp.7"></a>
+<h2>5.2. Toán t&#7917; gán</h2>
+<span style="font-weight: bold;">Toán t&#7917; gán</span> đ&#432;&#7907;c li&#234;n k&#7871;t ph&#7843;i.
+Đi&#7873;u đó có ngh&#297;a l&#224; bi&#7875;u th&#7913;c<br>
+<br>
+x = a + b<br>
+<br>
+đ&#432;&#7907;c tính toán t&#7915; ph&#7843;i qua trái. Đi&#7873;u n&#224;y c&#361;ng không t&#7841;o ra b&#7845;t c&#7913; s&#7921;
+khác bi&#7879;t n&#224;o &#7903; đây nh&#432;ng h&#227;y xem xét m&#7897;t bi&#7875;u th&#7913;c m&#224; t&#7921; b&#7843;n thân nó
+l&#224; m&#7897;t đ&#7889;i s&#7889; (giá tr&#7883; c&#7911;a bi&#7875;u th&#7913;c ch&#7881; đ&#7883;nh l&#224; giá tr&#7883; c&#7911;a bi&#7871;n th&#7875;
+b&#234;n trái nó) v&#224; giá tr&#7883; c&#7911;a nó đ&#432;&#7907;c g&#7855;n v&#7899;i m&#7897;t bi&#7871;n th&#7875; n&#224;o đó. <br>
+<br>
+int x, a = 3, b = 4;<br>
+int c=1;<br>
+x = a = b = c + 7<br>
+<br>
+&#7902; đây th&#7913; t&#7921; c&#7911;a nh&#7883; phân + cao h&#417;n toán t&#7917; gán =. Do đó bi&#7875;u th&#7913;c c +
+7 đ&#432;&#7907;c tính đ&#7847;u ti&#234;n v&#224; giá tr&#7883; c&#7911;a nó đ&#432;&#7907;c g&#7855;n v&#7899;i bi&#7871;n th&#7875; b. Giá tr&#7883;
+c&#7911;a bi&#7875;u th&#7913;c b = c +7 gi&#7901; l&#224; 8 v&#224; đ&#432;&#7907;c g&#7855;n v&#224;o các bi&#7871;n th&#7875; b&#234;n tay
+trái: a v&#224; x. Do v&#7853;y, bi&#7871;n th&#7875; x, a v&#224; b l&#432;u gi&#7919; m&#7897;t giá tr&#7883; b&#7857;ng nhau
+l&#224; 8.<br>
+<br>
+Trong b&#7843;ng tr&#234;n có m&#7897;t s&#7889; các <span style="font-weight: bold;">toán t&#7917;
+gán ghép</span> c&#7911;a bi&#7875;u th&#7913;c:<br>
+<br>
+<span style="font-weight: bold;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+op=</span><br>
+<br>
+Trong đó op l&#224; m&#7897;t trong các toán t&#7917;:<br>
+<span style="font-weight: bold;"><br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;
+/&nbsp;&nbsp;&nbsp; &nbsp;%&nbsp;&nbsp;&nbsp; &nbsp;+&nbsp;&nbsp;&nbsp;
+&nbsp;-&nbsp;&nbsp;&nbsp; &nbsp;&lt;&lt;&nbsp;&nbsp;&nbsp;
+&nbsp;&gt;&gt;&nbsp;&nbsp;&nbsp; &nbsp;&gt;&gt;&gt; &nbsp;&nbsp;&nbsp;
+&amp; &nbsp;&nbsp;&nbsp; ^ &nbsp;&nbsp;&nbsp; |</span><br>
+<br>
+<br>
+<br>
+<div class="syntax">Nh&#7919;ng toán t&#7917; gán gép đ&#432;&#7907;c áp d&#7909;ng theo cách sau:<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; x op = bi&#7875;u
+th&#7913;c<br>
+<br>
+l&#224; d&#7841;ng vi&#7871;t t&#7855;t c&#7911;a <br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; x = x op (bi&#7875;u
+th&#7913;c) <br>
+<br>
+trong đó: <br>
+x – l&#224; m&#7897;t bi&#7871;n<br>
+bi&#7875;u th&#7913;c – l&#224; m&#7897;t bi&#7875;u th&#7913;c b&#7845;t k&#7923;<br>
+op – l&#224; m&#7897;t toán t&#7917;<br>
+</div>
+<br>
+Do v&#7853;y, thay v&#236; ph&#7843;i vi&#7871;t<br>
+<br>
+numOfChildren = numOfChildren + 1<br>
+<br>
+chúng ta có th&#7875; vi&#7871;t:<br>
+<br>
+numOfChildren += 1<br>
+<br>
+<a name="TypyOp.8"></a>
+<h2>5.3. Tăng v&#224; gi&#7843;m<br>
+</h2>
+Có hai lo&#7841;i toán t&#7917; <span style="font-weight: bold;">tăng k&#234;&#769;t h&#417;&#803;p
+mô&#803;t ngôi (++)</span> v&#224; <span style="font-weight: bold;">gi&#7843;m k&#234;&#769;t
+h&#417;&#803;p mô&#803;t ngôi (--)</span>:<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; h&#7853;u t&#7889; (toán t&#7917; đ&#7863;t đ&#7857;ng sau đ&#7889;i
+s&#7889;)<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; ti&#7873;n t&#7889; (toán t&#7917; đ&#7863;t đ&#7857;ng tr&#432;&#7899;c
+đ&#7889;i s&#7889;)<br>
+<br>
+Trong đó:<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; tăng ++ 1 v&#224; gi&#7843;m -- 1giá tr&#7883;
+c&#7911;a tác t&#7917;.<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; giá tr&#7883; c&#7911;a bi&#7875;u th&#7913;c có toán t&#7917;
+ti&#7873;n t&#7889; l&#224; giá tr&#7883; c&#7911;a đ&#7889;i s&#7889; c&#7911;a nó sau khi áp d&#7909;ng toán t&#7917; (tăng ho&#7863;c
+gi&#7843;m)<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; giá tr&#7883; c&#7911;a bi&#7875;u th&#7913;c có toán t&#7917;
+h&#7853;u t&#7889; l&#224; giá tr&#7883; c&#7911;a đ&#7889;i s&#7889; c&#7911;a
+nó tr&#432;&#7899;c khi áp d&#7909;ng toán t&#7917; - b&#7857;ng v&#7899;i giá tr&#7883; g&#7889;c c&#7911;a đ&#7889;i s&#7889;.<br>
+<br>
+Do đó, sau khi tính giá tr&#7883; c&#7911;a các bi&#7875;u th&#7913;c sau đây<br>
+<br>
+int n, i=1;<br>
+n=i++; &nbsp;&nbsp;&nbsp; //h&#7853;u t&#7889; ++<br>
+<br>
+giá tr&#7883; c&#7911;a n l&#224; 1, nh&#432;ng giá tr&#7883; c&#7911;a a l&#224; 2.<br>
+<br>
+Tuy nhi&#234;n, sau<br>
+int n, i=1;<br>
+n=++i; //ti&#7873;n t&#7889;++<br>
+giá tr&#7883; c&#7911;a c&#7843; n v&#224; i l&#224; 2.<br>
+<br>
+<br>
+Ch&#432;&#417;ng tr&#236;nh sau đây gi&#7843;i thích nh&#7919;ng nh&#7853;n xét tr&#234;n:<br>
+<pre>public class Express1 {<br><br>  public static void main(String[] args) {<br><br>    int a = 1, b = 2, c = 3;<br>    a = b = c * 1 + 2;<br>    System.out.println("a=" + a + " b=" + b + " c=" + c);<br>    a = b = c * (1 + 2);<br>    System.out.println("a=" + a + " b=" + b + " c=" + c);<br>    a = b++;<br>    System.out.println("a=" + a + " b=" + b + " c=" + c);<br>    c = --b;<br>    System.out.println("a=" + a + " b=" + b + " c=" + c);<br>    a++;<br>    b++;<br>    c++;<br>    System.out.println("a=" + a + " b=" + b + " c=" + c);<br><br>    a = b++*++c;<br>    System.out.println("a=" + a + " b=" + b + " c=" + c);<br><br>    int longVariableName = 20;<br>    longVariableName = longVariableName * 10;<br>    longVariableName *= 10; <br>    System.out.println( longVariableName );<br><br>  }<br>}<br></pre>
+K&#7871;t qu&#7843;:<br>
+<div class="listing100">a=5 b=5 c=3
+<br>
+a=9 b=9 c=3
+<br>
+a=9 b=10 c=3
+<br>
+a=9 b=9 c=9
+<br>
+a=10 b=10 c=10
+<br>
+a=110 b=11 c=11
+<br>
+2000
+</div>
+<br>
+<hr><a name="TypyOp.10"></a>
+<h2>6. Chuy&#7875;n đ&#7893;i ki&#7875;u s&#7889; h&#7885;c<br>
+</h2>
+Thông th&#432;&#7901;ng m&#7897;t giá tr&#7883; c&#7911;a bi&#7871;n ki&#7875;u B không th&#7875; g&#7855;n cho bi&#7871;n ki&#7875;u A.
+Do v&#7853;y bi&#7875;u th&#7913;c sau đây gây ra l&#7895;i compile-time (khi bi&#234;n d&#7883;ch):<br>
+int a = “PJWSTK”;<br>
+b&#7903;i v&#236; bi&#7871;n a thu&#7897;c ki&#7875;u int trong khi bi&#7875;u th&#7913;c “PJWSTK” l&#224; m&#7897;t chu&#7895;i
+thu&#7897;c ki&#7875;u String.<br>
+<br>
+Tuy nhi&#234;n không n&#234;n áp d&#7909;ng quy t&#7855;c tr&#234;n v&#7899;i các lo&#7841;i s&#7889;. Các bi&#7871;n th&#7875;
+ki&#7875;u s&#7889; l&#224; các s&#7889;, v&#236; th&#7871; chúng ta s&#7869; xem chúng t&#432;&#417;ng t&#7921; b&#7845;t k&#7875; chúng
+thu&#7897;c ki&#7875;u n&#224;o.<br>
+&nbsp;<br>
+<div class="def">Vi&#7879;c chuy&#7875;n đ&#7893;i ki&#7875;u c&#7911;a m&#7897;t bi&#7871;n th&#7875; đ&#432;&#7907;c g&#7885;i l&#224; quá
+tr&#236;nh chuy&#7875;n đ&#7893;i hay tăng c&#7845;p (trong các thao tác s&#7889; h&#7885;c).</div>
+<br>
+Các chuy&#7875;n đ&#7893;i gi&#7919;a các ki&#7875;u đ&#417;n gi&#7843;n m&#224; không d&#7851;n đ&#7871;n m&#7845;t mát thông
+tin th&#7875; hi&#7879;n trong giá tr&#7883; c&#7911;a bi&#7875;u th&#7913;c đ&#432;&#7907;c th&#7921;c hi&#7879;n m&#7897;t các ho&#224;n
+to&#224;n t&#7921; nhi&#234;n.<br>
+<br>
+Ví d&#7909; nh&#432; đ&#7889;i v&#7899;i m&#7897;t bi&#7871;n c&#7911;a&nbsp; double giá tr&#7883; c&#7911;a lo&#7841;i int có th&#7875;
+đ&#432;&#7907;c g&#7855;n v&#224; m&#224; không gây ra l&#7895;i:<br>
+<br>
+int a = 10;<br>
+double d = a;<br>
+<br>
+Th&#7921;c ra, các giá tr&#7883; c&#7911;a lo&#7841;i int (s&#7889; nguy&#234;n) có th&#7875; đ&#432;&#7907;c th&#7875; hi&#7879;n b&#7857;ng
+giá tr&#7883; c&#7911;a lo&#7841;i double (s&#7889; th&#7921;c).<br>
+Nh&#7919;ng chuy&#7875;n đ&#7893;i đó đ&#432;&#7907;c g&#7885;i l&#224; chuy&#7875;n đ&#7893;i c&#417; b&#7843;n m&#7903; r&#7897;ng b&#7903;i v&#236; lo&#7841;i
+“h&#7865;p h&#417;n” đ&#432;&#7907;c chuy&#7875;n th&#224;nh lo&#7841;i “r&#7897;ng h&#417;n” (có th&#7875; th&#7875; hi&#7879;n nhi&#7873;u giá
+tr&#7883; h&#417;n).<br>
+<br>
+Ng&#432;&#7907;c l&#7841;i, phép gán:<br>
+<br>
+double d = 10.1;<br>
+…<br>
+int a = d;<br>
+<br>
+gây ra l&#7895;i compile-time. G&#7855;n m&#7897;t s&#7889; th&#7921;c v&#224;o m&#7897;t s&#7889; nguy&#234;n gây ra m&#7845;t
+thông tin v&#7873; các ph&#7847;n phân s&#7889; c&#7911;a nó.<br>
+Nh&#7919;ng s&#7921; chuy&#7875;n đ&#7893;i đó g&#7885;i l&#224; chuy&#7875;n đ&#7893;i c&#417; b&#7843;n thu h&#7865;p v&#224; ch&#7881; có th&#7875;
+th&#7921;c hi&#7879;n khi các toán t&#7917; cast (tính toán) đ&#432;&#7907;c s&#7917; d&#7909;ng m&#7897;t cách r&#245;
+r&#224;ng. Nh&#7919;ng chuy&#7875;n đ&#7893;i li&#234;n quan đ&#7871;n các toán t&#7917; cast đ&#432;&#7907;c g&#7885;i l&#224;
+casting conversion. Nh&#7919;ng chuy&#7875;n đ&#7893;i n&#224;y ph&#7843;i đ&#432;&#7907;c n&#234;u r&#245; đ&#7875; cho tr&#236;nh
+bi&#234;n d&#7883;ch bi&#7871;t r&#7857;ng l&#7853;p tr&#236;nh vi&#234;n c&#7889; ý th&#7921;c hi&#7879;n chuy&#7875;n đ&#7893;i m&#224; có th&#7875;
+gây ra th&#7845;t thoát thông tin v&#224; đây không ph&#7843;i l&#224; l&#7895;i ng&#7851;u nhi&#234;n c&#7911;a
+ch&#432;&#417;ng tr&#236;nh.<br>
+<br>
+<div class="syntax">Cú pháp c&#7911;a toán t&#7917; cast l&#224;:<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; (t&#234;n ki&#7875;u) bi&#7875;u th&#7913;c<br>
+trong đó t&#234;n_ki&#7875;u l&#224; ki&#7875;u sau khi chuy&#7875;n đ&#7893;i c&#7911;a bi&#7875;u th&#7913;c<br>
+</div>
+<br>
+Do v&#7853;y ví d&#7909; tr&#432;&#7899;c đ&#432;&#7907;c vi&#7871;t nh&#432; sau:<br>
+double d = 10.9;<br>
+…<br>
+int a = (int) d;<br>
+Cách vi&#7871;t n&#224;y đ&#432;&#7907;c tr&#236;nh bi&#234;n d&#7883;ch ch&#7845;p nh&#7853;n.<br>
+<br>
+C&#7847;n nh&#7899; r&#7857;ng nh&#7919;ng chuy&#7875;n đ&#7893;i đó có th&#7875; l&#224;m m&#7845;t tính chính xác. Giá tr&#7883;
+c&#7911;a bi&#7871;n th&#7875; a sau khi g&#7855;n giá tr&#7883; l&#224; 10. Ph&#7847;n phân s&#7889; c&#7911;a nó đ&#227; b&#7883; m&#7845;t.<br>
+Các chuy&#7875;n đ&#7893;i th&#432;&#7901;ng đ&#432;&#7907;c th&#7921;c hi&#7879;n tr&#234;n các ký t&#7921; (lo&#7841;i char) v&#224; giá
+tr&#7883; m&#227; Unicode (có th&#7875; thu&#7897;c lo&#7841;i int).<br>
+<br>
+Ví d&#7909;:<br>
+<pre>public class Char {<br>    public static void main(String[] args) {<br>	char c = 'a';<br>	int kod = c;<br>	System.out.println("Unicode value of " + c + " = " + kod);<br>	kod = 77;<br>	c = (char) kod;<br>	System.out.println("Unicode value of " + c + " = " + kod);<br>        // sometimes the widening conversion must be used explicitly<br>	System.out.println("Unicode value of " + '*' + " = " + (int) '*');<br>        // the narrowing conversions must always be used explicitly<br>	System.out.println("Unicode value of " + (char) 66 + " = " + 66);<br>    }<br>}<br></pre>
+K&#7871;t qu&#7843;:<br>
+<div class="listing100">Unicode value of a = 97
+<br>
+Unicode value of M = 77
+<br>
+Unicode value of * = 42
+<br>
+Unicode value of B = 66
+</div>
+<br>
+<br>
+Các chuy&#7875;n đ&#7893;i đ&#432;&#7907;c áp d&#7909;ng ho&#224;n to&#224;n v&#7899;i các tác t&#7917; c&#7911;a toán t&#7917; s&#7889; h&#7885;c
+g&#7885;i l&#224; tăng c&#7845;p s&#7889; (numeric promotion)<br>
+<br>
+<div class="def"><b>Tăng c&#7845;p s&#7889; l&#224; chuy&#7875;n đ&#7893;i các tác t&#7917; c&#7911;a toán t&#7917; s&#7889;
+sang m&#7897;t lo&#7841;i chung đ&#7875; m&#7897;t thao tác có th&#7875; đ&#432;&#7907;c th&#7921;c hi&#7879;n.</b></div>
+<br>
+<br>
+Câu h&#7887;i lo&#7841;i chung l&#224; g&#236; tr&#7843; đ&#432;&#7907;c tr&#7843; l&#7901;i b&#7857;ng quy t&#7855;c sau:<br>
+<br>
+<div class="syntax"><br>
+Tăng c&#7845;p s&#7889; nh&#7883; phân (đ&#7889;i v&#7899;i các toán t&#7917; nh&#7883; phân) đ&#432;&#7907;c th&#7921;c hi&#7879;n nh&#432;
+sau:<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; n&#7871;u m&#7897;t trong hai tác t&#7917; thu&#7897;c
+lo&#7841;i double th&#236; tác t&#7917; c&#242;n l&#7841;i đ&#432;&#7907;c chuy&#7875;n sang d&#7841;ng double.<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; n&#7871;u m&#7897;t trong hai tác t&#7917; thu&#7897;c
+lo&#7841;i float, tác t&#7917; c&#242;n l&#7841;i đ&#432;&#7907;c chuy&#7875;n sang d&#7841;ng float<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; n&#7871;u m&#7897;t trong hai tác t&#7917; thu&#7897;c
+lo&#7841;i long, tác t&#7917; c&#242;n l&#7841;i đ&#432;&#7907;c chuy&#7875;n sang d&#7841;ng long<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; n&#7871;u không c&#7843; hai tác t&#7917; đ&#432;&#7907;c
+chuy&#7875;n sang d&#7841;ng int.<br>
+<br>
+<br>
+</div>
+<br>
+<hr><a name="TypyOp.11"></a>
+<h2>7. Tóm t&#7855;t<br>
+</h2>
+B&#224;i gi&#7843;ng gi&#7899;i thi&#7879;u v&#7873;:<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; khái ni&#7879;m v&#7873; ki&#7875;u<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; các ki&#7875;u trong Java đ&#7863;c bi&#7879;t l&#224;
+ki&#7875;u đ&#417;n gi&#7843;n<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; nguy&#234;n d&#7841;ng<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; khai báo bi&#7871;n<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; t&#7915; đ&#7883;nh danh v&#224; các quy &#432;&#7899;c g&#7885;i
+t&#234;n<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; các toán t&#7917; c&#417; b&#7843;n, đ&#7863;c bi&#7879;t l&#224;
+toán t&#7917; s&#7889; h&#7885;c<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; bi&#7875;u th&#7913;c v&#224; th&#7913; t&#7921; toán t&#7917;<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; tăng c&#7845;p s&#7889;<br>
+Nh&#7919;ng ki&#7871;n th&#7913;c n&#224;y giúp chúng ta vi&#7871;t nh&#7919;ng ch&#432;&#417;ng tr&#236;nh đ&#417;n gi&#7843;n th&#7921;c
+hi&#7879;n nh&#7919;ng phép tính khác nhau m&#7897;t cách đúng đ&#7855;n. Tuy nhi&#234;n, nh&#7919;ng khai
+báo h&#7907;p l&#7879; c&#7911;a bi&#7871;n th&#7875; v&#224; cách s&#7917; d&#7909;ng các bguy&#234;n d&#7841;ng s&#7869; tr&#7903; n&#234;n quan
+tr&#7885;ng khi m&#224; các ch&#432;&#417;ng tr&#236;nh c&#7911;a chúng ta ph&#7913;c t&#7841;p h&#417;n.<br>
+<br>
+<hr style="width: 100%; height: 2px;"><a name="TypyOp.12"></a>
+<h2>8. B&#224;i t&#7853;p</h2>
+1.&nbsp;&nbsp;&nbsp; Vi&#7871;t trong Java m&#7897;t ch&#432;&#417;ng
+tr&#236;nh đ&#7875; chuy&#7875;n nhi&#7879;t đ&#7897; t&#7915; đ&#7897; Fahrenheit sang đ&#7897; C. D&#7919; li&#7879;u đ&#7847;u v&#224;o
+(nhi&#7879;t đ&#7897; đ&#432;&#7907;c cho &#7903; d&#7841;ng đ&#7897; F) ph&#7843;i đ&#432;&#7907;c l&#432;u trong m&#7897;t bi&#7871;n th&#7875; n&#224;o đó.<br>
+<br>
+2.&nbsp;&nbsp;&nbsp; Vi&#7871;t m&#7897;t ch&#432;&#417;ng tr&#236;nh tính toán
+giá mua m&#7897;t s&#7889; m&#7863;t h&#224;ng. Ch&#432;&#417;ng tr&#236;nh ph&#7843;i hi&#7875;n th&#7883; giá chung c&#7911;a t&#7845;t
+c&#7843; các m&#7863;t h&#224;ng v&#224; ph&#7847;n trăm c&#7911;a m&#7895;i m&#7863;t h&#224;ng trong t&#7893;ng s&#7889;. M&#7895;i m&#7863;t
+h&#224;ng đ&#432;&#7907;c
+đ&#7863;c tr&#432;ng b&#7903;i giá v&#224; s&#7889; l&#432;&#7907;ng c&#7911;a nó (ví d&#7909;, táo – 1kg, giá cho m&#7897;t kg
+– 3EUR).<br>
+&nbsp;
+<br>
+3.&nbsp;&nbsp;&nbsp; Vi&#7871;t m&#7897;t ch&#432;&#417;ng tr&#236;nh in giá
+tr&#7883; Unicode c&#7911;a các ký t&#7921; c&#7911;a m&#7897;t ngôn ng&#7919; n&#224;o đó.<br>
+<br>
+<ol>
+</ol>
+<hr>
+</body></html>

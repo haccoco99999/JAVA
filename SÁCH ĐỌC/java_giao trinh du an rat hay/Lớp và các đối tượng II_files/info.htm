@@ -1,0 +1,1199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+
+
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <meta name="author" content="Krzysztof Barteczko">
+  <meta name="description" content="Nhap mon lap tring - Java">
+<!-- (c) Krzysztof Barteczko PJWSTK 2008 -->
+  <link rel="stylesheet" type="text/css" href="info_data/common.css">
+  <title>Lop va cac doi tuong II</title>
+</head><body>
+<div align="center"><a name="KlaObiekty2"></a>
+<h1>L&#7899;p v&#224; các đ&#7889;i t&#432;&#7907;ng II</h1>
+</div>
+<hr><i>Ti&#7871;p theo b&#224;i gi&#7843;ng tr&#432;&#7899;c, chúng ta s&#7869; xem xét k&#7929; h&#417;n c&#7845;u h&#236;nh
+c&#7911;a l&#7899;p v&#224; đ&#7889;i t&#432;&#7907;ng. B&#234;n c&#7841;nh đó b&#224;i gi&#7843;ng s&#7869; h&#432;&#7899;ng d&#7851;n th&#234;m m&#7897;t v&#224;i
+v&#7845;n đ&#7873; c&#417; b&#7843;n c&#7911;a th&#7921;c t&#7871; t&#7853;p tr&#236;nh b&#7857;ng ngôn ng&#7919; Java.&nbsp;</i>
+<hr><a name="KlaObiekty2.1"></a>
+<h2>1. Truy c&#7853;p các th&#224;nh vi&#234;n trong l&#7899;p</h2>
+<a name="KlaObiekty2.2"></a>
+<h2>1.1. Phân tích c&#7909; th&#7875;<br>
+</h2>
+Lúc n&#224;y chúng ta xem xét l&#7899;p Pair m&#7897;t cách chi ti&#7871;t h&#417;n. &nbsp;<br>
+<br>
+<pre>class Pair { <br><br>    int a;    // mi&#234;&#768;n cu&#777;a l&#417;&#769;p xa&#769;c đi&#803;nh ca&#769;c tha&#768;nh phâ&#768;n đô&#769;i t&#432;&#417;&#803;ng<br>    int b;    // a – tha&#768;nh phâ&#768;n đâ&#768;u ti&#234;n, b – tha&#768;nh phâ&#768;n th&#432;&#769; hai<br><br> Pair(int x, int y) {   // the constructor thi&#234;&#769;t lâ&#803;p giá tr&#7883; cu&#777;a ca&#769;c tha&#768;nh phâ&#768;n<br>   a = x  ;             // d&#432;&#803;a va&#768;o ca&#769;c giá tr&#7883; la&#768;m đ&#7889;i s&#7889; <br>   b = y;<br> }<br> <br> Pair(int x) {          // constructor thi&#234;&#769;t lâ&#803;p giá tr&#7883; cu&#777;a ca&#769;c tha&#768;nh phâ&#768;n<br>   a = b = x;           // (a va&#768; b) cu&#768;ng bă&#768;ng giá tr&#7883; x<br> } <br><br><br> void set(Pair p)  {    // ph&#432;&#417;ng pháp na&#768;y thi&#234;&#769;t lâ&#803;p giá tr&#7883; cu&#777;a ca&#769;c tha&#768;nh phâ&#768;n<br>   a = p.a;             // d&#432;&#803;a tr&#234;n ca&#769;c tha&#768;nh phâ&#768;n cu&#777;a că&#803;p cung câ&#769;p la&#768;m đ&#7889;i s&#7889; <br>   b = p.b;<br> } <br><br><br> Pair add(Pair p) {             // ph&#432;&#417;ng pháp cô&#803;ng hai că&#803;p<br>   Pair result = new Pair(a, b);<br>   result.a += p.a;<br>   result.b += p.b;<br>   return result;<br> }<br> <br>                               // ph&#432;&#417;ng pháp in mô&#803;t că&#803;p<br> void show(String s)  {                 <br>   System.out.println(s + " ( " + a + " , " + b + " )" );<br> }<br><br>}<br><br></pre>
+<br>
+Chúng ta có th&#7875; s&#7917; d&#7909;ng l&#7899;p Pair trong m&#7897;t l&#7899;p khác nh&#432; sau:<br>
+<br>
+<pre>class PairTest {<br> <br>  public static void main(String[] args) {<br>    Pair pair1 = new Pair(1,5);<br>    Pair pair2 = new Pair(2,4);<br>    pair1.show("Pair 1 =");    <br>    pair2.show("Pair 2 =");<br>    Pair pairSum = pair1.add(pair2);<br>    pairSum.show("Sum of pairs =");<br>    pair1.set(pair2);<br>    pair1.show("Pair 1 = ");<br> <br>  } <br> <br>}<br></pre>
+<br>
+K&#7871;t qu&#7843;:<br>
+&nbsp;<br>
+<div class="listing100">Pair 1 = ( 1 , 5 )
+<br>
+Pair 2 = ( 2 , 4 )
+<br>
+Sum of pairs = ( 3 , 9 )
+<br>
+Pair 1 =&nbsp; ( 2 , 4 )
+</div>
+<br>
+Chúng ta h&#227;y xem chuy&#7879;n g&#236; x&#7843;y ra &#7903; đây:<br>
+<br>
+&#7902; d&#242;ng: <br>
+<br>
+Pair pair1 = new Pair(1, 5); <br>
+<br>
+bi&#7875;u th&#7913;c t&#7841;o tr&#432;&#7901;ng h&#7907;p trong l&#7899;p t&#7841;o ra m&#7897;t đ&#7889;i t&#432;&#7907;ng m&#7899;i, đó chính
+l&#224;:<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; đ&#7883;nh v&#7883; v&#249;ng b&#7897; nh&#7899; đ&#7875; l&#432;u đ&#7889;i
+t&#432;&#7907;ng (hai s&#7889; nguy&#234;n)<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; các th&#224;nh ph&#7847;n c&#7911;a m&#7897;t c&#7863;p t&#432;&#417;ng
+&#7913;ng v&#7899;i các mi&#7873;n a v&#224; b<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; c&#7843; hai th&#224;nh ph&#7847;n đ&#432;&#7907;c thi&#7871;t l&#7853;p
+v&#7899;i giá tr&#7883; m&#7863;c đ&#7883;nh l&#224; 0<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; constructor c&#7911;a l&#7899;p Pair đ&#432;&#7907;c
+g&#7885;i v&#7899;i đ&#7889;i s&#7889; 1 v&#224; 5. Vi&#7879;c ch&#7841;y nó d&#7851;n đ&#7871;n thi&#7871;t l&#7853;p giá tr&#7883; c&#7911;a các
+th&#224;nh ph&#7847;n khác l&#7847;n l&#432;&#7907;t l&#224; 1 v&#224; 5.<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; giá tr&#7883; c&#7911;a bi&#7875;u th&#7913;c new l&#224; m&#7897;t
+tham chi&#7871;u đ&#7871;n đ&#7889;i t&#432;&#7907;ng v&#7915;a đ&#432;&#7907;c t&#7841;o ra<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; tham chi&#7871;u n&#224;y đ&#432;&#7907;c l&#432;u trong
+bi&#7871;n th&#7875; pair1<br>
+<br>
+<br>
+T&#432;&#417;ng t&#7921; chúng ta vi&#7871;t:<br>
+<br>
+Pair pair2 = new Pair(2,4);<br>
+<br>
+Bây gi&#7901; chúng ta có hai đ&#7889;i t&#432;&#7907;ng: pair1 v&#224; pair 2.<br>
+<br>
+<pre>pair1:     		 pair2:<br><br>Mi&#7873;n:                    Mi&#7873;n:<br><br>  int a; ( = 1)              int a; ( = 2)<br>  int b; ( = 5)              int b; ( = 4)<br>---------------------------------------------<br>Ph&#432;&#417;ng th&#7913;c:             Ph&#432;&#417;ng th&#7913;c:<br><br>  void set(...)              void set(...)<br>  Pair add(...)              Pair add(...)<br>  void show(...)             void show(...)<br></pre>
+<br>
+Các t&#7915; đ&#7883;nh danh c&#7911;a mi&#7873;n v&#224; ph&#432;&#417;ng pháp gi&#7889;ng h&#7879;t nhau!<br>
+<br>
+Do đó chúng có th&#7875; đ&#432;&#7907;c g&#7885;i cho m&#7897;t đ&#7889;i t&#432;&#7907;ng c&#7909; th&#7875; (pair1 v&#224; pair2).<br>
+<br>
+D&#7845;u ch&#7845;m đ&#432;&#7907;c s&#7917; d&#7909;ng đ&#7875; l&#224;m công vi&#7879;c n&#224;y:<br>
+<br>
+pair1.a – bi&#7875;u th&#7883; ph&#7847;n t&#7917; a t&#7915; đ&#7889;i t&#432;&#7907;ng pair1<br>
+pair2.a – bi&#7875;u th&#7883; ph&#7847;n t&#7917; a t&#7915; đ&#7889;i t&#432;&#7907;ng pair2<br>
+<br>
+T&#432;&#417;ng t&#7921; đ&#7889;i v&#7899;i các ph&#432;&#417;ng pháp:<br>
+<br>
+pair1.show();&nbsp; // đ&#7889;i t&#432;&#7907;ng t&#234;n l&#224; pair1 nh&#7853;n đ&#432;&#7907;c thông đi&#7879;p show<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// ngh&#297;a l&#224; vi&#7879;c g&#7885;i thông đ&#432;&#7907;c show cho đ&#7889;i t&#432;&#7907;ng pair1 <br>
+<br>
+pair2.show();&nbsp; // thông đi&#7879;p show đ&#432;&#7907;c g&#7917;i t&#7899;i đ&#7889;i t&#432;&#7907;ng pair2<br>
+<br>
+<br>
+<div class="notec"><i><b><small>Chú ý:<br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; m&#7863;c d&#249; các
+th&#224;nh ph&#7847;n c&#7911;a đ&#7889;i t&#432;&#7907;ng (t&#432;&#417;ng &#7913;ng v&#7899;i các mi&#7873;n c&#7911;a chúng) đ&#432;&#7907;c ch&#7913;a
+trong các đ&#7889;i t&#432;&#7907;ng nh&#432;ng các ph&#432;&#417;ng pháp thông d&#7909;ng đ&#7889;i v&#7899;i t&#7845;t c&#7843; các
+đ&#7889;i t&#432;&#7907;ng c&#7911;a l&#7899;p. &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; Th&#234;m v&#224;o đ&#7847;u t&#234;n c&#7911;a
+ph&#432;&#417;ng pháp m&#7897;t t&#234;n đ&#7889;i t&#432;&#7907;ng có ngh&#297;a l&#224; ph&#432;&#417;ng pháp đó đ&#432;&#7907;c g&#7885;i cho
+đ&#7889;i t&#432;&#7907;ng. Các ph&#432;&#417;ng pháp không chi&#7871;m b&#7845;t c&#7913; không gian n&#224;o trong đ&#7889;i
+t&#432;&#7907;ng.<br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; m&#7863;c d&#249; đôi
+khi chúng ta nói v&#7873; các đ&#7889;i t&#432;&#7907;ng pair1 v&#224; pair2 (đ&#7875; đ&#417;n gi&#7843;n hóa văn
+b&#7843;n) nh&#432;ng chúng tr&#234;n th&#7921;c t&#7871; l&#224; các bi&#7871;n gi&#7919; tham chi&#7871;u đ&#7871;n đ&#7889;i t&#432;&#7907;ng.<br>
+</small></b></i></div>
+<br>
+<br>
+Chúng ta h&#227;y xem b&#234;n trong các l&#7899;p. a v&#224; b có ngh&#297;a l&#224; g&#236; trong
+constructor hay trong ph&#432;&#417;ng pháp.<br>
+<br>
+Xem constructor sau:<br>
+<br>
+class Pair { <br>
+&nbsp;&nbsp; int a, b; <br>
+<br>
+public Pair(int x, int y) {&nbsp;&nbsp; // public không c&#7847;n thi&#7871;t &#7903; đây
+<br>
+&nbsp;&nbsp; a = x&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp; b = y; <br>
+} <br>
+.... <br>
+} <br>
+<br>
+<span style="font-weight: bold;"></span><br>
+B&#234;n trong constructor đ&#7889;i v&#7899;i m&#7897;t đ&#7889;i t&#432;&#7907;ng v&#7915;a đ&#432;&#7907;c t&#7841;o ra th&#236; m&#7897;t
+tham chi&#7871;u t&#7891;n t&#7841;i d&#432;&#7899;i bi&#7871;n th&#7875; <span style="font-weight: bold;">this</span>.<br>
+Do đó this.a v&#224; this.b – theo nh&#432; ý ngh&#297;a c&#7911;a toán t&#7917; đ&#7845;u ch&#7845;m – quy
+chi&#7871;u đ&#7871;n các mi&#7873;n a v&#224; b c&#7911;a đ&#7889;i t&#432;&#7907;ng n&#224;y (đ&#432;&#7907;c kh&#7903;i t&#7841;o b&#7903;i
+constructor).<br>
+<br>
+<div class="notel"><span style="font-weight: bold;">this</span> l&#224; m&#7897;t
+t&#7915; khóa trong ngôn ng&#7919; Java</div>
+<br>
+<img alt="r" src="info_data/new8.jpg" style="border: 1px solid ; width: 553px; height: 449px;"><br>
+<br>
+<br>
+1. Đ&#7889;i t&#432;&#7907;ng đ&#432;&#7907;c ta&#803;o ra&nbsp;&nbsp;&nbsp; <br>
+2. constructor v&#417;&#769;i đ&#7889;i s&#7889; 1 va&#768; 5 đ&#432;&#7907;c go&#803;i cho đ&#7889;i t&#432;&#7907;ng
+na&#768;y&nbsp;&nbsp;&nbsp; <br>
+3. constructor k&#234;&#769;t thu&#769;c, đ&#7889;i t&#432;&#7907;ng đ&#432;&#7907;c kh&#417;&#777;i ta&#803;o hoa&#768;n
+toa&#768;n&nbsp;&nbsp;&nbsp; <br>
+// this stores a reference to the object&nbsp;&nbsp;&nbsp; L&#432;u gi&#7919; m&#7897;t
+tham chi&#234;&#769;u đ&#7871;n đ&#7889;i t&#432;&#7907;ng <br>
+Reference&nbsp;&nbsp;&nbsp; Tham chi&#234;&#769;u <br>
+Return &nbsp;&nbsp;&nbsp; Tra&#777; la&#803;i<br>
+Expression&nbsp;&nbsp;&nbsp; Bi&#7875;u th&#7913;c <br>
+Variable&nbsp;&nbsp;&nbsp; Bi&#7871;n th&#7875; <br>
+The reference returned by the expression is stored into the variable
+pair1&nbsp;&nbsp;&nbsp; Tham chi&#234;&#769;u tr&#7843; l&#7841;i b&#7903;i bi&#7875;u th&#7913;c đ&#432;&#7907;c l&#432;u
+trong bi&#7871;n th&#7875; pair1<br>
+<br>
+<br>
+<div class="important">B&#7903;i v&#236; có th&#7875; th&#7845;y r&#245; l&#224; a v&#224; b bi&#7875;u th&#7883; các
+mi&#7873;n c&#7911;a đ&#7889;i t&#432;&#7907;ng (kh&#7903;i t&#7841;o b&#7903;i constructor) n&#234;n t&#7915; this đ&#432;&#7907;c b&#7887;
+qu&#7843;.&nbsp;</div>
+<br>
+<br>
+Quy t&#7855;c t&#432;&#417;ng t&#7921; đ&#432;&#7907;c áp d&#7909;ng v&#7899;i vi&#7879;c g&#7885;i ph&#432;&#417;ng pháp cho đ&#7889;i t&#432;&#7907;ng.<br>
+<br>
+Gi&#7843; s&#7917; v&#417;&#769;i đ&#7889;i t&#432;&#7907;ng pair1 thi&#768; ph&#432;&#417;ng pháp set v&#417;&#769;i đ&#7889;i s&#7889; pair2 đ&#432;&#7907;c
+go&#803;i.<br>
+<br>
+Ph&#432;&#417;ng pháp set sao ca&#769;c giá tr&#7883; cu&#777;a ca&#769;c tha&#768;nh phâ&#768;n cu&#777;a đ&#7889;i s&#7889;
+pair2 va&#768;o đ&#7889;i t&#432;&#7907;ng pair1.<br>
+<br>
+Sau đây l&#224; thu&#7853;t toán đ&#7875; thi&#7871;t l&#7853;p<br>
+<br>
+&nbsp;&nbsp;&nbsp; 1.&nbsp;&nbsp;&nbsp; giá tr&#7883; cu&#777;a mi&#234;&#768;n a cu&#777;a đ&#7889;i
+t&#432;&#7907;ng đ&#432;&#7907;c đ&#432;a va&#768;o v&#417;&#769;i t&#432; ca&#769;ch la&#768; đ&#7889;i s&#7889; đ&#432;&#7907;c l&#432;u va&#768;o mi&#234;&#768;n a cu&#777;a
+đ&#7889;i t&#432;&#7907;ng ma&#768; ph&#432;&#417;ng pháp đa&#771; go&#803;i<br>
+&nbsp;&nbsp;&nbsp; 2.&nbsp;&nbsp;&nbsp; giá tr&#7883; cu&#777;a mi&#234;&#768;n b cu&#777;a đ&#7889;i
+t&#432;&#7907;ng đ&#432;&#7907;c đ&#432;a va&#768;o v&#417;&#769;i t&#432; ca&#769;ch la&#768; đ&#7889;i s&#7889; đ&#432;&#7907;c l&#432;u trong mi&#234;&#768;n b
+cu&#777;a đ&#7889;i t&#432;&#7907;ng ma&#768; ph&#432;&#417;ng pháp đa&#771; go&#803;i<br>
+<br>
+Đ&#7889;i t&#432;&#7907;ng ma&#768; ph&#432;&#417;ng pháp đa&#771; go&#803;i đ&#432;&#7907;c th&#234;&#777; hi&#234;&#803;n bă&#768;ng t&#432;&#768; kho&#769;a <span style="font-weight: bold;">this</span> b&#234;n trong ph&#432;&#417;ng pháp.<br>
+<br>
+<br>
+<img alt="r" src="info_data/set8.jpg" style="border: 1px solid ; width: 499px; height: 184px;"><br>
+<br>
+La&#803;i mô&#803;t lâ&#768;n n&#432;&#771;a chu&#769;ng ta co&#769; th&#234;&#777; l&#432;&#417;&#803;c bo&#777; t&#432;&#768; kho&#769;a this &#417;&#777; đây
+vi&#768; ng&#432;&#771; ca&#777;nh &#417;&#777; đây đa&#771; ro&#771; ra&#768;ng.<br>
+<br>
+void set(Para p) {<br>
+&nbsp;&nbsp; a = p.a;<br>
+&nbsp;&nbsp; b = p.b;<br>
+}<br>
+<br>
+Trong mô&#803;t sô&#769; ti&#768;nh huô&#769;ng t&#432;&#768; kho&#769;a this câ&#768;n thi&#234;&#769;t pha&#777;i co&#769;. Ví
+d&#7909;, n&#234;&#769;u t&#234;n cu&#777;a ca&#769;c tham s&#7889; giô&#769;ng t&#234;n cu&#777;a ca&#769;c mi&#234;&#768;n thi&#768;:<br>
+<br>
+class Pair {
+<br>
+&nbsp;&nbsp;&nbsp; int a, b;
+<br>
+<br>
+&nbsp;&nbsp;&nbsp; Pair (int a, &nbsp;int b) {
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; a = ... // <font color="#ff0000">a
+n&#224;o: tham s&#7889; hay mi&#7873;n?</font>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ...
+<br>
+&nbsp;&nbsp;&nbsp; }
+<br>
+<br>
+&nbsp;&nbsp;&nbsp; void set(int a, int b) {
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; a = ... // <font color="#ff0000">a
+n&#224;o: tham s&#7889; hay mi&#7873;n?</font>
+<br>
+&nbsp;&nbsp;&nbsp; }
+<br>
+}
+<br>
+<br>
+<br>
+this.a luôn bi&#234;&#777;u thi&#803; mi&#234;&#768;n a cu&#777;a đ&#7889;i t&#432;&#7907;ng đ&#432;&#7907;c kh&#417;&#777;i ta&#803;o b&#417;&#777;i
+constructor hay đ&#7889;i t&#432;&#7907;ng ma&#768; ph&#432;&#417;ng pháp đ&#432;&#7907;c go&#803;i. <br>
+<pre>class Pair {<br>    int a;<br>    int b;<br><br>    Pair(int a, int b) {<br><br>        this.a = a;    // l&#432;u giá tr&#7883; c&#7911;a tham s&#7889; a v&#224;o mi&#7873;n a<br>        this.b = b;    // l&#432;u giá tr&#7883; c&#7911;a tham s&#7889; b v&#224;o mi&#7873;n b<br>    }<br><br>    void set(int a, int b) {<br><br>        this.a = a;<br>        this.b = b;<br>    }<br>}<br></pre>
+<br>
+<a name="KlaObiekty2.3"></a>
+<h2>1.2. Các th&#224;nh vi&#234;n t&#297;nh<br>
+</h2>
+Ca&#769;c th&#224;nh vi&#234;n la&#768; ca&#769;c mi&#234;&#768;n va&#768; ph&#432;&#417;ng pháp cu&#777;a l&#417;&#769;p. <br>
+Ca&#769;c mi&#234;&#768;n va&#768; ph&#432;&#417;ng pháp cu&#777;a l&#417;&#769;p co&#769; th&#234;&#777; ti&#771;nh hoă&#803;c đô&#803;ng
+(non-static). Cho đ&#234;&#769;n gi&#417;&#768; chu&#769;ng ta m&#417;&#769;i chi&#777; du&#768;ng ca&#769;c th&#224;nh vi&#234;n
+đ&#7897;ng.<br>
+<br>
+Ca&#769;c th&#224;nh vi&#234;n <span style="font-weight: bold;">đô&#803;ng</span> luôn
+k&#234;&#769;t nô&#769;i v&#417;&#769;i mô&#803;t đ&#7889;i t&#432;&#7907;ng đang tô&#768;n ta&#803;i (ca&#769;c mi&#234;&#768;n th&#234;&#777; hi&#234;&#803;n d&#432;&#771;
+li&#234;&#803;u đ&#432;&#7907;c l&#432;u trong đ&#7889;i t&#432;&#7907;ng, ca&#769;c ph&#432;&#417;ng pháp la&#768; ca&#769;c thông đi&#234;&#803;p
+đ&#432;&#7907;c chuy&#234;&#777;n va&#768;o đ&#7889;i t&#432;&#7907;ng va&#768; pha&#777;i đ&#432;&#7907;c go&#803;i cho đ&#7889;i t&#432;&#7907;ng).<br>
+<br>
+<br>
+<div class="def"><b>Ca&#769;c th&#224;nh vi&#234;n ti&#771;nh (mi&#234;&#768;n va&#768; ph&#432;&#417;ng pháp): <br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; đ&#432;&#7907;c khai ba&#769;o v&#417;&#769;i t&#432;&#768; bô&#777; sung
+static<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; co&#769; th&#234;&#777; đ&#432;&#7907;c s&#432;&#777; du&#803;ng thâ&#803;m
+chi&#769; khi không co&#769; đ&#7889;i t&#432;&#7907;ng na&#768;o trong l&#417;&#769;p tô&#768;n ta&#803;i</b><br>
+</div>
+<br>
+<br>
+<div class="syntax"><span style="font-style: italic;">Ca&#769;c tha&#768;nh vi&#234;n
+ti&#771;nh co&#769; th&#234;&#777; đ&#432;&#7907;c truy câ&#803;p b&#417;&#777;i t&#234;n cu&#777;a l&#417;&#769;p ke&#768;m theo dâ&#769;u châ&#769;m
+va&#768; t&#234;n mi&#234;&#768;n:<br>
+<br>
+</span>
+<div style="text-align: center;"><span style="font-style: italic;">t&#234;n_l&#7899;p.t&#234;n_mi&#7873;n</span><br>
+<span style="font-style: italic;"></span></div>
+<span style="font-style: italic;"></span></div>
+<br>
+Trong h&#234;&#803; thô&#769;ng ca&#769;c l&#417;&#769;p (co&#769; trong J2SDK) co&#769; ph&#432;&#417;ng pháp ti&#771;nh la&#768;
+exit(int) đ&#234;&#777; ngă&#769;t vi&#234;&#803;c cha&#803;y &#432;&#769;ng du&#803;ng (va&#768; tra&#777; la&#803;i ma&#771; code
+return).<br>
+<br>
+Do đo&#769;, đ&#234;&#777; ngă&#769;t ch&#432;&#417;ng tr&#236;nh v&#417;&#769;i ma&#771; thoa&#769;t 0 chu&#769;ng ta vi&#234;&#769;t:<br>
+<br>
+<div style="text-align: center;">System.exit(0); <br>
+</div>
+<br>
+L&#417;&#769;p system co&#769; mô&#803;t mi&#234;&#768;n ti&#771;nh co&#769; t&#234;n la&#768; out quy đi&#803;nh d&#432;&#771; li&#234;&#803;u
+đâ&#768;u ra chuâ&#777;n cu&#777;a ch&#432;&#417;ng tr&#236;nh (ba&#777;ng nhă&#769;c câu l&#234;&#803;nh). Đ&#7889;i t&#432;&#7907;ng out
+na&#768;y hi&#234;&#777;u thông đi&#234;&#803;p println. Thông đi&#234;&#803;p na&#768;y dâ&#771;n đ&#234;&#769;n vi&#234;&#803;c in đ&#7889;i
+s&#7889; &#417;&#777; da&#803;ng chuô&#771;i ra ba&#777;ng nhă&#769;c câu l&#234;&#803;nh (println la&#768; mô&#803;t ph&#432;&#417;ng
+pháp cu&#777;a l&#417;&#769;p PrintStrean; out la đ&#7889;i t&#432;&#7907;ng cu&#777;a l&#417;&#769;p na&#768;y). <br>
+<br>
+Vi&#768; th&#7871; chu&#769;ng ta vi&#234;&#769;t: System.out.println(...)..<br>
+<br>
+Chi&#777; co&#769; ca&#769;c bi&#7871;n th&#7875; la&#768; mi&#234;&#768;n cu&#777;a l&#417;&#769;p m&#417;&#769;i co&#769; th&#234;&#777; đ&#432;&#7907;c khai ba&#769;o
+static.<br>
+<br>
+Vi&#234;&#803;c nhâ&#803;n ra s&#432;&#803; kha&#769;c bi&#234;&#769;t gi&#432;&#771;a ca&#769;c tha&#768;nh phâ&#768;n ti&#771;nh va&#768; đô&#803;ng
+la&#768; h&#234;&#769;t s&#432;&#769;c quan tro&#803;ng. B&#417;&#777;i ca&#769;c tha&#768;nh phâ&#768;n ti&#771;nh mi&#234;u ta&#777; thuô&#803;c
+ti&#769;nh cu&#777;a l&#417;&#769;p ch&#432;&#769; không pha&#777;i đô&#769;i t&#432;&#417;&#803;ng cu&#777;a l&#417;&#769;p.<br>
+<br>
+Cu&#803; th&#234;&#777; đô&#769;i v&#417;&#769;i ca&#769;c mi&#234;&#768;n s&#432;&#803; kha&#769;c bi&#234;&#803;t đo&#769; la&#768; nh&#432; sau:<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; ca&#769;c mi&#234;&#768;n đô&#803;ng tô&#768;n ta&#803;i (&#417;&#777;
+da&#803;ng bô&#803; phâ&#803;n câ&#769;u tha&#768;nh) trong mô&#771;i đ&#7889;i t&#432;&#7907;ng cu&#777;a l&#417;&#769;p<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; ca&#769;c mi&#234;&#768;n ti&#769;nh không nă&#768;m
+trong đ&#7889;i t&#432;&#7907;ng; mô&#771;i bi&#7871;n th&#7875; ti&#771;nh chi&#234;&#769;m mô&#803;t ô trong bô&#803; nh&#417;&#769; cho
+toa&#768;n bô&#803; l&#417;&#769;p đ&#7889;i t&#432;&#7907;ng.<br>
+<br>
+Ví d&#7909;, trong mô&#803;t l&#417;&#769;p mô ta&#777; ca&#769;c ô&#777; c&#432;&#769;ng chu&#769;ng ta co&#769; mô&#803;t mi&#234;&#768;n
+ti&#771;nh t&#234;n la&#768; vat va&#768; ca&#769;c mi&#234;&#768;n đô&#803;ng: model (ki&#234;&#777;u), dung l&#432;&#417;&#803;ng,
+gia&#769; ca&#777;. Ca&#769;c ô&#777; c&#432;&#769;ng kha&#769;c nhau v&#234;&#768; ki&#234;&#777;u, dung l&#432;&#417;&#803;ng va&#768; gia&#769;
+nh&#432;ng co&#769; cu&#768;ng mô&#803;t giá tr&#7883; VAT, do đo&#769; không câ&#768;n pha&#777;i l&#432;u giá tr&#7883;
+na&#768;y trong mô&#771;i đ&#7889;i t&#432;&#7907;ng ri&#234;ng bi&#234;&#803;t. Đây la&#768; mô&#803;t thuô&#803;c ti&#769;nh chu&#769;ng
+cu&#777;a tâ&#769;t ca&#777; ca&#769;c ô&#777; đi&#771;a. La&#768; mô&#803;t bi&#7871;n th&#7875; ti&#771;nh n&#234;n no&#769; chi&#777; chi&#234;&#769;m
+8 byte trong bô&#803; nh&#417;&#769;, bâ&#769;t k&#234;&#777; sô&#769; l&#432;&#417;&#803;ng đi&#771;a (đ&#7889;i t&#432;&#7907;ng) đ&#432;&#7907;c ta&#803;o
+ra trong ch&#432;&#417;ng tr&#236;nh la&#768; bao nhi&#234;u..<br>
+<pre>public class Disk  {<br><br>  private <b>static</b> double vat;<br><br>  private String model;<br>  private int capacity;<br>  private double price;<br>  <br>  public Disk(String m, int c, double p) {<br>    model = m;<br>    capacity = c;<br>    price = p;<br>  }<br><br>  public String getDescription() {<br>    return model + " ," + capacity + " MB";  <br>  }<br>  <br>  public double getGrossPrice() {<br>    return price * ( 1 +  vat/100 );<br>  }<br><br>  public <b>static</b> void setVat(double v) {<br>    vat = v;<br>  }<br> <br>}<br><br>class Test {<br>   <br>  public static void main(String[] args) {<br>    Disk.setVat(22.0);<br>    Disk d1 = new Disk("IBM598", 6040, 430.0);<br>    System.out.println(d1.getDescription() + " - price " <br>                       + d1.getGrossPrice() + " EUR");<br>  }<br>}<br></pre>
+<div class="listing33r">IBM598 ,6040 MB - price 524.6 EUR</div>
+Chú ý ră&#768;ng ph&#432;&#417;ng pháp setVat đ&#432;&#7907;c go&#803;i tr&#432;&#417;&#769;c khi bâ&#769;t c&#432;&#769; mô&#803;t đ&#7889;i
+t&#432;&#7907;ng na&#768;o đ&#432;&#7907;c ta&#803;o ra. No&#769; se&#771; thi&#234;&#769;t lâ&#803;p giá tr&#7883; cu&#777;a mi&#234;&#768;n vat du&#768;
+ch&#432;a co&#769; đ&#7889;i t&#432;&#7907;ng na&#768;o cu&#777;a l&#417;&#769;p Disk tô&#768;n ta&#803;i.<br>
+<br>
+<div class="important">Ca&#769;c ph&#432;&#417;ng pháp ti&#771;nh không th&#234;&#777; truy câ&#803;p va&#768;o
+ca&#769;c tha&#768;nh vi&#234;n đô&#803;ng cu&#777;a l&#417;&#769;p. Co&#769; th&#234;&#777; truy câ&#803;p va&#768;o ca&#769;c tha&#768;nh
+vi&#234;n ti&#771;nh kha&#769;c.</div>
+<br>
+<br>
+Ca&#769;c ph&#432;&#417;ng pháp đô&#803;ng đ&#432;&#417;ng nhi&#234;n co&#769; th&#234;&#777; truy câ&#803;p va&#768;o ca&#769;c tha&#768;nh
+vi&#234;n ti&#771;nh theo ca&#769;ch thông th&#432;&#417;&#768;ng (xem ph&#432;&#417;ng pháp getGrossPrice()).<br>
+<hr style="width: 100%; height: 2px;"><br>
+<a name="KlaObiekty2.4"></a>Ca&#769;c ph&#432;&#417;ng pháp ti&#771;nh không th&#234;&#777; truy câ&#803;p
+va&#768;o ca&#769;c tha&#768;nh vi&#234;n đô&#803;ng cu&#777;a l&#417;&#769;p. Co&#769; th&#234;&#777; truy câ&#803;p va&#768;o ca&#769;c
+tha&#768;nh vi&#234;n ti&#771;nh kha&#769;c
+<h2>2. Ph&#7841;m vi c&#7911;a t&#7915; đ&#7883;nh danh. Ca&#769;c bi&#7871;n c&#7909;c b&#7897;. Ki&#7875;m soát truy c&#7853;p<br>
+</h2>
+<br>
+<div class="def">Ph&#7841;m vi c&#7911;a m&#7897;t t&#7915; đ&#7883;nh danh l&#224; v&#249;ng ch&#432;&#417;ng tr&#236;nh m&#224;
+trong đó nó có th&#7875; đ&#432;&#7907;c quy chi&#7871;u đ&#7871;n b&#7857;ng cách s&#7917; d&#7909;ng m&#7897;t t&#234;n đ&#417;n
+gi&#7843;n. </div>
+<br>
+<br>
+<div class="important">Các th&#224;nh ph&#7847;n c&#7911;a l&#7899;p (mi&#7873;n v&#224; ph&#432;&#417;ng pháp) có
+th&#7875; đ&#432;&#7907;c quy chi&#7871;u t&#7915;
+b&#7845;t c&#7911;a ph&#432;&#417;ng pháp n&#224;o c&#7911;a l&#7899;p b&#7845;t k&#7875; khai báo c&#7911;a th&#224;nh ph&#7847;n đó x&#7843;y
+ra &#7903; đâu trong c&#7845;u trúc l&#7899;p.
+</div>
+<br>
+M&#7895;i ph&#432;&#417;ng pháp có th&#7875; khai báo các bi&#7871;n c&#7911;a ri&#234;ng nó (hay các h&#7857;ng
+s&#7889;). Pham vi c&#7911;a các t&#7915; đ&#7883;nh danh mang tính c&#7909;c b&#7897; - ngh&#297;a l&#224; nó b&#7855;t
+đ&#7847;u &#7903; n&#417;i khai báo v&#224; k&#7871;t thúc t&#7841;i c&#7845;u trúc ph&#432;&#417;ng pháp (t&#7841;i d&#7845;u ngo&#7863;c
+đóng c&#7911;a ph&#432;&#417;ng pháp). Nh&#7919;ng bi&#7871;n nh&#432; th&#7871; g&#7885;i l&#224; bi&#7871;n <span style="font-weight: bold;">c&#7909;c b&#7897;</span>.
+Các tham s&#7889; ph&#432;&#417;ng pháp có c&#249;ng m&#7897;t ph&#7841;m vi. Tr&#234;n th&#7921;c t&#7871; các tham s&#7889;
+l&#224; các bi&#7871;n th&#7875; c&#7909;c b&#7897;.<br>
+<br>
+Xem xét l&#7899;p sau::<br>
+<pre>class A {<br><br>    int a;<br><br>    void method1() {<br>        int b;<br>        ...&nbsp;  <br>    }<br><br>    void method2() {<br>        int c;<br>        ...<br>    }<br>}<br><br><br></pre>
+B&#234;n trong ph&#432;&#417;ng pháp method1 chúng ta có th&#7875; truy c&#7853;p v&#224;o các bi&#7871;n th&#7875;
+a v&#224; b v&#224; ph&#432;&#417;ng pháp method2. B&#234;n trong ph&#432;&#417;ng pháp method2 chúng ta
+có th&#7875; truy c&#7853;p v&#224; bi&#7871;n th&#7875; a v&#224; c v&#224; ph&#432;&#417;ng pháp method1. Bi&#7871;n th&#7875; c
+không th&#7875; đ&#432;&#7907;c quy chi&#7871;u đ&#7871;n b&#234;n trong ph&#432;&#417;ng pháp method1, v&#224; t&#432;&#417;ng t&#7921;
+bi&#7871;n th&#7875; b không th&#7875; đ&#432;&#7907;c quy chi&#7871;u đ&#7871;n b&#234;n trong ph&#432;&#417;ng pháp method2.<br>
+<br>
+<br>
+B&#234;n trong m&#7897;t constructor hay m&#7897;t ph&#432;&#417;ng pháp, m&#7897;t t&#7915; đ&#7883;nh danh mi&#7873;n
+c&#7911;a l&#7899;p có th&#7875; đ&#432;&#7907;c che đi.<br>
+<br>
+Ví d&#7909;:<br>
+<br>
+<pre>class A {<br><br>    int a;<br><br>    void method() {<br><br>        int a = 0;     // the field a is shadowed by the local variable a<br>        a = a + 10;    // the local variable a is used here<br>        this.a++;      // the class field is used here<br>    }<br>}<br></pre>
+<br>
+Bi&#7871;n c&#7909;c b&#7897; x đ&#432;&#7907;c khai báo b&#234;n trong ph&#432;&#417;ng pháp method(). Nó có t&#234;n
+gi&#7889;ng t&#234;n mi&#7873;n c&#7911;a l&#7899;p, do đó bi&#7871;n c&#7909;c b&#7897; truy ra mi&#7873;n c&#7911;a l&#7899;p. Bi&#7875;u
+th&#7913;c a trong ph&#432;&#417;ng pháp() quy chi&#7871;u đ&#7871;n (bi&#7875;u th&#7883;) giá tr&#7883; c&#7911;a bi&#7871;n
+th&#7875; c&#7909;c b&#7897;. Mi&#7873;n l&#7899;p có th&#7875; đ&#432;&#7907;c truy c&#7853;p b&#7857;ng cách s&#7917; d&#7909;ng t&#234;n đ&#7841;t
+ti&#234;u chu&#7849;n: this.a.<br>
+<br>
+<div class="important">Trong Java các bi&#7871;n c&#7909;c b&#7897; không th&#7875; đ&#432;&#7907;c truy
+ra trong kh&#7889;i c&#7909;c b&#7897;. </div>
+<br>
+<br>
+Do đó đ&#7883;nh ngh&#297;a:<br>
+<br>
+class A { <br>
+&nbsp;.... <br>
+&nbsp; void method() { <br>
+&nbsp;&nbsp;&nbsp;&nbsp; int a; <br>
+&nbsp;&nbsp;&nbsp;&nbsp; { <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int a; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ... <br>
+&nbsp;&nbsp;&nbsp;&nbsp; } <br>
+&nbsp; } <br>
+} <br>
+<br>
+l&#224; sai.<br>
+<br>
+<br>
+Khác v&#7899;i các bi&#7871;n th&#7875; c&#7911;a l&#7899;p (các mi&#7873;n), bi&#7871;n th&#7875; c&#7909;c b&#7897; không t&#7921; đ&#7897;ng
+đ&#432;&#7907;c kh&#7903;i t&#7841;o. Giá tr&#7883; c&#7911;a bi&#7871;n th&#7875; c&#7909;c b&#7897; không đ&#432;&#7907;c xác đ&#432;&#7907;c cho đ&#7871;n
+khi nó đ&#432;&#7907;c kh&#7903;i t&#7841;o b&#7903;i m&#7897;t b&#7897; kh&#7903;i t&#7841;o hay m&#7897;t ch&#7881; đ&#7883;nh.<br>
+<br>
+&nbsp;<br>
+<div class="important">Các bi&#7871;n th&#7875; c&#7909;c b&#7897; ph&#7843;i đ&#432;&#7907;c kh&#7903;i t&#7841;o m&#7897;t cách
+r&#245; r&#224;ng. </div>
+<br>
+<br>
+C&#242;n v&#7845;n đ&#7873; truy c&#7853;p các th&#224;nh vi&#234;n khác c&#7911;a l&#7899;p th&#236; sao?<br>
+<br>
+Vi&#7879;c n&#224;y đ&#432;&#7907;c quy&#7871;t đ&#7883;nh b&#7903;i các t&#7915; b&#7893; sung truy c&#7853;p.<br>
+<br>
+Kh&#7843; năng truy c&#7853;p c&#7911;a m&#7897;t th&#224;nh vi&#234;n l&#7899;p có th&#7875; l&#224;:<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; private (ri&#234;ng) – cho phép truy
+c&#7853;p t&#7915; b&#234;n trong l&#7899;p m&#224; nó đ&#432;&#7907;c khai báo (t&#7915; b&#7893; sung private)<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; default (m&#7863;c đ&#7883;nh)– cho phép
+truy c&#7853;p t&#7915; trong l&#7899;p xác đ&#7883;nh trong c&#249;ng gói (không y&#234;u c&#7847;u t&#7915; b&#7893; sung)<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; protected (b&#7843;o v&#7879;) – th&#224;nh vi&#234;n
+cho phép truy c&#7853;p t&#7915; trong l&#7899;p, v&#224; t&#7845;t c&#7843; các l&#7899;p con v&#224; các l&#7899;p xác
+đ&#7883;nh trong c&#249;ng m&#7897;t gói (t&#7915; b&#7893; sung protected)<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; public (chung)– th&#224;nh vi&#234;n luôn
+cho phép truy c&#7853;p (t&#7915; b&#7893; sung public)<br>
+<br>
+Chúng ta đ&#227; t&#236;m hi&#7875;u m&#7897;t s&#7889; lý do c&#7911;a vi&#7879;c s&#7917; d&#7909;ng t&#7915; b&#7893; sung truy c&#7853;p.
+Chú ý r&#7857;ng nh&#7919;ng t&#7915; n&#224;y gi&#7899;i h&#7841;n vi&#7879;c truy c&#7853;p v&#224;o các th&#224;nh vi&#234;n trong
+l&#7899;p:<br>
+<br>
+<pre>import javax.swing.*;<br><br>public class Pair {<br><br>    private int a;<br>    private int b;<br>    public String name;<br><br>    public Pair(int x, int y) {<br>        a = x;<br>	b = y;<br>    }<br><br>    private String makeString() {<br>        return name + " " + a + " and " + b;<br>    }<br><br>    public void show() {<br>        JOptionPane.showMessageDialog(null, makeString()); // 6<br>    }<br>}<br><br>class Test {<br><br>    public static void main(String[] args) {<br><br>        Pair p = new Pair(17,20);<br>        p.name = "Pair of numbers";           // 1<br>	p.a = 1;                              // 3<br>	System.out.println(p.makeString());   // 4<br>	p.show();                             // 5<br>    }<br>}<br></pre>
+<br>
+Bi&#234;n d&#7883;ch sinh ra m&#7897;t s&#7889; l&#7895;i sau:<br>
+<br>
+Pair.java:29: a has private access in Pair
+<br>&nbsp;&nbsp;&nbsp; p.a =
+1;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+//
+3
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; ^
+<br>
+Pair.java:30: makeString() has private access in Pair
+<br>
+&nbsp;&nbsp;&nbsp; System.out.println(p.makeString());&nbsp;&nbsp; // 4
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+^
+<br>
+2 errors<br>
+<br>
+Chú ý:<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; d&#242;ng bi&#7875;u th&#7883; b&#7903;i //1 đúng v&#236;
+mi&#7873;n name đ&#432;&#7907;c khai báo public<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; d&#242;ng bi&#7875;u th&#7883; b&#7903;i //3 v&#224; //4
+sinh ra các l&#7895;i khi các mi&#7873;n đ&#432;&#7907;c khai báo private không cho phép truy
+c&#7853;p t&#7915; l&#7899;p khác<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; d&#242;ng bi&#7875;u th&#7883; b&#7903;i //5 đúng v&#236;
+chúng ta truy c&#7853;p đ&#432;&#7907;c ph&#432;&#417;ng pháp chung<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; d&#242;ng bi&#7875;u th&#7883; b&#7903;i //6 đúng v&#236;
+chúng ta truy c&#7853;p đ&#432;&#7907;c các th&#224;nh vi&#234;n private t&#7915; trong l&#7899;p m&#224; th&#224;nh
+vi&#234;n đ&#432;&#7907;c xác đ&#7883;nh.<br>
+<br>
+Các l&#7899;p có th&#7875; đ&#432;&#7907;c khai báo public. Nh&#7919;ng l&#7899;p đó cho phép b&#7845;t c&#7913; m&#227;
+n&#224;o truy c&#7853;p. N&#7871;u m&#7897;t l&#7899;p không đ&#432;&#7907;c khai báo public th&#236; nó ch&#7881; cho
+phép truy c&#7853;p t&#7915; trong nhóm m&#224; nó đ&#432;&#7907;c khai báo.<br>
+<br>
+Đ&#7875; khai báo m&#7897;t l&#7899;p chung ph&#7843;i s&#7917; d&#7909;ng t&#7915; b&#7893; sung public. <br>
+&nbsp;<br>
+public class Pair { <br>
+&nbsp;... <br>
+<br>
+}<br>
+<br>
+M&#7897;t t&#7879;p ngu&#7891;n có th&#7875; ch&#7913;a nhi&#7873;u nh&#7845;t m&#7897;t l&#7899;p chung. T&#234;n c&#7911;a l&#7899;p n&#224;y
+ph&#7843;i gi&#7889;ng h&#7879;t nh&#432; t&#234;n c&#7911;a file.<br>
+<br>
+<hr style="width: 100%; height: 2px;"><a name="KlaObiekty2.5"></a>
+<h2>3. Khái ni&#7879;m v&#7873; tính k&#7871; th&#7915;a&nbsp;<br>
+</h2>
+<br>
+<div class="def"><b>S&#7921; k&#7871; th&#7915;a cho phép s&#7917; d&#7909;ng l&#7841;i ch&#7913;c năng v&#224; thu&#7897;c
+tính c&#7911;a m&#7897;t l&#7899;p hi&#7879;n t&#7841;i b&#7903;i m&#7897;t m&#7897;t l&#7899;p khác v&#7899;i m&#7897;t s&#7889; s&#7917;a đ&#7893;i kh&#7843;
+thi m&#224; s&#7869; l&#224;m cho l&#7899;p m&#7899;i tr&#7903; n&#234;n c&#7909; th&#7875; h&#417;n.</b></div>
+<br>
+<br>
+L&#7899;p Publication th&#7875; hi&#7879;n các &#7845;n ph&#7849;n nh&#432;ng nó không th&#7875; hi&#7879;n các cu&#7889;n
+sách m&#7897;t cách đ&#7847;y đ&#7911;. Các quy&#7875;n sách l&#224; lo&#7841;i &#7845;n ph&#7849;m đ&#432;&#7907;c c&#7909; th&#7875; hóa.
+Ngo&#224;i nh&#7919;ng thu&#7897;c tính c&#7911;a m&#7897;t &#7845;n ph&#7849;m ra (nh&#432; ti&#234;u đ&#7875;, nh&#224; xu&#7845;t b&#7843;n,
+giá c&#7843; vân vân), m&#7897;t cu&#7889;n sách c&#242;n có th&#234;m m&#7897;t thu&#7897;c tính đó l&#224;: tác
+gi&#7843; (ho&#7863;c các tác gi&#7843;).<br>
+Do đó đ&#7875; th&#7875; hi&#7879;n vi&#7879;c mua v&#224; bán c&#7911;a các cu&#7889;n sách chúng ta c&#7847;n có m&#7897;t
+l&#7899;p th&#7875; hi&#7879;n chúng. Chúng ta h&#227;y g&#7885;i l&#7899;p đó l&#224; Book.<br>
+Chúng ta có th&#7875; xác đ&#7883;nh l&#7899;p Book t&#7915; nh&#7919;ng thông tin nh&#432; (xác đ&#7883;nh các
+mi&#7873;n: tác gi&#7843;, ti&#234;u đ&#7873;, giá c&#7843; v&#224; ph&#432;&#417;ng pháp thao tác tr&#234;n các mi&#7873;n
+c&#361;ng nh&#432; các ph&#432;&#417;ng pháp đ&#7875; mua v&#224; bán chúng). <br>
+Tuy nhi&#234;n l&#7899;p Publication c&#361;ng cung c&#7845;p h&#7847;u h&#7871;t các thu&#7897;c tính y&#234;u c&#7847;u
+v&#224; ph&#432;&#417;ng pháp, do đó t&#7889; h&#417;n chúng ta n&#234;n k&#7871; th&#7915;a l&#7899;p Book t&#7915; l&#7899;p
+Publication. D&#297; nhi&#234;n chúng ta ph&#7843;i th&#234;m nh&#7919;ng thu&#7897;c tính c&#7911;a sách
+không có trong l&#7899;p Publication.<br>
+<br>
+<br>
+<div class="syntax"><br>
+T&#7915; khóa extends (m&#7903; r&#7897;ng) th&#7875; hi&#7879;n s&#7921; k&#7871; th&#7915;a c&#7911;a các l&#7899;p:<br>
+<br>
+Chúng ta vi&#7871;t:<br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; class B
+<span style="color: rgb(51, 51, 255);">extends</span> A {<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; ...<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br>
+<br>
+có ngh&#297;a l&#224; l&#7899;p B k&#7871; th&#7915;a (đ&#432;&#7907;c trích ra) t&#7915; l&#7899;p A.<br>
+<br>
+Chúng ta nói:<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp; &nbsp;L&#7899;p A l&#224; l&#7899;p c&#7845;p tr&#234;n (l&#7899;p n&#7873;n)
+c&#7911;a l&#7899;p B<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp; &nbsp;l&#7899;p B l&#224; l&#7899;p c&#7845;p d&#432;&#7899;i c&#7911;a l&#7899;p A<br>
+<br>
+</div>
+<br>
+Chúng ta h&#227;y xác đ&#7883;nh l&#7899;p Book. B&#234;n c&#7841;nh nh&#7919;ng thu&#7897;c tính c&#7911;a l&#7899;p c&#7845;p
+tr&#234;n Publication chúng ta c&#7847;n m&#7897;t mi&#7873;n l&#432;u tác gi&#7843; c&#7911;a cu&#7889;n sách v&#224; m&#7897;t
+ph&#432;&#417;ng pháp đ&#7875; tr&#7843; l&#7841;i giá tr&#7883; c&#7911;a nó.<br>
+<pre>class Book extends Publication {<br>&nbsp;&nbsp;&nbsp; private String author;<br><br>&nbsp;&nbsp;&nbsp; public String getAuthor() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return author;<br>&nbsp;&nbsp;&nbsp; }<br>}</pre>
+<br>
+Li&#7879;u nh&#432; v&#7853;y đ&#227; đ&#7911; ch&#432;a?<br>
+<br>
+Chúng ta c&#242;n c&#7847;n m&#7897;t constructor mô t&#7843; v&#7873; các mi&#7873;n h&#7907;p trong l&#7899;p Book
+đ&#432;&#7907;c kh&#7903;i t&#7841;o nh&#432; th&#7871; n&#224;o.<br>
+<br>
+Đ&#7875; t&#7841;o ra m&#7897;t đ&#7889;i t&#432;&#7907;ng c&#7911;a l&#7899;p n&#224;y chúng ta ph&#7843;i cung c&#7845;p các thông
+tin sau:<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; tác gi&#7843;<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; đ&#7847;u đ&#7873;<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; nh&#224; xu&#7845;t b&#7843;n<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; năm xu&#7845;t b&#7843;n<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; ký hi&#7879;u sách<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; giá c&#7843; <br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; s&#7889; sách có trong kho<br>
+<br>
+Do v&#7853;y constructor s&#7869; có d&#7841;ng sau:<br>
+<br>
+<pre> public Book(String aut, String tit, String pub, int y, String id,<br>             double price, int quant) {<br> ....<br> }<br></pre>
+Nh&#432;ng th&#7853;t không may, các mi&#7873;n nh&#432;: ti&#234;u đ&#7873;, nh&#224; xu&#7845;t b&#7843;n, năm xu&#7845;t
+b&#7843;n, ký hi&#7879;u sách, giá v&#224; s&#7889; l&#432;&#7907;ng l&#7841;i có truy c&#7853;p private trong l&#7899;p
+Publication, do v&#7853;y chúng ta không th&#7875; có nh&#7919;ng thông tin n&#224;y. L&#224;m th&#7871;
+n&#224;o đ&#7875; kh&#7903;i t&#7841;o chúng đ&#432;&#7907;c?<br>
+<br>
+<div class="important">Các mi&#7873;n c&#7911;a l&#7899;p c&#7845;p tr&#234;n đ&#432;&#7907;c kh&#7903;i t&#7841;o v&#7899;i vi&#7879;c
+g&#7885;i constructor c&#7911;a l&#7899;p c&#417; b&#7843;n t&#7915; constructor c&#7911;a l&#7899;p phát sinh.</div>
+<br>
+<br>
+<div class="syntax">Câu l&#7879;nh sau:<br>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; super(danh_sách_tham_s&#7889;);<br>
+<br>
+l&#224; m&#7897;t l&#7879;nh g&#7885;i constructor t&#7915; l&#7899;p c&#7845;p tr&#234;n v&#7899;i các đ&#7889;i s&#7889; đ&#227; cho trong
+danh sách tham s&#7889;.<br>
+<br>
+N&#7871;u constructor t&#7891;n t&#7841;i, câu l&#7879;nh nh&#432; th&#7871; ph&#7843;i l&#224; câu l&#7879;nh đ&#7847;u t&#234;n c&#7911;a
+constructor trong l&#7899;p phát sinh. <br>
+C&#242;n n&#7871;u không t&#7891;n t&#7841;i th&#236; constructor m&#7863;c đ&#7883;nh c&#7911;a l&#7899;p c&#417; b&#7843;n s&#7869; đ&#432;&#7907;c
+g&#7885;i tr&#432;&#7899;c khi t&#7841;o ra đ&#7889;i t&#432;&#7907;ng c&#7911;a l&#7899;p c&#7845;p d&#432;&#7899;i.<br>
+</div>
+<br>
+<br>
+Constructor c&#7911;a l&#7899;p Book ph&#7843;i g&#7885;i constructor c&#7911;a l&#7899;p c&#7845;p cao đ&#7875; kh&#7903;i
+t&#7841;o các mi&#7873;n c&#7911;a nó v&#224; sau đó kh&#7903;i t&#7841;o mi&#7873;n tác gi&#7843;.<br>
+<br>
+<pre>  // arguments: aut - author, tit - title, pub - publisher, y - year<br>  //            id - ISBN, price - price, quant - quantity &nbsp;&nbsp;<br>  public Book(String aut, String tit, String pub, int y, String id, <br>              double price, int quant) {<br>    super(tit, pub, y, id, price, quant);<br>    author = aut;<br>  }<br></pre>
+<br>
+<br>
+Gi&#7901; chúng ta có th&#7875; vi&#7871;t đ&#7883;nh ngh&#297;a đ&#7847;y đ&#7911; c&#7911;a l&#7899;p Book nh&#432; sau:<br>
+<br>
+<pre>public class Book extends Publication {<br><br>  private String author;<br><br>  public Book(String aut, String tit, String pub, int y, String id, <br>              double price, int quant) {<br>    super(tit, pub, y, id, price, quant);<br>    author = aut;<br>  }<br><br> public String getAuthor() {<br>   return author;<br> }<br><br>}<br></pre>
+<br>
+<br>
+V&#224; t&#7841;o ra m&#7897;t đ&#7889;i t&#432;&#7907;ng:<br>
+Book b = new Book("James Gossling", "My Java", "WNT", 2002, "ISBN6893",
+51.0, 0);<br>
+<br>
+<pre> Book b = new Book("James Gossling", "My Java", "WNT", 2002, "ISBN6893", 51.0, 0);</pre>
+<br>
+ch&#7913;a:<br>
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; các ph&#7847;n t&#7917; quy đ&#7883;nh b&#7903;i các
+mi&#7873;n c&#7911;a l&#7899;p k&#7871; th&#7915;a (Publication): ti&#234;u đ&#7873;, nh&#224; xu&#7845;t b&#7843;n, năm xu&#7845;t
+b&#7843;n, giá c&#7843;, s&#7889; l&#432;&#7907;ng<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; ph&#7847;n t&#7917; quy đ&#7883;nh b&#7903;i mi&#7873;n tác
+gi&#7843; c&#7911;a l&#7899;p Book.<br>
+<br>
+<br>
+<img alt="r" src="info_data/Inherit7.jpg" style="border: 1px solid ; width: 470px; height: 192px;"><br>
+<br>
+<br>
+Field of the class Publication &nbsp;&nbsp;&nbsp; Mi&#7873;n c&#7911;a l&#7899;p
+Publication <br>
+Field of the class Book&nbsp;&nbsp;&nbsp; Mi&#7873;n c&#7911;a l&#7899;p Book<br>
+title&nbsp;&nbsp;&nbsp; T&#234;n <br>
+publisher&nbsp;&nbsp;&nbsp; Nh&#224; XB<br>
+ident&nbsp;&nbsp;&nbsp; Ký hi&#7879;u <br>
+price&nbsp;&nbsp;&nbsp; Giá<br>
+quatity&nbsp;&nbsp;&nbsp; S&#7889; l&#432;&#7907;ng<br>
+author&nbsp;&nbsp;&nbsp; Tác gi&#7843;<br>
+<br>
+Đây l&#224; ch&#432;&#417;ng tr&#236;nh ch&#7841;y th&#7917; c&#7911;a l&#7899;p Book: :<br>
+<pre>class TestBook {<br>  public static void main(String[] args) {<br><br>    Book b = new Book("James Gossling", "My Java", "WNT", 2002,<br>                      "ISBN6893", 51.0, 0);<br>    int n = 100;<br>    b.buy(n);<br>    double cost = n * b.getPrice();<br>    System.out.println("To buy " + n + " books:");<br>    System.out.println(b.getAuthor());<br>    System.out.println(b.getTitle());<br>    System.out.println(b.getPublisher()); <br>    System.out.println(b.getYear());<br>    System.out.println(b.getIdent());    <br>    System.out.println("---------------\n" + cost + " EUR was spent");<br>    b.sell(90); <br>    System.out.println("---------------");<br>    System.out.println("There are " + b.getQuantity() + " copies left");    <br>  }<br>}<br></pre>
+<br>
+K&#7871;t qu&#7843;.<br>
+&nbsp;<br>
+<div class="listing100">To buy 100 books:
+<br>
+James Gossling
+<br>
+My Java
+<br>
+WNT
+<br>
+2002
+<br>
+ISBN6893
+<br>
+---------------
+<br>
+5100.0 EUR was spent
+<br>
+---------------
+<br>
+There are 10 copies left
+</div>
+<br>
+<br>
+<div class="important">Các đ&#7889;i t&#432;&#7907;ng c&#7911;a l&#7899;p Book c&#361;ng l&#224; các đ&#7889;i t&#432;&#7907;ng
+c&#7911;a l&#7899;p Publication (chúng có chung các thu&#7897;c tính).<br>
+</div>
+<br>
+Do đó, các tham chi&#7871;u c&#7911;a lo&#7841;i Book (quy chi&#7871;u đ&#7871;n các đ&#7889;i t&#432;&#7907;ng c&#7911;a
+l&#7899;p Book) có th&#7875; đ&#432;&#7907;c g&#7855;n cho các bi&#7871;n c&#7911;a lo&#7841;i Publication (gi&#7919; các
+tham chi&#7871;u đ&#7871;n các đ&#7889;i t&#432;&#7907;ng c&#7911;a l&#7899;p Publication). <br>
+<br>
+Ví d&#7909;:<br>
+<br>
+Book b = new Book(…);<br>
+Publication p = b;<br>
+&nbsp; <br>
+Đây đ&#432;&#7907;c g&#7885;i l&#224; quá tr&#236;nh <span style="font-weight: bold;">chuy&#7875;n đ&#7893;i
+tham chi&#7871;u m&#7903; r&#7897;ng</span>.<br>
+<br>
+Nh&#7919;ng s&#7921; chuy&#7875;n đ&#7893;i nh&#432; th&#7871; n&#224;y đ&#432;&#7907;c áp d&#7909;ng m&#7897;t cách t&#7921; đ&#7897;ng khi:<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; m&#7897;t tham chi&#7871;u đ&#7871;n m&#7897;t đ&#7889;i t&#432;&#7907;ng
+c&#7911;a l&#7899;p c&#7845;p d&#432;&#7899;i đ&#432;&#7907;c g&#7855;n v&#224;o m&#7897;t bi&#7871;n (c&#7911;a lo&#7841;i l&#7899;p c&#7845;p tr&#234;n)<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; m&#7897;t đ&#7889;i t&#432;&#7907;ng c&#7911;a l&#7899;p c&#7845;p d&#432;&#7899;i
+đ&#432;&#7907;c chuy&#7875;n v&#224;o m&#7897;t ph&#432;&#417;ng pháp v&#7899;i t&#432; cách l&#224; đ&#7889;i s&#7889; c&#7911;a l&#7899;p c&#7845;p tr&#234;n<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; giá tr&#7883; c&#7911;a tham chi&#7871;u tr&#7843; l&#7841;i
+t&#7915; m&#7897;t ph&#432;&#417;ng pháp đ&#432;&#7907;c l&#432;u trong bi&#7871;n th&#7875; c&#7911;a lo&#7841;i l&#7899;p c&#7845;p cao.<br>
+<br>
+Kh&#7843; năng ho&#7841;t đ&#7897;ng nh&#432; l&#224; m&#7897;t đ&#7889;i t&#432;&#7907;ng c&#7911;a m&#7897;t l&#7899;p khác r&#7845;t h&#7919;u ích.<br>
+<br>
+Gi&#7843; s&#7917; chúng ta t&#7841;o ra m&#7897;t l&#7899;p Journal (ngo&#224;i l&#7899;p Book ra) t&#7915; l&#7899;p
+Publication. L&#7899;p Journal k&#7871; th&#7915;a t&#7915; l&#7899;p Publication v&#224; có các mi&#7873;n th&#234;m
+v&#224;o đ&#7875; mi&#234;u t&#7843; m&#7913;c đ&#7897; v&#224; s&#7889; l&#432;&#7907;ng.<br>
+Chúng ta có th&#7875; c&#7847;n m&#7897;t s&#7889; các lo&#7841;i &#7845;n ph&#7849;m khác n&#7919;a. Ví d&#7909; nh&#432; l&#7899;p
+CDisk có th&#7875; k&#7871; th&#7915;a t&#7915; l&#7899;p Publication v&#224; bi&#7875;u th&#7883; các đ&#297;a compact.<br>
+<br>
+<pre>public double incomeDiff(Publication p1, Publication p2) {<br>  double income1 = p1.getQuantity() * p1.getPrice();<br>  double income2 = p2.getQuantity()&nbsp;* p2.getPrice();<br>  return income1 - income2;<br>}&nbsp;<br></pre>
+<br>
+<p class="MsoNormal" style="margin-bottom: 12pt;"><span lang="EN-US">v&#224;
+g&#7885;i nó cho các lo&#7841;i &#7845;n ph&#7849;m b&#7845;t k&#7923;:<br>
+<br>
+</span></p>
+<pre>Book b1 = new Book(...);<br>Book b2 = new Book(...);<br>Journal j = new Journal(...);<br>CDisk cd1 = new CDisk(...);<br>CDisk cd2 = new CDisk(...);<br><br>double diff = 0;<br>diff = incomeDiff(b1, b2);<br>diff = incomeDifg(b1, j);<br>diff = incomeDiff(cd1, b1);<br></pre>
+<br>
+N&#7871;u không có chuy&#7875;n đ&#7893;i tham chi&#7871;u m&#7903; r&#7897;ng th&#236; chúng l&#7869; ra ph&#7843;i cung
+c&#7845;p các ph&#432;&#417;ng pháp ri&#234;ng bi&#7879;t cho m&#7895;i c&#7863;p &#7845;n ph&#7849;m:<br>
+<br>
+double incomeDiff(Book, Book), <br>
+double incomeDiff(Book, Journal), <br>
+double incomeDiff(Book, CDisk) <br>
+…<br>
+<br>
+<br>
+<br>
+Chú ý r&#7857;ng trong ph&#432;&#417;ng pháp incomeDiff chúng ta có th&#7875; g&#7917;i thông đi&#7879;p
+t&#7915; l&#7899;p Publication đ&#7871;n các đ&#7889;i t&#432;&#7907;ng bi&#7875;u th&#7883; b&#7857;ng p1 v&#224; p2, nh&#432;ng
+chúng ta không g&#7917;i các thông đi&#7879;p t&#7915; các l&#7899;p c&#7845;p d&#432;&#7899;i đ&#7871;n cho d&#249; các
+đ&#7889;i t&#432;&#7907;ng bi&#7875;u th&#7883; b&#7903;i p1 v&#224; p2 l&#224; các đ&#7889;i t&#432;&#7907;ng c&#7911;a các l&#7899;p c&#7845;p d&#432;&#7899;i
+c&#7911;a l&#7899;p Publication.<br>
+.... <br>
+{ <br>
+&nbsp;&nbsp;&nbsp; Book b1 = new Book(...); <br>
+&nbsp;&nbsp;&nbsp; Book b2 = new Book(...); <br>
+&nbsp;&nbsp;&nbsp; someMethod(b1,b2); <br>
+&nbsp;&nbsp;&nbsp; .... <br>
+} <br>
+<br>
+<br>
+void someMethod(Publication p1, Publication p2) {
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; String autor = p1.getAuthor(); &nbsp;// <b><font color="#ff6600">compilation error</font></b> - type mismatch
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; ...&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // there is no method getAuthor()
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // in the class Publication
+<br>
+}
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp;&nbsp; <br>
+<br>
+<br>
+<br>
+<div class="important">Trong Java m&#7895;i l&#7899;p có th&#7875; k&#7871; th&#7915;a t&#7915; m&#7897;t l&#7899;p c&#7845;p
+cap.<br>
+N&#7871;u chúng ta b&#7887; t&#7915; khóa extends trong đ&#7883;nh ngh&#297;a c&#7911;a l&#7899;p th&#236; có ngh&#297;a
+l&#224; vi&#7879;c rút ra t&#7915; l&#7899;p Đ&#7889;i t&#432;&#7907;ng m&#7863;c đ&#7883;nh (nh&#432; th&#7875; l&#224; chúng ta vi&#7871;t
+class A extends Object).<br>
+</div>
+<br>
+Tr&#7853;t t&#7921; k&#7871; th&#7915;a c&#7911;a các l&#7899;p nói tr&#234;n đ&#432;&#7907;c bi&#7875;u th&#7883; trong h&#236;nh sau: <br>
+<br>
+<img style="border: 1px solid ; width: 310px; height: 178px;" alt="r" src="info_data/Inhier7.jpg"><br>
+<br>
+<br>
+<hr style="width: 100%; height: 2px;"><a name="KlaObiekty2.6"></a>
+<h2>4. Gói v&#224; nh&#7853;p kh&#7849;u</h2>
+<a name="KlaObiekty2.7"></a>
+<h2>4.1. Khái ni&#7879;m gói<br>
+</h2>
+<br>
+Gói l&#224; m&#7897;t lo&#7841;i t&#7853;p h&#7907;p l&#7899;p nhóm các l&#7899;p có ch&#7913;c năng t&#432;&#417;ng t&#7921; l&#7841;i v&#7899;i
+nhau nh&#432;: các thao tác đ&#7847;u v&#224;o – đ&#7847;u ra, các &#7913;ng d&#7909;ng trong m&#7841;ng, vân
+vân.<br>
+<br>
+M&#7895;i l&#7899;p thu&#7897;c v&#7873; m&#7897;t gói n&#224;o đó.<br>
+Các l&#7899;p đ&#432;&#7907;c bi&#234;n d&#7883;ch v&#7899;i khai báo package… thu&#7897;c v&#7873; gói khai báo.<br>
+Các l&#7899;p đ&#432;&#7907;c bi&#234;n d&#7883;ch m&#224; không có khai báo gói thu&#7897;c v&#7873; gói m&#7863;c đ&#7883;nh
+(không t&#234;n).<br>
+<br>
+Các gói có tr&#7853;t t&#7921; t&#7915; cao đ&#7871;n th&#7845;p:<br>
+<br>
+aPackage <br>
+&nbsp; aSubPackage <br>
+&nbsp;&nbsp;&nbsp; aSubPackage<br>
+<br>
+Ví d&#7909;, gói java.awt ch&#7913;a gói ph&#7909; l&#224; java.awt.event.<br>
+<br>
+Tr&#7853;t t&#7921; c&#7845;p b&#7853;c c&#7911;a các gói đ&#432;&#7907;c s&#7855;p x&#7871;p theo c&#7845;u trúc th&#432; m&#7909;c (các c&#7845;p
+đ&#7897; li&#234;n ti&#7871;p c&#7911;a th&#432; m&#7909;c trong tr&#7853;t t&#7921; th&#432; m&#7909;c t&#432;&#417;ng &#7913;ng v&#7899;i c&#7845;p đ&#7897;
+li&#234;n t&#7909;c trong tr&#7853;t t&#7921; gói). <br>
+<br>
+<span style="font-weight: bold;">V&#7853;y chúng ta l&#7841;i s&#7917; d&#7909;ng các gói đ&#7875;
+l&#224;m g&#236;?</span><br>
+<br>
+Xem xét ví d&#7909; sau:<br>
+<br>
+class A { <br>
+&nbsp;&nbsp;&nbsp; Button b = new Button("Ok");&nbsp; // new object of
+the class Button <br>
+.... <br>
+} <br>
+<br>
+Có kh&#7843; năng hay tr&#432;&#7901;ng h&#7907;p:<br>
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; 1.&nbsp;&nbsp;&nbsp; l&#7899;p Button đ&#432;&#7907;c xác đ&#7883;nh trong
+c&#249;ng m&#7897;t t&#7879;p (nh&#432; l&#7899;p A) hay trong m&#7897;t t&#7879;p khác c&#7911;a th&#432; m&#7909;c<br>
+<br>
+&nbsp;&nbsp;&nbsp; 2.&nbsp;&nbsp;&nbsp; l&#7899;p Button đ&#432;&#7907;c xác đ&#7883;nh &#7903; m&#7897;t
+n&#417;i khác<br>
+<br>
+Trong tr&#432;&#7901;ng h&#7907;p đ&#7847;u ti&#234;n tr&#236;nh bi&#234;n d&#7883;ch (v&#224; b&#7897; máy &#7843;o Java) có th&#7875;
+t&#236;m ra l&#7899;p Button.<br>
+<br>
+Trong tr&#432;&#7901;ng h&#7907;p th&#7913; hai m&#7897;t v&#7845;n đ&#7873; phát sinh l&#224;: t&#236;m l&#7899;p Button &#7903; đâu?<br>
+<br>
+H&#417;n n&#7919;a, vi&#7879;c s&#7917; d&#7909;ng t&#234;n Button có th&#7875; gây m&#417; h&#7891; (li&#7879;u đó có ph&#7843;i
+Button &#7903; th&#432; m&#7909;c hi&#7879;n t&#7841;i hay &#7903; m&#7897;t n&#417;i n&#224;o khác?).<br>
+<br>
+Do đó các gói nhóm các l&#7899;p l&#7841;i v&#224;o m&#7897;t v&#249;ng v&#224; b&#7843;o v&#7879; kh&#7887;i s&#7921; xung đ&#7897;t
+v&#7873; t&#234;n.<br>
+<br>
+<span style="font-weight: bold;">T&#234;n chu&#7849;n:</span><br>
+<br>
+T&#234;n chu&#7849;n c&#7911;a m&#7897;t l&#7899;p (lo&#7841;i) thu&#7897;c v&#7873; m&#7897;t gói t&#234;n có d&#7841;ng sau:<br>
+<br>
+package_name.class_name<br>
+<br>
+Ví d&#7909;:&nbsp;&nbsp; java.awt.Button <br>
+<br>
+class A { <br>
+&nbsp;&nbsp;&nbsp;&nbsp; java.awt.Button b = new java.awt.Button("Ok");
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; .... <br>
+} <br>
+<br>
+Đ&#7889;i v&#7899;i các l&#7899;p xác đ&#7883;nh trong gói m&#7863;c đ&#7883;nh (không t&#234;n) th&#236; t&#234;n đ&#7911; ti&#234;u
+chu&#7849;n l&#224; t&#234;n gi&#7889;ng t&#234;n c&#7911;a l&#7899;p (ví d&#7909;: Pair).<br>
+<br>
+<a name="KlaObiekty2.8"></a>
+<h2>4.2. Nh&#7853;p kh&#7849;u<br>
+</h2>
+<br>
+Thông th&#432;&#7901;ng t&#7845;t c&#7843; các t&#234;n l&#7899;p s&#7917; d&#7909;ng trong ch&#432;&#417;ng tr&#236;nh c&#7847;&#768;n ph&#7843;i
+đ&#7841;t ti&#234;u chu&#7849;n.<br>
+<br>
+May thay câu l&#7879;nh <span style="font-weight: bold;">import</span> cho
+phép s&#7917; d&#7909;ng các t&#234;n đ&#417;n gi&#7843;n.<br>
+<pre>import java.awt.Button;  // nh&#7853;p t&#234;n c&#7911;a l&#7899;p java.awt.Button <br><br>class A { <br> java.awt.Frame f = new java.awt.Frame("Title"); <br> Button b = new Button("Ok");  // cách d&#7909;ng t&#234;n đ&#417;n gi&#7843;n c&#7911;a l&#7899;p java.awt.Button <br>.... <br>}<br><br></pre>
+B&#7903;i v&#236; t&#234;n c&#7911;a l&#7899;p java.awt.Button đ&#432;&#7907;c nh&#7853;p kh&#7849;u n&#234;n chúng ta có th&#7875;
+s&#7917; d&#7909;ng t&#234;n gi&#7843;n l&#432;&#7907;c c&#7911;a l&#7899;p trong ch&#432;&#417;ng tr&#236;nh. Nh&#432;ng t&#234;n c&#7911;a l&#7899;p
+java.awt.Frame không đ&#432;&#7907;c nh&#7853;p kh&#7849;u v&#7873; n&#234;n chúng ta ph&#7843;i s&#7917; d&#7909;ng d&#7841;ng
+t&#234;n chu&#7849;n đ&#7847;y đ&#7911; c&#7911;a nó.<br>
+<br>
+Đ&#7875; nh&#7853;p t&#7845;t c&#7843; các t&#234;n c&#7911;a l&#7899;p t&#7915; m&#7897;t gói đ&#227; cho chúng ta ph&#7843;i s&#7917; d&#7909;ng
+d&#7845;u sao:<br>
+<br>
+<pre>import java.awt.*;     // nh&#7853;p kh&#7849;u tát c&#7843; các t&#234;n l&#7899;p t&#7915; gói java.awt <br>class A { <br>     Frame f =  new Frame("Title");     // g&#7901;i các t&#234;n gi&#7843;n l&#432;&#7907;c có th&#7875; đ&#432;&#7907;c d&#249;ng <br>     Button b = new Button("Ok"); <br>.... <br>}<br><br></pre>
+<br>
+Các l&#7899;p String v&#224; System đ&#432;&#7907;c s&#7917; d&#7909;ng th&#432;&#7901;ng xuy&#234;n trong các ch&#432;&#417;ng
+tr&#236;nh l&#224; thu&#7897;c v&#7873; gói java.lang.<br>
+<br>
+<div class="important">Gói java.lang không y&#234;u c&#7847;u câu l&#7879;nh nh&#7853;p kh&#7849;u.<br>
+Các l&#7899;p t&#7915; gói n&#224;y đ&#432;&#7907;c nh&#7853;p kh&#7849;u m&#7897;t cách t&#7921; đ&#7897;ng.</div>
+<br>
+<br>
+<a name="KlaObiekty2.9"></a>
+<h2>4.3. Nh&#7853;p kh&#7849;u t&#297;nh<br>
+</h2>
+Nh&#7853;p kh&#7849;u t&#297;nh chio phép g&#7885;i đ&#7871;n các th&#224;nh ph&#7847;n t&#297;nh b&#7857;ng t&#234;n đ&#417;n gi&#7843;n.<br>
+<br>
+<div class="syntax"><br>
+<br>
+<span style="text-decoration: underline;">Nh&#7853;p kh&#7849;u t&#297;nh</span>:<br>
+<br>
+<b>import static TypeName.Identifier;</b><br>
+<br>
+<br>
+<span style="text-decoration: underline;">Nh&#7853;p kh&#7849;u t&#7845;t c&#7843; các th&#224;nh
+ph&#7847;n t&#297;nh</span><span style="text-decoration: underline;"></span>:<br>
+<br>
+<b>import static TypeName.*;</b><br>
+<br>
+</div>
+<br>
+<u><br>
+</u>Ví d&#7909;:<br>
+<br>
+<pre>import static java.lang.System.out;<br><br>public class MyClass {<br><br>  public static void main(String[] args) {<br>    out.println("Ng&#7855;n h&#417;n!");<br>  }<br><br>}</pre>
+ho&#7863;c:<br>
+<pre>import static java.lang.System.*;<br><br>public class MyClass {<br><br>  public static void main(String[] args) {<br>    long time = nanoTime();  // System.nanoTime()<br>    out.println(time);       // System.out<br>    exit(1);                 // System.exit(..)<br>  }<br><br>}</pre>
+<br>
+<hr style="width: 100%; height: 2px;"><br>
+<a name="KlaObiekty2.10"></a>
+<h2>5.
+C&#7845;u trúc ch&#432;&#417;ng tr&#236;nh</h2>
+Ch&#432;&#417;ng tr&#236;nh Java l&#224; m&#7897;t lo&#7841;t các đ&#7883;nh ngh&#297;a l&#7899;p.<br>
+<br>
+<div class="important">B&#234;n ngo&#224;i c&#7845;u trúc l&#7899;p th&#236; không có m&#227; ngu&#7891;n n&#224;o
+có th&#7875; có m&#7863;t tr&#7915; khai báo gói, khai báo nh&#7853;p kh&#7849;u v&#224; chú thích.</div>
+<br>
+<br>
+C&#7845;u trúc c&#7911;a m&#7897;t ch&#432;&#417;ng tr&#236;nh Java đ&#432;&#7907;c mô t&#7843; theo khung sau:<br>
+<pre>package ...   // package statement (optional)<br>import ...    // import statement (not always necessary)<br>import ...<br><br>// this is class A<br><br>public class A {<br>    ...<br>}<br><br>// this is class B<br><br>class B {<br>    ...<br>}<br>...<br></pre>
+<br>
+Khai báo gói ch&#7881; r&#245; các l&#7899;p xác đ&#7883;nh trong t&#7879;p ngu&#7891;n thu&#7897;c gói n&#224;o sau
+khi bi&#234;n d&#7883;ch.<br>
+M&#7897;t ch&#432;&#417;ng tr&#236;nh có th&#7875; bao g&#7891;m m&#7897;t hay nhi&#7873;u t&#7879;p ngu&#7891;n.<br>
+(c&#7909; th&#7875;: t&#7845;t c&#7843; các l&#7899;p c&#7911;a ch&#432;&#417;ng tr&#236;nh có th&#7875; đ&#432;&#7907;c ch&#7913;a trong m&#7897;t t&#7879;p
+hay m&#7895;i l&#7899;p có th&#7875; đ&#432;&#7907;c xác đ&#7883;nh trong các t&#7879;p ngu&#7891;n ri&#234;ng bi&#7879;t).<br>
+<br>
+<br>
+JVi&#7879;c th&#7921;c hi&#7879;n m&#7897;t &#7913;ng d&#7909;ng b&#7855;t đ&#7847;u t&#7915; ph&#432;&#417;ng pháp:<br>
+<br>
+&nbsp;&nbsp;&nbsp; <b>public static void
+main(String[] args) </b><br>
+<br>
+Ví d&#7909;, xem xét t&#7879;p Work.java v&#7899;i các đ&#7883;nh ngh&#297;a c&#7911;a hai l&#7899;p: Work v&#224;
+Other:<br>
+<br>
+public class Work {
+<br>
+&nbsp;public static void main(String[] args) {
+<br>
+&nbsp;&nbsp;&nbsp; ...
+<br>
+}
+<br>
+...
+<br>
+}
+<br>
+class Other {
+<br>
+...
+<br>
+}
+<br>
+&nbsp;
+<br>
+// End of file Work.java
+<br>
+<br>
+<br>
+Sau khi bi&#234;n d&#7883;ch (javac.Work.java) có hai t&#7879;p:<br>
+<br>
+Work.class <br>
+Inna.class <br>
+&nbsp; <br>
+B&#7897; máy &#7843;o Java đ&#432;&#7907;c b&#7855;t đ&#7847;u v&#7899;i câu l&#7879;nh java d&#249;ng nh&#7919;ng đ&#7889;i s&#7889; sau:<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp;
+name_of_the_class_file_with_the_method_main (không có đuôi m&#7903; r&#7897;ng
+.class)&nbsp; (t&#234;n c&#7911;a file l&#7899;p v&#7899;i ph&#432;&#417;ng pháp main)<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; arguments_to_application (các
+đ&#7889;i s&#7889; v&#224;o &#7913;ng d&#7909;ng)<br>
+<br>
+B&#7897; máy &#7843;o Java b&#7855;t đ&#7847;u b&#7857;ng cách n&#7841;p m&#7897;t l&#7899;p c&#7909; v&#224; sau đó g&#7885;i ph&#432;&#417;ng
+pháp main trong l&#7899;p n&#224;y.<br>
+<br>
+<pre>java Work [đ&#7889;i s&#7889; t&#249;y ch&#7885;n đ&#432;&#7907;c đ&#432;a v&#224;o trong main: String[] args] </pre>
+<br>
+<hr style="width: 100%; height: 2px;"><a name="KlaObiekty2.11"></a>
+<h2>6. Th&#7921;c h&#224;nh: m&#7897;t s&#7889; đ&#7889;i t&#432;&#7907;ng v&#224; ph&#432;&#417;ng pháp hay d&#249;ng</h2>
+<a name="KlaObiekty2.13"></a>
+<h2>6.1. Chu&#7895;i ký t&#7921;<br>
+</h2>
+Các chu&#7895;i (ký t&#7921;) l&#224; đ&#7889;i t&#432;&#7907;ng c&#7911;a l&#7899;p String. Do đó t&#7845;t c&#7843; nh&#7919;ng g&#236;
+đ&#432;&#7907;c nói v&#7873; đ&#7889;i t&#432;&#7907;ng v&#224; tham chi&#7871;u c&#361;ng thu&#7897;c v&#7873; đ&#7889;i t&#432;&#7907;ng c&#7911;a l&#7899;p
+String.<br>
+Tuy nhi&#234;n, các thao tác tr&#234;n chu&#7895;i r&#7845;t thông d&#7909;ng cho n&#234;n đ&#7875; l&#224;m cho
+vi&#7879;c l&#7853;p tr&#236;nh tr&#7903; n&#234;n d&#7877; d&#224;ng h&#417;n tr&#236;nh phi&#234;n d&#7883;ch giúp cho vi&#7879;c x&#7917; lý
+các chu&#7895;i đ&#432;&#7907;c thu&#7853;n ti&#7879;n h&#417;n theo nhi&#7873;u cách. Tuy nhi&#234;n đi&#7873;u n&#224;y c&#361;ng
+gây ra m&#7897;t s&#7889; lúng túng. Các đ&#7889;i t&#432;&#7907;ng c&#7911;a l&#7899;p String có th&#7875; đ&#432;&#7907;c t&#7841;o
+ra theo cách t&#432;&#417;ng t&#7921; nh&#432; các đ&#7889;i t&#432;&#7907;ng c&#7911;a các l&#7899;p khác. <br>
+<br>
+Nh&#432;ng tr&#236;nh phi&#234;n d&#7883;ch đ&#227; giúp chúng ta v&#7899;i m&#7865;o sau:<br>
+<br>
+thay v&#236; vi&#7871;t <br>
+<br>
+String = new String (“Abc”);<br>
+<br>
+chúng ta có th&#7875; vi&#7871;t:<br>
+<br>
+String = “Abc”;<br>
+<br>
+<br>
+K&#7871;t qu&#7843; l&#224;:<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; M&#7897;t đ&#7889;i t&#432;&#7907;ng m&#7899;i c&#7911;a l&#7899;p String
+th&#7875; hi&#7879;n chu&#7895;i “Abc” đ&#432;&#7907;c t&#7841;o ra v&#224;<br>
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; m&#7897;t tham chi&#7871;u đ&#7871;n đ&#7889;i t&#432;&#7907;ng n&#224;y
+đ&#432;&#7907;c l&#432;u v&#224;o trong bi&#7871;n th&#7875; s.<br>
+<br>
+Do đó đ&#7875; t&#7841;o ra các đ&#7889;i t&#432;&#7907;ng c&#7911;a l&#7899;p String chúng ta không c&#7847;n ph&#7843;i s&#7917;
+d&#7909;ng bi&#7875;u th&#7913;c new.<br>
+<br>
+<br>
+<br>
+M&#7897;t ph&#432;&#417;ng ti&#7879;n khác đ&#432;&#7907;c cung c&#7845;p b&#7903;i tr&#236;nh phi&#234;n d&#7883;ch l&#224; toán t&#7917; +
+đ&#432;&#7907;c s&#7917; d&#7909;ng đ&#7875; k&#7871;t n&#7889;i chu&#7895;i. Ví d&#7909;:<br>
+<pre>String s1 = "All work and no play";<br>String s2 = " makes Jack a dull boy";<br>String s3;<br>s3 = s1 + s2;<br><br></pre>
+Ho&#7841;t đ&#7897;ng nh&#432; sau:<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; bi&#7875;u th&#7913;c s1+s2 t&#7841;o ra m&#7897;t đ&#7889;i
+t&#432;&#7907;ng m&#7899;i c&#7911;a l&#7899;p String th&#7875; hi&#7879;n s&#7921; k&#7871;t n&#7889;i c&#7911;a các chu&#7895;i bi&#7875;u th&#7883; b&#7903;i
+s1 v&#224; s2.<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; m&#7897;t tham chi&#7871;u đ&#7871;n đ&#7889;i t&#432;&#7907;ng v&#7915;a
+t&#7841;o ra đ&#432;&#7907;c l&#432;u trong bi&#7871;n th&#7875; s3.<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; s3 th&#7875; hi&#7879;n chu&#7895;i “All work and
+no play makes Jack a dull boy”.<br>
+<br>
+H&#417;n n&#7919;a, toán t&#7917; + cho phép đính k&#232;m các d&#7919; li&#7879;u thu&#7897;c ki&#7875;u khác v&#224;o
+các chu&#7895;i (s&#7889; hay th&#7853;m chí l&#224; các đ&#7889;i t&#432;&#7907;ng). Ví d&#7909;:<br>
+<br>
+String s1 = "Jack ";<br>
+String s2 = "is ";<br>
+String s3;<br>
+s3 = s1 + s2 + 3 + " years old";<br>
+<br>
+Gi&#7901; đây bi&#7871;n th&#7875; s3 th&#7875; hi&#7879;n chu&#7895;i “Jack is 3 years old”.<br>
+<br>
+D&#297; nhi&#234;n chúng ta có th&#7875; s&#7917; d&#7909;ng bi&#7871;n ki&#7875;u int thay v&#236; d&#227;y 3.<br>
+<br>
+int years = 3; <br>
+... <br>
+s3 = s1 + s2 + years + " years old"; <br>
+<br>
+Bi&#7871;n th&#7875; year c&#361;ng nh&#432; d&#227;y 3 trong bi&#7875;u th&#7913;c n&#7889;i l&#224; bi&#7871;n th&#7875; thu&#7897;c ki&#7875;u
+int. Các giá tr&#7883; s&#7889; khác (ki&#7875;u float, double v&#224; các ki&#7875;u khác) c&#361;ng có
+th&#7875; đ&#432;&#7907;c s&#7917; d&#7909;ng. <br>
+N&#7871;u tác t&#7917; b&#234;n ph&#7843;i c&#7911;a toán t&#7917; + l&#224; m&#7897;t tham chi&#7871;u đ&#7871;n m&#7897;t đ&#7889;i t&#432;&#7907;ng
+c&#7911;a m&#7897;t l&#7899;p n&#224;o đó th&#236; đ&#7889;i t&#432;&#7907;ng n&#224;y đ&#432;&#7907;c chuy&#7875;n đ&#7893;i sang m&#7897;t chu&#7895;i v&#224;
+đ&#432;&#7907;c đính k&#232;m v&#224;o tác t&#7917; b&#234;n trái (m&#7897;t chu&#7895;i). L&#7841;i m&#7897;t l&#7847;n n&#7919;a chúng ta
+b&#7855;t g&#7863;p m&#7897;t m&#7865;o c&#7911;a tr&#236;nh phi&#234;n d&#7883;ch, nh&#432;ng s&#7921; th&#7875; hi&#7879;n chu&#7895;i c&#7911;a m&#7897;t
+đ&#7889;i t&#432;&#7907;ng đ&#432;&#7907;c xác đ&#7883;nh b&#7903;i l&#7899;p c&#7911;a đ&#7889;i t&#432;&#7907;ng. Chúng ta s&#7869; t&#236;m hi&#7875;u l&#224;m
+th&#7871; n&#224;o đ&#7875; có đ&#432;&#7907;c v&#224; l&#224;m th&#7871; n&#224;o đ&#7875; s&#7917; d&#7909;ng nh&#7919;ng m&#7865;o nh&#432; th&#7871; sau n&#224;y.<br>
+<br>
+Ví d&#7909; chúng ta xem 2 d&#242;ng l&#7879;nh sau:<br>
+<br>
+Date now = new Date();<br>
+String s = “Now is:” + now;<br>
+<br>
+&#7902; đây m&#7897;t đ&#7889;i t&#432;&#7907;ng c&#7911;a l&#7899;p Date đ&#432;&#7907;c t&#7841;o ra. Nó l&#432;u ng&#224;y hi&#7879;n t&#7841;i v&#224;
+th&#7901;i gian &#7903; dang nh&#7883; phân. Sauk hi k&#7871;t n&#7889;i các bi&#7871;n th&#7875; quy chi&#7871;u đ&#7871;n
+m&#7897;t chu&#7895;i mi&#234;u t&#7843; ng&#224;y v&#224; th&#7901;i gian hi&#7879;n t&#7841;i: “Now is: Mon Jul 01
+05:55:25 CEST 2008” <br>
+<br>
+<br>
+Các thao tác tr&#234;n chu&#7895;i li&#234;n quan đ&#7871;n các tham chi&#7871;u cho n&#234;n c&#7847;n đ&#7863;c
+chú ý khi so sánh:<br>
+<br>
+<br>
+<div class="important">Toán t&#7917; đ&#7859;ng th&#7913;c (== v&#224; !=) áp d&#7909;ng cho các
+bi&#7871;n th&#7875; bi&#7875;u th&#7883; đ&#7889;i t&#432;&#7907;ng so sánh các tham chi&#7871;u ch&#7913; không ph&#7843;i b&#7843;n
+thân các đ&#7889;i t&#432;&#7907;ng. <br>
+</div>
+<br>
+<br>
+Do v&#7853;y ch&#432;&#417;ng tr&#236;nh sau:<br>
+<pre>String s1 = "Jo";<br>String s2 = "hn";<br>String s3 = s1 + s2;<br>String s4 = "John";<br>System.out.println(s3 + " " + s4);<br>if (s3 == s4) System.out.println("It is John");<br>else System.out.println("It is not John");<br></pre>
+<br>
+in ra (ng&#432;&#7907;c l&#7841;i so v&#7899;i nh&#7919;ng g&#236; chúng ta ngh&#297;):<br>
+<br>
+John John<br>
+It is not John<br>
+<br>
+T&#7841;i sao:<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; Đ&#7889;i t&#432;&#7907;ng bi&#7875;u th&#7883; b&#7903;i s3 th&#7875;
+hi&#7879;n chu&#7895;i “John”.<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; T&#432;&#417;ng t&#7921;, đ&#7889;i t&#432;&#7907;ng bi&#7875;u th&#7883; b&#7903;i
+s4 th&#7875; hi&#7879;n m&#7897;t chu&#7895;i khác c&#361;ng l&#224; “John”.<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; Nh&#432;ng k&#7871;t q&#7911;a c&#7911;a s3=s4 l&#224; sai
+v&#236; s3 v&#224; s4 quy chi&#7871;u đ&#7871;n các đ&#7889;i t&#432;&#7907;ng khác nhau (m&#7863;c d&#249; chúng th&#7875;
+hi&#7879;n c&#249;ng m&#7897;t chu&#7895;i).<br>
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; Tuy nhi&#234;n k&#7871;t qu&#7843; s&#7869; l&#224; đúng n&#7871;u
+s3 v&#224; s4 c&#249;ng quy chi&#7871;u đ&#7871;n m&#7897;t đ&#7889;i t&#432;&#7907;ng.<br>
+<br>
+<br>
+<div class="important">Không n&#234;n so sánh các chu&#7895;i b&#7857;ng các toán t&#7917;
+đ&#7859;ng th&#7913;c&nbsp; nh&#432; == v&#224; !=. </div>
+<br>
+Thay v&#224;o đó s&#7917; d&#7909;ng ph&#432;&#417;ng pháp <span style="font-weight: bold;">equals</span>
+thu&#7897;c l&#7899;p String.<br>
+<br>
+N&#7897;i dung c&#7911;a hai chu&#7895;i s1 v&#224; s2 có th&#7875; đ&#432;&#7907;c ki&#7875;m tra v&#7873; tính b&#236;nh đ&#7859;ng
+b&#7857;ng ph&#432;&#417;ng pháp g&#7885;i h&#224;m:<br>
+<br>
+s1.equals(s2)<br>
+<br>
+N&#7897;i dung c&#7911;a chu&#7895;i s v&#224; d&#227;y chu&#7895;i có th&#7875; đ&#432;&#7907;c so sánh theo cách t&#432;&#417;ng
+t&#7921;:<br>
+<br>
+s.equal(a_string_literal)<br>
+<br>
+N&#7871;u c&#7843; hai chu&#7895;i đ&#7873;u ch&#7913;a c&#249;ng m&#7897;t chu&#7889;i ký t&#7921;, k&#7871;t qu&#7843; s&#7869; cho l&#224; true,
+n&#7871;u không k&#234;t qu&#7843; l&#224; false.<br>
+<br>
+Tuy nhi&#234;n, n&#234;n bi&#7871;t r&#7857;ng:<br>
+T&#7845;t c&#7843; các d&#227;y chu&#7895;i th&#7875; hi&#7879;n c&#249;ng m&#7897;t văn b&#7843;n quy chi&#7871;u đ&#7871;n m&#7897;t đ&#7889;i
+t&#432;&#7907;ng. Câu l&#7879;nh aString = “John”; t&#7841;o ra m&#7897;t đ&#7889;i t&#432;&#7907;ng m&#7899;i th&#7875; hi&#7879;n
+chu&#7895;i “John”. Các cu&#7897;c g&#7885;i li&#234;n ti&#7871;p đ&#7871;n chu&#7895;i “John” s&#7869; quy chi&#7871;u đ&#7871;n
+đ&#7889;i t&#432;&#7907;ng v&#7915;a đ&#432;&#7907;c t&#7841;o ra (v&#224; không quy chi&#7871;u đ&#7871;n đ&#7889;i t&#432;&#7907;ng khác c&#7911;a
+d&#227;y String m&#224; ch&#7913;a chu&#7895;i “John”; nh&#7919;ng đ&#7889;i t&#432;&#7907;ng nh&#432; v&#7853;y không th&#7875; đ&#432;&#7907;c
+t&#7841;o l&#7841;i l&#7847;n n&#7919;a).<br>
+<br>
+<div class="important">Không n&#234;n l&#7841;m d&#7909;ng thu&#7897;c tính n&#224;y c&#7911;a ngôn ng&#7919;
+Java. Ph&#432;&#417;ng pháp equals luôn đ&#432;&#7907;c s&#7917; d&#7909;ng đ&#7875; so sánh các chu&#7895;i</div>
+<br>
+<a name="KlaObiekty2.14"></a>
+<h2>6.2. Giao di&#7879;n: nh&#7853;p v&#224;o chu&#7895;i ký t&#7921;, s&#7889; v&#224; thông báo</h2>
+Câu l&#7879;nh:<br>
+<br>
+String s = JOptionPane.showInputDialog (“Message”);<br>
+<br>
+đ&#432;a ra m&#7897;t h&#7897;p tho&#7841;i v&#7899;i thông đi&#7879;p “Message” y&#234;u c&#7847;u ng&#432;&#7901;i s&#7917; d&#7909;ng
+nh&#7853;p d&#7919; li&#7879;u đ&#7847;u v&#224;o. Sau khi click v&#224;o “OK” d&#242;ng ký t&#7921; nh&#7853;p v&#224;o s&#7869;
+đ&#432;&#7907;c l&#432;&#432; l&#7841;i trong bi&#7871;n th&#7875; s. B&#7857;ng cách đóng h&#7897;p tho&#7841;i (ho&#7863;c click
+“cancel”) th&#236; bi&#7871;n th&#7875; null đ&#432;&#7907;c tr&#7843; l&#7841;i.<br>
+<br>
+Câu l&#7879;nh:<br>
+<br>
+JOptionPane.showMessageDialog(null, “Message”);<br>
+<br>
+hi&#7879;n ra m&#7897;t c&#7917;a s&#7893;, dialog v&#7899;i ti&#234;u đ&#7873; “Message”.<br>
+<br>
+Đ&#7875; s&#7917; d&#7909;ng nh&#7919;ng dialog câu l&#7879;nh import javax.swing.JOptionPane; ph&#7843;i
+đ&#432;&#7907;c đ&#432;a ra d&#242;ng đ&#7847;u ti&#234;n c&#7911;a ch&#432;&#417;ng tr&#236;nh.<br>
+<br>
+Các dialog t&#7841;o n&#234;n s&#7921; t&#432;&#417;ng tác v&#7899;i ng&#432;&#7901;i s&#7917; d&#7909;ng. Ch&#432;&#417;ng tr&#236;nh ti&#7871;p
+theo s&#7869; ch&#7881; cho th&#7845;y l&#224;m đi&#7873;u đó nh&#432; th&#7871; n&#224;o.<br>
+<br>
+<pre>import javax.swing.JOptionPane;<br> <br>public class GreetMsg {<br> <br>  public static void main(String[] args) {<br>	String name = JOptionPane.showInputDialog("Give your name");<br>    	if (name == null) <br>		name = "";<br>       	JOptionPane.showMessageDialog( null, "Hello " + name + "!");<br>    	System.exit(0);<br>  } <br>}<br></pre>
+<div style="text-align: right;"><span style="font-weight: bold; font-style: italic;"></span><br>
+</div>
+Ch&#432;&#417;ng tr&#236;nh hi&#7875;n th&#7883; m&#7897;t c&#7917;a s&#7893; y&#234;u c&#7847;u d&#7919; li&#7879;u v&#224;o t&#7915; ng&#432;&#7901;i s&#7917; d&#7909;ng.
+N&#7871;u chúng ta đóng c&#7917;a s&#7893; m&#224; không nh&#7853;p t&#234;n th&#236; k&#7871;t qu&#7843; c&#7911;a ph&#432;&#417;ng pháp
+g&#7885;i h&#224;m <br>
+JOptionPane.showInputDialog(…) l&#432;u trong bi&#7871;n name s&#7869; tr&#7889;ng.&nbsp; <br>
+<br>
+Trong tr&#432;&#7901;ng h&#7907;p đó chúng ta g&#7855;n m&#7897;t tham chi&#7871;u l&#224; chu&#7895;i tr&#7889;ng ("").<br>
+<br>
+<img alt="r" src="info_data/w6greet.jpg" style="width: 297px; height: 123px;"><br>
+<br>
+L&#7847;n g&#7885;i ti&#7871;p theo JOptionPane.showMessageDialog(..) cho th&#7845;y m&#7897;t tho&#7841;i
+thông đi&#7879;p v&#7899;i t&#234;n đ&#227; cho.<br>
+<br>
+<img alt="r" src="info_data/w6greet2.jpg" style="width: 268px; height: 117px;"><br>
+<br>
+<br>
+Ví d&#7909; th&#7913; hai n&#7889;i m&#7897;t s&#7889; các chu&#7895;i đ&#227; cho b&#7903;i ng&#432;&#7901;i s&#7917; d&#7909;ng trong m&#7897;t
+h&#7897;p tho&#7841;i. Sau đó s&#7869; hi&#7879;n th&#7883; t&#7845;t c&#7843; các chu&#7895;i (m&#7895;i chu&#7895;i tr&#234;n m&#7897;t
+d&#242;ng) trong h&#7897;p tho&#7841;i.<br>
+<br>
+Đóng h&#7897;p tho&#7841;i s&#7869; ng&#7855;t t&#7853;p h&#7907;p các d&#7919; li&#7879;u đ&#7847;u v&#224;o (các chu&#7895;i) t&#7915; ng&#432;&#7901;i
+s&#7917; d&#7909;ng. Ch&#432;&#417;ng tr&#236;nh không ch&#7845;p nh&#7853;n chu&#7895;i tr&#7889;ng. Click “OK” m&#224; không
+có chu&#7895;i cho s&#7855;n s&#7869; d&#7851;n đ&#7871;n hi&#7875;n th&#7883; m&#7897;t h&#7897;p tho&#7841;i v&#7899;i y&#234;u c&#7847;u nh&#7853;p d&#7919;
+li&#7879;u đúng (ho&#7863;c nh&#7845;n “Cancel” đ&#7875; h&#7911;y). H&#236;nh b&#234;n hi&#7875;n th&#7883; k&#7871;t qu&#7843; c&#7911;a
+vi&#7879;c ch&#7841;y ch&#432;&#417;ng tr&#236;nh v&#7899;i các t&#234;n c&#7911;a đ&#7897;ng v&#7853;t cho s&#7861;n nh&#432; l&#224; d&#7919; li&#7879;u
+đ&#7847;u v&#224;o.<br>
+<br>
+<pre> import javax.swing.JOptionPane;<br> <br>public class ShowStrings {<br> <br>  public static void main(String[] args) {<br><br>    String out = "";<br>    String inp = null;<br><br>    while ( (inp = JOptionPane.showInputDialog( "Type in something" )) != null) {<br>      if (inp.equals("")) <br>         JOptionPane.showMessageDialog( null,<br>					"Input some text or close the dialog"<br>                                      ); <br>      else out = out + '\n' + inp;<br>    }<br><br>    if (out.equals("")) out = "No text was given";<br>    JOptionPane.showMessageDialog(null, out); <br>    System.exit(0);<br>  } <br>}<br>}</pre>
+<br>
+K&#7871;t qu&#7843;:<br>
+<br>
+<img alt="asa" src="info_data/w6mldlg.jpg" style="width: 268px; height: 201px;"><br>
+<br>
+<br>
+Chú ý:<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; bi&#7875;u th&#7913;c trong while loop s&#7917;
+d&#7909;ng m&#7897;t th&#7921;c t&#7871; l&#224; giá tr&#7883; c&#7911;a bi&#7871;n th&#7875; ch&#7881; đ&#7883;nh b&#7857;ng v&#7899;i giá tr&#7883; c&#7911;a
+đ&#7889;i s&#7889; b&#234;n trái nó; nó đ&#432;&#7907;c cho v&#224;o trong ngo&#7863;c b&#7903;i v&#236; tr&#7853;t t&#7921; th&#7845;p h&#417;n
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; c&#7911;a toán t&#7917; ch&#7881; đ&#7883;nh =.<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; các d&#242;ng li&#234;n ti&#7871;p c&#7911;a thông
+đi&#7879;p đ&#7847;u ra đ&#432;&#7907;c t&#7841;o ra b&#7857;ng cách đính v&#224;o d&#242;ng m&#7899;i ký t&#7921; ‘\n’<br>
+&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; các chu&#7895;i đ&#432;&#7907;c so sánh b&#7857;ng cách
+s&#7917; d&#7909;ng ph&#432;&#417;ng pháp equals()<br>
+<br>
+C&#7843; hai ch&#432;&#417;ng tr&#236;nh đ&#7873;u s&#7917; d&#7909;ng g&#7885;i h&#224;m c&#7911;a System.exit(0) đ&#7875; ng&#7915;ng
+ch&#7841;y ch&#432;&#417;ng tr&#236;nh.<br>
+Thông th&#432;&#7901;ng m&#7897;t ch&#432;&#417;ng tr&#236;nh ng&#7855;t sau khi t&#7845;t c&#7843; các câu l&#7879;nh trong
+ph&#432;&#417;ng pháp main đ&#227; đ&#432;&#7907;c ch&#7841;y. Tuy nhi&#234;n, đi&#7873;u n&#224;y không đúng v&#7899;i
+ch&#432;&#417;ng tr&#236;nh có giao di&#7879;n đ&#7891; h&#7885;a v&#7899;i ng&#432;&#7901;i s&#7917; d&#7909;ng (t&#236;m hi&#7875;u v&#7873; v&#7845;n đ&#7873;
+n&#224;y sau). Các h&#7897;p tho&#7841;i l&#224; các y&#7871;u t&#7889; c&#7911;a giao di&#7879;n đ&#7891; h&#7885;a v&#7899;i ng&#432;&#7901;i s&#7917;
+d&#7909;ng, v&#236; th&#7871; các ch&#432;&#417;ng tr&#236;nh s&#7917; d&#7909;ng chúng y&#234;u c&#7847;u ph&#7843;i ng&#7855;t ch&#432;&#417;ng
+tr&#236;nh m&#7897;t cách t&#432;&#7901;ng minh v&#7899;i vi&#7879;c g&#7885;i System.exit(…).<br>
+<br>
+Đ&#7875; đ&#432;a giá tr&#7883; v&#224;o ch&#432;&#417;ng tr&#236;nh chúng ta c&#361;ng có th&#7875; s&#7917; d&#7909;ng l&#7899;p <span style="font-weight: bold;">Scanner</span> t&#7915; gói java.util.<br>
+<br>
+Ví d&#7909;:<br>
+<br>
+<pre>import java.util.*;<br><br>public class ScanNums {<br><br>  public static void main(String[] args) {<br>    Scanner scan = new Scanner(System.in);<br>    scan.useLocale(new Locale("en"));<br>    System.out.println("S&#7889; nguy&#234;n:");<br>    int i = scan.nextInt();<br>    System.out.println("S&#7889; th&#7921;c:");<br>    double d = scan.nextDouble();<br>    System.out.println("Đ&#227; đ&#432;a v&#224;o: " + i + " " + d);<br>  }<br><br>}</pre>
+<br>
+L&#224;m th&#7871; n&#224;o đ&#7875; ng&#432;&#7901;i s&#7917; d&#7909;ng có th&#7875; gi&#7899;i thi&#7879;u các con s&#7889; v&#224;o trong m&#7897;t
+ch&#432;&#417;ng tr&#236;nh (s&#7917; d&#7909;ng các dialog)?<br>
+<br>
+N&#7871;u chúng ta vi&#7871;t m&#7897;t s&#7889; v&#224;o trong môi tr&#432;&#7901;ng văn b&#7843;n c&#7911;a m&#7897;t dialog nó
+s&#7869; đ&#432;&#7907;c xem nh&#432; l&#224; đ&#7889;i t&#432;&#7907;ng văn b&#7843;n v&#224; &#7903; trong ch&#432;&#417;ng tr&#236;nh &#7903; d&#7841;ng đó.
+D&#297; nhi&#234;n chúng ta không th&#7875; ti&#7871;n h&#224;nh các thao tác s&#7889; h&#7885;c tr&#234;n chu&#7895;i
+th&#7875; hi&#7879;n con s&#7889;. Chúng ta ph&#7843;i chuy&#7875;n đ&#7893;i các chu&#7895;i sang d&#7841;ng m&#224; các s&#7889;
+đ&#432;&#7907;c th&#7875; hi&#7879;n trong máy tính. <br>
+<br>
+<br>
+<div class="syntax">M&#7897;t chu&#7895;i th&#7875; hi&#7879;n m&#7897;t con s&#7889; có th&#7875; đ&#432;&#7907;c chuy&#7875;n
+sang m&#7897;t s&#7889; v&#7899;i ph&#432;&#417;ng pháp g&#7885;i sau:<br>
+<br>
+&nbsp;&nbsp;&nbsp; aNumber = Integer.parseIn(aString);<br>
+<br>
+trong đó:<br>
+<br>
+&nbsp;&nbsp;&nbsp; aNumber – m&#7897;t bi&#7871;n th&#7875; thu&#7897;c lo&#7841;i
+int&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp; aString – m&#7897;t bi&#7875;u th&#7913;c c&#7911;a lo&#7841;i String<br>
+</div>
+<br>
+<br>
+Chúng ta xem xét ch&#432;&#417;ng tr&#236;nh c&#7897;ng hai s&#7889; đ&#227; cho b&#7903;i ng&#432;&#7901;i s&#7917; d&#7909;ng sau
+nh&#432; l&#224; m&#7897;t ví d&#7909;:<br>
+<br>
+<pre>import javax.swing.*;<br> <br>public class ParseInt {<br> <br>  public static void main(String[] args) {<br><br>    String s1 = JOptionPane.showInputDialog("Give the first number");<br>    String s2 = null;<br>    if (s1 != null) {<br>      s2 = JOptionPane.showInputDialog("Give the second number");<br>      if (s2 != null) {<br>         int l1 = Integer.parseInt(s1);<br>         int l2 = Integer.parseInt(s2);<br>         JOptionPane.showMessageDialog(null, "Sum: " + (l1 + l2));<br>      }<br>    }<br><br>    System.exit(1);<br>  } <br>}<br></pre>
+<br>
+<hr style="width: 100%; height: 2px;"><a name="KlaObiekty2.16"></a>
+<h2>7. Tóm t&#7855;t</h2>
+<br>
+B&#224;i n&#224;y đ&#227; tr&#236;nh b&#224;y các v&#7845;n đ&#7873; sau đây:<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; các thao tác tr&#234;n đ&#7889;i t&#432;&#7907;ng b&#7857;ng
+cách s&#7917; d&#7909;ng tham chi&#7871;u<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; ph&#432;&#417;ng pháp đ&#7875; so sánh các đ&#7889;i
+t&#432;&#7907;ng<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; m&#7897;t s&#7889; thu&#7897;c tính c&#7911;a l&#7899;p String<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; các dialog giúp cho vi&#7879;c t&#432;&#417;ng
+tác gi&#7919;a ng&#432;&#7901;i s&#7917; d&#7909;ng v&#7899;i ch&#432;&#417;ng tr&#236;nh<br>
+<br>
+&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp; chuy&#7875;n đ&#7893;i các chu&#7895;i sang s&#7889;<br>
+<br>
+<hr style="width: 100%; height: 2px;"><br>
+<br>
+</body></html>
